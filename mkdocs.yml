@@ -54,10 +54,10 @@ markdown_extensions:
 
 plugins:
   - search
-  - typeset
+  # - typeset
   - roamlinks
   # - blog
-  - tags    # 标签功能插件
+  - tags
   - rss:
       match_path: blog/posts/.* 
       date_from_meta:

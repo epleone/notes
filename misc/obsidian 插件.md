@@ -1,4 +1,4 @@
-# obsidian 插件
+# Obsidian 插件
 
 
 ## Excalidraw
