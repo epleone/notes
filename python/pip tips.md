@@ -1,5 +1,7 @@
-
-#python  #pip #tips 
+---
+tags: [python, pip, tips]
+---
+  
 
 # 多版本python
 

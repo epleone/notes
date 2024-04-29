@@ -1,6 +1,8 @@
+---
+tags: [tips]
+---
 # VS Code tips
-
-#tips 
+ 
 
 
 ![[Pasted image 20240111155049.png]]

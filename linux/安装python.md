@@ -1,4 +1,6 @@
-#conda
+---
+tags: [conda]
+---
 
 # 安装python
 

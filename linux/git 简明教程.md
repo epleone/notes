@@ -1,7 +1,9 @@
+---
+tags: [git]
+---
 # git 简明教程
 
 
-#git
 
 推荐阅读 [git - 简易指南](https://www.bootcss.com/p/git-guide/)
 

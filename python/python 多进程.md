@@ -1,3 +1,6 @@
+---
+tags: [todo]
+---
 
 concurrent.futures是python 3.7的标准库。
 concurrent提供了两种并发模型，一个是多线程ThreadPoolExecutor，一个是多进程ProcessPoolExecutor。他们相当于multithreading或者multiprocess的更高级封装。
@@ -169,7 +172,6 @@ if __name__ == "__main__":
 
 ## TODO: 待整理
 
-#todo
 [Python concurrent.future 使用教程及源码初剖 - 知乎](https://zhuanlan.zhihu.com/p/31544936)
 [如何愉快的使用concurrent.futures - 简书](https://www.jianshu.com/p/36bf441034b9)
 [Python多进程和多线程（跑满CPU）\_python进程数超过cpu核数\_fengkuangshine的博客-CSDN博客](https://blog.csdn.net/qq_40317897/article/details/89921083?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control)

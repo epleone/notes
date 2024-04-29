@@ -1,4 +1,6 @@
-#bash
+---
+tags: [bash]
+---
 # Windows bash
 
 - 在Windows上生成图片列表

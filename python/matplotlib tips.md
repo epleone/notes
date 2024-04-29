@@ -1,7 +1,9 @@
-#matplotlib #python #tips
+---
+tags: [matplotlib, python, tips]
+---
 
 
-# 绘制3D图形
+# matplotlib tips
 
 ```python
 # 画手的3D骨架

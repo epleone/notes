@@ -1,4 +1,6 @@
-#bash 
+---
+tags: [bash]
+---
 
 ```bash
 

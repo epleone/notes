@@ -1,6 +1,8 @@
+---
+tags: [tips]
+---
 # Obsidian tips
-
-#tips 
+ 
 
 官方文档
 
@@ -206,33 +208,6 @@ https://zhuanlan.zhihu.com/p/678900439
 
 
 [Attaching images to Obsidian - Fork My Brain](https://notes.nicolevanderhoeven.com/obsidian-playbook/Using+Obsidian/02+Making+Notes+in+Obsidian/Attaching+images+to+Obsidian)
-
-
-
-
-
-## 插件使用
-
-| 名称             | 功能                   | 地址                                                                                       |     |     |     |
-| ---------------- | ---------------------- | ------------------------------------------------------------------------------------------ | --- | --- | --- |
-| Enhanced-editing | 文本增强，去除空行空格 | [Obsidian最强编辑插件之——增强编辑 - 知乎](https://zhuanlan.zhihu.com/p/619924782?utm_id=0) |     |     |     |
-
-
-### dataview使用
-
-[Obsidian 插件之 Dataview - 知乎](https://zhuanlan.zhihu.com/p/373623264)
-[玩转 Obsidian 08：利用 Dataview 打造自动化 HomePage - 少数派](http://ios.zoopda.com/post/73958)
-[Metadata on Tasks and Lists - Dataview](https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-tasks/)
-
-[Dataview Date Formatting - Help - Obsidian Forum](https://forum.obsidian.md/t/dataview-date-formatting/37456)
-
-自带的query也可以做到类似的效果，
-[Search - Obsidian Help](https://help.obsidian.md/Plugins/Search)
-
-### 用 MaoXian 网摘保存网络文章到 Obsidian
-
-[用 MaoXian 网摘保存网络文章到 Obsidian](https://mika-cn.github.io/maoxian-web-clipper/obsidian-zh-CN.html)
-
 
 
 

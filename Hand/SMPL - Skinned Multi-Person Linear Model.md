@@ -1,4 +1,6 @@
-#todo
+---
+tags: [todo]
+---
 
 参考链接：
 [虚拟人（SMPL） CVPR 教程专项一：SMPL的介绍、历史与基础 - 知乎](https://zhuanlan.zhihu.com/p/600583930)
