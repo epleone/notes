@@ -1,3 +1,9 @@
+---
+tags:
+  - cpp
+  - macro
+---
+
 # 宏 tips
 
 使用c++编译器(GCC)预定义的宏

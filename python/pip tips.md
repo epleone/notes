@@ -1,9 +1,11 @@
 ---
-tags: [python, pip, tips]
+tags:
+  - python
+  - pip
+  - tips
 ---
-  
 
-# 多版本python
+# pip tips
 
 ```sh
 在多版本python中，可以使用-m, 调用python下面的pip模块

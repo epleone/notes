@@ -1,6 +1,8 @@
 ---
-tags: [todo]
+tags:
+  - todo
 ---
+
 # VQ-VAE笔记
 
 论文地址：

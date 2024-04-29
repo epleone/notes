@@ -1,3 +1,9 @@
+---
+tags:
+  - cpp
+  - tips
+---
+
 # c++ 常用Tips
 
 ## size_t

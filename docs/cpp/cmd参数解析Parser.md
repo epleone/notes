@@ -1,3 +1,9 @@
+---
+tags:
+  - cpp
+  - snippet
+---
+
 # cmd参数解析Parser
 
 ## opencv 的 CommandLineParser
