@@ -1,3 +1,5 @@
+# 3D gaussian splatting
+
 [《3D Gaussian Splatting for Real-Time Radiance Field Rendering》3D高斯的理论理解 - 知乎](https://zhuanlan.zhihu.com/p/664725693)
 
 [3D Gaussian Splatting for Real-Time Radiance Field Rendering 笔记 - 知乎](https://zhuanlan.zhihu.com/p/654627437)

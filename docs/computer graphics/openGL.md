@@ -1,11 +1,11 @@
-
-# 入门教程
+# openGL笔记
+## 入门教程
 [主页 - LearnOpenGL CN](https://learnopengl-cn.github.io/)
 
 [3D渲染引擎-part2- 深入理解图形API之 opengl & metal & vulkan - 知乎](https://zhuanlan.zhihu.com/p/528801461)
 
 
-# 骨骼动画
+## 骨骼动画
 
 [3d - OpenGL/Glut draw Pyramid - Skeleton Bones - Stack Overflow](https://stackoverflow.com/questions/21654501/opengl-glut-draw-pyramid-skeleton-bones)
 
@@ -19,7 +19,7 @@
 https://zhuanlan.zhihu.com/p/87583171
 
 
-# MVP矩阵
+## MVP矩阵
 
 [opengl - How to create perspective projection matrix, given focal points and camera principal center - Stack Overflow](https://stackoverflow.com/questions/22064084/how-to-create-perspective-projection-matrix-given-focal-points-and-camera-princ)
 

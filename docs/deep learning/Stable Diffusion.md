@@ -1,4 +1,4 @@
-
+# Stable Diffusion笔记
 [Stable Diffusion 解读（一）：回顾早期工作 - 知乎](https://zhuanlan.zhihu.com/p/676705162)
 [Stable Diffusion 解读（二）：论文精读 - 知乎](https://zhuanlan.zhihu.com/p/676894526)
 [Stable Diffusion 解读（三）：原版实现及Diffusers实现源码解读 - 知乎](https://zhuanlan.zhihu.com/p/677234407)

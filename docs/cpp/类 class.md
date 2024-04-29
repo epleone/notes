@@ -1,5 +1,6 @@
+# 类的总结
 
-# 构造函数
+## 构造函数
 
 想要声明一个类对象并调用默认构造函数来创建它，应该使用 `A a;`，而不是 `A a();`
 
@@ -80,7 +81,7 @@ Size sz = Size(IMG_SIZE_W, IMG_SIZE_H);
     
 3. **`Size sz = Size(IMG_SIZE_W, IMG_SIZE_H);`**： 这也是一个命名对象的创建方式，但使用了拷贝构造函数进行初始化。它声明了一个名为 `sz` 的 `Size` 类型的对象，并使用 `Size(IMG_SIZE_W, IMG_SIZE_H)` 创建了一个临时的 `Size` 对象，然后通过拷贝构造函数将临时对象的值复制给了 `sz` 对象。这种方式和第二种方式效果相同，但是多了一次拷贝构造的过程。
 
-# 前向声明 Forward declaration
+## 前向声明 Forward declaration
 
 这个一般用来解决类之间相互依赖的问题。
 
@@ -109,7 +110,7 @@ template<typename T> class MyClass;
 [C++工程项目中常见的写法与解释——类的前向声明（class XXX；）篇\_c++ class \_\_x x;-CSDN博客](https://blog.csdn.net/qq_14873525/article/details/118186038)
 [C++类的组合--前向引用声明（学习笔记：第4章 07） - 知乎](https://zhuanlan.zhihu.com/p/96858290)
 
-# 子类
+## 子类
 
 
 ``` c++
@@ -118,10 +119,10 @@ public:
 	virtual void init() = 0; 
 };
 
-# 错误
+//错误
 class AData: public Data { }; 
 
-# 正确
+//正确
 class AData: public Data 
 { 
 public: 
@@ -156,7 +157,7 @@ MRESULT NetData<T>::init()
 ```
 
 
-# 模板
+## 模板
 
 > [!tips]
 > 模板类的一般全部放到头文件中, 避免LINK错误
@@ -234,7 +235,7 @@ int main()
 }
 ```
  
-# 初始化列表
+## 初始化列表
 
 `std::initializer_list<T>`
 实现了迭代器，拥有 `begin()` `end()`  `size()` 
@@ -258,7 +259,7 @@ int main() {
 [第三节 列表初始化—std::initializer\_list - 知乎](https://zhuanlan.zhihu.com/p/354588791)
 
 
-# 友元
+## 友元
 
 > [!warning]
 > - 友元无法继承，父类是友元，子类如果没有声明过，则不是友元

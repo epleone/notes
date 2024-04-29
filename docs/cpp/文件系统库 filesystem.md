@@ -1,7 +1,8 @@
+# 文件系统库
 
 `std::filesystem`是C++17引入的文件系统库，可以方便的处理文件, 类似python中的`path` 库
 
-# 使用
+## 使用
 
 需要将C++语言标准设置为 **/std:c++17**
 
@@ -13,7 +14,7 @@
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
 ```
 
-# 常用功能和函数
+## 常用功能和函数
 
 ```c++
 	// 常用功能
@@ -43,7 +44,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
 	void rename(const path& from, const path& to) //移动文件或者重命名
 ```
 
-# 路径分割与合并
+## 路径分割与合并
 
 ```c++
 #include <iostream>
@@ -135,7 +136,7 @@ MRESULT ImageStream::saveData(cv::Mat& vframe, std::string save_dir)
 
 ```
 
-# 判断文件是否存在
+## 判断文件是否存在
 
 ```c++
 
@@ -157,7 +158,7 @@ int main() {
 
 ```
 
-# 创建文件夹
+## 创建文件夹
 
 ```c++
 #include <iostream>
@@ -180,7 +181,7 @@ int main() {
 
 ```
 
-# 将相对路径转换为绝对路径
+## 将相对路径转换为绝对路径
 
 ``` c++
 #include <iostream>
@@ -197,7 +198,7 @@ int main() {
 
 ```
 
-# 遍历文件夹
+## 遍历文件夹
 
 可以使用标准库中的`std::filesystem::directory_iterator`来遍历文件夹，并通过检查文件的后缀来筛选出指定后缀的文件。
 
