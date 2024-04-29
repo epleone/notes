@@ -1,4 +1,4 @@
-site_name: obsidian-mkdocs template
+site_name: epleone notes
 
 theme:
     name: 'material'
@@ -51,7 +51,7 @@ markdown_extensions:
 plugins:
   - search
   - roamlinks
-  - blog
+  # - blog
   - rss:
       match_path: blog/posts/.* 
       date_from_meta:
