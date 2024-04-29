@@ -22,6 +22,10 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
+font: # 字体
+    text: Roboto
+    code: Roboto Mono
+
 # Extensions
 markdown_extensions:
   - footnotes
@@ -50,6 +54,7 @@ markdown_extensions:
 
 plugins:
   - search
+  - tags    # 标签功能插件
   - roamlinks
   # - blog
   - rss:
