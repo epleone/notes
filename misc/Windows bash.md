@@ -1,5 +1,5 @@
 #bash
-# power shell bash
+# Windows bash
 
 - 在Windows上生成图片列表
 

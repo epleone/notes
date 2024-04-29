@@ -1,4 +1,4 @@
-# c/c++ 常用Tips
+# c++ 常用Tips
 
 ## size_t
 

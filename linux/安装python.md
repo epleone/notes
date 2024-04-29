@@ -1,6 +1,6 @@
 #conda
 
-# Miniconda
+# 安装python
 
 ubuntu下建议使用miniconda作为python环境
 [Miniconda — conda documentation](https://docs.conda.io/en/latest/miniconda.html)

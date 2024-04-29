@@ -1,4 +1,4 @@
-# pytorch 3D 笔记
+# pytorch3d 笔记
 
 ## 基础知识
 

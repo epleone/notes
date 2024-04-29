@@ -1,4 +1,4 @@
-# Publish your Obsidian Notes
+# README
 
 (MkDocs template)
 

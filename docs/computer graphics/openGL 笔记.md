@@ -1,4 +1,4 @@
-# openGL笔记
+# openGL 笔记
 ## 入门教程
 [主页 - LearnOpenGL CN](https://learnopengl-cn.github.io/)
 

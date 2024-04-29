@@ -1,4 +1,4 @@
-# 宏
+# 宏 tips
 
 使用c++编译器(GCC)预定义的宏
 https://sourceforge.net/p/predef/wiki/OperatingSystems/

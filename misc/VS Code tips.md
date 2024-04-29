@@ -1,11 +1,11 @@
-#tips 
+# VS Code tips
 
-# 建议插件
+#tips 
 
 
 ![[Pasted image 20240111155049.png]]
 
-# flake8设置
+## flake8设置
 
 ``` json
  // vs 自带的设置

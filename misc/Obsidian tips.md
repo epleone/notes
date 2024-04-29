@@ -1,10 +1,12 @@
+# Obsidian tips
+
 #tips 
 
 官方文档
 
 [Basic formatting syntax - Obsidian Help](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax)
 
-# 双链使用技巧
+## 双链使用技巧
 
 
 
@@ -46,7 +48,7 @@
 
 
 
-# 脚注
+## 脚注
 
 定义： `[^1]: xxxx`
 使用： `[^1]`
@@ -71,7 +73,7 @@
 
 或者使用
 
-# 引用式链接
+## 引用式链接
 
 这个链接用 1 作为网址变量 [Google][1]
 这个链接用 runoob 作为网址变量 [Runoob][runoob]
@@ -120,7 +122,7 @@ This is [an example] [id] reference-style link.
 一份 Markdown 文件，分别使用行内链接和引用式链接的效果对比，很明显右侧引用式链接的可读性更强
 
 
-# Callout
+## Callout
 
 [Callouts - Obsidian Help](https://help.obsidian.md/Editing+and+formatting/Callouts)
 
@@ -178,7 +180,7 @@ This is [an example] [id] reference-style link.
 https://zhuanlan.zhihu.com/p/678900439
 
 
-# 修改页面宽度设置
+## 修改页面宽度设置
 
 1. 找到主题路径 `E:\Obsidian\Markdown\.obsidian\themes\Sanctum`
 2. 打开`theme.css`， 搜索 `--file-line-width`
@@ -187,14 +189,36 @@ https://zhuanlan.zhihu.com/p/678900439
 参考： [Obsidian 页面设置\_obsidian 页面宽度\_烟 火的博客-CSDN博客](https://blog.csdn.net/m0_58572221/article/details/127523085)
 
 
-# 插件
+
+
+## 隐藏顶部文件名
+
+ > there's a toggle in the settings under "appearance" called "show inline titles". Just turn that off, and the file name won't be shown inside the note anymore.
+
+
+[How to hide file name? : r/ObsidianMD](https://www.reddit.com/r/ObsidianMD/comments/yi6pr1/how_to_hide_file_name/)
+
+## 文件默认拖拽位置
+
+
+![[Pasted image 20240429101224.png]]
+
+
+
+[Attaching images to Obsidian - Fork My Brain](https://notes.nicolevanderhoeven.com/obsidian-playbook/Using+Obsidian/02+Making+Notes+in+Obsidian/Attaching+images+to+Obsidian)
+
+
+
+
+
+## 插件使用
 
 | 名称             | 功能                   | 地址                                                                                       |     |     |     |
 | ---------------- | ---------------------- | ------------------------------------------------------------------------------------------ | --- | --- | --- |
 | Enhanced-editing | 文本增强，去除空行空格 | [Obsidian最强编辑插件之——增强编辑 - 知乎](https://zhuanlan.zhihu.com/p/619924782?utm_id=0) |     |     |     |
 
 
-# dataview使用
+### dataview使用
 
 [Obsidian 插件之 Dataview - 知乎](https://zhuanlan.zhihu.com/p/373623264)
 [玩转 Obsidian 08：利用 Dataview 打造自动化 HomePage - 少数派](http://ios.zoopda.com/post/73958)
@@ -205,20 +229,13 @@ https://zhuanlan.zhihu.com/p/678900439
 自带的query也可以做到类似的效果，
 [Search - Obsidian Help](https://help.obsidian.md/Plugins/Search)
 
-# 用 MaoXian 网摘保存网络文章到 Obsidian
+### 用 MaoXian 网摘保存网络文章到 Obsidian
 
 [用 MaoXian 网摘保存网络文章到 Obsidian](https://mika-cn.github.io/maoxian-web-clipper/obsidian-zh-CN.html)
 
 
 
-# 文件默认拖拽位置
 
-
-![[Pasted image 20240429101224.png]]
-
-
-
-[Attaching images to Obsidian - Fork My Brain](https://notes.nicolevanderhoeven.com/obsidian-playbook/Using+Obsidian/02+Making+Notes+in+Obsidian/Attaching+images+to+Obsidian)
 
 # Ref
 

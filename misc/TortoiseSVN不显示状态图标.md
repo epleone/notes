@@ -1,3 +1,4 @@
+# TortoiseSVN不显示状态图标
 1. 打开注册表, 定位到
 	`计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers`
 	
