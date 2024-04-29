@@ -1,0 +1,267 @@
+#git
+
+推荐阅读 [git - 简易指南](https://www.bootcss.com/p/git-guide/)
+
+# Git工作流
+
+​ ​ 本地仓库由 git 维护的三棵“树”组成。
+
+- 第一个是你的`工作目录`，它持有实际文件；
+    
+- 第二个是`暂存区（Index）`，它像个缓存区域，临时保存你的改动；
+    
+- 最后是 `HEAD`，它指向你最后一次提交的结果。
+    
+
+![](https://www.bootcss.com/p/git-guide/img/trees.png)
+
+# 创建新仓库
+
+​ 创建新文件夹，打开，然后执行
+
+```
+git init
+```
+
+# 克隆仓库
+
+​ 执行如下命令以创建一个本地仓库的克隆版本：
+
+```
+git clone /path/to/repository
+```
+
+​ 如果是远端服务器上的仓库，你的命令会是这个样子：
+
+```
+git clone https://github.com/epleone/epleone.github.io.git
+```
+
+# 添加和提交
+
+​ 你可以提出更改（把它们添加到暂存区），使用如下命令：
+
+```
+git add <filename>
+git add *
+git add ./
+```
+
+​ 这是 git 基本工作流程的第一步。
+
+​ 使用如下命令以实际提交改动：
+
+```
+git commit -m "代码提交信息"
+```
+
+​ 现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库。
+
+# 推送改动
+
+​ 你的改动现在已经在本地仓库的 HEAD 中了。执行如下命令以将这些改动提交到远端仓库：
+
+```
+git push origin master
+```
+
+​ 可以把 master 换成你想要推送的任何分支。
+
+​ 如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：
+
+```
+git remote add origin <server>
+```
+
+​ 如此你就能够将你的改动推送到所添加的服务器上去了。
+
+# 分支
+
+​ 分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。
+
+​ 创建一个叫做“feature_x”的分支，并切换过去：
+
+```
+git checkout -b feature_x
+```
+
+​ 切换回主分支：
+
+```
+git checkout master
+```
+
+​ 再把新建的分支删掉：
+
+```
+git branch -d feature_x
+```
+
+​ 除非你将分支推送到远端仓库，不然该分支就是 不为他人所见的：
+
+```
+git push origin <branch>
+```
+
+# 更新与合并
+
+​ 要更新你的本地仓库至最新改动，执行：
+
+```
+git pull
+```
+
+以在你的工作目录中 获取（fetch） 并 合并（merge） 远端的改动。
+
+要合并其他分支到你的当前分支（例如 master），执行：
+
+```
+git merge <branch>
+```
+
+​ 在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现冲突（conflicts）。 这时候就需要你修改这些文件来手动合并这些冲突（conflicts）。改完之后，你需要执行如下命令以将它们标记为合并成功：
+
+```
+git add <filename>
+```
+
+​ 在合并改动之前，你可以使用如下命令预览差异：
+
+```
+git diff <source_branch> <target_branch>
+```
+
+# 标签
+
+​ 为软件发布创建标签是推荐的。这个概念早已存在，在 SVN 中也有。你可以执行如下命令创建一个叫做 1.0.0 的标签：
+
+```
+git tag 1.0.0 1b2e1d63ff
+```
+
+​ 1b2e1d63ff 是你想要标记的提交 ID 的前 10 位字符。可以使用下列命令获取提交 ID：
+
+```
+git log
+```
+
+​ 你也可以使用少一点的提交 ID 前几位，只要它的指向具有唯一性。
+
+# log
+
+​ 如果你想了解本地仓库的历史记录，最简单的命令就是使用:
+
+```
+git log
+```
+
+​ 你可以添加一些参数来修改他的输出，从而得到自己想要的结果。 只看某一个人的提交记录:
+
+```
+git log --author=bob
+```
+
+​ 一个压缩后的每一条提交记录只占一行的输出:
+
+```
+git log --pretty=oneline
+```
+
+​ 或者你想通过 ASCII 艺术的树形结构来展示所有的分支, 每个分支都标示了他的名字和标签:
+
+```
+git log --graph --oneline --decorate --all
+```
+
+​ 看看哪些文件改变了:
+
+```
+git log --name-status
+```
+
+​ 这些只是你可以使用的参数中很小的一部分。更多的信息，参考：
+
+```
+git log --help
+```
+
+# 替换本地改动
+
+​ 假如你操作失误（当然，这最好永远不要发生），你可以使用如下命令替换掉本地改动：
+
+```
+git checkout -- <filename>
+```
+
+此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。已添加到暂存区的改动以及新文件都不会受到影响。
+
+假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它：
+
+```
+git fetch origin
+git reset --hard origin/master
+```
+
+# 多账号管理
+
+```
+# 查看全局配置信息
+git config --global --list
+
+# 查看当前账号信息
+git config --list
+
+# 查看指定键值
+git config --global <key>
+git config <key>
+
+# 指定key为 user.name
+git config --global user.name
+
+# 检查本地仓库的远程设置
+git remote -v
+
+```
+
+在正确切换账号后，push代码提示 `fatal: unable to access XXX, The requested URL returned error:403`
+
+打开`控制面板`->`凭据管理器`->`Windows凭据`
+
+在`普通凭据`中找到github的凭据后, 删除它, 然后重新到仓库执行`git push origin master`去提交你的代码, 它会让你填写GitHub的用户名和密码, 填写正确后, 即可进行正常推送
+
+参考自： [https://blog.csdn.net/qq_36852780/article/details/107374275](https://blog.csdn.net/qq_36852780/article/details/107374275)
+
+# 排除目录
+
+在Git中排除文件有多种方法。以下是几种常用的方法：
+
+1. 使用.gitignore文件：在项目的根目录下创建一个名为`.gitignore`的文件，并将要排除的文件模式添加到该文件中。每行一个模式。可以使用通配符来匹配文件名、目录名或模式。例如，要排除所有以`.log`结尾的文件，可以在`.gitignore`文件中添加以下内容：
+
+```bash
+*.log
+
+# 排除文件夹
+__pycache__/
+.vscode/
+logs/
+
+#排除文件
+*.pkl
+```
+
+
+保存并提交`.gitignore`文件后，Git会自动忽略匹配这些模式的文件。
+
+2. 使用命令行参数：在执行Git命令时，可以使用`git add`、`git commit`等命令的参数来排除特定文件或文件模式。例如，要在提交时排除所有以`.log`结尾的文件，可以使用以下命令：
+
+```bash
+git commit -a --exclude=*.log
+```
+
+这将将所有更改添加到提交中，但排除匹配模式的文件。
+
+3. 使用.git/info/exclude文件：如果您不希望将排除规则添加到版本控制中，可以在`.git/info/exclude`文件中添加它们。此文件的工作方式与`.gitignore`文件相同，但是它只适用于您的本地存储库。
+
+# VS Code
+
+在VS code中，建议使用`Git Graph`插件管理git, 非常方便。
