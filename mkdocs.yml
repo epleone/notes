@@ -57,7 +57,7 @@ plugins:
   - typeset
   - roamlinks
   # - blog
-  # - tags    # 标签功能插件
+  - tags    # 标签功能插件
   - rss:
       match_path: blog/posts/.* 
       date_from_meta:
