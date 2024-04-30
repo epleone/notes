@@ -75,9 +75,6 @@ Material 主题是一个基于 [Material Design](https://link.zhihu.com/?target
 
 
 
-
-
-
  
 > [!todo]
 > 还需解决图片显示的问题
@@ -146,7 +143,14 @@ import torch
     3. Nulla tempor lobortis orci
 
 
+## SuperFences
+
 When [SuperFences](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#superfences) is enabled, content tabs can contain arbitrary nested content, including further content tabs, and can be nested in other blocks like [admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) or blockquotes:
+
+
+`!!!` 是 [Admonition](https://squidfunk.github.io/mkdocs-material/reference/admonitions/)语法, 和 callout很像, 也需要开启插件。
+
+[Obsidian 插件之 Admonition - 知乎](https://zhuanlan.zhihu.com/p/391252867)
 
 !!! example
     === "Unordered List"

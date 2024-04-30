@@ -153,7 +153,24 @@ This is [an example] [id] reference-style link.
 
 [Callouts - Obsidian Help](https://help.obsidian.md/Editing+and+formatting/Callouts)
 
+[Site Unreachable](https://sspai.com/post/72566)
+
 语法：`> [!callout关键词]`
+
+`> [!callout关键词]+`:  默认展开，显示折叠按钮 
+`> [!callout关键词]-`: 默认折叠，显示折叠按钮   
+`> [!callout关键词]`:   默认展开，不显示折叠按钮 
+
+> [!todo] 
+> Yes!, callouts. 
+
+
+> [!todo]+ 
+> Yes!, callouts. 
+
+
+> [!todo]-
+> Yes!, callouts. 
 
 支持嵌套语法。
 

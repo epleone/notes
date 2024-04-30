@@ -37,8 +37,6 @@ markdown_extensions:
   # - attr_list
   - pymdownx.arithmatex:
       generic: true
-  # - pymdownx.superfences
-  # - pymdownx.details
   # - pymdownx.magiclink
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -48,6 +46,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - admonition   # callout
+  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
