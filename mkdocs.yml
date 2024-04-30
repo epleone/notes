@@ -4,9 +4,8 @@ theme:
     name: 'material'
 
     features:
-    - navigation.path
     - toc.integrate
-    - content.tabs.link
+    # - content.tabs.link
 
     palette:
 
@@ -49,9 +48,17 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - toc:
       permalink: true
 
