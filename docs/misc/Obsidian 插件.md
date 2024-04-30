@@ -1,4 +1,8 @@
-#obsidian
+---
+tags:
+  - obsidian
+---
+
 # Obsidian 插件
 
 

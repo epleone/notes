@@ -9,7 +9,7 @@ sort file.mtime
 
 
 ```query
-tag: #todo
+">[!todo]"
 ```
 
 

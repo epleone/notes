@@ -1,5 +1,8 @@
-
-#obsidian  #todo
+---
+tags:
+  - obsidian
+  - todo
+---
 # Obsidian 部署到github
 
 

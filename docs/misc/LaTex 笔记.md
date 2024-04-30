@@ -1,5 +1,6 @@
 ---
-tags: [latex]
+tags:
+  - latex
 ---
 # LaTex 笔记
 
@@ -171,6 +172,7 @@ $$
 ## 数学字母字体
 
 $\mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R}$  
+
 $$\mathcal{L}  
 = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$$  
 李代数

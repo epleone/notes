@@ -10,6 +10,29 @@ tags:
 
 [Basic formatting syntax - Obsidian Help](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax)
 
+## 搜索
+
+[Search - Obsidian Help](https://help.obsidian.md/Plugins/Search#Search+properties)
+
+
+如果想搜索标有 `#todo` tag , 语法如下：
+
+``` query_
+tag: todo
+```
+
+如若想搜索 callout 则需要加上 ” “
+
+
+``` query_
+">[!todo]"
+```
+
+[Search for a callout - Obsidian Forum](https://forum.obsidian.md/t/search-for-a-callout-i-e-callout-is-giving-0-results/71146)
+
+> [!warning]
+> 代码块里的`query_` 要换成 `query`
+
 ## 双链使用技巧
 
 
