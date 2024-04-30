@@ -27,7 +27,7 @@ tags: [todo]
 
 
 
-# keypoint2Mesh
+# SMPL - Skinned Multi-Person Linear Model
 
 参考[基于SMPL的三维人体重建-SMPL模型的计算与构建（3） - 知乎](https://zhuanlan.zhihu.com/p/458868557?utm_id=0) 
 

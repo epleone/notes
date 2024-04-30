@@ -1,5 +1,5 @@
 
-# yolov3
+# HandDet
 [GitHub - ultralytics/yolov3: YOLOv3 in PyTorch > ONNX > CoreML > TFLite](https://github.com/ultralytics/yolov3)
 
 # yolov5

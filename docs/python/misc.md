@@ -1,5 +1,5 @@
 
-# mmcv-full install 
+# misc
 
 ``` bash
 # 查看cuda版本和torch版本

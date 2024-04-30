@@ -1,3 +1,4 @@
+# 色彩空间中的 HSL、HSV、HSB 有什么区别
 色彩空间中的 HSL、HSV、HSB 有什么区别？ - pourtheworld的回答 - 知乎 https://www.zhihu.com/question/22077462/answer/3139942407
 
 
@@ -25,7 +26,7 @@
 
 在**physical optics (物理光学)**中，**light wave (光波)** 对应的模型是 **electromagnetic transverse wave (电磁横波)**：即**电场**和**磁场**均**垂直**于其**传播**方向进行**震荡**的**波**，并携带了**radiant energy (辐射能量)**。
 
-![](images/v2-ba8c28721a2a2e0b8273922b47888220_720w.webp)
+![](v2-ba8c28721a2a2e0b8273922b47888220_720w.webp)
 
 Light Wave
 
@@ -77,7 +78,7 @@ $Q=hcλ=hfQ=\frac{hc}{\lambda}=hf$
 - **destructive interference** - 每对 **wave** 的波峰和波谷一一**抵消**。
 - **incoherent addition** - 每个 **phase** 的波峰波谷相互**错开**。
 
-![](images/v2-61fcd8cfb904bb1e3d9ef4105e1085db_720w.webp)
+![](v2-61fcd8cfb904bb1e3d9ef4105e1085db_720w.webp)
 
 constructive interference / destructive interference / incoherent addition
 
@@ -85,7 +86,7 @@ constructive interference / destructive interference / incoherent addition
 
 特别的，对于 **[coherent addtion](https://www.zhihu.com/search?q=coherent%20addtion&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3139942407%7D)**，当 **light wave** 在空间中传播时，它们之间的**相位关系**从一个位置变化到一个位置，**constructive interference** 和 **destructive interference** 会来回**切换**，因此并不会**能量不守恒**。
 
-![](images/v2-6c090de3b51087430abb94585ac65021_720w.webp)
+![](v2-6c090de3b51087430abb94585ac65021_720w.webp)
 
 The waves interfere constructively and destructively in different regions of space.
 
@@ -99,7 +100,7 @@ The waves interfere constructively and destructively in different regions of spa
 
 关于 **radiometric quantity** 可见上文 [radiometry](https://zhuanlan.zhihu.com/p/643880936) ， 以下几个小节引用于 [photometric quantity](https://zhuanlan.zhihu.com/p/597710417) ，介绍 **Photometry** 如何通过 V(λ)V(\lambda) 将 **radiometric quantity** 转化为 **photometric quantity** ：
 
-![](images/v2-5b43738074433ac963d3490e5c8bb911_720w.webp)
+![](v2-5b43738074433ac963d3490e5c8bb911_720w.webp)
 
 radiometric quantity - photometric quantity
 
@@ -149,7 +150,7 @@ $IV=ΦVdΩI_{V}=\frac{\Phi_\mathrm{V}}{d\Omega}$
 
 自然这是一个相对的**比值**，在 **wavelength** 等于 555nm555 \text{nm} 时为 11 ：
 
-![](images/v2-ace26856173cae4758fca8bc6a79ed82_720w.webp)
+![](v2-ace26856173cae4758fca8bc6a79ed82_720w.webp)
 
 V(λ)
 
@@ -223,11 +224,11 @@ LV≜dIVdA⊥=dIVdAcos⁡θ=d2ΦVdΩdAcos⁡θL_\mathrm{V}\triangleq\frac{\mathr
 
 **SPD** 通常彼此之间差别很大，它被表示为一条**曲线**，该曲线表示每个特定光源从 **visible spectrum** 中发出每种**light color** 的 **intensity**。以下分别是 **incandescent light bulb (白炽灯泡)** 和 **fluorescent light bulb (荧光灯炮)** 对应的 **SPD**：
 
-![](images/v2-70bba3eca44249b58a1d9b9d7ef186a7_720w.webp)
+![](v2-70bba3eca44249b58a1d9b9d7ef186a7_720w.webp)
 
 incandescent light bulb
 
-![](images/v2-3820356fd635bed5b1403149d71fc911_720w.webp)
+![](v2-3820356fd635bed5b1403149d71fc911_720w.webp)
 
 fluorescent light bulb
 
@@ -237,7 +238,7 @@ fluorescent light bulb
 
 **D65** 也被称为日光光源，它不是我们可以用光源精确重现的 **SPD** ，而是我们可以比较**现有** **SPD** 的**参考**：
 
-![](images/v2-5ac903abddca686046fbbb6fb434a9fe_720w.webp)
+![](v2-5ac903abddca686046fbbb6fb434a9fe_720w.webp)
 
 comparison of the D65 SPD with the spectrum of the sun on a typical midday
 
@@ -249,7 +250,7 @@ comparison of the D65 SPD with the spectrum of the sun on a typical midday
 
 下图给出了黄油、番茄和生菜三种物体的 **spectral reflectance curve** ：
 
-![](images/v2-a389d3f494ec7cba3e34bbbf25fa425e_720w.webp)
+![](v2-a389d3f494ec7cba3e34bbbf25fa425e_720w.webp)
 
 spectral reflectance curve of butter (A), tomato (B) and lettuce (C)
 
@@ -266,7 +267,7 @@ spectral reflectance curve of butter (A), tomato (B) and lettuce (C)
 - **Cone cells** - 负责人体的 **color vision (彩色视觉)**，或者说是 **trichromatic vision (三色视觉)**，主要集中在 **retina** 的中心。
 - **Rod cells** - 位于 **retina** 外缘，对**少量**的光**更敏感**。
 
-![](images/v2-38df481e88ddfcff912fdf318a508324_720w.webp)
+![](v2-38df481e88ddfcff912fdf318a508324_720w.webp)
 
 cone cells / rod cells
 
@@ -276,7 +277,7 @@ cone cells / rod cells
 
 下图说明了不同类型的 **cone cells** 对于整个 **visible spectrum** 特定范围的 **relative sensitivity**，这三条曲线被称为 **tristimulus functions (三色刺激方程)**：
 
-![](images/v2-95f8cf34665a2dfb0aec1bcdcc1c2153_720w.webp)
+![](v2-95f8cf34665a2dfb0aec1bcdcc1c2153_720w.webp)
 
 tristimulus functions
 
@@ -298,7 +299,7 @@ tristimulus functions
 
 如下图所示，虽然 **wavelength range** 几乎包围了整个 **spectrum**，但以下物体的很可能被认为是 **bluish** 的：
 
-![](images/v2-41051db916846ec516d1247712f59dfd_720w.webp)
+![](v2-41051db916846ec516d1247712f59dfd_720w.webp)
 
 bluish blue
 
@@ -308,11 +309,11 @@ bluish blue
 
 **Saturation** 是 **color** 的 **purity (纯度)**。一个 **high saturation** 的颜色将包含一个非常**窄**的波长集合，看起来比一个相似的，但 **low saturation** 的颜色更**明显**：
 
-![](images/v2-6ed85f956f270e949abf25010dcc418b_720w.webp)
+![](v2-6ed85f956f270e949abf25010dcc418b_720w.webp)
 
 high saturation
 
-![](images/v2-2cea542817f3ccee00743b1c0758b7d1_720w.webp)
+![](v2-2cea542817f3ccee00743b1c0758b7d1_720w.webp)
 
 low saturation
 
@@ -333,7 +334,7 @@ low saturation
 
 某些颜色对于人眼会**更亮**，尤其是 **555 ~ 560 nm (介于黄绿之间)** 范围的颜色，描述人眼对不同波长光的平均 **visual sensitivity (视觉敏感度)**的函数称为 **luminosity function** ：
 
-![](images/v2-bedb0f521dc217837877d5b2c0cfd382_720w.webp)
+![](v2-bedb0f521dc217837877d5b2c0cfd382_720w.webp)
 
 luminosity function
 
@@ -407,7 +408,7 @@ LV([C1]+[C2])=LV([C1])+LV([C2])L_\mathrm{V}\left([\mathrm{C}_1]+[\mathrm{C}_2]\r
 - **Additive processes** - 通过在**黑暗**的背景上**添加光**来创建颜色。对应光源**直接**射入人眼。
 - **Subtractive processes** - 使用**颜料**或**染料**选择性地**阻挡白光**。对应光源经过物体**反射(吸收)**射入人眼。
 
-![](images/v2-20b0cfcf17b8e3fd53de943ca901b705_720w.webp)
+![](v2-20b0cfcf17b8e3fd53de943ca901b705_720w.webp)
 
 Additive processes / Subtractive processes
 
@@ -416,7 +417,7 @@ Additive processes / Subtractive processes
 - **显示器**一类的设备通过释放 **primary colors** 产生 **additive colors**，这就是为什么几乎所有的显示器都使用**red 、green 、blue** 组合的 **pixel** 。
 - **打印机**一类设备使用**颜料**或**染料**来吸收光线并产生 **subtractive colors**，这也是为什么大多数彩色打印机至少使用 **cyan 、magenta 、yellow** 的 **ink** 。
 
-![](images/v2-93af5a12cc9b3a63efede6cb64c0607f_720w.webp)
+![](v2-93af5a12cc9b3a63efede6cb64c0607f_720w.webp)
 
 Additive / Subtractive Color Mixing
 
@@ -441,7 +442,7 @@ Additive / Subtractive Color Mixing
 
 具体实验过程如下：
 
-![](images/v2-ecc15028d22d5de8144eda8ef8cf5dab_720w.webp)
+![](v2-ecc15028d22d5de8144eda8ef8cf5dab_720w.webp)
 
 color matching experiment
 
@@ -453,7 +454,7 @@ color matching experiment
 
 由于 **Wright** 和 **Guild** 所采用的三基色不统一，实验数据无法直接对比，**CIE** 提议以 **700 nm** 的红光、**546.1 nm** 的绿光和 **435.8 nm** 的蓝光作为三基色，并导出了由 **Wright** 和 **Guild** 的数据给出的 **color-matching function：**
 
-![](images/v2-64fd751fad39bd7fb71e807b4c578e3e_720w.webp)
+![](v2-64fd751fad39bd7fb71e807b4c578e3e_720w.webp)
 
 Color-matching functions (CIE 1931)
 
@@ -511,7 +512,7 @@ LV([R])=σmkRVRLRefLV([G])=σmkGVGLRefLV([B])=σmkBVBLRef\begin{aligned}L_\mathr
 
 **Maxwell** 使用一个**等边三角形**来表示这个线性 **chromaticity space** C\mathscr{C} ，在他的 **trichromatic theory (三色理论)** 中，三个 **primary colors** RR GG BB 分别位于三角形的三个**顶点**，任何其他 **color** 都是由对应点到三角形每条边的**距离** rr gg bb 来表示 。
 
-![](images/v2-941c2f090ba2743a592de79c6d4eb115_720w.webp)
+![](v2-941c2f090ba2743a592de79c6d4eb115_720w.webp)
 
 Maxwell triangle
 
@@ -535,13 +536,13 @@ R(λ)=r¯(λ),G(λ)=g¯(λ),B(λ)=b¯(λ)R\left(\lambda\right)=\bar{r}\left(\lam
 
 至此，让我们对比一下上文 **Color Perception** 提到的，不同类型的 **cone cells** 对于整个 **visible spectrum** 特定范围的 **relative sensitivity**，即 **tristimulus functions** ：
 
-![](images/v2-0cf264e6a46157399589d03ac38aa149_720w.webp)
+![](v2-0cf264e6a46157399589d03ac38aa149_720w.webp)
 
 tristimulus functions
 
 再对比一下 **color-matching function** ：
 
-![](images/v2-308fce2d664355f5ee6d5db541d4fcd0_720w.webp)
+![](v2-308fce2d664355f5ee6d5db541d4fcd0_720w.webp)
 
 color-matching function r g b
 
@@ -585,7 +586,7 @@ R=1LRef∫0∞r¯(λ)L(λ)dλG=1LRef∫0∞g¯(λ)L(λ)dλB=1LRef∫0∞b¯(λ)L
 
 因此，**CIE** 根据预设原则，将原 **color-matching function** r¯(λ)\bar{r}\left(\lambda\right) g¯(λ)\bar{g}\left(\lambda\right) b¯(λ)\bar{b}\left(\lambda\right) 经过**线性组合**，得到了新的三个假想光源，光源的 **color-matching function** x¯(λ)\bar{x}\left(\lambda\right) y¯(λ)\bar{y}\left(\lambda\right) z¯(λ)\bar{z}\left(\lambda\right) 对所有 **visible wavelength** 均为**正值** ：
 
-![](images/v2-b81f868013c0e566dcbc976678ebbf3e_720w.webp)
+![](v2-b81f868013c0e566dcbc976678ebbf3e_720w.webp)
 
 color-matching function x y z
 
@@ -601,7 +602,7 @@ X=1LRef∫0∞x¯(λ)L(λ)dλY=1LRef∫0∞y¯(λ)L(λ)dλZ=1LRef∫0∞z¯(λ)L
 
 x=XX+Y+Zy=YX+Y+Zz=ZX+Y+Z=1−x−y\begin{aligned} &\begin{aligned}x=\frac{X}{X+Y+Z}\end{aligned} \\ &y=\frac Y{X+Y+Z} \\ &z=\frac{Z}{X+Y+Z}=1-x-y \end{aligned} \\
 
-![](images/v2-237c19839dee15a2280e9a543c7f2585_720w.webp)
+![](v2-237c19839dee15a2280e9a543c7f2585_720w.webp)
 
 XYZ space project to X+Y+Z=1 plane
 
@@ -609,7 +610,7 @@ XYZ space project to X+Y+Z=1 plane
 
 下图 **chromaticity diagram** 表示了电视或者电脑屏幕等设备的 **gamut (色域)**，即当前**色彩空间**能够**表示**或**重现**的所有**颜色范围**：
 
-![](images/v2-2d95310b44bb8bdca7cf8b2af1c36b16_720w.webp)
+![](v2-2d95310b44bb8bdca7cf8b2af1c36b16_720w.webp)
 
 CIE 1932 chromaticity diagram
 
@@ -635,7 +636,7 @@ CIE 1932 chromaticity diagram
 
 整个 **RGB color space** 可以被表示为下图中的 **cube** ，三个顶点表示了三个 **primary colors**：
 
-![](images/v2-d28e111e9eb757967346671f9f0ce85a_720w.webp)
+![](v2-d28e111e9eb757967346671f9f0ce85a_720w.webp)
 
 RGB color space
 
@@ -643,7 +644,7 @@ RGB color space
 
 任意 **RGB color space** 的 **gamut** 可以被表示为包含在 **XYZ's gamut** 中的一个**三角形**，与 **Maxwell Triangle** 类似，**gamut** 的三个角对应了三个 **primary colors**，是屏幕可以展示出来的 **most saturated** 的 **red** 、**green** 、**blue** ：
 
-![](images/v2-84e10b6360a334cbf33f176e5224a807_720w.webp)
+![](v2-84e10b6360a334cbf33f176e5224a807_720w.webp)
 
 CIE 1931 chromaticity diagram with sRGB gamut
 
@@ -655,7 +656,7 @@ CIE 1931 chromaticity diagram with sRGB gamut
 
 由于 **white light** 由 **visible spectrum** 上相同数量的 **color light** 所组成，**CIE** 提供了一个被称为 **E illuminant** 的 **equi-energy SPD** (对于每个 **wavelength internal** 都拥有相同的 **spectral irradiance**) ：
 
-![](images/v2-8103e307e168fa07d11ecf0e3a4f5e1b_720w.webp)
+![](v2-8103e307e168fa07d11ecf0e3a4f5e1b_720w.webp)
 
 illuminant E
 
@@ -667,7 +668,7 @@ illuminant E
 
 **CIE XYZ space** 与 **CIE RGB space** 之间 **color** 的转换通过一个 **3x3** 的矩阵实现，已知 **CIE RGB space gamut** 的三个 **primary colors point** 和 **white point** 在 **CIE XYZ space** 的投影平面 **CIE xyY space** 中的坐标位置：
 
-![](images/v2-79a5e168e173a95fddda9fdb5a6e065e_720w.webp)
+![](v2-79a5e168e173a95fddda9fdb5a6e065e_720w.webp)
 
 RGB gamut vertices and white point - xyY coordinates
 

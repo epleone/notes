@@ -1,5 +1,5 @@
 
-# 自动连接公司wifi
+# IOS快捷命令
 
 ``` python
 
