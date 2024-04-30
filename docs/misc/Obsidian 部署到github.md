@@ -87,15 +87,28 @@ Material 主题是一个基于 [Material Design](https://link.zhihu.com/?target
 
 https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
 
-语法: 
+语法如下，需要缩进: 
 ```
 === "case1"
-...
+    ...
 === "case2"
-...
+    ...
 === "case3"
-...
+    ...
 ```
+
+**文字示例（不含缩进）**
+
+=== "numpy"
+``` python
+import numpy as np
+```
+=== "pytorch"
+``` python
+import torch
+```
+
+
 
 **文字示例**
 
@@ -109,7 +122,6 @@ https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
     ```
 
 
-
 **图片示例**
 
 === "mano 点位顺序图"
@@ -119,6 +131,7 @@ https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
 
 
 
+**其它示例**
 
 === "Unordered list"
 
