@@ -108,6 +108,18 @@ https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigat
 
 **测试一下**
 
+=== "mano 点位顺序图"
+
+    [![Navigation path enabled]][Navigation path enabled]
+
+=== "planX 点位顺序图"
+
+    [![Navigation path disabled]][Navigation path disabled]
+
+  [Navigation path enabled]: 1.png
+  [Navigation path disabled]: 2.png 
+
+  
 === ”mano 点位顺序图“
 ![[Pasted image 20230614105754.png]]
 === ”planX 点位顺序图“
