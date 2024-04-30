@@ -20,6 +20,7 @@ jobs:
           path: .cache
       - run: pip install mkdocs-material
       - run: pip install mkdocs-roamlinks-plugin
-      - run: pip install mkdocs-rss-plugin
+      # - run: pip install mkdocs-rss-plugin
       # - run: pip install mkdocs-mermaid2-plugin
+      - run: pip install jinja2~=3.0 markdown~=3.2 mkdocs~=1.6 mkdocs-material-extensions~=1.3 pygments~=2.16 pymdown-extensions~=10.2
       - run: mkdocs gh-deploy --force
