@@ -100,29 +100,42 @@ https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
 **文字示例**
 
 === "numpy"
-``` python
-import numpy as np
-```
+    ``` python
+    import numpy as np
+    ```
 === "pytorch"
-``` python
-import torch
-```
+    ``` python
+    import torch
+    ```
 
 
 
 **图片示例**
 
-=== ”mano 点位顺序图“
-![[Pasted image 20230614105754.png]]
-=== ”planX 点位顺序图“
-![[Pasted image 20230614112249.png]]
+=== "mano 点位顺序图"
+    ![[Pasted image 20230614105754.png]]
+=== "planX 点位顺序图"
+    ![[Pasted image 20230614112249.png]]
 
+
+
+
+=== "Unordered list"
+
+    * Sed sagittis eleifend rutrum
+    * Donec vitae suscipit est
+    * Nulla tempor lobortis orci
+
+=== "Ordered list"
+
+    1. Sed sagittis eleifend rutrum
+    2. Donec vitae suscipit est
+    3. Nulla tempor lobortis orci
 
 
 When [SuperFences](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#superfences) is enabled, content tabs can contain arbitrary nested content, including further content tabs, and can be nested in other blocks like [admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) or blockquotes:
 
 !!! example
-
     === "Unordered List"
 
         ``` markdown
