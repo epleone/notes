@@ -1,5 +1,7 @@
 ---
-tags: [tips]
+tags:
+  - tips
+  - vscode
 ---
 # VS Code tips
  

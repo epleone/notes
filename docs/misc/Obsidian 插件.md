@@ -1,3 +1,4 @@
+#obsidian
 # Obsidian 插件
 
 
@@ -43,15 +44,6 @@ Excalidraw 手绘插件，可以画图
 <mark style="background: #BBFABBA6;">高亮插件，用html语法高亮文本，支持多种颜色，兼容性好，右键使用。</mark>
 
 ==这句话使用obsidian自带高亮。==
-
-
-##  Image ClassifyPaste
-
-[GitHub - ostoe/Ob-ImagePastePlugin](https://github.com/ostoe/Ob-ImagePastePlugin)
-
-obsidian直接黏贴文件会使用双链 `![[]]` 语法, 对网上blog兼容性不好。
-这个插件可以使用`Markdown` 中常用的 `![]()` 语法， 且可以更自由的设定保存路径，可以在每个文件夹下创建`.assert` 文件夹保存。
-这个插件还存在一些bug. 看后续。
 
 
 
@@ -145,3 +137,13 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 [用 MaoXian 网摘保存网络文章到 Obsidian](https://mika-cn.github.io/maoxian-web-clipper/obsidian-zh-CN.html)
 
 
+
+##  Image ClassifyPaste
+
+[GitHub - ostoe/Ob-ImagePastePlugin](https://github.com/ostoe/Ob-ImagePastePlugin)
+
+obsidian直接黏贴文件会使用双链 `![[]]` 语法, 对网上blog兼容性不好。
+这个插件可以使用`Markdown` 中常用的 `![]()` 语法， 且可以更自由的设定保存路径，可以在每个文件夹下创建`.assert` 文件夹保存。
+这个插件还存在一些bug. 看后续。
+
+> [!tips] MkDocs支持双链显示图片，这个插件的作用不大了。

@@ -1,5 +1,7 @@
 ---
-tags: [tips]
+tags:
+  - tips
+  - obsidian
 ---
 # Obsidian tips
  
@@ -202,9 +204,7 @@ https://zhuanlan.zhihu.com/p/678900439
 
 ## 文件默认拖拽位置
 
-
-![[Pasted image 20240429101224.png]]
-
+![[Pasted image 20240430135452.png]]
 
 
 [Attaching images to Obsidian - Fork My Brain](https://notes.nicolevanderhoeven.com/obsidian-playbook/Using+Obsidian/02+Making+Notes+in+Obsidian/Attaching+images+to+Obsidian)

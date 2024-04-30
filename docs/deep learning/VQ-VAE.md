@@ -3,7 +3,7 @@ tags:
   - todo
 ---
 
-# VQ-VAE笔记
+# VQ-VAE
 
 论文地址：
 [[1711.00937] Neural Discrete Representation Learning](https://arxiv.org/abs/1711.00937)

@@ -1,4 +1,4 @@
-# 扩散模型DDPM笔记
+# 扩散模型 DDPM
 
 [AIGC爆火的背后——扩散模型DDPM浅析 - 知乎](https://zhuanlan.zhihu.com/p/590840909)
 [十分钟读懂Diffusion：图解Diffusion扩散模型 - 知乎](https://zhuanlan.zhihu.com/p/599887666)
