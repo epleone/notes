@@ -83,44 +83,54 @@ Material 主题是一个基于 [Material Design](https://link.zhihu.com/?target
 > 还需解决图片显示的问题
 
 
+## Content tabs
 
-## 特殊语法
+https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
 
-支持图片切换的语法。
-
-https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs-with-tabs
-
-``` markdown
-  
-=== "With navigation path"
-
-    [![Navigation path enabled]][Navigation path enabled]
-
-=== "Without"
-
-    [![Navigation path disabled]][Navigation path disabled]
-
-  [Navigation path enabled]: ../assets/screenshots/navigation-path-on.png
-  [Navigation path disabled]: ../assets/screenshots/navigation-path-off.png
-  
+语法: 
+```
+=== "case1"
+...
+=== "case2"
+...
+=== "case3"
+...
 ```
 
 
-**测试一下**
+=== "numpy"
+``` python
+import numpy as np
+```
 
-=== "mano 点位顺序图"
+=== "pytorch"
+``` python
+import torch
+```
 
-    [![Navigation path enabled]][Navigation path enabled]
 
-=== "planX 点位顺序图"
-
-    [![Navigation path disabled]][Navigation path disabled]
-
-  [Navigation path enabled]: 1.png
-  [Navigation path disabled]: 2.png 
-
-  
 === ”mano 点位顺序图“
 ![[Pasted image 20230614105754.png]]
 === ”planX 点位顺序图“
 ![[Pasted image 20230614112249.png]]
+
+
+When [SuperFences](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#superfences) is enabled, content tabs can contain arbitrary nested content, including further content tabs, and can be nested in other blocks like [admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) or blockquotes:
+
+!!! example
+
+    === "Unordered List"
+
+        ``` markdown
+        * Sed sagittis eleifend rutrum
+        * Donec vitae suscipit est
+        * Nulla tempor lobortis orci
+        ```
+
+    === "Ordered List"
+
+        ``` markdown
+        1. Sed sagittis eleifend rutrum
+        2. Donec vitae suscipit est
+        3. Nulla tempor lobortis orci
+        ```

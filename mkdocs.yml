@@ -2,6 +2,11 @@ site_name: epleone notes
 
 theme:
     name: 'material'
+
+    features:
+    - navigation.path
+    - toc.integrate
+
     palette:
 
     # Light mode
@@ -48,7 +53,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
       permalink: true
 
