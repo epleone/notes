@@ -152,6 +152,10 @@ When [SuperFences](https://squidfunk.github.io/mkdocs-material/setup/extensions
 
 [Obsidian 插件之 Admonition - 知乎](https://zhuanlan.zhihu.com/p/391252867)
 
+> [!todo] 这里讨论了支持callout的可能性
+https://github.com/squidfunk/mkdocs-material/issues/6667
+
+
 !!! example
     === "Unordered List"
 
