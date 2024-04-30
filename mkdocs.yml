@@ -5,7 +5,7 @@ theme:
 
     features:
     - toc.integrate
-    # - content.tabs.link
+    - content.tabs.link
 
     palette:
 

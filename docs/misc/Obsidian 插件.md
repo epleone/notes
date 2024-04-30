@@ -164,3 +164,6 @@ obsidian直接黏贴文件会使用双链 `![[]]` 语法, 对网上blog兼容性
 这个插件还存在一些bug. 看后续。
 
 > [!tips] MkDocs支持双链显示图片，这个插件的作用不大了。
+
+mkdocs-roamlinks 支持双链
+https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
