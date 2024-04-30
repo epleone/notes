@@ -10,6 +10,9 @@ tags:
 
 [Material for MkDocs](https://link.zhihu.com/?target=https%3A//github.com/squidfunk/mkdocs-material) 算是最强大最专业的博客之一，例如：[Hello 算法](https://link.zhihu.com/?target=https%3A//www.hello-algo.com/) 给人就一个非常专业的感觉。
 
+https://github.com/Jackiexiao/foam-mkdocs-template/blob/master/README-zh.md
+
+
 ##  MkDocs
 
 [搭建技术博客/个人主页 - 使用MkDocs和Material - 知乎](https://zhuanlan.zhihu.com/p/672743170)
@@ -79,4 +82,33 @@ Material 主题是一个基于 [Material Design](https://link.zhihu.com/?target
 > [!todo]
 > 还需解决图片显示的问题
 
- 
+
+
+## 特殊语法
+
+支持图片切换的语法。
+
+https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs-with-tabs
+
+``` markdown
+  
+=== "With navigation path"
+
+    [![Navigation path enabled]][Navigation path enabled]
+
+=== "Without"
+
+    [![Navigation path disabled]][Navigation path disabled]
+
+  [Navigation path enabled]: ../assets/screenshots/navigation-path-on.png
+  [Navigation path disabled]: ../assets/screenshots/navigation-path-off.png
+  
+```
+
+
+**测试一下**
+
+=== ”mano 点位顺序图“
+![[Pasted image 20230614105754.png]]
+=== ”planX 点位顺序图“
+![[Pasted image 20230614112249.png]]
