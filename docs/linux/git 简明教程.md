@@ -221,6 +221,7 @@ git config <key>
 
 # 指定key为 user.name
 git config --global user.name
+git config --global user.email
 
 # 检查本地仓库的远程设置
 git remote -v
@@ -234,6 +235,10 @@ git remote -v
 在`普通凭据`中找到github的凭据后, 删除它, 然后重新到仓库执行`git push origin master`去提交你的代码, 它会让你填写GitHub的用户名和密码, 填写正确后, 即可进行正常推送
 
 参考自： [https://blog.csdn.net/qq_36852780/article/details/107374275](https://blog.csdn.net/qq_36852780/article/details/107374275)
+
+建议直接使用`ssh`方式连接。 https://blog.csdn.net/CoderSharry/article/details/131249905
+
+
 
 ## 排除目录
 
