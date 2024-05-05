@@ -422,3 +422,8 @@ upstream	https://github.com/open-mmlab/mmpose.git (push)
 ## VS Code
 
 在VS code中，建议使用`Git Graph`插件管理git, 非常方便。
+使用`Git Graph`插件，同步改动，可以选择`拉取` 或者 直接选择`同步`
+
+`pull(拉取)`将服务器的最新改动同步到本地， 服务器 --> 本地
+
+`Sync(同步)`将服务器的最新改动同步到本地，同时也将本地的改动同步到服务器， 服务器 <--> 本地
