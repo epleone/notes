@@ -1,4 +1,4 @@
-# hi
+# hello
 
 Publish your public notes with MkDocs
 

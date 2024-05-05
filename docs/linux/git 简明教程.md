@@ -1,9 +1,9 @@
 ---
-tags: [git]
+tags:
+  - git
 ---
+
 # git 简明教程
-
-
 
 推荐阅读 [git - 简易指南](https://www.bootcss.com/p/git-guide/)
 
@@ -22,30 +22,26 @@ tags: [git]
 ## 创建新仓库
 
 ​ 创建新文件夹，打开，然后执行
-
-```
+```shell
 git init
 ```
 
-## 克隆仓库
+## clone: 克隆仓库
 
 ​ 执行如下命令以创建一个本地仓库的克隆版本：
-
-```
+```shell
 git clone /path/to/repository
 ```
 
 ​ 如果是远端服务器上的仓库，你的命令会是这个样子：
-
-```
+``` shell
 git clone https://github.com/epleone/epleone.github.io.git
 ```
 
-## 添加和提交
+## add: 添加和提交
 
 ​ 你可以提出更改（把它们添加到暂存区），使用如下命令：
-
-```
+``` shell
 git add <filename>
 git add *
 git add ./
@@ -55,97 +51,151 @@ git add ./
 
 ​ 使用如下命令以实际提交改动：
 
-```
+``` shell
 git commit -m "代码提交信息"
 ```
 
 ​ 现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库。
 
-## 推送改动
+## push: 推送改动
 
 ​ 你的改动现在已经在本地仓库的 HEAD 中了。执行如下命令以将这些改动提交到远端仓库：
-
-```
+``` shell
 git push origin master
 ```
 
 ​ 可以把 master 换成你想要推送的任何分支。
 
 ​ 如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：
-
-```
+``` shell
 git remote add origin <server>
 ```
 
 ​ 如此你就能够将你的改动推送到所添加的服务器上去了。
 
-## 分支
+## checkout + branch: 分支管理
+
+
+[git中的分支管理：git branch,git checkout，解决git中的分支冲突的方法](https://blog.csdn.net/m0_56132701/article/details/134478506)
+
+[Git分支(branch)详细讲解\_git branch-CSDN博客](https://blog.csdn.net/Marsnowe/article/details/103940394)
 
 ​ 分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。
 
-​ 创建一个叫做“feature_x”的分支，并切换过去：
+- 查看分支：`git branch`
+- 创建分支：`git branch <name>`
+- 切换分支：`git checkout <name>` 或者 `git switch <name>`
+- 创建并切换分支：`git checkout -b <name>` 或者 `git switch -c <name>`
+- 合并某个分支：`git merge <name>`
+- 删除分支：`git branch -d <name>`
 
-```
+
+`git checkout` 和 `git switch` 是 [Git](https://so.csdn.net/so/search?q=Git&spm=1001.2101.3001.7020) 中用于切换分支的命令, `git switch` 是在 Git 2.23 版本引入的，它提供了一种更直观的分支切换方式。
+
+[git checkout和git switch的区别\_git switch和git checkout-CSDN博客](https://blog.csdn.net/lycwhu/article/details/135771596)
+
+
+**使用checkout 来创建和切换分支**。
+### 创建分支
+
+​ 创建一个叫做“feature_x”的分支，并切换过去：
+``` shell
 git checkout -b feature_x
 ```
 
-​ 切换回主分支：
+### 切换分支
 
-```
+​ 切换回主分支：
+```shell
 git checkout master
 ```
 
-​ 再把新建的分支删掉：
 
+### 查看分支
+
+``` shell
+git branch
 ```
+
+### 删除分支
+​ 再把新建的分支删掉：
+```shell
 git branch -d feature_x
 ```
 
 ​ 除非你将分支推送到远端仓库，不然该分支就是 不为他人所见的：
 
-```
+``` shell
 git push origin <branch>
 ```
 
-## 更新与合并
+## pull = fetch + merge: 更新与合并
 
 ​ 要更新你的本地仓库至最新改动，执行：
-
-```
+``` shell
 git pull
 ```
 
 以在你的工作目录中 获取（fetch） 并 合并（merge） 远端的改动。
 
 要合并其他分支到你的当前分支（例如 master），执行：
-
-```
+``` shell
 git merge <branch>
 ```
 
 ​ 在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现冲突（conflicts）。 这时候就需要你修改这些文件来手动合并这些冲突（conflicts）。改完之后，你需要执行如下命令以将它们标记为合并成功：
-
-```
+``` shell
 git add <filename>
 ```
 
 ​ 在合并改动之前，你可以使用如下命令预览差异：
-
 ```
 git diff <source_branch> <target_branch>
 ```
 
-## 标签
+> [!warning] 
+
+Git中从远程的分支获取最新的版本到本地有这样2个命令：
+1. git fetch：相当于是从远程获取最新版本到本地，不会自动merge
+
+``` shell  
+git fetch origin master
+git log -p master..origin/master
+git merge origin/master
+```
+以上命令的含义：
+首先从远程的origin的master主分支下载最新的版本到origin/master分支上,然后比较本地的master分支和origin/master分支的差别,最后进行合并,上述过程其实可以用以下更清晰的方式来进行：
+
+``` shell
+git fetch origin master:tmp
+git diff tmp 
+git merge tmp
+``` 
+
+从远程获取最新的版本到本地的test分支上,之后再进行比较合并。
+
+2. git pull：相当于是从远程获取最新版本并merge到本地
+``` shell
+git pull origin master
+```
+ 
+上述命令其实相当于git fetch 和 git merge
+在实际使用中，git fetch更安全一些
+因为在merge前，我们可以查看更新情况，然后再决定是否合并。 
+
+[原文链接](http://www.tech126.com/git-fetch-pull/)
+
+## tag: 标签
 
 ​ 为软件发布创建标签是推荐的。这个概念早已存在，在 SVN 中也有。你可以执行如下命令创建一个叫做 1.0.0 的标签：
 
-```
+``` shell
 git tag 1.0.0 1b2e1d63ff
 ```
 
 ​ 1b2e1d63ff 是你想要标记的提交 ID 的前 10 位字符。可以使用下列命令获取提交 ID：
 
-```
+``` shell
 git log
 ```
 
@@ -155,37 +205,37 @@ git log
 
 ​ 如果你想了解本地仓库的历史记录，最简单的命令就是使用:
 
-```
+```shell
 git log
 ```
 
 ​ 你可以添加一些参数来修改他的输出，从而得到自己想要的结果。 只看某一个人的提交记录:
 
-```
+```shell
 git log --author=bob
 ```
 
 ​ 一个压缩后的每一条提交记录只占一行的输出:
 
-```
+```shell
 git log --pretty=oneline
 ```
 
 ​ 或者你想通过 ASCII 艺术的树形结构来展示所有的分支, 每个分支都标示了他的名字和标签:
 
-```
+```shell
 git log --graph --oneline --decorate --all
 ```
 
 ​ 看看哪些文件改变了:
 
-```
+```shell
 git log --name-status
 ```
 
 ​ 这些只是你可以使用的参数中很小的一部分。更多的信息，参考：
 
-```
+```shell
 git log --help
 ```
 
@@ -193,7 +243,7 @@ git log --help
 
 ​ 假如你操作失误（当然，这最好永远不要发生），你可以使用如下命令替换掉本地改动：
 
-```
+```shell
 git checkout -- <filename>
 ```
 
@@ -201,14 +251,14 @@ git checkout -- <filename>
 
 假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它：
 
-```
+```shell
 git fetch origin
 git reset --hard origin/master
 ```
 
 ## 多账号管理
 
-```
+```shell
 # 查看全局配置信息
 git config --global --list
 
@@ -237,7 +287,6 @@ git remote -v
 参考自： [https://blog.csdn.net/qq_36852780/article/details/107374275](https://blog.csdn.net/qq_36852780/article/details/107374275)
 
 建议直接使用`ssh`方式连接。 https://blog.csdn.net/CoderSharry/article/details/131249905
-
 
 
 ## 排除目录
@@ -270,6 +319,105 @@ git commit -a --exclude=*.log
 这将将所有更改添加到提交中，但排除匹配模式的文件。
 
 3. 使用.git/info/exclude文件：如果您不希望将排除规则添加到版本控制中，可以在`.git/info/exclude`文件中添加它们。此文件的工作方式与`.gitignore`文件相同，但是它只适用于您的本地存储库。
+
+
+
+## MR/PR流程
+
+### **MR的一般流程(gitlab)**
+
+本地创建分支推送改动到服务器，合并后会删除分支。合并到主分支后，你本地切换到master分支，然后拉取master最新版。这个流程中，reviewer可能对dev分支修改的内容提出建议，或者也可以直接增加修改。
+
+
+#### 从仓库下载
+
+```bash
+git clone https://git.xxx.com.cn/xxx
+```
+
+
+#### 本地修改并提交
+
+```bash
+# 创建并切换到新的分支`dev`，用于递交合并
+git checkout -b dev
+
+# 修改相关内容
+# vim xxx.py
+
+# 添加修改到缓冲区
+git add ./
+git commit -m "xxx"
+
+# 将分支push到服务器
+git push -u origin HEAD
+```
+
+
+
+#### gitlab创建并提交 MR(PR)
+
+注意：`Assignee` 负责merge, `Reviewer`负责看代码，但没有Merge权限。
+
+
+
+#### 本地收尾操作
+
+等到改动被主干版本吸收（中间可能会经过反复修改），本地同步`master`最新版，并删除`dev`分支。
+
+```bash
+# 本地切换到master版本并同步远程修改
+git switch master
+git pull
+
+# 删除本地dev
+git branch -d dev
+```
+
+
+### **PR的一般流程(github)**
+如果你想深入了解 PR 开发模式，可以参考 [GitHub 官方文档](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)。
+
+#### Fork 项目
+当你第一次提交 PR 时，需要先 Fork 项目到自己的 GitHub 账号下。点击项目右上角的 Fork 按钮，将项目 Fork 到自己的 GitHub 账号下。
+![](https://user-images.githubusercontent.com/13503330/223318144-a49c6cef-b1fb-45b8-aa2b-0833d0e3fd5c.png)
+接着，你需要将你的 Fork 仓库 Clone 到本地，然后添加官方仓库作为远程仓库：
+``` bash
+# Clone 你的 Fork 仓库到本地
+git clone https://github.com/username/mmpose.git
+
+# 添加官方仓库作为远程仓库
+cd mmpose
+git remote add upstream https://github.com/open-mmlab/mmpose.git
+```
+
+#### Clone 你的 Fork 仓库到本地
+``` bash
+git clone https://github.com/username/mmpose.git
+```
+
+#### 添加官方仓库作为远程仓库
+``` bash
+cd mmpose
+git remote add upstream https://github.com/open-mmlab/mmpose.git
+``` 
+在终端中输入以下命令，查看远程仓库是否成功添加：
+``` bash
+git remote -v
+```
+如果出现以下信息，说明你已经成功添加了远程仓库：
+``` Text
+origin	https://github.com/{username}/mmpose.git (fetch)
+origin	https://github.com/{username}/mmpose.git (push)
+upstream	https://github.com/open-mmlab/mmpose.git (fetch)
+upstream	https://github.com/open-mmlab/mmpose.git (push)
+```
+#### 备注
+
+这里对 origin 和 upstream 进行一个简单的介绍，当我们使用 git clone 来克隆代码时，会默认创建一个 origin 的 remote，它指向我们克隆的代码库地址，而 upstream 则是我们自己添加的，用来指向原始代码库地址。当然如果你不喜欢他叫 upstream，也可以自己修改，比如叫 open-mmlab。我们通常向 origin 提交代码（即 fork 下来的远程仓库），然后向 upstream 提交一个 pull request。如果提交的代码和最新的代码发生冲突，再从 upstream 拉取最新的代码，和本地分支解决冲突，再提交到 origin。
+
+
+
 
 ## VS Code
 
