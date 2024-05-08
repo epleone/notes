@@ -1,7 +1,7 @@
 ---
 tags:
   - cpp
-  - snippet
+  - snippets
 ---
 
 # cmd参数解析Parser
