@@ -1,6 +1,9 @@
+---
+tags:
+  - todo
+---
 # video inpainting
-
-
+ 
 ## preface
 
 [Remove Objects From Video - Inpaint Content Aware Fill | Runway](https://runwayml.com/inpainting/?open_in_browser=true)
