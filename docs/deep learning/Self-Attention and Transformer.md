@@ -15,3 +15,6 @@ tags:
 [动手深度学习（7）：Self-Attention 与 Transformer - 知乎](https://zhuanlan.zhihu.com/p/692074288)
 
 
+[GitHub - datawhalechina/leedl-tutorial: 《李宏毅深度学习教程》（李宏毅老师推荐👍），PDF下载地址：https://github.com/datawhalechina/leedl-tutorial/releases](https://github.com/datawhalechina/leedl-tutorial)
+
+
