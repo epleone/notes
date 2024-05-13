@@ -77,3 +77,5 @@ mklink /d D:\project\dst D:\project\src
 [win10 文件|文件夹软链接 相当于ln -s\_win10软连接文件夹-CSDN博客](https://blog.csdn.net/a2689418930/article/details/125302369)
 
 [windows下的mklink命令 - 姬雨晨 - 博客园](https://www.cnblogs.com/jiyuchen1/p/17987663)
+
+
