@@ -9,7 +9,19 @@ tags:
 
 ![[Pasted image 20240111155049.png]]
 
-## flake8设置
+
+
+## python 设置
+
+推荐插件
+`Error Lens`  ：  错误提示
+`Python` :   官方插件
+`Pylance`:   代码补全
+`Flake8`:     格式检查
+`yapf`:         代码格式化
+
+
+### flake8设置
 
 ``` json
  // vs 自带的设置
@@ -23,3 +35,24 @@ tags:
   "--ignore=E501"
 ],
 ```
+
+
+### yapf 设置
+
+Note this setting has to be in the global scope of `settings.json`, not in a `[python]` block.
+
+- Set style by the following vscode settings which is equal to `yapf --style '{based_on_style: pep8, indent_width: 2}'`
+
+``` bash
+  "yapf.args": ["--style", "{based_on_style: pep8, column_limit: 330}"]
+
+
+```
+
+- Use a style file, like `.style.yapf`, `setup.cfg`, `pyproject.toml`, `~/.config/yapf/style`. For details, see [google/yapf](https://github.com/google/yapf)
+
+``` bash
+  "yapf.args": ["--style", "/home/example/.yapf"]
+```
+
+[Vscode formatter extension support for python files using yapf](https://marketplace.visualstudio.com/items?itemName=eeyore.yapf)
