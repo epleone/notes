@@ -24,6 +24,13 @@ Excalidraw 手绘插件，可以画图
 [Search - Obsidian Help](https://help.obsidian.md/Plugins/Search)
 
 
+它是你个人知识库的实时索引和查询引擎。插件可以让你为你的笔记添加元数据，并用 Dataview 查询语言 对它们进行查询。以下是 Dataview 插件的一些主要功能：
+
+1. 可以创建[动态列表](https://www.zhihu.com/search?q=%E5%8A%A8%E6%80%81%E5%88%97%E8%A1%A8&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3445481654%7D)、表格，还可以制作只含有特定标签的笔记。
+2. 可以查询带有特定元数据的笔记，非常适合用来管理项目、任务、阅读清单等。
+3. 强大的过滤和排序功能，你可以根据需要对查询结果进行排序和过滤。
+
+
 ## auto-link-title
 
 [GitHub - zolrath/obsidian-auto-link-title: Automatically fetch the titles of pasted links](https://github.com/zolrath/obsidian-auto-link-title)
@@ -125,11 +132,48 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 
 [GitHub - phibr0/obsidian-commander: Commander - Obsidian Plugin | Add Commands to every part of Obsidian's user interface](https://github.com/phibr0/obsidian-commander)
 
+  
+功能：给 Obsidian 的不同功能区增加自定义快捷按钮
+
+- 可以把命令添加至 UI 界面的各个区域，包括标题栏、状态栏、侧边栏、页头、文件菜单、右键菜单等，并为命令设置显示的别名与图标
+- 隐藏核心插件或社区插件自带的命令图标
+- 支持修改显示顺序
+- 支持设置移动端、桌面端各显示哪些命令
+
+![](docs/assets/v2-7666682a279e73808099310938d75f49_720w.webp)
+
+功能对应点
+
+![](docs/assets/v2-e4d693eedd8d83b729133639b22546f4_720w.webp)
+
+根据不同的需求将对应的命令以图标的形式放置在自己需要的地方
+
 
 ### Outliner
 
 [GitHub - vslinko/obsidian-outliner: Work with your lists like in Workflowy or RoamResearch](https://github.com/vslinko/obsidian-outliner)
 
+Outliner是一个用于改进Obsidian中列表的插件。
+
+- 改进列表样式：启用此功能后，你的列表将看起来更加整洁和美观。需要注意的是，此样式仅兼容Obsidian的内置主题。
+
+- 移动列表：你可以轻松地将带有子项的列表移动到你想要的位置，而不会破坏其结构。
+  
+- 绘制垂直缩进线：为你的列表添加清晰的垂直缩进线，增强视觉效果。同样，这一功能仅支持Obsidian内置主题。
+  
+- 光标定位：避免光标移动到项目符号的位置，这对于文本的移动、删除和选择都非常有用。
+  
+- 增强Enter键功能：使Enter键的行为与其他大纲工具保持一致，提供了更多的文本操作选项。
+  
+- 折叠和展开列表：快速地对你的列表进行折叠或展开操作。
+  
+- 增强CtrlA或CmdA行为：一键选择当前列表项，或者双击选择整个列表。
+  
+- 拖放功能：轻松地通过拖放来重组你的列表。
+  
+- 调试模式：提供开发者工具来帮助你捕捉和分析可能出现的问题。
+
+[Obsidian插件:Outliner一个用于改进Obsidian中列表的插件 - 知乎](https://zhuanlan.zhihu.com/p/658752501)
 
 ### Mind Map
 
@@ -139,7 +183,14 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 
 [GitHub - chhoumann/quickadd: QuickAdd for Obsidian](https://github.com/chhoumann/quickadd)
 
+一个强大的 Obsidian 插件，主要用于快速向你的 obsidian 里添加新页面或内容。它四个主要的工具组成，分别是模块（choices）：模板、捕获、宏、和多项。以下是该插件的主要特性：
 
+1. 模板：定义了如何创建新笔记的方式。
+2. 捕获：允许你快速向现有笔记添加内容。
+3. 宏：用于执行一系列的操作，并可与模板和捕获组合使用。
+4. 多项：可以在一个操作中运行多个模板、捕获、宏，从而极大地提升生产力。
+
+  
 ### BRAT
 
 [Obsidian最强编辑插件之——增强编辑 - 知乎](https://zhuanlan.zhihu.com/p/619924782?utm_id=0)

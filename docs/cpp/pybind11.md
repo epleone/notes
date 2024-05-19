@@ -55,6 +55,8 @@ pybind11_add_module(${LIBNAME} ${SRC_FILES} ${HEADER_FILES})
 
 ### numpy  cv::Mat 相互转换
 
+[keras-unet-deploy/cpp/libunet at master · ausk/keras-unet-deploy · GitHub](https://github.com/ausk/keras-unet-deploy/tree/master/cpp/libunet)
+
 ``` c++
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -282,3 +284,46 @@ print(y)
 [[1, 2], [3, 4], [5, 6]] 
 
 ```
+
+
+
+## 可能遇到的问题
+
+
+### ImportError: xxx.so: cannot open shared object file: No such file or directory
+
+在使用`sys.path.append` 将编好的python 库所在的路径加入系统变量后，可能会遇到这个问题，原因在于python库依赖的动态库不在c/c++的系统环境中。
+
+可以通过设置环境变量 `LD_LIBRARY_PATH` 来包含你的库文件所在的目录。你可以在终端中运行以下命令：
+
+``` bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/libpath
+```
+
+
+如果你想让这个设置在每次启动时都生效，可以将其添加到你的 shell 配置文件中（如 `~/.bashrc` 或 `~/.zshrc`），例如：
+
+``` bash
+echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/arcflow' >> ~/.bashrc
+source ~/.bashrc
+```
+
+如果是想在python代码中直接指定，可以使用 ctypes 或 cffi 来加载这个共享库，在代码中指定库文件的完整路径。
+
+``` python
+
+import ctypes
+import sys
+
+# 加载依赖的动态库
+ctypes.CDLL("./pybind11pkg/xxx.so")
+
+# 加载编好的python库
+sys.path.append("./pybind11pkg")
+
+
+```
+
+> [!tips]
+最简单的方法就是将相关依赖的项放到根目录下。
+
