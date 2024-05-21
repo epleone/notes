@@ -17,7 +17,8 @@
 [聊聊Python ctypes 模块 - 知乎](https://zhuanlan.zhihu.com/p/20152309)
 
 
-[微信公众平台](https://mp.weixin.qq.com/s/lcd_a9ZvUaw4zUVkti57pw)
+推荐这篇文章，很详细
+[pybind11:python联合c++编译](https://mp.weixin.qq.com/s/lcd_a9ZvUaw4zUVkti57pw)
 
 
 pybind11 需要c++17的依赖
@@ -41,7 +42,6 @@ set_target_properties(libname PROPERTIES SUFFIX ".pyd")
 # 要么手动设置 `pybind11_DIR` 的路径
 set(pybind11_DIR "${CMAKE_SOURCE_DIR}/pybind11-2.11.1")
 
-
 pybind11_add_module(${LIBNAME} ${SRC_FILES} ${HEADER_FILES})
 
 ```
@@ -49,6 +49,82 @@ pybind11_add_module(${LIBNAME} ${SRC_FILES} ${HEADER_FILES})
 
 [c++ - Unknown CMake command "pybind11\_add\_module" - Stack Overflow](https://stackoverflow.com/questions/74689827/unknown-cmake-command-pybind11-add-module)
 
+
+## 函数绑定
+
+``` c++
+
+// 全局函数绑定
+PYBIND11_MODULE(randy_pybind11, m) {  
+  // 可选，说明这个模块是做什么的  
+  m.doc() = "Randy pybind11 example plugin";  
+  // def( "给python调用方法名"， &实际操作的函数， "函数功能说明" ).  
+  // 其中函数功能说明为可选  
+  m.def("add", &add, "Adds two numbers");  
+  m.def("add_c", &add_c, "A function which adds two arrays with c type");  
+  m.def(  
+      "subtract", [](int i, int j "") { return i - j; }, R"pbdoc(  
+        Subtract two numbers  
+  
+        Some other explanation about the subtract function.  
+    )pbdoc");  
+  
+#ifdef VERSION_INFO  
+  m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);  
+#else  
+  m.attr("__version__") = "dev";  
+#endif  
+}
+
+
+// 普通类绑定
+PYBIND11_MODULE(arcflow, m)
+{
+
+    py::class_<ArcFlow>(m, "flow")
+        .def(py::init<int, int>())
+        .def("__call__", &ArcFlow::operator()<float>)
+        .def("__call__", &ArcFlow::operator()<unsigned char>);
+}
+
+
+// 单例类绑定，绑定它的构造函数和释放 __init__ 和 __del__
+// 定义一个类静态方法，创建init函数
+PYBIND11_MODULE(arcflow, m)
+{
+
+    py::class_<ArcFlow>(m, "flow")
+        .def_static("init", [](int max_h, int max_w) {
+                ArcFlow& instance = ArcFlow::getInstance(max_h, max_w);
+                return std::unique_ptr<ArcFlow, py::nodelete>(&instance);
+            }, py::return_value_policy::reference)
+        .def("__init__", [](ArcFlow& instance, int max_h, int max_w) {
+            instance = ArcFlow::getInstance(max_h, max_w);
+        })
+        .def("__del__", [](ArcFlow& instance) {
+            instance.DestroyInstance();})
+        .def("__call__", &ArcFlow::operator()<float>)
+        .def("__call__", &ArcFlow::operator()<unsigned char>);
+}
+```
+
+
+### 默认参数
+
+现在假设要绑定的函数具有默认参数，例如：
+
+``` c++
+int add(int i = 1, int j = 2) {
+    return i + j;
+}
+```
+pybind11 不能自动提取这些默认参数，因为它们并不是函数类型信息的一部分。可以使用 arg 扩展模块使用默认值：
+
+``` c++
+int add(int i = 1, int j = 2) {  
+    return i + j;  
+}
+```
 
 ## numpy
 
