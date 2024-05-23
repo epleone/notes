@@ -123,8 +123,8 @@ import torch
 
 === "mano 点位顺序图"
     ![[Pasted image 20230614105754.png]]
-=== "planX 点位顺序图"
-    ![[Pasted image 20230614112249.png]]
+=== "InterHand 点位顺序图"
+    ![[Pasted image 20230719110615.png]]
 
 
 
@@ -172,3 +172,5 @@ https://github.com/squidfunk/mkdocs-material/issues/6667
         2. Donec vitae suscipit est
         3. Nulla tempor lobortis orci
         ```
+
+> [!todo]  github 支持 callout

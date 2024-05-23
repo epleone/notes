@@ -205,6 +205,16 @@ Outliner是一个用于改进Obsidian中列表的插件。
 [用 MaoXian 网摘保存网络文章到 Obsidian](https://mika-cn.github.io/maoxian-web-clipper/obsidian-zh-CN.html)
 
 
+### Focus mode
+
+ Focus Mode 插件可以快速隐藏页面中的以下内容
+
+- 左右侧边栏
+- ribbon：左侧竖条内容
+- status bar：右下角状态栏
+
+[当你的 Obsidian 简化到了极致 - 知乎](https://zhuanlan.zhihu.com/p/694896288)
+
 
 ##  Image ClassifyPaste
 

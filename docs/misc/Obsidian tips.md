@@ -261,3 +261,8 @@ https://zhuanlan.zhihu.com/p/678900439
 [^2]: 参考文献1
 [^3]: 参考文献2
 
+
+
+> [!quote]
+> 1. [给 Obsidian 小白的一些建议 - 知乎](https://zhuanlan.zhihu.com/p/665164640)
+

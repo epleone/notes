@@ -43,8 +43,6 @@ dir images\*.jpg /B /S > image_list.txt
 
 在命令提示符中，使用以下命令将路径添加到环境变量中：
 
-shellCopy code
-
 `set PATH=%PATH%;Your\Path\Here`
 
 在 PowerShell 中，使用以下命令将路径添加到环境变量中：
@@ -56,6 +54,12 @@ powershellCopy code
 请将 `Your\Path\Here` 替换为要添加的路径。确保在路径中使用正确的路径分隔符（在 Windows 中为反斜杠 `\`）。
 
 这样添加的环境变量路径只在当前会话中有效，关闭命令提示符或 PowerShell 后将不再有效。如果需要永久添加环境变量路径，请参考操作系统的设置界面或使用专门的工具来进行配置。
+
+比如，需要将opencv的dll零时加入运行环境中。可以这么写：
+
+``` bash
+set PATH=%PATH%;F:\_Project\OpenCV\bin;
+```
 
 # 脚本注释
 
