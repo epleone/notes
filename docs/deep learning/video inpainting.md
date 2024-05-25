@@ -21,3 +21,6 @@ tags:
 
 
 [ProPainter for Video Inpainting](https://shangchenzhou.com/projects/ProPainter/)
+
+
+[三种简单的图像融合算法 - 知乎](https://zhuanlan.zhihu.com/p/661538470)
