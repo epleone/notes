@@ -326,7 +326,7 @@ git commit -a --exclude=*.log
 
 ### **MR的一般流程(gitlab)**
 
-本地创建分支推送改动到服务器，合并后会删除分支。合并到主分支后，你本地切换到master分支，然后拉取master最新版。这个流程中，reviewer可能对dev分支修改的内容提出建议，或者也可以直接增加修改。
+本地创建分支推送改动到服务器, 打开源代码网址，提交MR, (合并后可选删除分支)。合并到主分支后，你本地切换到master分支（需要处理好冲突，不能有未改动的代码），然后拉取master最新版。 在MR流程中，reviewer可能对dev分支修改的内容提出建议，或者也可以直接增加修改。
 
 
 #### 从仓库下载
@@ -357,6 +357,8 @@ git push -u origin HEAD
 
 #### gitlab创建并提交 MR(PR)
 
+打开源代码网址，提交MR.  页面一般会弹出创建MR的提示，如果没有，也可以手动创建MR.
+
 注意：`Assignee` 负责merge, `Reviewer`负责看代码，但没有Merge权限。
 
 
@@ -370,9 +372,18 @@ git push -u origin HEAD
 git switch master
 git pull
 
-# 删除本地dev
+# 删除本地dev, 同步后应该自动删除了？
 git branch -d dev
 ```
+
+> [!tips]
+> 本地切换main分支后同步，本地的dev分支一定要删除吗？
+> 1. 如果不删除，直接在dev分支push会报错，因为服务器端的dev分支已被删除，且不会重新创建dev分支了。
+> 2. 如果不删除，切到dev分支 执行rebase
+> 
+
+[git rebase详解（图解+最简单示例，一次就懂）-CSDN博客](https://blog.csdn.net/weixin_42310154/article/details/119004977)
+
 
 
 ### **PR的一般流程(github)**
