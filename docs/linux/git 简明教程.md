@@ -429,3 +429,10 @@ upstream	https://github.com/open-mmlab/mmpose.git (push)
 `Sync(同步)`将服务器的最新改动同步到本地，同时也将本地的改动同步到服务器， 服务器 <--> 本地
 
 [GitGraph 插件使用 - 知乎](https://zhuanlan.zhihu.com/p/609737717)
+
+
+## Git GUI工具
+
+鹅厂自己的 Git GUI 功能全面，新手友好，而且一些特定场景下有优化
+
+[UGit - 让每个人都可以轻松使用Git](https://ugit.qq.com/zh/)
