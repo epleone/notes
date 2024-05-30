@@ -403,3 +403,10 @@ sys.path.append("./pybind11pkg")
 > [!tips]
 最简单的方法就是将相关依赖的项放到根目录下。
 
+
+
+> [!warning]
+> `tmux` 可能会改变终端的环境，导致运行不起来
+> 
+
+ [[tmux guide#注意事项]]

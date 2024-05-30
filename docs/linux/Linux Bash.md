@@ -190,3 +190,28 @@ nvidia-smi
 ns
 ```
 
+
+
+## 错误
+
+1. $‘\r‘: command not found
+
+window的回车符与linux不一样，windows为`\r\n` ，而linux下为`\n`，所以在windows下编辑脚本，在linux执行时`\r`不能被识别
+
+解决方法：
+
+ 第一步 vim 脚本名
+
+ 第二步 在命令行模式下输入 :set ff = unix 回车
+
+第三步保存 ：wq
+
+成功解决问题
+
+[运行脚本时，./start.sh: line 5: $‘\\r‘: command not found，需用vim编辑器将文件格式化\_start.sh: command not found-CSDN博客](https://blog.csdn.net/qq_39715000/article/details/119956320)
+
+或者使用 `Notepad++` 替换。 为了更清楚的看到换行符的变化首先进行下面设置  
+`视图 -> 显示符号 -> 显示行尾符`  
+![](notepadpp_line.png)
+
+然后新建一个文本在其中随意输入内容会看到显示「换行符」为 `CR LF`即 `\r \n`。
