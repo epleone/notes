@@ -23,4 +23,12 @@ tags:
 [ProPainter for Video Inpainting](https://shangchenzhou.com/projects/ProPainter/)
 
 
-[三种简单的图像融合算法 - 知乎](https://zhuanlan.zhihu.com/p/661538470)
+## region fill
+
+[GitHub - tevaughan/region-fill-dirichlet: Application of the Dirichlet problem to the filling of a bounded region of an image.](https://github.com/tevaughan/region-fill-dirichlet)
+
+[Region filling and Laplace’s equation » Steve on Image Processing with MATLAB - MATLAB & Simulink](https://blogs.mathworks.com/steve/2015/06/17/region-filling-and-laplaces-equation/)
+
+
+[ISVI/tool/utils/region\_fill.py at main · hitachinsk/ISVI · GitHub](https://github.com/hitachinsk/ISVI/blob/main/tool/utils/region_fill.py)
+

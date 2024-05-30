@@ -321,6 +321,23 @@ git commit -a --exclude=*.log
 3. 使用.git/info/exclude文件：如果您不希望将排除规则添加到版本控制中，可以在`.git/info/exclude`文件中添加它们。此文件的工作方式与`.gitignore`文件相同，但是它只适用于您的本地存储库。
 
 
+## rebase和merge
+
+[基础扫盲篇：git中rebase和merge的区分 - 知乎](https://zhuanlan.zhihu.com/p/558666061)
+
+[git rebase详解（图解+最简单示例，一次就懂）-CSDN博客](https://blog.csdn.net/weixin_42310154/article/details/119004977)
+
+[在开发过程中使用 git rebase 还是 git merge，优缺点分别是什么？ - 知乎](https://www.zhihu.com/question/36509119)
+
+[详解git rebase，让你走上git大神之路 - 知乎](https://zhuanlan.zhihu.com/p/271677627)
+
+[git rebase为什么不建议在公共分支进行？ - 知乎](https://www.zhihu.com/question/611466013)
+
+
+这篇blog的说明比较清晰
+[git rebase - 知乎](https://zhuanlan.zhihu.com/p/667928131)
+
+
 
 ## MR/PR流程
 
