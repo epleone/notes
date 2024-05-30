@@ -493,3 +493,15 @@ git lfs install
 鹅厂自己的 Git GUI 功能全面，新手友好，而且一些特定场景下有优化
 
 [UGit - 让每个人都可以轻松使用Git](https://ugit.qq.com/zh/)
+
+
+## Git 练习游戏
+
+可以通过游戏练习git
+
+[Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
+
+Git 命令操作可视化
+
+[🌳🚀 CS Visualized: Useful Git Commands - DEV Community](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#rebase)
+
