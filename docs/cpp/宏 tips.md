@@ -9,6 +9,105 @@ tags:
 使用c++编译器(GCC)预定义的宏
 https://sourceforge.net/p/predef/wiki/OperatingSystems/
 
+
+## 系统宏
+
+### win32或者win64
+
+> `_WIN32`: Defined as 1 when the compilation target is 32-bit ARM, 64-bit ARM, x86, or x64. Otherwise, undefined. `_WIN64`: Defined as 1 when the compilation target is 64-bit ARM or x64. Otherwise, undefined.
+
+```c_cpp
+#if defined(_WIN32)
+ #define OS_WINDOWS
+#endif
+```
+
+  
+
+### Android
+
+```c_cpp
+
+#if defined(__ANDROID__)
+  //   Android
+#endif
+```
+
+  
+
+### linux
+
+```c_cpp
+#if defined(__linux__)
+#define OS_LINUX
+#endif
+```
+
+  
+
+### macOS
+
+```c_cpp
+#if defined(__APPLE__)
+#define OS_LINUX // macOS does not differ that much from linux
+#define OS_MACOS
+#endif
+```
+
+### Arm Neon
+
+用于Arm Neon优化， 有些嵌入式平台，是arm的不是android系统
+
+``` c++
+#if defined(__ARM_NEON)
+
+#endif
+```
+
+### QNX
+
+> `__QNX__` : The target is a QNX operating system (QNX 4, QNX Neutrino, or BlackBerry PlayBook OS). `__QNXNTO__` : The target is the QNX Neutrino RTOS or BlackBerry PlayBook OS.
+
+```c_cpp
+
+ #if defined(__QNX__)
+        /* QNX-specific (any flavor) code here */
+        #if defined(__QNXNTO__)
+            /* QNX Neutrino-specific code here */
+        #else
+            /* QNX 4-specific code here */
+        #endif
+ #endif
+```
+
+> [!quote]
+> 1. [跨平台—不同操作系统相关宏 - 知乎](https://zhuanlan.zhihu.com/p/358522435)
+> 2.  [https://sourceforge.net/p/predef/wiki/OperatingSystems/](https://sourceforge.net/p/predef/wiki/OperatingSystems/)
+
+
+
+## 可变宏
+
+先理解函数 `printf`
+
+``` cpp
+// C99 前
+int printf( const char *format, ... );
+
+// C99 起
+int printf( const char *restrict format, ... );
+
+`format`: 是格式控制字符串， 后面是附加参数
+
+printf("a is %d, b is %d\n", a, b);
+// 形参 format "a is %d, b is %d\n"
+// 形参 ... 是a,  b
+```
+
+理解了上面，就好理解下面的代码的做法了
+
+![[d8f42e796687f8dff6d6dc5bea71f69e.png]]
+
 ## 生成预处理后的文件
 
 ### Liunx

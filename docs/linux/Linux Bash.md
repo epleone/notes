@@ -159,7 +159,23 @@ caution: filename not matched: visit.zip
 `for z in *.zip; do unzip $z; done
 
 
+## CUDA
 
+``` bash
+
+# 显示cuda版本
+ll /usr/local/cuda
+
+# 或者
+nvcc -V
+
+
+
+# cuda 切换
+sudo rm -rf /usr/local/cuda
+sudo ln -s /usr/local/cuda-10.0 /usr/local/cuda
+
+```
 
 ## 其它
 

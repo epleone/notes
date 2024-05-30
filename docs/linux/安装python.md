@@ -1,5 +1,7 @@
 ---
-tags: [conda]
+tags:
+  - conda
+  - pip
 ---
 
 # 安装python
@@ -95,7 +97,8 @@ pip install numpy==1.23
 ```
 
 
-# 换pip源
+## PIP
+### 换pip源
 
 ```bash
 # 清华源
@@ -108,3 +111,46 @@ pip config set global.index-url http://mirrors.aliyun.com/pypi/simple
 # 临时使用
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  XXXX
 ```
+
+
+### 多版本pip
+
+```sh
+# 在多版本python中，可以使用-m, 调用python下面的pip模块
+
+python -m pip libname
+python3.5  -m pip linname
+
+```
+
+  
+
+### 国内镜像
+
+```sh
+# 使用清华镜像
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 使用中科大镜像
+pip config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple
+
+# 取消镜像
+pip config unset global.index-url
+```
+
+  
+
+### 清除缓存
+
+```sh
+# Ubuntu
+sudo rm -r ~/.cache/pip
+
+#Windows
+进入目录 C:\Users\"用户名"\AppData\Local\pip，删除该目录下的cache文件夹即可。
+```
+
+
+## Conda
+
+> [!todo]

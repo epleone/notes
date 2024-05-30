@@ -446,6 +446,35 @@ upstream	https://github.com/open-mmlab/mmpose.git (push)
 
 
 
+## LFS
+
+  如何下载github上用git-lfs上传的大文件
+
+1. 安装 `git lfs`, 见下述述步骤
+   
+```bash
+
+# 下载
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+
+# 安装
+sudo apt-get install git-lfs
+
+# 配置
+git lfs install
+
+
+```
+
+2. 克隆存储库，下载到本地 `git clone https://github.com/user/repo.git`
+
+3. 下载大文件：进入存储库目录，并使用以下命令下载大文件 `git lfs pull`
+
+
+> [!quote]
+>   1. [https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md](https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md)
+>   2. [如何下载github上用git-lfs工具下载的大文件-CSDN博客](https://blog.csdn.net/weixin_42601608/article/details/129518919)
+
 
 ## VS Code
 
