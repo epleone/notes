@@ -7,13 +7,14 @@ tags:
 
 
 ## X11 forward
-### 软件
+
+### 需要的软件
 
 [Xming](https://xming.en.softonic.com/download)
 
 [VcXsrv](https://sourceforge.net/projects/vcxsrv/files/vcxsrv/) 
 
-`Windows Terminal` / `PowerShell` / `cmd`
+`Windows Terminal`  or  `PowerShell`  or  `cmd`
 
 
 
@@ -33,7 +34,7 @@ tags:
 
     ```shell
     Host CS
-        hostname 192.168.12.34
+        hostname 255.255.255.255
         user zhuangqiubin
         ForwardX11 yes
         ForwardX11Trusted yes
@@ -41,15 +42,16 @@ tags:
 
     
 
-- 设置DISPLAY：export DISPLAY=本机IP地址：0.0 
+- 设置DISPLAY：export DISPLAY=255.255.255.255 : 0.0 
 
 ​			 
 
 ```shell
 # 可以写到~/.bashrc里面去
 vim ~/.bashrc
+
 # 我的机器
-export DISPLAY=172.17.122.201:0.0
+export DISPLAY=ip地址:0.0
 ```
 
 - 可能需要使用 `xhost +`
@@ -57,7 +59,9 @@ export DISPLAY=172.17.122.201:0.0
 - 在Linux主机上需要的确认配置打开，一般都是打开的：
 
     ``` shell
-    vi /etc/ssh/sshd_config
+    
+    vim /etc/ssh/sshd_config
+    
     X11Forwrding yes
     ```
 
@@ -80,8 +84,10 @@ ssh-keygen -t rsa -b 4096 -f ~/data/key/id_test_rsa -C "xxxxxx@163.com"
 #~/data/key下会生成两个文件，私钥：id_test_rsa，公钥：id_test_rsa.pub
    
 ```
-   
+
+
    [ssh-keygen密钥 - 知乎](https://zhuanlan.zhihu.com/p/514903590)
+   
 
 2. **在服务器上:** 将生成的密钥对放入服务器的 `~/.ssh`文件夹下，（如果没有该文件夹，可以自己创建，也可以使用命令 ``` ssh-keygen``` 生成，但要删除它在服务器上生成的密钥对，只需要windows上生成的）
 
@@ -96,7 +102,7 @@ ssh-keygen -t rsa -b 4096 -f ~/data/key/id_test_rsa -C "xxxxxx@163.com"
        Port xxx
        ForwardX11 yes
        ForwardX11Trusted yes
-   	IdentityFile C:\Users\yp3787\.ssh\vsc_rsa_id_yp  # 注意对应
+   	IdentityFile C:\Users\yp3787\.ssh\rsa_id  # 注意对应
    ```
 
 5. **在windows上:**  在cmd中输入 ``` ssh server-xx```，即可使用私钥免密登录服务器
@@ -134,7 +140,6 @@ chmod 600 id_rsa
 ​	[VS Code Remote SSH配置](https://zhuanlan.zhihu.com/p/68577071)
 
 ​	[设置 SSH 通过密钥登录](https://www.runoob.com/w3cnote/set-ssh-login-key.html)   
-
 
 
 ## 验证
