@@ -4,6 +4,72 @@ tags: [bash]
 # Linux Bash
 
 
+## preface
+
+只要记住20个左右的命令，基本就能满足需要了。
+
+
+> ls = listcd = change directory
+> cp = copyrm = remove
+> mv = move
+> pwd = print work directory
+> ps = process status
+> df = disk free
+> du = disk usage
+> mkdir = make directory
+> rmdir = remove directory
+> su = switch user
+> chown = change owner
+> chmod = change mode
+
+
+>-a = all
+>-l = list
+>-f = force
+>-h = -human-readable
+>-n = number
+>-u = user
+>-z = zip
+>-r = recursive
+> -v = verbose(详细)
+
+
+## `man`  和 `help`
+
+在Linux中，man和help是两个非常有用的命令，它们提供了关于其他命令的详细信息和使用方法。
+
+### man 
+
+man是“manual”的缩写，意为手册。通过man命令，用户可以查看Linux系统中大多数命令、函数和配置文件的详细说明。
+
+使用方法： `man  命令名`  比如 `man ls`，这将打开一个分页器显示ls命令的详细说明。
+使用方向键、Page Up/Down键或空格键进行导航。
+
+按Q键退出man页面。
+
+man页面的结构：
+
+>NAME：            命令的名称和简短描述。
+>SYNOPSIS：      命令的语法摘要。
+>DESCRIPTION：命令的详细描述和功能。
+>OPTIONS：       命令可用的选项和参数。
+>EXAMPLES：     使用命令的示例（并非所有man页面都有此部分）。
+>SEE ALSO：       相关命令或文档的参考。
+>BUGS：              已知的问题或限制（也并非所有页面都有）。
+
+**Tips**：
+使用/关键词进行搜索，按n键查找下一个匹配项，按N键查找上一个匹配项。
+输入`man -k 关键词`可以搜索包含关键词的手册页描述。
+
+### help 
+
+help命令是bash shell的内建命令，用于显示bash内建命令的帮助信息。对于外部命令（如ls、cat等），help命令通常无法提供帮助，这时应使用man命令。
+
+使用方法：输入`help [命令名]`，例如`help cd`
+
+注意：并非所有的Linux发行版或shell都支持help命令。在某些情况下，可能需要安装或配置额外的软件包或shell来获得此功能。
+
+
 ## 复制文件
 
 ``` bash
