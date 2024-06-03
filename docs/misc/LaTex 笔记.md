@@ -85,6 +85,8 @@ tags:
 
 ## 多行公式
 
+**方程**
+
 === "显示结果"
 
 	$$  
@@ -95,18 +97,19 @@ tags:
 	$$
 
 === “latex”
-	
-	``` latex
-	
-	% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
-	
-	\begin{align}  
-	a & = b + c \\  
-	& = d + e  
-	\end{align}
-	```
-	
+``` latex
 
+% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
+
+\begin{align}  
+a & = b + c \\  
+& = d + e  
+\end{align}
+```
+
+
+
+**分段函数**
 
 === "显示结果"
 
@@ -120,7 +123,6 @@ tags:
 	$$
 
 === “latex”
-	
 	``` latex
 	|x| = \left\{  
 	\begin{array}{l}  
@@ -131,6 +133,9 @@ tags:
 	```
 
 
+
+**分段函数**
+
 === "显示结果"
 
 	$$
@@ -145,7 +150,6 @@ tags:
 	$$
 
 === “latex”
-	
 	``` latex
 	\begin{equation} 
 	\lambda(C_L, C_R)=\left\{ 
@@ -159,6 +163,8 @@ tags:
 	
 
 
+**方程组**
+
 === "显示结果"
 
 	$$
@@ -170,7 +176,6 @@ tags:
 	$$
 
 === “latex”
-	
 	``` latex
 	\begin{gather*} 
 	x = X_{c_{1}} \\
@@ -178,6 +183,7 @@ tags:
 	z = X_{c_{3}} \\
 	\end{gather*}
 	```
+	
 
 
 [latex学习笔记:多行公式\_latex 多行公式\_假装忙碌的人的博客-CSDN博客](https://blog.csdn.net/weixin_43659721/article/details/115246629)
@@ -219,7 +225,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 			a & b & c & d\\ 
 		\end{array}
 	\right]
-	```
+	%% %%  %% %%```
 
 
 **圆括号矩阵**
@@ -263,7 +269,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\right\}
 	$$
 === “latex”
-
 	``` latex
 	\left\{
 		\begin{array}{cccc}
@@ -273,7 +278,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 			a & b & c & d\\ 
 		\end{array}
 	\right\}
-	
 	```
 
 
@@ -359,7 +363,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	$$
 
 === “latex”
-
 	``` latex
 	\left[
 	\begin{array}{cc|cc}
@@ -369,8 +372,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	a & b & c & d\\ 
 	\end{array}
 	\right]
-	
-	
 	\left[
 	\begin{array}{c:ccc}
 	a & b & c & d\\
@@ -379,8 +380,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	a & b & c & d\\ 
 	\end{array}
 	\right]
-	
-	
 	\left[
 	\begin{array}{cccc}
 	a & b & c & d\\
@@ -390,8 +389,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	a & b & c & d\\ 
 	\end{array}
 	\right]
-	
-	
 	\left[
 	\begin{array}{cccc}
 	a & b & c & d\\
@@ -401,8 +398,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	a & b & c & d\\ 
 	\end{array}
 	\right]
-	
-	
 	\left[
 	\begin{array}{c:c|c:c}
 	a & b & c & d\\
@@ -413,9 +408,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	a & b & c & d\\ 
 	\end{array}
 	\right]
-	
 	```
-
 
 
 
@@ -436,9 +429,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	$$
 
 === “latex”
-
 	``` latex
-	
 	\mathbf{X} = \left(  
 	\begin{array} {cccc}  
 	x_{11} & x_{12} & \ldots & x_{1n}\\  
@@ -447,7 +438,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	x_{n1} & x_{n2} & \ldots & x_{nn}\\  
 	\end{array}  
 	\right)   
-	
 	```
 
 
@@ -530,6 +520,8 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	1 & 2 \\ 3 & 4  
 	\end{Vmatrix}  
 	```
+
+
 
 > [!notes]
 > 这种写法要记太多，不如使用 `array` 统一
