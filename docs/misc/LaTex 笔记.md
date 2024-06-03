@@ -177,84 +177,83 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 **方括号矩阵**
 === "显示结果"
 
-$$
-\left[
-\begin{array}{cccc}
-a & b & c & d\\
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
-$$
+	$$
+	\left[
+	\begin{array}{cccc}
+	a & b & c & d\\
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	$$
 
 === "latex"
-``` latex
-\left[
-	\begin{array}{cccc}
-		a & b & c & d\\
-		a & b & c & d\\
-		a & b & c & d\\ 
-		a & b & c & d\\ 
-	\end{array}
-\right]
-```
+	``` latex
+	\left[
+		\begin{array}{cccc}
+			a & b & c & d\\
+			a & b & c & d\\
+			a & b & c & d\\ 
+			a & b & c & d\\ 
+		\end{array}
+	\right]
+	```
 
 
 **圆括号矩阵**
 === "显示结果"
 
-$$
-\left(
-\begin{array}{cccc}
-a & b & c & d\\
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right)
-$$
+	$$
+	\left(
+	\begin{array}{cccc}
+	a & b & c & d\\
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right)
+	$$
 
 === "latex"
-``` latex
-\left(
-	\begin{array}{cccc}
-		a & b & c & d\\
-		a & b & c & d\\
-		a & b & c & d\\ 
-		a & b & c & d\\ 
-	\end{array}
-\right)
-```
+	``` latex
+	\left(
+		\begin{array}{cccc}
+			a & b & c & d\\
+			a & b & c & d\\
+			a & b & c & d\\ 
+			a & b & c & d\\ 
+		\end{array}
+	\right)
+	```
 
 
 **尖括号矩阵**
 === "显示结果"
 
-$$
-\left\{
-\begin{array}{cccc}
-a & b & c & d\\
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right\}
-$$
+	$$
+	\left\{
+	\begin{array}{cccc}
+	a & b & c & d\\
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right\}
+	$$
 
 === “latex”
-
-``` latex
-\left\{
-	\begin{array}{cccc}
-		a & b & c & d\\
-		a & b & c & d\\
-		a & b & c & d\\ 
-		a & b & c & d\\ 
-	\end{array}
-\right\}
-
-```
+	``` latex
+	\left\{
+		\begin{array}{cccc}
+			a & b & c & d\\
+			a & b & c & d\\
+			a & b & c & d\\ 
+			a & b & c & d\\ 
+		\end{array}
+	\right\}
+	
+	```
 
 
 
@@ -282,150 +281,150 @@ $$
 
 === "显示结果"
 
-$$
-\left[
-\begin{array}{cc|cc}
-a & b & c & d\\
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
-$$
+	$$
+	\left[
+	\begin{array}{cc|cc}
+	a & b & c & d\\
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	$$
 
-$$
-\left[
-\begin{array}{c:ccc}
-a & b & c & d\\
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
-$$
-
-$$
-\left[
-\begin{array}{cccc}
-a & b & c & d\\
-\hline
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
-$$
-
-$$
-\left[
-\begin{array}{c:c|c:c}
-a & b & c & d\\
-\hline
-a & b & c & d\\
-\hdashline
-a & b & c & d\\
-a & b & c & d\\ 
-\end{array}
-\right]
-$$
-
-$$
-\left[
-\begin{array}{c:ccc}
-a & b & c & d\\
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
-$$
+	$$
+	\left[
+	\begin{array}{c:ccc}
+	a & b & c & d\\
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	$$
+	
+	$$
+	\left[
+	\begin{array}{cccc}
+	a & b & c & d\\
+	\hline
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	$$
+	
+	$$
+	\left[
+	\begin{array}{c:c|c:c}
+	a & b & c & d\\
+	\hline
+	a & b & c & d\\
+	\hdashline
+	a & b & c & d\\
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	$$
+	
+	$$
+	\left[
+	\begin{array}{c:ccc}
+	a & b & c & d\\
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	$$
 
 === “latex”
-``` latex
-\left[
-\begin{array}{cc|cc}
-a & b & c & d\\
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
+	``` latex
+	\left[
+	\begin{array}{cc|cc}
+	a & b & c & d\\
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	
+	
+	\left[
+	\begin{array}{c:ccc}
+	a & b & c & d\\
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	
+	
+	\left[
+	\begin{array}{cccc}
+	a & b & c & d\\
+	\hline
+	a & b & c & d\\
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	
+	
+	\left[
+	\begin{array}{cccc}
+	a & b & c & d\\
+	a & b & c & d\\
+	\hdashline
+	a & b & c & d\\ 
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	
+	
+	\left[
+	\begin{array}{c:c|c:c}
+	a & b & c & d\\
+	\hline
+	a & b & c & d\\
+	\hdashline
+	a & b & c & d\\
+	a & b & c & d\\ 
+	\end{array}
+	\right]
+	
+	```
 
 
-\left[
-\begin{array}{c:ccc}
-a & b & c & d\\
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
 
-
-\left[
-\begin{array}{cccc}
-a & b & c & d\\
-\hline
-a & b & c & d\\
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
-
-
-\left[
-\begin{array}{cccc}
-a & b & c & d\\
-a & b & c & d\\
-\hdashline
-a & b & c & d\\ 
-a & b & c & d\\ 
-\end{array}
-\right]
-
-
-\left[
-\begin{array}{c:c|c:c}
-a & b & c & d\\
-\hline
-a & b & c & d\\
-\hdashline
-a & b & c & d\\
-a & b & c & d\\ 
-\end{array}
-\right]
-
-```
-
-
-
-**矩阵省略写法**
+**矩阵省略号写法**
 === "显示结果"
 
-$$  
-\mathbf{X} = \left(  
-\begin{array} {cccc}
-x_{11} & x_{12} & \ldots & x_{1n}\\  
-x_{21} & x_{22} & \ldots & x_{2n}\\  
-\vdots & \vdots & \ddots & \vdots\\  
-x_{n1} & x_{n2} & \ldots & x_{nn}\\  
-\end{array}  
-\right)   
-$$
+	$$
+	\mathbf{X} = \left(  
+	\begin{array} {cccc}
+	x_{11} & x_{12} & \ldots & x_{1n}\\  
+	x_{21} & x_{22} & \ldots & x_{2n}\\  
+	\vdots & \vdots & \ddots & \vdots\\  
+	x_{n1} & x_{n2} & \ldots & x_{nn}\\  
+	\end{array}  
+	\right)   
+	$$
 
 === “latex”
-``` latex
-
-\mathbf{X} = \left(  
-\begin{array} {cccc}  
-x_{11} & x_{12} & \ldots & x_{1n}\\  
-x_{21} & x_{22} & \ldots & x_{2n}\\  
-\vdots & \vdots & \ddots & \vdots\\  
-x_{n1} & x_{n2} & \ldots & x_{nn}\\  
-\end{array}  
-\right)   
-
-```
+	``` latex
+	
+	\mathbf{X} = \left(  
+	\begin{array} {cccc}  
+	x_{11} & x_{12} & \ldots & x_{1n}\\  
+	x_{21} & x_{22} & \ldots & x_{2n}\\  
+	\vdots & \vdots & \ddots & \vdots\\  
+	x_{n1} & x_{n2} & \ldots & x_{nn}\\  
+	\end{array}  
+	\right)   
+	
+	```
 
 
 
@@ -435,119 +434,122 @@ x_{n1} & x_{n2} & \ldots & x_{nn}\\
 
 === "显示结果"
 
-$$
-\mathbf{H}=  
-\left[
-	\begin{array}{cc}
-		\dfrac{\partial^2 f}{\partial x^2} &  
-		\dfrac{\partial^2 f}{\partial x \partial y} \\  
-		\dfrac{\partial^2 f}{\partial x \partial y} &  
-		\dfrac{\partial^2 f}{\partial y^2}  
-	\end{array} 
-\right]
-$$
+	$$
+	\mathbf{H}=  
+	\left[
+		\begin{array}{cc}
+			\dfrac{\partial^2 f}{\partial x^2} &  
+			\dfrac{\partial^2 f}{\partial x \partial y} \\  
+			\dfrac{\partial^2 f}{\partial x \partial y} &  
+			\dfrac{\partial^2 f}{\partial y^2}  
+		\end{array} 
+	\right]
+	$$
 
 === “latex”
-``` latex
-\mathbf{H}=  
-\left[
-	\begin{array}
-		\dfrac{\partial^2 f}{\partial x^2} &  
-		\dfrac{\partial^2 f}  {\partial x \partial y} \\  
-		\dfrac{\partial^2 f}  {\partial x \partial y} &  
-		\dfrac{\partial^2 f}{\partial y^2}  
-	\end{array} 
-\right]
-```
+	``` latex
+	\mathbf{H}=  
+	\left[
+		\begin{array}
+			\dfrac{\partial^2 f}{\partial x^2} &  
+			\dfrac{\partial^2 f}  {\partial x \partial y} \\  
+			\dfrac{\partial^2 f}  {\partial x \partial y} &  
+			\dfrac{\partial^2 f}{\partial y^2}  
+		\end{array} 
+	\right]
+	```
 
 ### 其它写法
 === "显示结果"
 
-$$  
-\begin{pmatrix}  
-1 & 2 \\ 3 & 4  
-\end{pmatrix}  
-\qquad  
-\begin{bmatrix}  
-1 & 2 \\ 3 & 4  
-\end{bmatrix}  
-\qquad  
-\begin{Bmatrix}  
-1 & 2 \\ 3 & 4  
-\end{Bmatrix}  
-\qquad  
-\begin{vmatrix}  
-1 & 2 \\ 3 & 4  
-\end{vmatrix}  
-\qquad  
-\begin{Vmatrix}  
-1 & 2 \\ 3 & 4  
-\end{Vmatrix}  
-$$
+	$$  
+	\begin{pmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{pmatrix}  
+	\qquad  
+	\begin{bmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{bmatrix}  
+	\qquad  
+	\begin{Bmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{Bmatrix}  
+	\qquad  
+	\begin{vmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{vmatrix}  
+	\qquad  
+	\begin{Vmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{Vmatrix}  
+	$$
 
 === “latex”
-``` latex
-
-\begin{pmatrix}  
-1 & 2 \\ 3 & 4  
-\end{pmatrix}  
-\qquad  
-\begin{bmatrix}  
-1 & 2 \\ 3 & 4  
-\end{bmatrix}  
-\qquad  
-\begin{Bmatrix}  
-1 & 2 \\ 3 & 4  
-\end{Bmatrix}  
-\qquad  
-\begin{vmatrix}  
-1 & 2 \\ 3 & 4  
-\end{vmatrix}  
-\qquad  
-\begin{Vmatrix}  
-1 & 2 \\ 3 & 4  
-\end{Vmatrix}  
-
-```
+	``` latex
+	\begin{pmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{pmatrix}  
+	\qquad  
+	\begin{bmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{bmatrix}  
+	\qquad  
+	\begin{Bmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{Bmatrix}  
+	\qquad  
+	\begin{vmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{vmatrix}  
+	\qquad  
+	\begin{Vmatrix}  
+	1 & 2 \\ 3 & 4  
+	\end{Vmatrix}  
+	```
 
 > [!notes]
 > 这种写法要记太多，不如使用 `array` 统一
+
+
+
+
 
 ## 数学字母字体
 
 **手写体**
 
+
 === "显示结果"
-$\mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R}$  
+
+	$$ \mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R} $$
 === “latex”
-``` latex
-\mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R}
-```
+	``` latex
+	\mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R}
+	```
 
 
 
 **手写体例子**
 === "显示结果"
 
-$$\mathcal{L}  
-= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$$  
+	$$\mathcal{L}  
+	= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$$
+  
 === “latex”
-``` latex
-\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
-```
+	``` latex
+	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+	```
 
 
 **李代数**
 === "显示结果"
-$\mathfrak{su}(2)$   
-$\mathfrak{so}(3)$
+	$\mathfrak{su}(2)$   
+	$\mathfrak{so}(3)$
 === “latex”
-
-``` latex
-\mathfrak{su}(2)
-
-\mathfrak{so}(3)
-```
+	``` latex
+	\mathfrak{su}(2)
+	\mathfrak{so}(3)
+	```
 
 
 ## 箭头

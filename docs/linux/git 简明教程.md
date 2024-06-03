@@ -505,3 +505,22 @@ Git 命令操作可视化
 
 [🌳🚀 CS Visualized: Useful Git Commands - DEV Community](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#rebase)
 
+
+## 忽略`.gitignore`
+
+可以直接将 `.gitignore` 文件本身添加到 `.gitignore` 文件中，这样 Git 会忽略它。
+
+不过，这种方法通常不会起作用，因为 Git 会在读取 `.gitignore` 文件时忽略它自己。
+
+可以尝试以下步骤：
+
+``` bash
+# 在 `.gitignore` 文件中添加 `.gitignore`
+
+# 移除对 `.gitignore` 文件的跟踪
+git rm --cached .gitignore
+
+# 提交更改
+git commit -m "Stop tracking .gitignore"
+
+```
