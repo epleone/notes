@@ -85,79 +85,100 @@ tags:
 
 ## 多行公式
 
-``` latex
+=== "显示结果"
 
-% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
+	$$  
+	\begin{align}  
+	a & = b + c \\  
+	& = d + e  
+	\end{align}  
+	$$
 
-\begin{align}  
-a & = b + c \\  
-& = d + e  
-\end{align}
-```
+=== “latex”
+	
+	``` latex
+	
+	% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
+	
+	\begin{align}  
+	a & = b + c \\  
+	& = d + e  
+	\end{align}
+	```
+	
 
-$$  
-\begin{align}  
-a & = b + c \\  
-& = d + e  
-\end{align}  
-$$
 
-``` latex
-|x| = \left\{  
-\begin{array}{l}  
--x & \text{if } x < 0,\\  
-0 & \text{if } x = 0,\\  
-x & \text{if } x > 0.  
-\end{array} \right.
+=== "显示结果"
 
-```
+	$$  
+	|x| = \left\{  
+	\begin{array}{l}  
+	-x & \text{if } x < 0,\\  
+	0 & \text{if } x = 0,\\  
+	x & \text{if } x > 0.  
+	\end{array} \right.   
+	$$
 
-$$  
-|x| = \left\{  
-\begin{array}{l}  
--x & \text{if } x < 0,\\  
-0 & \text{if } x = 0,\\  
-x & \text{if } x > 0.  
-\end{array} \right.   
-$$
+=== “latex”
+	
+	``` latex
+	|x| = \left\{  
+	\begin{array}{l}  
+	-x & \text{if } x < 0,\\  
+	0 & \text{if } x = 0,\\  
+	x & \text{if } x > 0.  
+	\end{array} \right.
+	```
 
-``` latex
-\begin{equation} 
-\lambda(C_L, C_R)=\left\{ 
-\begin{aligned}
-0, & , & d > IF, \\ 
-\frac{IF - d}{d} ||C_L - C_R||_1 &,& d <= IF 
-\end{aligned} 
-\right. 
-\end{equation}
-```
 
-$$
-\begin{equation} 
-\lambda(C_L, C_R)=\left\{ 
-\begin{aligned}
-0, & , & d > IF, \\ 
-\frac{IF - d}{d} ||C_L - C_R||_1 &,& d <= IF 
-\end{aligned} 
-\right. 
-\end{equation}
-$$
+=== "显示结果"
 
-``` latex
-\begin{gather*} 
-x = X_{c_{1}} \\
-y = X_{c_{2}} \\
-z = X_{c_{3}} \\
-\end{gather*}
-```
+	$$
+	\begin{equation} 
+	\lambda(C_L, C_R)=\left\{ 
+	\begin{aligned}
+	0, & , & d > IF, \\ 
+	\frac{IF - d}{d} ||C_L - C_R||_1 &,& d <= IF 
+	\end{aligned} 
+	\right. 
+	\end{equation}
+	$$
 
-$$
-\begin{gather*} 
-x = X_{c_{1}} \\
-y = X_{c_{2}} \\
-z = X_{c_{3}} \\
-\end{gather*}
-$$
+=== “latex”
+	
+	``` latex
+	\begin{equation} 
+	\lambda(C_L, C_R)=\left\{ 
+	\begin{aligned}
+	0, & , & d > IF, \\ 
+	\frac{IF - d}{d} ||C_L - C_R||_1 &,& d <= IF 
+	\end{aligned} 
+	\right. 
+	\end{equation}
+	```
+	
+
+
+=== "显示结果"
+
+	$$
+	\begin{gather*} 
+	x = X_{c_{1}} \\
+	y = X_{c_{2}} \\
+	z = X_{c_{3}} \\
+	\end{gather*}
+	$$
+
+=== “latex”
+	
+	``` latex
+	\begin{gather*} 
+	x = X_{c_{1}} \\
+	y = X_{c_{2}} \\
+	z = X_{c_{3}} \\
+	\end{gather*}
+	```
+
 
 [latex学习笔记:多行公式\_latex 多行公式\_假装忙碌的人的博客-CSDN博客](https://blog.csdn.net/weixin_43659721/article/details/115246629)
 
@@ -241,8 +262,8 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\end{array}
 	\right\}
 	$$
-
 === “latex”
+
 	``` latex
 	\left\{
 		\begin{array}{cccc}
@@ -254,8 +275,6 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\right\}
 	
 	```
-
-
 
 
 ### 分块矩阵
@@ -340,6 +359,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	$$
 
 === “latex”
+
 	``` latex
 	\left[
 	\begin{array}{cc|cc}
@@ -398,7 +418,10 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 
 
 
+
 **矩阵省略号写法**
+
+
 === "显示结果"
 
 	$$
@@ -413,6 +436,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	$$
 
 === “latex”
+
 	``` latex
 	
 	\mathbf{X} = \left(  
@@ -534,7 +558,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 
 	$$\mathcal{L}  
 	= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$$
-  
+
 === “latex”
 	``` latex
 	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}

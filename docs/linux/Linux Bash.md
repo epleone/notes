@@ -243,6 +243,22 @@ sudo ln -s /usr/local/cuda-10.0 /usr/local/cuda
 
 ```
 
+
+## 设置时区
+
+
+``` bash
+
+# 设置中国时区
+rm -f /etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+# 测试
+date
+
+date -R
+```
+
 ## 其它
 
 
