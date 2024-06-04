@@ -88,31 +88,36 @@ tags:
 **方程**
 
 === "显示结果"
-
-	$$  
+	
+	  $$  
 	\begin{align}  
 	a & = b + c \\  
 	& = d + e  
 	\end{align}  
 	$$
+	
 
-=== “latex”
-``` latex
+=== "Latex"
+	
+	``` latex
+	
+	% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
+	
+	\begin{align}  
+	a & = b + c \\  
+	& = d + e  
+	\end{align}
+	```
+	
 
-% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
 
-\begin{align}  
-a & = b + c \\  
-& = d + e  
-\end{align}
-```
 
 
 
 **分段函数**
 
 === "显示结果"
-
+	
 	$$  
 	|x| = \left\{  
 	\begin{array}{l}  
@@ -121,8 +126,10 @@ a & = b + c \\
 	x & \text{if } x > 0.  
 	\end{array} \right.   
 	$$
+	
 
-=== “latex”
+=== "Latex"
+	
 	``` latex
 	|x| = \left\{  
 	\begin{array}{l}  
@@ -131,13 +138,13 @@ a & = b + c \\
 	x & \text{if } x > 0.  
 	\end{array} \right.
 	```
-
+	
 
 
 **分段函数**
 
 === "显示结果"
-
+	
 	$$
 	\begin{equation} 
 	\lambda(C_L, C_R)=\left\{ 
@@ -148,8 +155,10 @@ a & = b + c \\
 	\right. 
 	\end{equation}
 	$$
+	
 
-=== “latex”
+=== "Latex"
+	
 	``` latex
 	\begin{equation} 
 	\lambda(C_L, C_R)=\left\{ 
@@ -166,7 +175,7 @@ a & = b + c \\
 **方程组**
 
 === "显示结果"
-
+	
 	$$
 	\begin{gather*} 
 	x = X_{c_{1}} \\
@@ -174,8 +183,10 @@ a & = b + c \\
 	z = X_{c_{3}} \\
 	\end{gather*}
 	$$
+	
 
-=== “latex”
+=== "Latex"
+	
 	``` latex
 	\begin{gather*} 
 	x = X_{c_{1}} \\
@@ -188,7 +199,7 @@ a & = b + c \\
 
 [latex学习笔记:多行公式\_latex 多行公式\_假装忙碌的人的博客-CSDN博客](https://blog.csdn.net/weixin_43659721/article/details/115246629)
 
-PS: 这里的 `&` &应该是类似分割符，确定位置的作用
+PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 
 
 ## 矩阵
@@ -215,7 +226,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\right]
 	$$
 
-=== "latex"
+=== "Latex"
 	``` latex
 	\left[
 		\begin{array}{cccc}
@@ -225,7 +236,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 			a & b & c & d\\ 
 		\end{array}
 	\right]
-	%% %%  %% %%```
+	```
 
 
 **圆括号矩阵**
@@ -256,8 +267,9 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 
 
 **尖括号矩阵**
-=== "显示结果"
 
+=== "显示结果"
+	
 	$$
 	\left\{
 	\begin{array}{cccc}
@@ -268,7 +280,9 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\end{array}
 	\right\}
 	$$
-=== “latex”
+
+=== "Latex"
+	
 	``` latex
 	\left\{
 		\begin{array}{cccc}
@@ -279,7 +293,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 		\end{array}
 	\right\}
 	```
-
+	
 
 ### 分块矩阵
 
@@ -303,7 +317,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 
 
 === "显示结果"
-
+	
 	$$
 	\left[
 	\begin{array}{cc|cc}
@@ -314,7 +328,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\end{array}
 	\right]
 	$$
-
+	
 	$$
 	\left[
 	\begin{array}{c:ccc}
@@ -361,8 +375,10 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\end{array}
 	\right]
 	$$
+	
 
-=== “latex”
+=== "Latex"
+
 	``` latex
 	\left[
 	\begin{array}{cc|cc}
@@ -428,7 +444,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\right)   
 	$$
 
-=== “latex”
+=== "Latex"
 	``` latex
 	\mathbf{X} = \left(  
 	\begin{array} {cccc}  
@@ -460,7 +476,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\right]
 	$$
 
-=== “latex”
+=== "Latex"
 	``` latex
 	\mathbf{H}=  
 	\left[
@@ -472,6 +488,8 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 		\end{array} 
 	\right]
 	```
+
+
 
 ### 其它写法
 === "显示结果"
@@ -498,7 +516,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	\end{Vmatrix}  
 	$$
 
-=== “latex”
+=== "Latex"
 	``` latex
 	\begin{pmatrix}  
 	1 & 2 \\ 3 & 4  
@@ -538,7 +556,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 === "显示结果"
 
 	$$ \mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R} $$
-=== “latex”
+=== "Latex"
 	``` latex
 	\mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R}
 	```
@@ -551,7 +569,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 	$$\mathcal{L}  
 	= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$$
 
-=== “latex”
+=== "Latex"
 	``` latex
 	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
 	```
@@ -561,7 +579,7 @@ PS: 这里的 `&` &应该是类似分割符，确定位置的作用
 === "显示结果"
 	$\mathfrak{su}(2)$   
 	$\mathfrak{so}(3)$
-=== “latex”
+=== "Latex"
 	``` latex
 	\mathfrak{su}(2)
 	\mathfrak{so}(3)

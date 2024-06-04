@@ -94,6 +94,9 @@ https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
     ...
 ```
 
+> [!warning] 注意 `"xxx"`  的`"` 不要写错成`”`。
+
+
 **文字示例（不含缩进）**
 
 === "numpy"
