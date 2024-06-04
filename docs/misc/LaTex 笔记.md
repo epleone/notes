@@ -100,7 +100,7 @@ tags:
 === "Latex"
 	
 	``` latex
-	
+		
 	% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
 	
 	\begin{align}  
@@ -320,7 +320,7 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	
 	$$
 	\left[
-	\begin{array}{cc|cc}
+	\begin{array}{c:c|c:c}
 	a & b & c & d\\
 	a & b & c & d\\
 	a & b & c & d\\ 
@@ -328,30 +328,51 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	\end{array}
 	\right]
 	$$
-	
-	$$
-	\left[
-	\begin{array}{c:ccc}
-	a & b & c & d\\
-	a & b & c & d\\
-	a & b & c & d\\ 
-	a & b & c & d\\ 
-	\end{array}
-	\right]
-	$$
-	
+
+=== "Latex"
+	``` latex
+		\left[
+		\begin{array}{c:c|c:c}
+		a & b & c & d\\
+		a & b & c & d\\
+		a & b & c & d\\ 
+		a & b & c & d\\ 
+		\end{array}
+		\right]
+	```
+
+
+=== "显示结果"
 	$$
 	\left[
 	\begin{array}{cccc}
 	a & b & c & d\\
 	\hline
 	a & b & c & d\\
-	a & b & c & d\\ 
+	a & b & c & d\\
+	\hdashline
 	a & b & c & d\\ 
 	\end{array}
 	\right]
 	$$
-	
+
+=== "Latex"
+	``` latex
+		\left[
+		\begin{array}{cccc}
+		a & b & c & d\\
+		\hline
+		a & b & c & d\\
+		a & b & c & d\\
+	    \hdashline
+		a & b & c & d\\ 
+		\end{array}
+		\right]
+	```
+
+
+
+=== "显示结果"
 	$$
 	\left[
 	\begin{array}{c:c|c:c}
@@ -360,17 +381,6 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	a & b & c & d\\
 	\hdashline
 	a & b & c & d\\
-	a & b & c & d\\ 
-	\end{array}
-	\right]
-	$$
-	
-	$$
-	\left[
-	\begin{array}{c:ccc}
-	a & b & c & d\\
-	a & b & c & d\\
-	a & b & c & d\\ 
 	a & b & c & d\\ 
 	\end{array}
 	\right]
@@ -378,52 +388,17 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	
 
 === "Latex"
-
 	``` latex
-	\left[
-	\begin{array}{cc|cc}
-	a & b & c & d\\
-	a & b & c & d\\
-	a & b & c & d\\ 
-	a & b & c & d\\ 
-	\end{array}
-	\right]
-	\left[
-	\begin{array}{c:ccc}
-	a & b & c & d\\
-	a & b & c & d\\
-	a & b & c & d\\ 
-	a & b & c & d\\ 
-	\end{array}
-	\right]
-	\left[
-	\begin{array}{cccc}
-	a & b & c & d\\
-	\hline
-	a & b & c & d\\
-	a & b & c & d\\ 
-	a & b & c & d\\ 
-	\end{array}
-	\right]
-	\left[
-	\begin{array}{cccc}
-	a & b & c & d\\
-	a & b & c & d\\
-	\hdashline
-	a & b & c & d\\ 
-	a & b & c & d\\ 
-	\end{array}
-	\right]
-	\left[
-	\begin{array}{c:c|c:c}
-	a & b & c & d\\
-	\hline
-	a & b & c & d\\
-	\hdashline
-	a & b & c & d\\
-	a & b & c & d\\ 
-	\end{array}
-	\right]
+		\left[
+		\begin{array}{c:c|c:c}
+		a & b & c & d\\
+		\hline
+		a & b & c & d\\
+		\hdashline
+		a & b & c & d\\
+		a & b & c & d\\ 
+		\end{array}
+		\right]
 	```
 
 
