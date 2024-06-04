@@ -46,7 +46,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
-  - admonition   # callout
+  - callouts
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
