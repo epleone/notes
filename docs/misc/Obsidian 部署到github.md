@@ -159,6 +159,9 @@ When [SuperFences](https://squidfunk.github.io/mkdocs-material/setup/extensions
 https://github.com/squidfunk/mkdocs-material/issues/6667
 
 
+[GitHub - sondregronas/mkdocs-callouts: A simple MkDocs plugin that converts Obsidian callout blocks to mkdocs supported Admonitions.](https://github.com/sondregronas/mkdocs-callouts)
+
+
 !!! example
     === "Unordered List"
 

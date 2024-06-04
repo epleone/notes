@@ -41,12 +41,13 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - def_list
+  - nl2br
+  - admonition
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
-  - callouts
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
@@ -64,6 +65,7 @@ markdown_extensions:
 
 plugins:
   - search
+  - callouts
   # - typeset
   - roamlinks
   # - blog
