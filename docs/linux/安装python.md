@@ -97,8 +97,9 @@ pip install numpy==1.23
 ```
 
 
-## PIP
-### 换pip源
+## 包管理
+### PIP
+#### 国内镜像和源
 
 ```bash
 # 清华源
@@ -113,19 +114,6 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  XXXX
 ```
 
 
-### 多版本pip
-
-```sh
-# 在多版本python中，可以使用-m, 调用python下面的pip模块
-
-python -m pip libname
-python3.5  -m pip linname
-
-```
-
-  
-
-### 国内镜像
 
 ```sh
 # 使用清华镜像
@@ -140,7 +128,19 @@ pip config unset global.index-url
 
   
 
-### 清除缓存
+#### 多版本pip
+
+```sh
+# 在多版本python中，可以使用-m, 调用python下面的pip模块
+
+python -m pip libname
+python3.5  -m pip linname
+
+```
+
+  
+
+#### 清除缓存
 
 ```sh
 # Ubuntu
@@ -151,6 +151,63 @@ sudo rm -r ~/.cache/pip
 ```
 
 
-## Conda
+### Conda
 
 > [!todo]
+
+
+## 环境管理
+
+主流环境管理工具有[pyenv](https://github.com/pyenv/pyenv)、[virtualenv](https://github.com/pyenv/pyenv-virtualenv)、`pipenv` 和 [conda](https://github.com/conda/conda)
+
+1. **pyenv**
+功能重点：pyenv主要用于管理不同版本的Python解释器。它允许你在同一系统中安装和使用多个版本的Python，而不会相互冲突。
+使用场景：适用于需要在同一系统中切换多个Python版本的场景，如测试不同Python版本的兼容性。
+
+2. **virtualenv**
+功能重点：virtualenv是一个用于创建隔离的Python环境的工具。每个环境都可以有自己的Python版本（虽然这通常是由pyenv或系统Python提供的）和一组库。
+使用场景：适用于需要为每个项目创建隔离的Python环境的场景，避免不同项目之间的依赖包版本冲突。
+
+3. **pipenv**
+功能重点：pipenv旨在将pip和virtualenv的功能结合在一起，提供一个更加便捷的包管理和环境隔离方案。它使用Pipfile和Pipfile.lock来管理依赖，更加直观和方便。
+使用场景：适用于需要同时管理项目依赖和隔离环境的场景，特别是在注重开发流程和环境一致性的项目中。
+
+4. **conda**
+功能重点：conda是一个跨平台的包和环境管理器，它可以安装Python以及其他语言的包。conda特别适用于处理复杂的依赖关系和非Python包，如在数据科学和机器学习项目中常用的库。Conda不仅限于Python软件包，它还可以用来管理来自不同语言的软件包，如R、Ruby、Lua、Scala、Java、JavaScript、C/C++等，这使得Conda成为一个跨语言的环境管理器。
+使用场景：适用于需要管理跨语言依赖、特别是在数据科学和机器学习领域的项目，或者在需要快速安装和管理复杂依赖的环境中。
+
+总结：
+
+**Python版本管理：pyenv**
+虚拟环境隔离：virtualenv
+依赖管理+虚拟环境：pipenv
+**跨平台包和环境管理，适用于复杂依赖：conda**
+
+### pyenv
+
+``` bash
+# virtual environments from pyenv
+pyenv install 3.6.9
+pyenv virtualenv 3.6.9 new-env
+pyenv activate new-env
+pyenv deactive
+# You can also use `pyenv local`
+```
+
+[zhuanlan.zhihu.com/p/609726377](https://zhuanlan.zhihu.com/p/609726377)
+
+[zhuanlan.zhihu.com/p/668259686](https://zhuanlan.zhihu.com/p/668259686)
+
+### Conda
+
+``` bash
+
+# virtual environments from conda
+conda create -n new-env python=3.6
+conda env list
+conda activate new-env
+conda deactivate
+
+```
+
+

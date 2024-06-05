@@ -524,3 +524,64 @@ git rm --cached .gitignore
 git commit -m "Stop tracking .gitignore"
 
 ```
+
+
+## 配置文件 .gitattributes
+
+Git版本管控工具功能强大，在使用过程中，在多人合作的项目开发过程中，经常会遇到提交代码时出现的warning提醒，尤其是换行符。
+
+Linux/Unix/Mac OS操作系统的换行符使用`LF` (`\n`)，而Windows使用`CR (\r) LF(\n)`作为换行符。
+`CR`：Carriage Return，回车
+`LF`：Line Feed，换行
+
+`git` 可以通过设置 `core.autocrlf` 变量为`true`, `false`, `input`，来控制换行符的表现。
+
+``` bash
+
+# 查看
+git config core.autocrlf
+
+# 设置
+git config --global core.autocrlf true
+
+# 取消
+git config --global --unset core.autocrlf
+```
+
+> [!quote]
+> 1. [Git - gitattributes Documentation](https://git-scm.com/docs/gitattributes)
+> 2. [.gitattributes 作用详细讲解（git大佬必会技能)-CSDN博客](https://blog.csdn.net/qq_35425070/article/details/106883833)
+> 3. [gitattributes配置文件的作用\_.gitattributes-CSDN博客](https://blog.csdn.net/yanlaifan/article/details/135183823)
+> 4. [git - Prevent VSCode to CRLF files - Stack Overflow](https://stackoverflow.com/questions/71081340/prevent-vscode-to-crlf-files)
+> 5. [VSCode, WSL, Git & line endings (CRLF/LF), I can't get it working... : r/bashonubuntuonwindows](https://www.reddit.com/r/bashonubuntuonwindows/comments/ee2s68/vscode_wsl_git_line_endings_crlflf_i_cant_get_it/)
+
+
+
+>[!warning] must set Git in windows to use linux file endings
+>  在Windows下使用git, 需要设置linux换行符
+>
+
+``` 
+# 见 `quote 5`
+
+- You are using Git for Windows.
+You must set Git in windows to use linux file endings, OR stop using Git for Windows. Use Git contained in your WSL distribution.
+
+
+- How do I set Git for Windows to use linux file endings?
+You mean with git config --global core.eol lf ? Also I set lf in VSCode, manually...
+Or you mean another option?
+Maybe the best is really to uninstall Git for Windows, but still I would like to know if you meant something else...
+
+
+- Set core.autocrlf to input -- this will convert windows newlines to unix when committing, but when checking out it will check out the original unix newlines.
+Now, delete all the files in your project (except the .git directory) and check out the latest commit again. This time, when it creates all the files, it will create them with unix newlines and you should be able to see "LF" in the VS code status bar.
+Core.eol has no effect when core.autocrlf is set so there's no need to adjust that.
+
+- woohoo i got it working!!
+i used @ git for windows autocrlf input, @ wsl autocrlf false.
+i deleted the files, made a git checkout -- . from WSL (when i made the checkout from git for windows i had the problem again) and now finally it is working!
+thank you all!
+**edit: yes, absolutly making the checkout on WSL makes the difference. What is funny because VSCode shows me on both files, also when i checkout on git for windows, that they use LF. sombody maybe knows why it behaves like this?**
+
+```
