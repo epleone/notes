@@ -228,3 +228,27 @@ obsidian直接黏贴文件会使用双链 `![[]]` 语法, 对网上blog兼容性
 
 mkdocs-roamlinks 支持双链
 https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
+
+
+## ?换行插件
+
+用`<br>` 代替原始的换行，保证排版格式
+
+[Forcing a newline / hard line break / carriage return - canonical - Help - Obsidian Forum](https://forum.obsidian.md/t/forcing-a-newline-hard-line-break-carriage-return-canonical/8789)
+
+[入门指南 | Obsidian 插件开发文档](https://luhaifeng666.github.io/obsidian-plugin-docs-zh/zh2.0/getting-started/)
+
+[AI 编程-从零开始写一个 Obsidian 插件 - mdnice 墨滴](https://mdnice.com/writing/bc13d8104cea468b8aa7bed1c40cba72)
+
+用正则匹配替换即可？
+
+``` bash
+
+# 匹配空行
+^\n$
+
+# 换成br
+<br>
+```
+
+
