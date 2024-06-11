@@ -55,6 +55,29 @@ ax.set_ylabel('ylabel')
 
 
 
+``` python
+
+# 单行子图
+# fig, axs = plt.subplots(1, n)
+fig, axs = plt.subplots(n)  # 和上面等价
+
+# 清除子图
+for ax in axs:
+    ax.clear()
+
+
+# 多行子图
+fig, axs = plt.subplots(2, n)
+
+for ax_row in axs:
+    for ax in ax_row:
+        ax.clear()
+
+```
+
+ 当`axs `是一个二维的数组，当你使用 `for ax in axs `迭代时，`ax` 实际上是一个数组（`axs` 的一行），所以需要嵌套一层循环来访问单个的` ax`。
+
+
 ### 图像显示
 
 ``` python
