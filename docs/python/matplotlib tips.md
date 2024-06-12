@@ -53,13 +53,16 @@ ax.set_ylabel('ylabel')
 
 ```
 
+函数 `subplots` 的定义是 `def subplots(nrows=1, ncols=1, *, ...)`
+
+所以`plt.subplots(1, n)`  其实是一维数组。
 
 
 ``` python
 
 # 单行子图
-# fig, axs = plt.subplots(1, n)
-fig, axs = plt.subplots(n)  # 和上面等价
+# fig, axs = plt.subplots(1, n) 
+fig, axs = plt.subplots(n)  # 等价于plt.subplots(n, 1)，和上面方向垂直
 
 # 清除子图
 for ax in axs:
@@ -192,6 +195,35 @@ plt.pause(0.5)
 
 
 
+## Backend
+
+常见的错误有 `Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure`
+
+解决方案有：
+
+``` python
+
+# 方案一: 切换后端
+import matplotlib
+matplotlib.use('Agg')  # 使用Agg
+
+import matplotlib.pyplot as plt
+
+
+# 方案二: 保存图片
+import matplotlib.pyplot as plt
+
+# ...
+
+plt.savefig("mygraph.png")
+
+```
+
+
+
+> [!quote]
+> 1. [解决 Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure-CSDN博客](https://blog.csdn.net/qi_yue_yu/article/details/103597831)
+> 2. [python - "UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure." when plotting figure with pyplot on Pycharm - Stack Overflow](https://stackoverflow.com/questions/56656777/userwarning-matplotlib-is-currently-using-agg-which-is-a-non-gui-backend-so)
 
 ## 基础
 
