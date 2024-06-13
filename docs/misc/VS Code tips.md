@@ -56,3 +56,8 @@ Note this setting has to be in the global scope of `settings.json`, not in a `
 ```
 
 [Vscode formatter extension support for python files using yapf](https://marketplace.visualstudio.com/items?itemName=eeyore.yapf)
+
+
+## cmake
+
+[Getting Started — CMake Tools 1.4.0 documentation](https://vector-of-bool.github.io/docs/vscode-cmake-tools/getting_started.html)
