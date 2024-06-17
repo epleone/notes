@@ -207,6 +207,8 @@ plt.pause(0.5)
 import matplotlib
 matplotlib.use('Agg')  # 使用Agg
 
+matplotlib.use('TkAgg') # 使用 TkAgg
+
 import matplotlib.pyplot as plt
 
 
@@ -224,6 +226,7 @@ plt.savefig("mygraph.png")
 > [!quote]
 > 1. [解决 Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure-CSDN博客](https://blog.csdn.net/qi_yue_yu/article/details/103597831)
 > 2. [python - "UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure." when plotting figure with pyplot on Pycharm - Stack Overflow](https://stackoverflow.com/questions/56656777/userwarning-matplotlib-is-currently-using-agg-which-is-a-non-gui-backend-so)
+> 3. [Backends — Matplotlib 3.5.2 documentation](https://matplotlib.org/3.5.2/users/explain/backends.html)
 
 ## 基础
 
