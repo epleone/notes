@@ -24,6 +24,8 @@ tensorflow代码实现：
 [GitHub - bojone/FSQ: Keras implement of Finite Scalar Quantization](https://github.com/bojone/FSQ)
 
 
+[VQVAE在训练时vq_loss不稳定是什么原因？](https://www.zhihu.com/question/452385227)
+
 ## 动机
 
 之前的AE把潜空间编码成了离散的，但这个潜空间的编码点相互之间关系不大，我们没法进行随机采样。也就是是说我编码一个a生成图像A（月牙照片），编码一个b生成图像B（满月照片），那我们取编码a，让编码a朝着b的方向移动一点点，能不能得到一个稍微满一点的月亮呢？不行，很有可能编码出来的东西啥也不是，因为潜空间里的a和b是没啥关系的离散的。所以AE技术基本都是用来抽特征做分类，没法做图像生成。
