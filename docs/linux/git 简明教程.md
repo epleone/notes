@@ -270,8 +270,8 @@ git config --global <key>
 git config <key>
 
 # 指定key为 user.name
-git config --global user.name
-git config --global user.email
+git config --global user.name "用户名"
+git config --global user.email "邮箱"
 
 # 检查本地仓库的远程设置
 git remote -v
