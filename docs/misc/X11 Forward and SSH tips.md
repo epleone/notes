@@ -40,11 +40,10 @@ tags:
         ForwardX11Trusted yes
     ```
 
-    
 
 - 设置DISPLAY：export DISPLAY=255.255.255.255 : 0.0 
 
-​			 
+
 
 ```shell
 # 可以写到~/.bashrc里面去
@@ -70,18 +69,12 @@ export DISPLAY=ip地址:0.0
 1. **在windows上:** 使用命令 `ssh-keygen`  生成密钥对。（因为是在windows上连接服务器, 已经生成好的可以复用）
    
 ``` bash
-ssh-keygen 
 ssh-keygen -t rsa
-ssh-keygen -t rsa -C "your_email@address.com"
 
-# 选项都是可选的
-ssh-keygen -t rsa -b 4096 -f ~/data/key/id_test_rsa -C "xxxxxx@163.com"
--t 密钥类型, dsa | ecdsa | ed25519 | rsa  
--b RSA类型密钥的大小（长度），通常至少应该是 2048，默认 3096
--f 指定私钥的文件名，e.g. ～/.ssh/private_key_name
--C 指定一个注释
+# 或者指定生成名称
+ssh-keygen -t rsa -b 4096 -C "ubuntu server" -f ~/.ssh/ubuntu_id_rsa
 
-#~/data/key下会生成两个文件，私钥：id_test_rsa，公钥：id_test_rsa.pub
+# 会生成两个文件，私钥：ubuntu_id_rsa，公钥：ubuntu_id_rsa.pub
    
 ```
 
@@ -95,15 +88,17 @@ ssh-keygen -t rsa -b 4096 -f ~/data/key/id_test_rsa -C "xxxxxx@163.com"
 
 4. **在windows上:**  在 `用户名/.ssh/config` 配置好 `IdentityFile`项
 
-   ```bash
-   Host server-xx
-       HostName 172.xx.xx.72
-       User root
-       Port xxx
-       ForwardX11 yes
-       ForwardX11Trusted yes
-   	IdentityFile C:\Users\yp3787\.ssh\rsa_id  # 注意对应
-   ```
+``` yaml
+
+Host server-xx
+   HostName 172.xx.xx.72
+   User root
+   Port xxx
+   ForwardX11 yes
+   ForwardX11Trusted yes
+   IdentityFile C:\Users\admin\.ssh\rsa_id  # 注意对应
+   	
+```
 
 5. **在windows上:**  在cmd中输入 ``` ssh server-xx```，即可使用私钥免密登录服务器
 
@@ -130,10 +125,6 @@ e.g. root@106.14.23.168 -i ~/.ssh/id_rsa
 
 -i identity_file 指定私钥文件
 
-
-#如果提示缺权限，给私钥600权限
-chmod 600 id_rsa
-
 ```
 ​    
 
@@ -141,6 +132,53 @@ chmod 600 id_rsa
 
 ​	[设置 SSH 通过密钥登录](https://www.runoob.com/w3cnote/set-ssh-login-key.html)   
 
+
+### 文件权限
+
+- `~/.ssh` 目录的权限：应为 `700`（即 `drwx------`）。
+- 私钥文件 `id_rsa` 的权限：应为 `600`（即 `-rw-------`）。
+- 公钥文件 `id_rsa.pub` 的权限：应为 `644`（即 `-rw-r--r--`）。
+- `authorized_keys`文件的权限：应为 `600`（即 `-rw-------`）。
+
+``` bash
+
+# 注意不同文件的权限是不一样的。
+
+# 设置 ~/.ssh 目录的权限700
+chmod 700 ~/.ssh
+
+# 设置私钥文件的权限600
+chmod 600 ~/.ssh/id_rsa
+
+# 设置公钥文件的权限644
+chmod 644 ~/.ssh/id_rsa.pub
+
+# 设置 authorized_keys 文件的权限600
+chmod 600 ~/.ssh/authorized_keys
+
+chmod 600 ~/.ssh/config
+
+```
+
+
+需要在`config`在加上需要访问的网站地址， 文件内容如下：
+
+``` Text
+# GitLab.com
+Host gitlab.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/ubuntu_id_rsa
+
+
+# Private GitLab instance
+Host gitlab.company.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/example_com_rsa
+
+
+```
+
+`ssh -T git@gitlab.company.com` 验证是否链接成功。
 
 ## 验证
 
