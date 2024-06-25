@@ -61,3 +61,23 @@ Note this setting has to be in the global scope of `settings.json`, not in a `
 ## cmake
 
 [Getting Started — CMake Tools 1.4.0 documentation](https://vector-of-bool.github.io/docs/vscode-cmake-tools/getting_started.html)
+
+
+## 无法监视此大型工作区中的文件更改"（错误 ENOSPC）
+
+
+[Running Visual Studio Code on Linux](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
+
+使用`files.watcherExclude`设置从VS Code文件监视程序中排除特定的工作区目录。 
+
+默认排除目录如下：
+
+```
+"files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  }
+```
+
+打开 VS Code 设置，选择用户设置或工作区设置搜索 `files.watcherExclude` 。

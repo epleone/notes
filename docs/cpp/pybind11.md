@@ -400,8 +400,40 @@ sys.path.append("./pybind11pkg")
 
 ```
 
-> [!tips]
-最简单的方法就是将相关依赖的项放到根目录下。
+
+>[!tips] 使用 `__init__.py`  解决 ImportError
+>
+
+``` c++
+PYBIND11_MODULE(arcflow, m)
+{
+
+    py::class_<ArcFlow>(m, "flow")
+        .def(py::init<int, int>())
+        .def("__call__", &ArcFlow::operator()<float>)
+        .def("__call__", &ArcFlow::operator()<unsigned char>);
+}
+
+```
+
+这个库编好后会得到一个`flow.so`， 它其实包含了python命名空间 `arcflow` 和 其中的类`flow` .
+如果在放到文件夹 `myFolder`下。 它应该这么导入 `from myFolder.arcflow import flow`。如果它还有第三方动态库的依赖，就会很麻烦。
+
+推荐是在 文件夹下写一个`__init__.py` 。
+
+``` python
+
+# 目录结构
+myFolder/
+    __init__.py
+    flow.so
+
+# __init__.py
+from .arcflow import flow
+
+__all__ = ['flow']
+
+```
 
 
 

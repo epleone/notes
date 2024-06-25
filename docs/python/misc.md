@@ -9,6 +9,28 @@ python -c 'import torch;print(torch.__version__);print(torch.version.cuda)'
 [ImportError: libtorch\_cuda\_cu.so: cannot open shared object file: No such file or directory-CSDN博客](https://blog.csdn.net/AliceH1226/article/details/128828776)
 
 
+## python环境
+
+如果需要导入的module的名字是m1，则解释器必须找到m1.py，
+1. 它首先在**文件所在的当前目录**查找，
+2. 然后是在**环境变量PYTHONPATH**中查找。
+    PYTHONPATH可以视为系统的PATH变量一类的东西，其中包含若干个目录。
+3. 如果都找不到，Python会察看默认路径。UNIX下，默认路径一般为/usr/local/lib/python/
+
+
+需要注意在目录`root`下运行 `python bin/run.py` 时。会将 `root/bin` 而不是 `root`加入到`PYTHONPATH`. 如果需要将根目录加入，需要手动设置 `export PYTHONPATH=.`  或者 `set PYTHONPATH=.`(windows bat)。
+
+
+```bash
+export CUDA_VISIBLE_DEVICES=0
+export PYTHONPATH=.
+python bin/inference.py
+
+# 可以合写为：
+export CUDA_VISIBLE_DEVICES=0;export PYTHONPATH=.;python bin/inference.py
+```
+
+
 ## 填充字符串
 
 ``` python
