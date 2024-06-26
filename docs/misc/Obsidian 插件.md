@@ -125,6 +125,10 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 
 出现503错误一般是超过了访问频率导致的，建议您等待一段时间重新同步即可。
 
+[remotely save + 坚果云 503问题 - 疑问解答 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/34339)
+
+
+
 
 ## 其它插件
 

@@ -10,6 +10,13 @@ tags:
 
 [Basic formatting syntax - Obsidian Help](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax)
 
+
+
+[ob配置文件夹.obsidian解析说明 - 经验分享 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/495)
+
+[请问大神：remotely save插件能否同步obsidian配置文件夹？| - 疑问解答 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/10313/5)
+
+
 ## 搜索
 
 [Search - Obsidian Help](https://help.obsidian.md/Plugins/Search#Search+properties)

@@ -7,6 +7,8 @@ tags:
 
 推荐阅读 [git - 简易指南](https://www.bootcss.com/p/git-guide/)
 
+[Git最佳实践，这样用就对了](https://zhuanlan.zhihu.com/p/701612911)
+
 
 ​ ​ 本地仓库由 git 维护的三棵“树”组成。
 
