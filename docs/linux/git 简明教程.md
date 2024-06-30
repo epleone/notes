@@ -547,6 +547,9 @@ git config core.autocrlf
 # 设置
 git config --global core.autocrlf true
 
+# windows下必须设置
+git config --global core.autocrlf input
+
 # 取消
 git config --global --unset core.autocrlf
 ```
