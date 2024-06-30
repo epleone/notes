@@ -128,7 +128,14 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 [remotely save + 坚果云 503问题 - 疑问解答 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/34339)
 
 
+> [!warning] 忽略git等文件夹
+> 
 
+``` text
+.git
+.obsidian
+docs/assets
+```
 
 ## 其它插件
 
