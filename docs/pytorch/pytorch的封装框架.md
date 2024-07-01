@@ -7,6 +7,8 @@
 > [!todo]
 
 
+[PyTorch Lightning使用过程中的tips](https://zhuanlan.zhihu.com/p/706260369)
+
 
 ##  HuggingFace
 
