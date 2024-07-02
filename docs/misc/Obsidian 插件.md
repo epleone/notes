@@ -137,6 +137,22 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 docs/assets
 ```
 
+[Obsidian使用git上传CRLF LF问题 - 疑问解答 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/15519)
+
+Obsidian使用的换行符为LF, 所以需要将git设置成 input
+
+``` bash
+# 设置为false, 不改变换行符
+git config core.autocrlf input
+
+# 检查当前库的配置
+git config core.autocrlf
+
+# 检查全局配置
+git config --global core.autocrlf
+```
+
+
 ## 其它插件
 
 ### commander

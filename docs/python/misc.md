@@ -63,3 +63,49 @@ str.ljust(width[, fillchar])
 
 ```
 
+
+## path
+
+
+相比常用的 os.path而言，pathlib 对于目录路径的操作更简介也更贴近 Pythonic。
+
+pathlib 是Python内置库，适用于不同的操作系统。
+
+``` python
+
+from pathlib import Path
+
+path = r'D:\python\pycharm2020\program\pathlib模块的基本使用.py'
+p = Path(path)
+
+print(p.name) # 获取文件名 ==> pathlib模块的基本使用.py
+print(p.stem) # 获取文件名除后缀的部分  ==> pathlib模块的基本使用
+print(p.suffix) # 获取文件后缀  ==> .py 
+
+print(p.parent) # 相当于dirname  ==> D:\python\pycharm2020\program
+
+print(p.parent.parent.parent)  # ==> D:\python
+
+print(p.parents) # 返回一个iterable 包含所有父目录
+for i in p.parents:
+    print(i)
+# ==> 
+# D:\python\pycharm2020\program
+# D:\python\pycharm2020
+# D:\python
+# D:\
+
+# 将路径通过分隔符分割成一个元组
+print(p.parts)
+#==> ('D:\\', 'python', 'pycharm2020', 'program', 'pathlib模块的基本使用.py')
+
+```
+
+
+> [!notes]
+> 在linux下，WindowsPath是空实现
+> 同理在windows下, PosixPath是空实现
+
+
+> [!quote]
+> 1. [python路径操作新标准：pathlib 模块](https://zhuanlan.zhihu.com/p/139783331)

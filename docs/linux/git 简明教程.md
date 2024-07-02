@@ -537,22 +537,6 @@ Linux/Unix/Mac OS操作系统的换行符使用`LF` (`\n`)，而Windows使用`CR
 `CR`：Carriage Return，回车
 `LF`：Line Feed，换行
 
-`git` 可以通过设置 `core.autocrlf` 变量为`true`, `false`, `input`，来控制换行符的表现。
-
-``` bash
-
-# 查看
-git config core.autocrlf
-
-# 设置
-git config --global core.autocrlf true
-
-# windows下必须设置
-git config --global core.autocrlf input
-
-# 取消
-git config --global --unset core.autocrlf
-```
 
 > [!quote]
 > 1. [Git - gitattributes Documentation](https://git-scm.com/docs/gitattributes)
@@ -591,3 +575,56 @@ thank you all!
 **edit: yes, absolutly making the checkout on WSL makes the difference. What is funny because VSCode shows me on both files, also when i checkout on git for windows, that they use LF. sombody maybe knows why it behaves like this?**
 
 ```
+
+
+
+[it can handle this by auto-converting CRLF line endings into LF when you add a file to the index](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration).
+
+当你`checkin`（提交,  `add a file to the index`）时 ，可以通过设置可以通过设置 `core.autocrlf` 变量为`true`, `false`, `input`，来控制换行符的表现。
+
+- **Windows 开发者**：建议设置 `core.autocrlf` 为 `true`，这样在提交时将 CRLF 转换为 LF，而在检出时将 LF 转换为 CRLF
+- **Unix/Linux 开发者**：建议设置 `core.autocrlf` 为 `input`，这样在提交时将 CRLF 转换为 LF，而在检出时不做任何转换
+- **跨平台开发团队**：通常设置全局为 `input`，并让 Windows 开发者在各自的仓库中设置为 `true`
+- **保持文件原样**：设置 `core.autocrlf` 为 `false`，在提交和检出时都不做转换。
+
+
+当`checkout`时， 可以通过设置`core.eol`来控制检出的文件的换行符。
+`core.eol` 配置项有以下几个可能的值：
+
+- `lf`：将所有行结束符转换为 `LF`。
+- `crlf`：将所有行结束符转换为 `CRLF`。
+- `native`：根据操作系统的默认行结束符来设置（在 Unix 系统上使用 `LF`，在 Windows 系统上使用 `CRLF`）。
+
+
+``` bash
+
+# 查看
+git config core.autocrlf
+
+# 设置
+git config --global core.autocrlf true
+
+# windows下必须设置
+git config --global core.autocrlf input
+
+# 取消
+git config --global --unset core.autocrlf
+```
+
+
+还有一种做法就是编辑 `.gitattributes` 文件
+
+```
+*.txt text eol=lf
+```
+这条设置的含义是对所有扩展名为 `.txt` 的文本文件，将行尾符统一设置为 `LF`（换行符，Line Feed）。当你检出或提交 `.txt` 文件时，Git 将会自动将文件的行尾符转换为 `LF`。
+
+
+``` text
+* text=auto eol=lf
+```
+
+这条设置的含义是：
+- `*` 表示对所有文件类型都生效。
+- `text=auto` 表示告诉 Git 这些文件是文本文件，Git 应该处理它们的行尾符。
+- `eol=lf` 表示将行尾符统一设置为 `LF`（换行符，Line Feed）。
