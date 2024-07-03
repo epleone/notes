@@ -9,6 +9,11 @@
 
 [PyTorch Lightning使用过程中的tips](https://zhuanlan.zhihu.com/p/706260369)
 
+[Pytorch Lightning 1.5.1 到 Pytorch Lightning 2.0.0 的迁移坑-CSDN博客](https://blog.csdn.net/qq_43127738/article/details/133942658)
+
+[2.0 Upgrade Guide — PyTorch Lightning documentation](https://lightning.ai/docs/pytorch/latest/upgrade/migration_guide.html)
+
+
 
 ##  HuggingFace
 
