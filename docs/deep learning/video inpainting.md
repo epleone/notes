@@ -32,3 +32,7 @@ tags:
 
 [ISVI/tool/utils/region\_fill.py at main · hitachinsk/ISVI · GitHub](https://github.com/hitachinsk/ISVI/blob/main/tool/utils/region_fill.py)
 
+
+> [!tips]
+> `region fill` 和 `Poisson blend` 的区别在于`region fill`更弱，要求内部待填补的的梯度为`0`。`Poisson blend` 待填补的区域的梯度来自于目标图像。
+
