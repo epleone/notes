@@ -30,6 +30,13 @@ python bin/inference.py
 export CUDA_VISIBLE_DEVICES=0;export PYTHONPATH=.;python bin/inference.py
 ```
 
+###  cmd输入python但是打开microsoft store问题
+
+**搜索“ 管理应用执行别名”， 在其中关闭`python`相关的两个按钮，并重启cmd，解决！**
+
+[cmd输入python但是打开microsoft store问题\_cmd输入python就打开microstore-CSDN博客](https://blog.csdn.net/weixin_47319058/article/details/134361356)
+
+
 
 ## 填充字符串
 
