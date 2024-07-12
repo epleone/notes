@@ -241,6 +241,10 @@ https://zhuanlan.zhihu.com/p/678900439
 
 
 
+## 隐藏侧边栏 ribbon
+
+按`ctrl` + `p` 搜索 `ribbon` 。隐藏或者打开侧边栏。
+
 
 ## 隐藏顶部文件名
 
