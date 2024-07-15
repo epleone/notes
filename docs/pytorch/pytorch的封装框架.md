@@ -44,6 +44,13 @@ CLI可以执行适合用户之前和之后发送电子邮件
 
 [zhuanlan.zhihu.com/p/486938936](https://zhuanlan.zhihu.com/p/486938936)
 
+
+`HuggingFace` 的 `datasets` 模块特别好用。
+
+[NLP从0到1之HuggingFace实战：第一讲 dataset](https://zhuanlan.zhihu.com/p/660397901)
+
+
+
 ## timm
 
 
