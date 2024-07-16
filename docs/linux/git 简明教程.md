@@ -9,7 +9,6 @@ tags:
 
 [Git最佳实践，这样用就对了](https://zhuanlan.zhihu.com/p/701612911)
 
-
 ​ ​ 本地仓库由 git 维护的三棵“树”组成。
 
 - 第一个是你的`工作目录`，它持有实际文件；
@@ -24,6 +23,7 @@ tags:
 ## 创建新仓库
 
 ​ 创建新文件夹，打开，然后执行
+
 ```shell
 git init
 ```
@@ -31,11 +31,13 @@ git init
 ## clone: 克隆仓库
 
 ​ 执行如下命令以创建一个本地仓库的克隆版本：
+
 ```shell
 git clone /path/to/repository
 ```
 
 ​ 如果是远端服务器上的仓库，你的命令会是这个样子：
+
 ``` shell
 git clone https://github.com/epleone/epleone.github.io.git
 ```
@@ -43,6 +45,7 @@ git clone https://github.com/epleone/epleone.github.io.git
 ## add: 添加和提交
 
 ​ 你可以提出更改（把它们添加到暂存区），使用如下命令：
+
 ``` shell
 git add <filename>
 git add *
@@ -59,10 +62,10 @@ git commit -m "代码提交信息"
 
 ​ 现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库。
 
-
 ## push: 推送改动
 
 ​ 你的改动现在已经在本地仓库的 HEAD 中了。执行如下命令以将这些改动提交到远端仓库：
+
 ``` shell
 git push origin master
 ```
@@ -70,6 +73,7 @@ git push origin master
 ​ 可以把 master 换成你想要推送的任何分支。
 
 ​ 如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：
+
 ``` shell
 git remote add origin <server>
 ```
@@ -77,7 +81,6 @@ git remote add origin <server>
 ​ 如此你就能够将你的改动推送到所添加的服务器上去了。
 
 ## checkout + branch: 分支管理
-
 
 [git中的分支管理：git branch,git checkout，解决git中的分支冲突的方法](https://blog.csdn.net/m0_56132701/article/details/134478506)
 
@@ -92,16 +95,16 @@ git remote add origin <server>
 - 合并某个分支：`git merge <name>`
 - 删除分支：`git branch -d <name>`
 
-
 `git checkout` 和 `git switch` 是 [Git](https://so.csdn.net/so/search?q=Git&spm=1001.2101.3001.7020) 中用于切换分支的命令, `git switch` 是在 Git 2.23 版本引入的，它提供了一种更直观的分支切换方式。
 
 [git checkout和git switch的区别\_git switch和git checkout-CSDN博客](https://blog.csdn.net/lycwhu/article/details/135771596)
 
-
 **使用checkout 来创建和切换分支**。
+
 ### 创建分支
 
 ​ 创建一个叫做“feature_x”的分支，并切换过去：
+
 ``` shell
 git checkout -b feature_x
 ```
@@ -109,10 +112,10 @@ git checkout -b feature_x
 ### 切换分支
 
 ​ 切换回主分支：
+
 ```shell
 git checkout master
 ```
-
 
 ### 查看分支
 
@@ -121,7 +124,9 @@ git branch
 ```
 
 ### 删除分支
+
 ​ 再把新建的分支删掉：
+
 ```shell
 git branch -d feature_x
 ```
@@ -132,9 +137,29 @@ git branch -d feature_x
 git push origin <branch>
 ```
 
+### 分离头指针（detached HEAD）
+
+当你切换到一个历史提交时，Git 会进入“分离头指针”状态，此时你不是在一个分支上工作，而是在一个特定的提交上工作。如果你在这种状态下进行修改并提交，新的提交不会在任何分支上。因此，当你切换回其他分支时，你会发现刚刚的提交“消失了”，实际上它们只是没有附加到任何分支上。
+
+你可以使用 `git reflog` 来找到最近的提交。`git reflog` 会记录所有 HEAD 的变动，包括在分离头指针状态下的提交。
+
+``` bash
+# 找到你想要的提交的哈希值
+git reflog
+
+# 使用哈希值创建一个新的分支
+git checkout -b my-new-branch <commit-hash>
+```
+
+
+> [!tips] 
+> 如果切到历史提交要修改，最好先创建分支
+> 
+
 ## pull = fetch + merge: 更新与合并
 
 ​ 要更新你的本地仓库至最新改动，执行：
+
 ``` shell
 git pull
 ```
@@ -142,16 +167,19 @@ git pull
 以在你的工作目录中 获取（fetch） 并 合并（merge） 远端的改动。
 
 要合并其他分支到你的当前分支（例如 master），执行：
+
 ``` shell
 git merge <branch>
 ```
 
-​ 在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现冲突（conflicts）。 这时候就需要你修改这些文件来手动合并这些冲突（conflicts）。改完之后，你需要执行如下命令以将它们标记为合并成功：
+​在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现冲突（conflicts）。 这时候就需要你修改这些文件来手动合并这些冲突（conflicts）。改完之后，你需要执行如下命令以将它们标记为合并成功：
+
 ``` shell
 git add <filename>
 ```
 
 ​ 在合并改动之前，你可以使用如下命令预览差异：
+
 ```
 git diff <source_branch> <target_branch>
 ```
@@ -159,6 +187,7 @@ git diff <source_branch> <target_branch>
 > [!warning] 
 
 Git中从远程的分支获取最新的版本到本地有这样2个命令：
+
 1. git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 ``` shell  
@@ -166,7 +195,9 @@ git fetch origin master
 git log -p master..origin/master
 git merge origin/master
 ```
+
 以上命令的含义：
+
 首先从远程的origin的master主分支下载最新的版本到origin/master分支上,然后比较本地的master分支和origin/master分支的差别,最后进行合并,上述过程其实可以用以下更清晰的方式来进行：
 
 ``` shell
@@ -182,8 +213,11 @@ git merge tmp
 git pull origin master
 ```
  
+
 上述命令其实相当于git fetch 和 git merge
+
 在实际使用中，git fetch更安全一些
+
 因为在merge前，我们可以查看更新情况，然后再决定是否合并。 
 
 [原文链接](http://www.tech126.com/git-fetch-pull/)
@@ -291,7 +325,6 @@ git remote -v
 
 建议直接使用`ssh`方式连接。 https://blog.csdn.net/CoderSharry/article/details/131249905
 
-
 ## 排除目录
 
 在Git中排除文件有多种方法。以下是几种常用的方法：
@@ -310,7 +343,6 @@ logs/
 *.pkl
 ```
 
-
 保存并提交`.gitignore`文件后，Git会自动忽略匹配这些模式的文件。
 
 2. 使用命令行参数：在执行Git命令时，可以使用`git add`、`git commit`等命令的参数来排除特定文件或文件模式。例如，要在提交时排除所有以`.log`结尾的文件，可以使用以下命令：
@@ -322,7 +354,6 @@ git commit -a --exclude=*.log
 这将将所有更改添加到提交中，但排除匹配模式的文件。
 
 3. 使用.git/info/exclude文件：如果您不希望将排除规则添加到版本控制中，可以在`.git/info/exclude`文件中添加它们。此文件的工作方式与`.gitignore`文件相同，但是它只适用于您的本地存储库。
-
 
 ## rebase和merge
 
@@ -336,11 +367,9 @@ git commit -a --exclude=*.log
 
 [git rebase为什么不建议在公共分支进行？ - 知乎](https://www.zhihu.com/question/611466013)
 
-
 这篇blog的说明比较清晰
+
 [git rebase - 知乎](https://zhuanlan.zhihu.com/p/667928131)
-
-
 
 ## MR/PR流程
 
@@ -348,13 +377,11 @@ git commit -a --exclude=*.log
 
 本地创建分支推送改动到服务器, 打开源代码网址，提交MR, (合并后可选删除分支)。合并到主分支后，你本地切换到master分支（需要处理好冲突，不能有未改动的代码），然后拉取master最新版。 在MR流程中，reviewer可能对dev分支修改的内容提出建议，或者也可以直接增加修改。
 
-
 #### 从仓库下载
 
 ```bash
 git clone https://git.xxx.com.cn/xxx
 ```
-
 
 #### 本地修改并提交
 
@@ -373,15 +400,11 @@ git commit -m "xxx"
 git push -u origin HEAD
 ```
 
-
-
 #### gitlab创建并提交 MR(PR)
 
 打开源代码网址，提交MR.  页面一般会弹出创建MR的提示，如果没有，也可以手动创建MR.
 
 注意：`Assignee` 负责merge, `Reviewer`负责看代码，但没有Merge权限。
-
-
 
 #### 本地收尾操作
 
@@ -404,15 +427,18 @@ git branch -d dev
 
 [git rebase详解（图解+最简单示例，一次就懂）-CSDN博客](https://blog.csdn.net/weixin_42310154/article/details/119004977)
 
-
-
 ### **PR的一般流程(github)**
+
 如果你想深入了解 PR 开发模式，可以参考 [GitHub 官方文档](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)。
 
 #### Fork 项目
+
 当你第一次提交 PR 时，需要先 Fork 项目到自己的 GitHub 账号下。点击项目右上角的 Fork 按钮，将项目 Fork 到自己的 GitHub 账号下。
+
 ![](https://user-images.githubusercontent.com/13503330/223318144-a49c6cef-b1fb-45b8-aa2b-0833d0e3fd5c.png)
+
 接着，你需要将你的 Fork 仓库 Clone 到本地，然后添加官方仓库作为远程仓库：
+
 ``` bash
 # Clone 你的 Fork 仓库到本地
 git clone https://github.com/username/mmpose.git
@@ -423,31 +449,36 @@ git remote add upstream https://github.com/open-mmlab/mmpose.git
 ```
 
 #### Clone 你的 Fork 仓库到本地
+
 ``` bash
 git clone https://github.com/username/mmpose.git
 ```
 
 #### 添加官方仓库作为远程仓库
+
 ``` bash
 cd mmpose
 git remote add upstream https://github.com/open-mmlab/mmpose.git
 ``` 
+
 在终端中输入以下命令，查看远程仓库是否成功添加：
+
 ``` bash
 git remote -v
 ```
+
 如果出现以下信息，说明你已经成功添加了远程仓库：
+
 ``` Text
 origin	https://github.com/{username}/mmpose.git (fetch)
 origin	https://github.com/{username}/mmpose.git (push)
 upstream	https://github.com/open-mmlab/mmpose.git (fetch)
 upstream	https://github.com/open-mmlab/mmpose.git (push)
 ```
+
 #### 备注
 
 这里对 origin 和 upstream 进行一个简单的介绍，当我们使用 git clone 来克隆代码时，会默认创建一个 origin 的 remote，它指向我们克隆的代码库地址，而 upstream 则是我们自己添加的，用来指向原始代码库地址。当然如果你不喜欢他叫 upstream，也可以自己修改，比如叫 open-mmlab。我们通常向 origin 提交代码（即 fork 下来的远程仓库），然后向 upstream 提交一个 pull request。如果提交的代码和最新的代码发生冲突，再从 upstream 拉取最新的代码，和本地分支解决冲突，再提交到 origin。
-
-
 
 ## LFS
 
@@ -478,10 +509,10 @@ git lfs install
 >   1. [https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md](https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md)
 >   2. [如何下载github上用git-lfs工具下载的大文件-CSDN博客](https://blog.csdn.net/weixin_42601608/article/details/129518919)
 
-
 ## VS Code
 
 在VS code中，建议使用`Git Graph`插件增强 git, 非常方便。
+
 使用`Git Graph`插件，同步改动，可以选择`拉取` 或者 直接选择`同步`
 
 `pull(拉取)`将服务器的最新改动同步到本地， 服务器 --> 本地
@@ -490,13 +521,11 @@ git lfs install
 
 [GitGraph 插件使用 - 知乎](https://zhuanlan.zhihu.com/p/609737717)
 
-
 ## Git GUI工具
 
 鹅厂自己的 Git GUI 功能全面，新手友好，而且一些特定场景下有优化
 
 [UGit - 让每个人都可以轻松使用Git](https://ugit.qq.com/zh/)
-
 
 ## Git 练习游戏
 
@@ -507,7 +536,6 @@ git lfs install
 Git 命令操作可视化
 
 [🌳🚀 CS Visualized: Useful Git Commands - DEV Community](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#rebase)
-
 
 ## 忽略`.gitignore`
 
@@ -528,15 +556,15 @@ git commit -m "Stop tracking .gitignore"
 
 ```
 
-
 ## 配置文件 .gitattributes
 
 Git版本管控工具功能强大，在使用过程中，在多人合作的项目开发过程中，经常会遇到提交代码时出现的warning提醒，尤其是换行符。
 
 Linux/Unix/Mac OS操作系统的换行符使用`LF` (`\n`)，而Windows使用`CR (\r) LF(\n)`作为换行符。
-`CR`：Carriage Return，回车
-`LF`：Line Feed，换行
 
+`CR`：Carriage Return，回车
+
+`LF`：Line Feed，换行
 
 > [!quote]
 > 1. [Git - gitattributes Documentation](https://git-scm.com/docs/gitattributes)
@@ -576,8 +604,6 @@ thank you all!
 
 ```
 
-
-
 [it can handle this by auto-converting CRLF line endings into LF when you add a file to the index](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration).
 
 当你`checkin`（提交,  `add a file to the index`）时 ，可以通过设置可以通过设置 `core.autocrlf` 变量为`true`, `false`, `input`，来控制换行符的表现。
@@ -587,8 +613,8 @@ thank you all!
 - **跨平台开发团队**：通常设置全局为 `input`，并让 Windows 开发者在各自的仓库中设置为 `true`
 - **保持文件原样**：设置 `core.autocrlf` 为 `false`，在提交和检出时都不做转换。
 
-
 当`checkout`时， 可以通过设置`core.eol`来控制检出的文件的换行符。
+
 `core.eol` 配置项有以下几个可能的值：
 
 - `lf`：将所有行结束符转换为 `LF`。
@@ -611,20 +637,20 @@ git config --global core.autocrlf input
 git config --global --unset core.autocrlf
 ```
 
-
 还有一种做法就是编辑 `.gitattributes` 文件
 
 ```
 *.txt text eol=lf
 ```
-这条设置的含义是对所有扩展名为 `.txt` 的文本文件，将行尾符统一设置为 `LF`（换行符，Line Feed）。当你检出或提交 `.txt` 文件时，Git 将会自动将文件的行尾符转换为 `LF`。
 
+这条设置的含义是对所有扩展名为 `.txt` 的文本文件，将行尾符统一设置为 `LF`（换行符，Line Feed）。当你检出或提交 `.txt` 文件时，Git 将会自动将文件的行尾符转换为 `LF`。
 
 ``` text
 * text=auto eol=lf
 ```
 
 这条设置的含义是：
+
 - `*` 表示对所有文件类型都生效。
 - `text=auto` 表示告诉 Git 这些文件是文本文件，Git 应该处理它们的行尾符。
 - `eol=lf` 表示将行尾符统一设置为 `LF`（换行符，Line Feed）。

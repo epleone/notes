@@ -1,20 +1,16 @@
 # HTML and CSS Introduction
 
-
 ## preface
 
 [w3school 在线教程](https://www.w3school.com.cn/index.html)
 
 [菜鸟教程 - 学的不仅是技术，更是梦想！](https://www.runoob.com/)
 
-
 html和css练习网址：
 
 [免费学习编程 - Python、JavaScript、Java、Git 等](https://www.freecodecamp.org/chinese/)
 
-
 [史上最全的HTML、CSS知识点总结，浅显易懂。适合入门新手](https://zhuanlan.zhihu.com/p/62967499)
-
 
 JavaScript:
 
@@ -30,6 +26,7 @@ JavaScript:
 ## 现代 JavaScript 教程中文版
 
 如果只能推荐一本 JavaScript 的书，你会推荐哪本？ - LeviDing的回答 - 知乎
+
 https://www.zhihu.com/question/27471131/answer/1298866495
 
 [GitHub - javascript-tutorial/zh.javascript.info: 现代 JavaScript 教程（The Modern JavaScript Tutorial），以最新的 ECMAScript 规范为基准，通过简单但足够详细的内容，为你讲解从基础到高阶的 JavaScript 相关知识。](https://github.com/javascript-tutorial/zh.javascript.info)
