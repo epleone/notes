@@ -1,6 +1,5 @@
 # node.js 入门知识
 
-
 ## node.js
 
 Node.js 是一种 JavaScript 运行环境。它可以运行 JavaScript 代码，这样就使得 JavaScript 能够脱离浏览器运行。Node.js 是基于 Google 的 V8 引擎的封装。
@@ -13,12 +12,12 @@ Node.js 是一种 JavaScript 运行环境。它可以运行 JavaScript 代码，
 
 这两种方式都包含了 [[#npm]] 。
 
-
 ``` bash
 node -v
 
 npm -v
 ```
+
 ## nvm
 
 `nvm (Node Version Manager)` 是用来管理 Node.js 的版本的，方便切换不同版本的 Node.js 。
@@ -28,7 +27,6 @@ npm -v
 `node.js` 有多种版本管理工具，需要自己下载安装。
 
 `nvm` 需要设置环境变量 `NVM_HOME` 和 `NVM_SYMLINK` 。 一般安装会自己设置好。
-
 
 ``` bash
 
@@ -52,12 +50,14 @@ nvm use 18.20.1
 
 ```
 
+[NodeJS版本管理方案](https://zhuanlan.zhihu.com/p/686740444)
 
 ## npm
 
 `npm (Node Package Manager)` 是 JavaScript 的包管理工具，并且也是 Node.js 默认的包管理工具。
 
 `npm` 由三个不同的组件组成：
+
 - 网站
 - 命令行接口 (CLI)
 - 注册表
@@ -68,9 +68,7 @@ nvm use 18.20.1
 
 [注册表](https://npm.nodejs.cn/misc/registry) 是 JavaScript 软件及其周围元信息的大型公共数据库。
 
-
 [npm 中文网](https://npm.nodejs.cn/about-npm)
-
 
 npm 的服务器部署在国外，有时候访问的速度非常慢，甚至无法访问。所以配置淘宝镜像可以提高下载速度。
 
@@ -114,12 +112,12 @@ npm i -S xxx
 npm i -D xxx
 ```
 
-
 ![](docs/assets/d39b10a3a6e540c0ab7e8760876d9bd6.png)
 
 ### 配置命令别名
 
 通过配置命令别名可以更简单的执行命令。主要是针对 package.json 文件中的 scripts 标签来配置。
+
 比如我们配置了 server 和 start 标签，都是指向 testArr.js 文件：
 
 ``` json
@@ -131,6 +129,7 @@ npm i -D xxx
 ```
 
 配置完之后，我们就可以使用别名来执行命令：
+
 ``` bash
 
 npm run server
@@ -140,12 +139,13 @@ npm run start   
 npm start 
 ```
 
-
 补充说明：
-1、npm start 是项目中常用的一个命令，一般用来启动项目。
-2、npm run 有自动向上级目录查找的特性，跟 require 函数也一样。向上级目录查找这个特性很重要，否则在多层级的目录下，要重复创建相同的包。有了向上查找特别，只需要在最外层创建一个包即可。
-3、对于陌生的项目，我们可以通过查看 scripts 属性来参考项目的一些操作。
 
+1、npm start 是项目中常用的一个命令，一般用来启动项目。
+
+2、npm run 有自动向上级目录查找的特性，跟 require 函数也一样。向上级目录查找这个特性很重要，否则在多层级的目录下，要重复创建相同的包。有了向上查找特别，只需要在最外层创建一个包即可。
+
+3、对于陌生的项目，我们可以通过查看 scripts 属性来参考项目的一些操作。
 
 > [!quote]
 > 1. [系列学习前端之第 9 章：一文搞懂 Node.js 和 nvm，掌握 npm\_为什么要切换node-CSDN博客](https://blog.csdn.net/BiandanLoveyou/article/details/137361246)
