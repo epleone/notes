@@ -276,6 +276,12 @@ git log --name-status
 git log --help
 ```
 
+## 暂存改动
+
+我们有时会遇到这样的情况，正在`dev`分支开发新功能，做到一半时有人过来反馈一个bug，让马上解决，但是新功能做到了一半你又不想提交，这时就可以使用`git stash`命令先把当前进度（工作区和暂存区）保存起来，然后切换到另一个分支去修改bug，修改完提交后，再切回`dev`分支，使用`git stash pop`来恢复之前的进度继续开发新功能。
+
+[git stash 的用法-CSDN博客](https://blog.csdn.net/csdnlijingran/article/details/96425712)
+
 ## 替换本地改动
 
 ​ 假如你操作失误（当然，这最好永远不要发生），你可以使用如下命令替换掉本地改动：
