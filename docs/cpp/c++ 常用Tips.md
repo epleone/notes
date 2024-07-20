@@ -11,3 +11,12 @@ tags:
 当你看到一个对象声明为size_t类型，你马上就知道它代表字节大小或数组索引
 
 [为什么size\_t重要？（Why size\_t matters） - Jeremy's blog](https://jeremybai.github.io/blog/2014/09/10/size-t)
+
+``` c++
+// printf打印size_t，需要搭配 `zu`
+sizt_t idx = 0;
+printf("%zu\n",  idx);
+```
+
+
+> [!tips] `printf`打印 `size_t`，需要搭配 `zu`

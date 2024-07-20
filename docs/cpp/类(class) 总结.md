@@ -70,7 +70,6 @@ A a();      // 注意是函数声明，而不是对象声明
 
 总的来说，在大多数情况下，`A a(0, 1, 1);` 和 `A a{0, 1, 1};` 是等价的，但由于它们的初始化方式和语义上的微妙差异，可能在某些情况下会产生不同的行为。
 
-
 ``` c++
 Size(IMG_SIZE_W, IMG_SIZE_H);
 
@@ -78,6 +77,7 @@ Size sz(IMG_SIZE_W, IMG_SIZE_H);
 
 Size sz = Size(IMG_SIZE_W, IMG_SIZE_H);
 ```
+
 这三种写法都是合法的，并且它们之间的区别在于对象的命名和初始化方式。
 
 1. **`Size(IMG_SIZE_W, IMG_SIZE_H);`**： 这是一个匿名对象的创建方式。它会调用 `Size` 类的构造函数创建一个临时的 `Size` 对象，但没有将其赋值给任何变量。通常情况下，这种方式用于执行一些临时的操作，例如作为函数参数传递，或者在表达式中使用。
@@ -112,11 +112,12 @@ template<typename T> class MyClass;
 ```
 
 [C++ 类的前向声明 - 外卖 - 博客园](https://www.cnblogs.com/waimai/p/3875692.html)
+
 [C++工程项目中常见的写法与解释——类的前向声明（class XXX；）篇\_c++ class \_\_x x;-CSDN博客](https://blog.csdn.net/qq_14873525/article/details/118186038)
+
 [C++类的组合--前向引用声明（学习笔记：第4章 07） - 知乎](https://zhuanlan.zhihu.com/p/96858290)
 
 ## 子类
-
 
 ``` c++
 class Data { 
@@ -143,7 +144,6 @@ void AData::init() { std << "init" << endl; }
 
 // 用virtual修饰的函数，会构建虚函数表，则表明实际调用子类的函数。
 
-
 ``` c++
 // 模板类的写法
 
@@ -169,17 +169,12 @@ MRESULT NetData<T>::init()
 
 如果基类的析构函数不是虚函数，那么当你通过基类指针删除派生类对象时，只会调用基类的析构函数。这可能导致派生类对象的派生类部分未被正确销毁，导致资源泄漏或未定义的行为。所以在设计继承关系时，通常建议将基类的析构函数声明为虚函数，这样当你通过基类指针删除派生类对象时，会正确调用派生类的析构函数。
 
-
-
-
-
 ## 模板
 
 > [!tips]
 > 模板类的一般全部放到头文件中, 避免LINK错误
 
 [C++学习15：C++模板的参数\_c++ 模板参数-CSDN博客](https://blog.csdn.net/yueni_zhao/article/details/128235347)
-
 
 [关于UE4模块中模板类的问题(error LNK2019) - 知乎](https://zhuanlan.zhihu.com/p/201489341?utm_id=0)
 
@@ -251,9 +246,11 @@ int main()
 }
 ```
  
+
 ## 初始化列表
 
 `std::initializer_list<T>`
+
 实现了迭代器，拥有 `begin()` `end()`  `size()` 
 
 作为轻量级容器够用了。
@@ -272,8 +269,10 @@ int main() {
 }
 ```
 
-[第三节 列表初始化—std::initializer\_list - 知乎](https://zhuanlan.zhihu.com/p/354588791)
+> [!tips] `std::initializer_list` 不需要`const` 和 `&` 修饰
+> 因为 `initializer_list` 本身就是一个只读的视图。
 
+[列表初始化 std:initializer_list](https://zhuanlan.zhihu.com/p/354588791)
 
 ## 友元
 
@@ -305,8 +304,8 @@ private:
 
 ```
 
-
 注意代码1和代码2的区别。
+
 在代码1中：类 `A` 是一个模板类，对于类 `A` 的每个不同的模板实例，都会有一个对应的类 `B<T>` 的友元声明。这样，对于每个 `A<int>`、`A<double>` 等实例，都会有一个 `B<int>`、`B<double>` 的友元关系。
 
 在代码2中：类 `A` 不是一个模板类，而是一个普通的类。而所有 `B<T>` 实例都声明为 `A` 的友元。
