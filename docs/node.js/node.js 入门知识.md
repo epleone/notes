@@ -150,3 +150,8 @@ npm start 
 > [!quote]
 > 1. [系列学习前端之第 9 章：一文搞懂 Node.js 和 nvm，掌握 npm\_为什么要切换node-CSDN博客](https://blog.csdn.net/BiandanLoveyou/article/details/137361246)
 
+## other
+
+vue为什么那么难? - 爱网上冲浪的回答 - 知乎
+
+https://www.zhihu.com/question/435902041/answer/3571339186
