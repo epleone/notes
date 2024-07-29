@@ -149,6 +149,8 @@ git reflog
 
 # 使用哈希值创建一个新的分支
 git checkout -b my-new-branch <commit-hash>
+
+# 按 `q` 键退出
 ```
 
 
