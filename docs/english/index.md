@@ -1,2 +1,14 @@
 # index
 
+## edge语法工具
+
+楼主最后说的「一个例子解释语法的作用」挺好。Edge 浏览器自带的阅读模式里有一个「语法工具」，可以用颜色标注词性（如下图所示），这个就类似楼主说的意思，熟悉主谓宾（个人感觉只要需要抓住「动词」就可以）就几乎不会因为 语法原因 而看不懂长难句。
+
+（当然如果那个句子所传达的意思本身就很难，那翻译成中文也照样难。） 
+
+[![](docs/assets/cw8jSpT.jpeg.jpg)](https://i.imgur.com/cw8jSpT.jpeg)
+
+> [!quote]
+> 1. [为什么网上吹起了反对《新概念英语》的风？](https://www.zhihu.com/question/518200405)
+> 2. [GitHub - wish1776/NCE: Yingshi New Concept English](https://github.com/wish1776/NCE)
+
