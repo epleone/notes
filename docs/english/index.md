@@ -11,4 +11,5 @@
 > [!quote]
 > 1. [为什么网上吹起了反对《新概念英语》的风？](https://www.zhihu.com/question/518200405)
 > 2. [GitHub - wish1776/NCE: Yingshi New Concept English](https://github.com/wish1776/NCE)
+> 3. [真正背完新概念英语全四册是什么体验？](https://www.zhihu.com/question/30818462)
 
