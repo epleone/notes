@@ -15,6 +15,10 @@
 11. [Flipped](https://book.douban.com/subject/2669319/)
 12. [深夜小狗神秘事件](https://book.douban.com/subject/5988558/)
 
+[有哪些薄的书（100页以内）值得反复阅读 ](https://www.zhihu.com/question/496193055/answer/2292623154)
+
+[英文原版阅读有哪些入门书籍推荐？ - 赛门喵Simon的回答 - 知乎](https://www.zhihu.com/question/20291266/answer/98724976)
+
 ## edge语法工具
 
 楼主最后说的「一个例子解释语法的作用」挺好。Edge 浏览器自带的阅读模式里有一个「语法工具」，可以用颜色标注词性（如下图所示），这个就类似楼主说的意思，熟悉主谓宾（个人感觉只要需要抓住「动词」就可以）就几乎不会因为 语法原因 而看不懂长难句。

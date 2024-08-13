@@ -64,3 +64,9 @@ endif()
 [warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失](https://blog.51cto.com/u_15179769/5633310)
 
 ![[Pasted image 20240720140126.png]]
+
+## 内存泄露
+
+**AddressSanitizer(ASan)** 是一个快速内存检测器，可以检测出缓冲区溢出、使用已释放内存等问题。编译时带上参数 -fsanitize=address及-g。
+
+[求推荐一个工具 能在 Ubuntu 上分析 C++程序内存使用情况 - V2EX](https://www.v2ex.com/t/1064659)
