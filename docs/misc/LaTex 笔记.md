@@ -52,32 +52,32 @@ tags:
 
 大写字母，在小写字母 latex 形式的基础之上，首字母大写。
 
-| 大写     | 小写       | 英文    |
-|:-------- |:---------- |:------- |
-| $\Alpha$      | $\alpha$   | alpha   |
-| $\Beta$       | $\beta$    | beta    |
-| $\Gamma$ | $\gamma$   | gamma   |
-| $\Delta$        | $\delta$   | delta   |
-| $\Epsilon$        | $\epsilon$ | epsilon |
-| $\Zeta$        | $\zeta$    | zeta    |
-| $\Eta$        | $\eta$     | eta     |
-| $\Theta$        | $\theta$   | theta   |
-| $\Iota$        | $\iota$    | iota    |
-| $\Kappa$        | $\kappa$   | kappa   |
-| $\Lambda$        | $\lambda$  | lambda  |
-| $\Mu$        | $\mu$      | mu      |
-|  $\Nu$        | $\nu$      | nu      |
-| $\Xi$        | $\xi$      | xi      |
-| $\Omicron$        | $\omicron$ | omicron |
-| $\Pi$        | $\pi$      | pi      |
-|  $\Rho$        | $\rho$     | rho     |
-| $\Sigma$        | $\sigma$   | sigma   |
-| $\Tau$        | $\tau$     | tau     |
-| $\Upsilon$        | $\upsilon$ | upsilon |
-|  $\Phi$          | $\phi$     | phi     |
-| $\Chi$          | $\chi$     | chi     |
-| $\Psi$        | $\psi$     | psi     |
-| $\Omega$        | $\omega$   | omega   |
+| 大写         | 小写         | 英文      |
+| :--------- | :--------- | :------ |
+| $\Alpha$   | $\alpha$   | alpha   |
+| $\Beta$    | $\beta$    | beta    |
+| $\Gamma$   | $\gamma$   | gamma   |
+| $\Delta$   | $\delta$   | delta   |
+| $\Epsilon$ | $\epsilon$ | epsilon |
+| $\Zeta$    | $\zeta$    | zeta    |
+| $\Eta$     | $\eta$     | eta     |
+| $\Theta$   | $\theta$   | theta   |
+| $\Iota$    | $\iota$    | iota    |
+| $\Kappa$   | $\kappa$   | kappa   |
+| $\Lambda$  | $\lambda$  | lambda  |
+| $\Mu$      | $\mu$      | mu      |
+| $\Nu$      | $\nu$      | nu      |
+| $\Xi$      | $\xi$      | xi      |
+| $\Omicron$ | $\omicron$ | omicron |
+| $\Pi$      | $\pi$      | pi      |
+| $\Rho$     | $\rho$     | rho     |
+| $\Sigma$   | $\sigma$   | sigma   |
+| $\Tau$     | $\tau$     | tau     |
+| $\Upsilon$ | $\upsilon$ | upsilon |
+| $\Phi$     | $\phi$     | phi     |
+| $\Chi$     | $\chi$     | chi     |
+| $\Psi$     | $\psi$     | psi     |
+| $\Omega$   | $\omega$   | omega   |
 
 
 [latex 常见用法与希腊字母 - 简书](https://www.jianshu.com/p/3f7f984d0d66)
