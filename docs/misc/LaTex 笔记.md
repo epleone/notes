@@ -2,51 +2,50 @@
 tags:
   - latex
 ---
+
 # LaTex 笔记
 
-| latex                           | 显示效果                              | 备注                    |
-| ------------------------------- | --------------------------------- | --------------------- |
-| `\theta`                        | $\theta$                          |                       |
-| `\lambda`                       | $\lambda$                         |                       |
-| `\frac{a}{b}`                   | $\frac{a}{b}$                     | 分数, 在矩阵中用`\dfrac`     |
-| `\arg \min_{\theta}`            | $\arg \min_{\theta}$              |                       |
-| `\mathcal{L}`                   | $\mathcal{L}$                     | 花体字母                  |
-| `\nabla`                        | $\nabla$                          |                       |
-| `\partial`                      | $\partial$                        |                       |
-| `\Delta x`                      | $\Delta x$                        |                       |
-| `J^{\dagger}`                   | $J^{\dagger}$                     | 伪逆                    |
-| `\infty`                        | $\infty$                          |                       |
-| `\int`                          | $\int$                            |                       |
-| `\iint`                         | $\iint$                           |                       |
-| `\iiint`                        | $\iiint$                          |                       |
-| `\iiiint`                       | $\iiiint$                         |                       |
-| `\oint`                         | $\oint$                           |                       |
-| `\times`  `\cdot`               | $\times$  $\cdot$                 | 乘法                    |
-| `\lim`                          | $\lim_{x \to \infty}$             | 极限                    |
-| `\neq`                          | $\neq$                            | 不等于                   |
-| `\in`                           | $\in$                             | 属于                    |
-| `\notin`                        | $\notin$                          | 不属于                   |
-| `\forall`                       | $\forall$                         | 所有                    |
-| `\exists`                       | $\exists$                         | 存在                    |
-| `\cap` `\cup`                   | $\cap \quad \cup$                 | 交 并                   |
-| `\because `    `\therefore`     | $\because$  /  $\therefore$       | 因为/所以                 |
-| `\sum`                          | $\sum$                            | 求和                    |
-| `\prod`                         | $\prod$                           | 连乘                    |
-| `\stackrel{*}{\approx}`         | $\stackrel{*}{\approx}$           | 二元关系，将`*` 放在 `不等于` 之上 |
-| `\bar{x}`                       | $\bar{x}$                         |                       |
-| `\hat{x}`                       | $\hat{x}$                         |                       |
-| `\vec{x}`                       | $\vec{x}$                         |                       |
-| `\mathrm{d} x`                  | $\mathrm{d} x$                    |                       |
-| `x^{'}`                         | $x^{'}$                           |                       |
-| `\dot x \quad \ddot y`          | $\dot x \quad \ddot y$            | 几个点就是几个d              |
-| `\otimes`                       | $\otimes$                         | 克罗内克积                 |
-| `\oplus`                        | $\oplus$                          | 直和                    |
-| `\circ` 或 `\odot`               | $\circ 或 \odot$                   | 哈达马积                  |
-| ` \;`  `\quad` `\qquad`         | $a \; b$, $a\quad b$, $a\qquad b$ | 三种不同长度的空格             |
-| `\newline`                      |                                   | 换行,  `obsidian` 不可用？  |
-| `\begin{align} xxx \end{align}` |                                   | 公式对齐和换行，搭配 `&` `\\`   |
-
-
+| latex                                    | 显示效果                                      | 备注                    |
+| ---------------------------------------- | ----------------------------------------- | --------------------- |
+| `\theta`                                 | $\theta$                                  |                       |
+| `\lambda`                                | $\lambda$                                 |                       |
+| `\frac{a}{b}`                            | $\frac{a}{b}$                             | 分数, 在矩阵中用`\dfrac`     |
+| `\arg \min_{\theta}`                     | $\arg \min_{\theta}$                      |                       |
+| `\mathcal{L}`                            | $\mathcal{L}$                             | 花体字母                  |
+| `\nabla`                                 | $\nabla$                                  |                       |
+| `\partial`                               | $\partial$                                |                       |
+| `\Delta x`                               | $\Delta x$                                |                       |
+| `J^{\dagger}`                            | $J^{\dagger}$                             | 伪逆                    |
+| `\infty`                                 | $\infty$                                  |                       |
+| `\int`                                   | $\int$                                    |                       |
+| `\iint`                                  | $\iint$                                   |                       |
+| `\iiint`                                 | $\iiint$                                  |                       |
+| `\iiiint`                                | $\iiiint$                                 |                       |
+| `\oint`                                  | $\oint$                                   |                       |
+| `\times`  `\cdot`                        | $\times$  $\cdot$                         | 乘法                    |
+| `\lim`                                   | $\lim_{x \to \infty}$                     | 极限                    |
+| `\neq`  `\leq`  `\geq`                   | $\neq$  $\leq$  $\geq$                    | 不等于, 小于等于， 大于等于       |
+| `\in`                                    | $\in$                                     | 属于                    |
+| `\notin`                                 | $\notin$                                  | 不属于                   |
+| `\forall`                                | $\forall$                                 | 所有                    |
+| `\exists`                                | $\exists$                                 | 存在                    |
+| `\cap` `\cup`                            | $\cap \quad \cup$                         | 交 并                   |
+| `\because `    `\therefore`              | $\because$  /  $\therefore$               | 因为/所以                 |
+| `\sum`                                   | $\sum$                                    | 求和                    |
+| `\prod`                                  | $\prod$                                   | 连乘                    |
+| `\stackrel{*}{\approx}`                  | $\stackrel{*}{\approx}$                   | 二元关系，将`*` 放在 `不等于` 之上 |
+| `\bar{x}`                                | $\bar{x}$                                 |                       |
+| `\hat{x}`                                | $\hat{x}$                                 |                       |
+| `\vec{x}`                                | $\vec{x}$                                 |                       |
+| `\mathrm{d} x`                           | $\mathrm{d} x$                            |                       |
+| `x^{'}`  `x^{\prime}` `x^{\prime\prime}` | $x^{'}$  $x^{\prime}$  $x^{\prime\prime}$ | 导数                    |
+| `\dot x \quad \ddot y`                   | $\dot x \quad \ddot y$                    | 几个点就是几个d              |
+| `\otimes`                                | $\otimes$                                 | 克罗内克积                 |
+| `\oplus`                                 | $\oplus$                                  | 直和                    |
+| `\circ` 或 `\odot`                        | $\circ 或 \odot$                           | 哈达马积                  |
+| ` \;`  `\quad` `\qquad`                  | $a \; b$, $a\quad b$, $a\qquad b$         | 三种不同长度的空格             |
+| `\newline`                               |                                           | 换行,  `obsidian` 不可用？  |
+| `\begin{align} xxx \end{align}`          |                                           | 公式对齐和换行，搭配 `&` `\\`   |
 
 ## 常用latex符号
 
@@ -79,15 +78,14 @@ tags:
 | $\Psi$     | $\psi$     | psi     |
 | $\Omega$   | $\omega$   | omega   |
 
-
 [latex 常见用法与希腊字母 - 简书](https://www.jianshu.com/p/3f7f984d0d66)
-
 
 ## 多行公式
 
 **方程**
 
 === "显示结果"
+
 	
 	  $$  
 	\begin{align}  
@@ -98,6 +96,7 @@ tags:
 	
 
 === "Latex"
+
 	
 	``` latex
 		
@@ -117,6 +116,7 @@ tags:
 **分段函数**
 
 === "显示结果"
+
 	
 	$$  
 	|x| = \left\{  
@@ -129,6 +129,7 @@ tags:
 	
 
 === "Latex"
+
 	
 	``` latex
 	|x| = \left\{  
@@ -144,6 +145,7 @@ tags:
 **分段函数**
 
 === "显示结果"
+
 	
 	$$
 	\begin{equation} 
@@ -158,6 +160,7 @@ tags:
 	
 
 === "Latex"
+
 	
 	``` latex
 	\begin{equation} 
@@ -175,6 +178,7 @@ tags:
 **方程组**
 
 === "显示结果"
+
 	
 	$$
 	\begin{gather*} 
@@ -186,6 +190,7 @@ tags:
 	
 
 === "Latex"
+
 	
 	``` latex
 	\begin{gather*} 
@@ -196,11 +201,9 @@ tags:
 	```
 	
 
-
 [latex学习笔记:多行公式\_latex 多行公式\_假装忙碌的人的博客-CSDN博客](https://blog.csdn.net/weixin_43659721/article/details/115246629)
 
 PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
-
 
 ## 矩阵
 
@@ -227,17 +230,26 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "Latex"
-	``` latex
-	\left[
-		\begin{array}{cccc}
-			a & b & c & d\\
-			a & b & c & d\\
-			a & b & c & d\\ 
-			a & b & c & d\\ 
-		\end{array}
-	\right]
-	```
 
+	``` latex
+
+	\left[
+
+		\begin{array}{cccc}
+
+			a & b & c & d\\
+
+			a & b & c & d\\
+
+			a & b & c & d\\ 
+
+			a & b & c & d\\ 
+
+		\end{array}
+
+	\right]
+
+	```
 
 **圆括号矩阵**
 === "显示结果"
@@ -254,21 +266,31 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "latex"
-	``` latex
-	\left(
-		\begin{array}{cccc}
-			a & b & c & d\\
-			a & b & c & d\\
-			a & b & c & d\\ 
-			a & b & c & d\\ 
-		\end{array}
-	\right)
-	```
 
+	``` latex
+
+	\left(
+
+		\begin{array}{cccc}
+
+			a & b & c & d\\
+
+			a & b & c & d\\
+
+			a & b & c & d\\ 
+
+			a & b & c & d\\ 
+
+		\end{array}
+
+	\right)
+
+	```
 
 **尖括号矩阵**
 
 === "显示结果"
+
 	
 	$$
 	\left\{
@@ -282,6 +304,7 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "Latex"
+
 	
 	``` latex
 	\left\{
@@ -315,8 +338,8 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 % 上面可以组合使用
 ```
 
-
 === "显示结果"
+
 	
 	$$
 	\left[
@@ -330,17 +353,26 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "Latex"
-	``` latex
-		\left[
-		\begin{array}{c:c|c:c}
-		a & b & c & d\\
-		a & b & c & d\\
-		a & b & c & d\\ 
-		a & b & c & d\\ 
-		\end{array}
-		\right]
-	```
 
+	``` latex
+
+		\left[
+
+		\begin{array}{c:c|c:c}
+
+		a & b & c & d\\
+
+		a & b & c & d\\
+
+		a & b & c & d\\ 
+
+		a & b & c & d\\ 
+
+		\end{array}
+
+		\right]
+
+	```
 
 === "显示结果"
 
@@ -358,20 +390,30 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "Latex"
+
 	``` latex
+
 		\left[
+
 		\begin{array}{cccc}
+
 		a & b & c & d\\
+
 		\hline
+
 		a & b & c & d\\
+
 		a & b & c & d\\
+
 	    \hdashline
+
 		a & b & c & d\\ 
+
 		\end{array}
+
 		\right]
+
 	```
-
-
 
 === "显示结果"
 
@@ -389,23 +431,32 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "Latex"
+
 	``` latex
+
 		\left[
+
 		\begin{array}{c:c|c:c}
+
 		a & b & c & d\\
+
 		\hline
+
 		a & b & c & d\\
+
 		\hdashline
+
 		a & b & c & d\\
+
 		a & b & c & d\\ 
+
 		\end{array}
+
 		\right]
+
 	```
 
-
-
 **矩阵省略号写法**
-
 
 === "显示结果"
 
@@ -421,7 +472,9 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "Latex"
+
 	``` latex
+
 	\mathbf{X} = \left(  
 	\begin{array} {cccc}  
 	x_{11} & x_{12} & \ldots & x_{1n}\\  
@@ -431,10 +484,6 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	\end{array}  
 	\right)   
 	```
-
-
-
-
 
 **在矩阵中的元素里排版分式时，要用到`\dfrac`等命令**
 
@@ -453,21 +502,26 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "Latex"
+
 	``` latex
+
 	\mathbf{H}=  
 	\left[
+
 		\begin{array}
+
 			\dfrac{\partial^2 f}{\partial x^2} &  
 			\dfrac{\partial^2 f}  {\partial x \partial y} \\  
 			\dfrac{\partial^2 f}  {\partial x \partial y} &  
 			\dfrac{\partial^2 f}{\partial y^2}  
 		\end{array} 
+
 	\right]
+
 	```
 
-
-
 ### 其它写法
+
 === "显示结果"
 
 	$$  
@@ -493,7 +547,9 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	$$
 
 === "Latex"
+
 	``` latex
+
 	\begin{pmatrix}  
 	1 & 2 \\ 3 & 4  
 	\end{pmatrix}  
@@ -515,29 +571,24 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	\end{Vmatrix}  
 	```
 
-
-
 > [!notes]
 > 这种写法要记太多，不如使用 `array` 统一
-
-
-
-
 
 ## 数学字母字体
 
 **手写体**
 
-
 === "显示结果"
 
 	$$ \mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R} $$
+
 === "Latex"
+
 	``` latex
+
 	\mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R}
+
 	```
-
-
 
 **手写体例子**
 === "显示结果"
@@ -546,10 +597,12 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$$
 
 === "Latex"
-	``` latex
-	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
-	```
 
+	``` latex
+
+	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+
+	```
 
 **李代数**
 === "显示结果"
@@ -561,11 +614,9 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 	\mathfrak{so}(3)
 	```
 
-
 ## 箭头
 
 ![[Pasted image 20240105102820.png]]
-
 
 | Latex                                                        | 显示效果                                                          |
 | ------------------------------------------------------------ | ------------------------------------------------------------- |
