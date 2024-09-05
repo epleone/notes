@@ -57,3 +57,7 @@
 
 	Moonlight is sunlight with extra steps
     月光是多走了几步的阳光。
+
+2024-9-5:
+
+	一个讲历史的老师说牛人都是自学成才
