@@ -7,6 +7,7 @@ tags:
 # 安装python
 
 ubuntu下建议使用miniconda作为python环境
+
 [Miniconda — conda documentation](https://docs.conda.io/en/latest/miniconda.html)
 
 - 更多版本信息
@@ -46,6 +47,7 @@ source ~/.bashrc
 > `pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py38_cu113_pyt1110/download.html`
 
 实测 py39_cu113_pyt1121 也加入预编译了, 对应python3.9 下的pytorch 1.12.1版本
+
 可以通过这段代码获取安装脚本
 
 ```python
@@ -62,9 +64,6 @@ version_str="".join([
 
 !pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/{version_str}/download.html
 ```
-
-
-
 
 安装常用python库
 
@@ -96,9 +95,10 @@ pip install chumpy
 pip install numpy==1.23
 ```
 
-
 ## 包管理
+
 ### PIP
+
 #### 国内镜像和源
 
 ```bash
@@ -150,11 +150,9 @@ sudo rm -r ~/.cache/pip
 进入目录 C:\Users\"用户名"\AppData\Local\pip，删除该目录下的cache文件夹即可。
 ```
 
-
 ### Conda
 
 > [!todo]
-
 
 ## 环境管理
 
@@ -211,3 +209,19 @@ conda deactivate
 ```
 
 
+
+
+``` shell
+# 创建环境
+conda create -n tensorflow1.15 python=3.8.18
+conda activate tensorflow1.15
+conda install cudatoolkit=10.0
+conda install cudnn=7.3.1
+
+# 安装tf
+pip install --user nvidia-pyindex
+pip install --user nvidia-tensorflow[horovod]
+
+```
+
+[Tensorflow 1.15 + CUDA + cuDNN installation using Conda - Stack Overflow](https://stackoverflow.com/questions/64811841/tensorflow-1-15-cuda-cudnn-installation-using-conda)

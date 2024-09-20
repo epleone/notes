@@ -1,16 +1,14 @@
 # Eigen 笔记
 
-
 ## preface
 
 [libeigen / eigen · GitLab](https://gitlab.com/libeigen/eigen)
 
 [Site Unreachable](http://eigen.tuxfamily.org/)
 
-
+[Eigen超快速入门（numpy对比版）](https://zhuanlan.zhihu.com/p/720972947)
 
 ## 稀疏矩阵求解
-
 
 ``` c++
 /*
@@ -60,8 +58,8 @@ if (solver.info() != Eigen::Success) {
 }
 ```
 
-
 除了使用SparseLU进行稀疏矩阵的分解之外，Eigen库还提供了其他一些方法来解决稀疏矩阵线性系统。以下是其中一些常用的方法：
+
 1. **BiCGSTAB（BiConjugate Gradient STABilized）**：这是一种迭代方法，通常适用于对称和非对称稀疏矩阵的求解。它是BiCG方法的改进版本，能够更快地收敛于解。它的优点之一是不需要对整个矩阵进行分解。
 2. **ConjugateGradient**：共轭梯度法也是一种迭代方法，通常用于对称正定稀疏矩阵的求解。它通过最小化残差的二次型来逐步逼近解。
 3. **SparseQR**：这是用于求解稀疏矩阵的QR分解的方法。它适用于稀疏非正定和不对称矩阵。
@@ -69,7 +67,6 @@ if (solver.info() != Eigen::Success) {
 5. **GMRES（Generalized Minimal RESidual）**：这也是一种迭代方法，通常用于非对称稀疏矩阵的求解。它能够在每一步中寻找一个最小化残差的近似解。
 
 这些方法各有优劣，适用于不同类型的稀疏矩阵和求解需求。选择方法通常取决于矩阵的特性（对称/非对称、正定/不定等）以及性能需求（速度、精度等）。
-
 
 ``` c++
 
