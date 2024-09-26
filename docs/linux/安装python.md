@@ -225,3 +225,19 @@ pip install --user nvidia-tensorflow[horovod]
 ```
 
 [Tensorflow 1.15 + CUDA + cuDNN installation using Conda - Stack Overflow](https://stackoverflow.com/questions/64811841/tensorflow-1-15-cuda-cudnn-installation-using-conda)
+
+## Cupy介绍与安装
+
+- 先使用`nvcc --version` 来检查 CUDA 版本.
+- 使用预编译的二进制包进行安装，命令如下：
+``` bash
+# 对于CUDA版本为11.x的，使用：
+pip install cupy-cuda11x
+
+# 对于CUDA版本为12.x的，使用：
+pip install cupy-cuda12x
+
+
+# 注意，不需要替换x，`cupy-cuda11x` 兼容所有 CUDA 11.x 系列版本，因此你不需要明确指定某个具体版本
+```
+
