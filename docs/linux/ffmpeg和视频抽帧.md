@@ -26,7 +26,6 @@ ffmpeg -i "123.mp4" -r 5 -q:v 2 -f image2 %d.jpg
 -q:v 2 这个可以提高抽取到的图片的质量的，数字越小，质量最高，1最高；
 -f 是设定输出格式，这里image2就是图像解析模式，还有contact连接模式等；
 
-
 ## 批量抽帧
 
 ``` bash
@@ -48,7 +47,6 @@ ffmpeg -i $video -r 2 -q:v 2 -f image2 $save_dir/%05d.jpeg  # 抽帧
 done
 
 ```
-
 
 python脚本
 
@@ -88,7 +86,6 @@ if __name__ == "__main__":
 
 ```
 
-
 ## 视频处理常用操作
 
 ### 缩放
@@ -105,7 +102,6 @@ if __name__ == "__main__":
  3. 指定宽度和高度，等比例缩放并填充黑边:
 	 - scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2：将视频缩放为宽度为 1280 像素，高度为 720 像素的大小，并在视频周围填充黑边。这种方式可以保持视频的宽高比不变。
 
-
 这个参数需要搭配`-vf` 参数 ，也即 video filter。
 
 ``` bash
@@ -114,6 +110,7 @@ ffmpeg -i input.mp4 -vf scale=640:-1 output.mp4
 ```
 
 将某一边缩放到指定尺寸
+
 ``` bash
 ffmpeg -i input.mp4 -vf "scale='if(gt(iw,ih),-1,720)':'if(gt(iw,ih),720,-1)'" -c:a copy output.mp4
 
@@ -139,14 +136,18 @@ ffmpeg -i input.mp4 -vf "scale='if(gt(iw,ih),min(iw,720),-1)':'if(gt(iw,ih),-1,m
 - 前半句表示缩放后的视频宽度，如果原视频的宽度大于高度，缩放后的视频宽度为`-1`，否则是`720`。 
 - 后半句表示缩放后的视频高度，如果原视频的宽度大于高度，缩放后的视频高度为`720`，否则是`-1`。 
 
+> [!warning] Cannot store exact aspect ratio
+> 如果得到错误 `Cannot store exact aspect ratio` . 需要添加 `setsar=1` 。
+> 即：`scale='if(gt(iw,ih),-1,720)':'if(gt(iw,ih),720,-1)',setsar=1` 
 
 ### 裁剪和填补
 
 1、裁剪一个矩形区域：
+
 `ffmpeg -i {input} -vf crop={width}:{height}:{x}:{y} {output}`
 
-
 2、填补到一个更大的矩形区域：
+
 `ffmpeg -i {input} -vf pad={width}:{height}:{x}:{y}:{color} {output}`
 
 参数中可以使用`iw`、`ih`指代原视频宽高。
@@ -154,27 +155,30 @@ ffmpeg -i input.mp4 -vf "scale='if(gt(iw,ih),min(iw,720),-1)':'if(gt(iw,ih),-1,m
 ### 视频翻转和旋转
 
 1、水平翻转：
+
 `ffmpeg -i {input} -vf hflip {output}`
 
-
 2、垂直翻转：
+
 `ffmpeg -i {input} -vf vflip {output}`
 
 3、顺时针旋转90°：
+
 `ffmpeg -i {input} -vf transpose=1 {output}`
 
 4、逆时针旋转90°：
+
 `ffmpeg -i {input} -vf transpose=2 {output}`
 
 ### 视频盖图
 
 1、整视频盖图：
+
 `ffmpeg -i {video} -i {image} -filter_complex overlay={x}:{y} {output}`
 
 2、从某个时间开始：
+
 `ffmpeg -i {video} -itsoffset {start} -i {image} -filter_complex overlay={x}:{y} {output}`
-
-
 
 > [!quote]
 > 1. [ffmpeg的安装和视频帧抽取(ubuntu/windows系统通用）\_ffmpeg 视频抽帧-CSDN博客](https://blog.csdn.net/weixin_39931683/article/details/110476502)
