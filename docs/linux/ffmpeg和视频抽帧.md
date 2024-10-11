@@ -136,9 +136,16 @@ ffmpeg -i input.mp4 -vf "scale='if(gt(iw,ih),min(iw,720),-1)':'if(gt(iw,ih),-1,m
 - 前半句表示缩放后的视频宽度，如果原视频的宽度大于高度，缩放后的视频宽度为`-1`，否则是`720`。 
 - 后半句表示缩放后的视频高度，如果原视频的宽度大于高度，缩放后的视频高度为`720`，否则是`-1`。 
 
+
 > [!warning] Cannot store exact aspect ratio
 > 如果得到错误 `Cannot store exact aspect ratio` . 需要添加 `setsar=1` 。
 > 即：`scale='if(gt(iw,ih),-1,720)':'if(gt(iw,ih),720,-1)',setsar=1` 
+
+
+```bash
+# 短边256， 长边8位对齐
+scale='if(gt(iw,ih),256, floor(iw*256/ih/8)*8)':'if(gt(iw,ih), floor(ih*256/iw/8)*8, 256)',setsar=1
+```
 
 ### 裁剪和填补
 
