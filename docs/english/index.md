@@ -59,6 +59,22 @@
 作者：知乎用户hivpxc  
 链接：https://www.zhihu.com/question/31771035/answer/2504488284  
 
+## 英语听力的几个阶段
+
+[zhuanlan.zhihu.com/p/848596370](https://zhuanlan.zhihu.com/p/848596370)
+
+阶段一是听的模糊。
+
+阶段二是听得清楚，形成了英语[过滤机制](https://zhida.zhihu.com/search?content_id=248938555&content_type=Article&match_order=1&q=%E8%BF%87%E6%BB%A4%E6%9C%BA%E5%88%B6&zhida_source=entity)。
+
+阶段三是准确预测即将听到的内容。
+
+阶段四是英文思维形成。
+
+阶段五是开始跟读。
+
+阶段六是开口说话。
+
 ## edge语法工具
 
 楼主最后说的「一个例子解释语法的作用」挺好。Edge 浏览器自带的阅读模式里有一个「语法工具」，可以用颜色标注词性（如下图所示），这个就类似楼主说的意思，熟悉主谓宾（个人感觉只要需要抓住「动词」就可以）就几乎不会因为 语法原因 而看不懂长难句。
