@@ -1,10 +1,6 @@
 # numpy tips
 
-
-
-
 ## np.where
-
 
 ``` python
 import numpy as np
@@ -16,7 +12,6 @@ numpy.where((a > 5) & (a < 8), 0, 1)
 numpy.where((a > 5) | (a < 8), 0, 1)
 
 ```
-
 
 ## RAW数据
 
@@ -32,6 +27,25 @@ input_data.tofile("./checkpoint/dummy/hand_dummy_input.RAW")
 
 # 读取raw
 data = np.fromfile('data.raw', dtype=np.uint8)
+```
+
+
+``` python
+
+from io import BytesIO
+from PIL import Image
+
+img = cv2.imread(img_path, cv2.IMREAD_COLOR)
+
+with open(img_path, "rb") as f:
+     img_buffer = f.read()
+     
+img_code = np.frombuffer(img_buffer, np.uint8)
+image = cv2.imdecode(img_code, cv2.IMREAD_COLOR)
+
+# 使用 `BytesIO` 将字节流转换为文件对象
+img = Image.open(BytesIO(img_buffer))
+image = np.array(img)
 ```
 
 ## other
