@@ -241,3 +241,8 @@ pip install cupy-cuda12x
 # 注意，不需要替换x，`cupy-cuda11x` 兼容所有 CUDA 11.x 系列版本，因此你不需要明确指定某个具体版本
 ```
 
+## tensorflow 1.x 
+
+Nvidia 维护了一个tf 1.15 ，可以装在30系上
+
+[GitHub - NVIDIA/tensorflow: An Open Source Machine Learning Framework for Everyone](https://github.com/NVIDIA/tensorflow)
