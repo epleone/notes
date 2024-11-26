@@ -46,7 +46,7 @@ zotero的文字 图片可以直接拖到白板中，生成zotero链接。
  
 // EDTI TAG MAPPING BELOW
 const tags = {
-	"#008B8B": "新概念",
+	"#008b8b": "新概念",
     "#ffd400": "创新点",
     "#ff6666": "研究背景",
     "#5fb236": "重点",
@@ -71,6 +71,14 @@ return `Tag added: ${tag}`;
 ```
 
 **这个脚本还有一个问题，改变标注颜色不会改变标签**。详细讨论参考 [issue](https://github.com/windingwind/zotero-actions-tags/discussions/339)。
+
+> [!warning] **颜色代码需要小写**
+> 比如 `#008B8B`需要写成`#008b8b` 。
+> 否则会报错 `Script Error : Tag data must contain 'tag' property`
+
+ 
+ 
+ 
 
 <mark style="background: #BBFABBA6;">在插件`Better Notes` 中添加条目模板。</mark>
 

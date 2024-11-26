@@ -35,29 +35,6 @@
 
 [zhihu.com/question/481238105](https://www.zhihu.com/question/481238105)
 
-## 英语书籍推荐
-
-1. [小王子](https://book.douban.com/subject/1084336/ "小王子")
-2. [月亮和六便士](https://book.douban.com/subject/1858513/ "月亮和六便士")
-3. [哈利·波特](https://book.douban.com/subject/24531956/ "哈利·波特")
-4. [动物农场](https://book.douban.com/subject/2035179/ "动物农场")
-5. [傲慢与偏见](https://book.douban.com/subject/4881639/)
-6. [1984](https://book.douban.com/subject/4820710/ "1984")
-7. [飘](https://book.douban.com/subject/1068920/ "飘")
-8. [杀死一只知更鸟](https://book.douban.com/subject/6781808/ "杀死一只知更鸟")
-9. [卡拉马佐夫兄弟](https://book.douban.com/subject/25887924/ "卡拉马佐夫兄弟")
-10. [老人与海](https://book.douban.com/subject/30338134/)
-11. [Flipped](https://book.douban.com/subject/2669319/)
-12. [深夜小狗神秘事件](https://book.douban.com/subject/5988558/)
-
-[有哪些薄的书（100页以内）值得反复阅读 ](https://www.zhihu.com/question/496193055/answer/2292623154)
-
-[英文原版阅读有哪些入门书籍推荐？ - 赛门喵Simon的回答 - 知乎](https://www.zhihu.com/question/20291266/answer/98724976)
-
-读原版英文小说可以读当代的，也可以根据兴趣爱好：1）推理的话推荐[阿加莎](https://zhida.zhihu.com/search?q=%E9%98%BF%E5%8A%A0%E8%8E%8E&zhida_source=entity&is_preview=1)（阅读难度还行，但是不定期会遇到法语和拉丁词源的高级词），个人强推罗杰疑案，东方快车谋杀案。2）追风筝的人（当年风靡美国的一部小说，词汇量建议1万以上），类似的书直接按美国畅销书的关键词去找就行，畅销书的阅读难度基本都大致相同。3）如果要读英美文学，那么按词汇量和阅读难度要看，最好从简奥斯汀的[傲慢与偏见](https://zhida.zhihu.com/search?q=%E5%82%B2%E6%85%A2%E4%B8%8E%E5%81%8F%E8%A7%81&zhida_source=entity&is_preview=1)，爱玛入手，再读呼啸山庄，然后可以阅读毛姆的作品，比如月亮和六便士，[刀锋](https://zhida.zhihu.com/search?q=%E5%88%80%E9%94%8B&zhida_source=entity&is_preview=1)；词汇量积累到2万以上，阅读水平提升后，可以阅读简爱，简奥斯汀的其余作品；期间可以阅读一些世界文学的英文版，比如红与黑，百年孤独，[罪与罚](https://zhida.zhihu.com/search?q=%E7%BD%AA%E4%B8%8E%E7%BD%9A&zhida_source=entity&is_preview=1)等等，然后阅读狄更斯，[威廉萨克雷](https://zhida.zhihu.com/search?q=%E5%A8%81%E5%BB%89%E8%90%A8%E5%85%8B%E9%9B%B7&zhida_source=entity&is_preview=1)，托马斯哈迪等英国文学大师，再就是霍桑，[福克纳](https://zhida.zhihu.com/search?q=%E7%A6%8F%E5%85%8B%E7%BA%B3&zhida_source=entity&is_preview=1)等美国文学大师。其实慢慢的把这些全部读完，多读几遍，再把[白鲸](https://zhida.zhihu.com/search?q=%E7%99%BD%E9%B2%B8&zhida_source=entity&is_preview=1)，红字也多啃啃，打开[尤利西斯](https://zhida.zhihu.com/search?q=%E5%B0%A4%E5%88%A9%E8%A5%BF%E6%96%AF&zhida_source=entity&is_preview=1)还是一脸懵逼的。所以非英语爱好者的话，还是不要入文学这个坑啦。但是看多了基本不会再看中文的译作了，很多翻译真的太拉跨了。
-
-作者：知乎用户hivpxc  
-链接：https://www.zhihu.com/question/31771035/answer/2504488284  
 
 ## 英语听力的几个阶段
 
