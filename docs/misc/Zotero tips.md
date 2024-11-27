@@ -46,11 +46,12 @@ zotero的文字 图片可以直接拖到白板中，生成zotero链接。
  
 // EDTI TAG MAPPING BELOW
 const tags = {
-	"#008b8b": "新概念",
     "#ffd400": "创新点",
+	"#008b8b": "新概念",
     "#ff6666": "研究背景",
     "#5fb236": "重点",
     "#2ea8e5": "实验tips",
+	"#7908ff": "结论",
     "#a28ae5": "例句",
     "#e56eee": "单词",
     "#f19837": "数据集",
@@ -173,11 +174,15 @@ ${
 <p>${await getAnnotationsByTag('数据集')}</p>
 <p></p >
 
+<h2><span style="color: #A61B41">📜 结论：</span></h2>
+<p>${await getAnnotationsByTag('结论')}</p>
+<p></p >
+
 <h2><span style="color: #A61B41">📌 待改进：</span></h2>
 <p>${await getAnnotationsByTag('缺点')}</p>
 <p></p >
 
-<h2><span style="color: #A61B41">📜 英文学习：</span></h2>
+<h2><span style="color: #A61B41">💪 英文学习：</span></h2>
 <p>${await getAnnotationsByTag('单词')}</p>
 <p></p >
 <p>${await getAnnotationsByTag('例句')}</p>
