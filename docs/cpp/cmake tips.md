@@ -1,6 +1,107 @@
 # cmake tips
 
+## VS 相关设置
 
+Visual Studio 官方指导：
+
+[Visual Studio 中的 CMake 项目 | Microsoft Learn](https://learn.microsoft.com/zh-cn/cpp/build/cmake-projects-in-visual-studio?view=msvc-170)
+
+``` cmake
+# 设置 Visual Studio 启动项目  
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT HSG_testbed)
+    
+
+# 组织文件目录结构
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} PREFIX "src" FILES ${sources})  
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} PREFIX "include" FILES ${export_headers})
+
+# 设置依赖的dll路径
+set_target_properties(${EXENAME} PROPERTIES VS_DEBUGGER_ENVIRONMENT "${DLL_PATH}")
+
+```
+
+### Visual Studio设置加载dll路径
+
+运行 Visual Studio 编译的程序时遇到缺少 DLL 的问题，有几种常见的方法可以尝试解决：
+
+1. **将 .dll 放到执行文件所在目录**
+2. **设置环境变量 PATH**: 将包含缺少 DLL 的目录添加到系统的 PATH 环境变量中。这样，系统会在所有路径中查找所需的 DLL。
+3. 在Visual Studio的`配置属性` -- `调试` --`环境` 中，添加 `path=dll_path;$(path)`,`dll_path`是需要加载的dll所在的路径，`$(path)`是环境变量定义的
+4. `cmake`中使用 `set_target_properties(${EXENAME} PROPERTIES VS_DEBUGGER_ENVIRONMENT "${DLL_PATH}")` 设置
+5. `arcpkg`中使用`arcpkg_vs_debugger_environment(${EXENAME})` ，它会自动寻找依赖的`target`，且加载目标属性为`IMPORTED`的路径。 
+
+### 设置文件夹筛选器
+
+[cmake: how to create visual studio filters - Stack Overflow](https://stackoverflow.com/questions/33808087/cmake-how-to-create-visual-studio-filters)
+
+See [How to set Visual Studio Filters for nested sub directory using cmake](https://stackoverflow.com/questions/31422680/how-to-set-visual-studio-filters-for-nested-sub-directory-using-cmake)
+
+Just be aware that
+
+- the [`source_group()`](https://cmake.org/cmake/help/v3.4/command/source_group.html) command only works in combination with [`add_library()`](https://cmake.org/cmake/help/v3.4/command/add_library.html) or [`add_executable()`](https://cmake.org/cmake/help/v3.4/command/add_executable.html) commands listing the same sources (the paths must match)
+- the `source_group()` command does not check if the file actually exists (so it takes anything you give it and during project file generation it tries to match the given source group file names against files used in the project)
+
+``` cmake
+
+file(GLOB_RECURSE SRC_UI
+    "${VD_SRC}/ui/*.cpp"
+    "${VD_SRC}/ui/*.h"
+)
+file(GLOB_RECURSE SRC_IMPORT
+    "${VD_SRC}/import/*.cpp"
+    "${VD_SRC}/import/*.h"
+)
+
+add_library(VisalDesigner ${SRC_UI} ${SRC_IMPORT})
+
+# 注意需要使用add_library用的
+source_group("ui"  FILES ${SRC_UI})
+source_group("import" FILES ${SRC_IMPORT})
+
+```
+
+下面的代码可以获取文件夹`src`下面所有文件，然后自动分组(似乎还存在问题)。
+
+``` cmake
+cmake_minimum_required(VERSION 3.15)
+project(MyProject)
+
+# C++标准
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+
+# 递归查找所有源文件
+file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+)
+
+# 创建可执行文件
+add_executable(MyExecutable ${SRC_FILES})
+
+# 函数：自动分组
+function(auto_group_sources cur_dir)
+    foreach(file ${SRC_FILES})
+        # 获取文件相对路径
+        file(RELATIVE_PATH relative_path ${cur_dir} ${file})
+        # 提取目录部分
+        get_filename_component(folder ${relative_path} PATH)
+        # 替换 '/' 为 '\'
+        string(REPLACE "/" "\\" group_name ${folder})
+        # 创建分组
+        source_group(${group_name} FILES ${file})
+    endforeach()
+endfunction()
+
+# 调用分组函数
+auto_group_sources(${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+
+```
 
 ## 第三方依赖库
 
@@ -11,7 +112,6 @@
 `FetchContent`  支持从多种来源（如Git、SVN、HTTP/HTTPS等）下载源代码, 并将源代码直接加入到项目一起编译。 在 CMake 3.11 中引入，但推荐使用 CMake 3.14 或更高版本。
 
 `ExternalProject` 将源代码下载并编译成库，再link到项目中。这样的好处是可以为每个外部项目指定独立的构建命令和参数。
-
 
 ``` cmake
 cmake_minimum_required(VERSION 3.20)
