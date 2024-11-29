@@ -60,10 +60,11 @@ source_group("import" FILES ${SRC_IMPORT})
 
 ```
 
-下面的代码可以获取文件夹`src`下面所有文件，然后自动分组(似乎还存在问题)。
+下面的代码可以获取文件夹`src`下面所有文件，然后自动分组。
 
 ``` cmake
 cmake_minimum_required(VERSION 3.15)
+
 project(MyProject)
 
 # C++标准
@@ -72,7 +73,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
 # 递归查找所有源文件
-file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
+file(GLOB_RECURSE SRC_FILES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
 	${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
@@ -80,26 +81,36 @@ file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
 
+# 可以加上需要排除的目录
+# TODO
+
 # 创建可执行文件
 add_executable(MyExecutable ${SRC_FILES})
 
-# 函数：自动分组
-function(auto_group_sources cur_dir)
-    foreach(file ${SRC_FILES})
-        # 获取文件相对路径
-        file(RELATIVE_PATH relative_path ${cur_dir} ${file})
-        # 提取目录部分
-        get_filename_component(folder ${relative_path} PATH)
-        # 替换 '/' 为 '\'
-        string(REPLACE "/" "\\" group_name ${folder})
-        # 创建分组
-        source_group(${group_name} FILES ${file})
-    endforeach()
-endfunction()
 
-# 调用分组函数
-auto_group_sources(${CMAKE_CURRENT_SOURCE_DIR}/src)
-
+if(MSVC)
+	# 设置基础名
+	set(BASE_FILTER "Source Files\\")
+	
+	# 函数：vs自动分组
+	function(auto_group_sources cur_dir)
+	    foreach(file ${SRC_FILES})
+	        # 获取文件相对路径
+	        file(RELATIVE_PATH relative_path ${cur_dir} ${file})
+	        # 提取目录部分
+	        get_filename_component(folder ${relative_path} PATH)
+	        # 替换 '/' 为 '\'
+	        string(REPLACE "/" "\\" group_name "${folder}")
+		# 创建分组
+		set(final_group_name "${BASE_FILTER}${group_name}")
+		message(STATUS ${file} " to " ${final_group_name})
+		source_group(${final_group_name} FILES ${file})
+	    endforeach()
+	endfunction()
+	
+	# 调用分组函数
+	auto_group_sources(${CMAKE_CURRENT_SOURCE_DIR})
+endif()
 
 ```
 
