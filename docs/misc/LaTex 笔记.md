@@ -609,7 +609,7 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 
 **李代数**
 === "显示结果"
-	$\mathfrak{su}(2)$   
+	$\mathfrak{su}(2)$
 	$\mathfrak{so}(3)$
 === "Latex"
 	``` latex
@@ -631,4 +631,4 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 | `\iff`                                                       | ==$\iff$==                                                    |
 | `\nearrow` `\nwarrow` `\searrow` `\swarrow`                  | $\nearrow$ $\nwarrow$ $\searrow$ $\swarrow$                   |
 
-[如何用LaTeX打出各种箭头？ - 知乎](https://zhuanlan.zhihu.com/p/263896738?utm_source=wechat_session&utm_id=0) 
+[如何用LaTeX打出各种箭头？ - 知乎](https://zhuanlan.zhihu.com/p/263896738?utm_source=wechat_session&utm_id=0)

@@ -3,24 +3,22 @@ tags:
   - tips
   - obsidian
 ---
+
 # Obsidian tips
+
  
 
 官方文档
 
 [Basic formatting syntax - Obsidian Help](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax)
 
-
-
 [ob配置文件夹.obsidian解析说明 - 经验分享 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/495)
 
 [请问大神：remotely save插件能否同步obsidian配置文件夹？| - 疑问解答 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/10313/5)
 
-
 ## 搜索
 
 [Search - Obsidian Help](https://help.obsidian.md/Plugins/Search#Search+properties)
-
 
 如果想搜索标有 `#todo` tag , 语法如下：
 
@@ -29,7 +27,6 @@ tag: todo
 ```
 
 如若想搜索 callout 则需要加上 ” “
-
 
 ``` query_
 ">[!todo]"
@@ -41,8 +38,6 @@ tag: todo
 > 代码块里的`query_` 要换成 `query`
 
 ## 双链使用技巧
-
-
 
 1. 链接整篇文章
 格式 ： `[[文章名]]` ，需要预览则在前面添加`!`，变成 `![[文章名]]` 
@@ -59,6 +54,7 @@ tag: todo
 即^ 可以链接到对应的块（段落）
 
 创建链接位置：
+
 链接文章代码位置 ： 
 
 随之生成了一个代码，用于在数据库中标记一个块，固定好后的代码是要对应的，最好不要改，防止不匹配
@@ -67,6 +63,7 @@ tag: todo
 待引用位置 标记格式 ：`要定义的块后面 + 空格 + ^ + 自定义代码(不支持中文)`
 
 定义好的代码 ：
+
 引用的位置：
 
 `[[文章名  # ^ 自定义的代码]]`
@@ -77,16 +74,13 @@ tag: todo
 5.链接创建别名
 格式： `[[文章名 + # + ^ + 自定义的代码 + | +别名]]`
 
-
 `[[作业#^dd2022730|java]]`
-
-
 
 ## 脚注
 
 定义： `[^1]: xxxx`
-使用： `[^1]`
 
+使用： `[^1]`
 
 ```
 这是一个脚注 [^1]。
@@ -98,8 +92,11 @@ tag: todo
 ```
 
 这是一个脚注 [^1]。
+
 这是一个脚注 ^[参考文献1]。
+
 注意，脚注只有在阅读视图下才会跳转，而且会隐藏未被引用的脚注，好处是可以从脚注跳转到引用的地方。
+
 参考 [[相机模型以及投影笔记]]
 
 **建议使用双链**， 在参考链接后面加上 `^ref1`,  使用双链跳转  `[[#^ref1 | 参考链接1]]`
@@ -110,7 +107,9 @@ tag: todo
 ## 引用式链接
 
 这个链接用 1 作为网址变量 [Google][1]
+
 这个链接用 runoob 作为网址变量 [Runoob][runoob]
+
 然后在文档的结尾为变量赋值（网址）
 
   [1]: http://www.google.com/
@@ -155,7 +154,6 @@ This is [an example] [id] reference-style link.
 
 一份 Markdown 文件，分别使用行内链接和引用式链接的效果对比，很明显右侧引用式链接的可读性更强
 
-
 ## Callout
 
 [Callouts - Obsidian Help](https://help.obsidian.md/Editing+and+formatting/Callouts)
@@ -165,6 +163,7 @@ This is [an example] [id] reference-style link.
 语法：`> [!callout关键词]`
 
 `> [!callout关键词]+`:  默认展开，显示折叠按钮 
+
 `> [!callout关键词]-`: 默认折叠，显示折叠按钮   
 `> [!callout关键词]`:   默认展开，不显示折叠按钮 
 
@@ -223,13 +222,13 @@ This is [an example] [id] reference-style link.
 
 相关插件， callout manager，可以自定义图标和关键词，或者直接用css
 
-
 可以稍微修改这个功能，实现边注。
+
 ![](https://pic1.zhimg.com/v2-26ad600de51a8f21ea04a32edc87cb1e_b.jpg)
 
 如何在 Obsidian 中优雅的进行注释（边注） - Huajin的文章 - 知乎
-https://zhuanlan.zhihu.com/p/678900439
 
+https://zhuanlan.zhihu.com/p/678900439
 
 ## 修改页面宽度设置
 
@@ -239,17 +238,16 @@ https://zhuanlan.zhihu.com/p/678900439
 
 参考： [Obsidian 页面设置\_obsidian 页面宽度\_烟 火的博客-CSDN博客](https://blog.csdn.net/m0_58572221/article/details/127523085)
 
+## 隐藏侧边栏 ribbon / 功能区
 
+按`ctrl` + `p` 
 
-## 隐藏侧边栏 ribbon
-
-按`ctrl` + `p` 搜索 `ribbon` 。隐藏或者打开侧边栏。
-
+- 搜索 `ribbon` 。隐藏或者打开侧边栏。
+- 新版本需要搜索：`显示/隐藏功能区`
 
 ## 隐藏顶部文件名
 
  > there's a toggle in the settings under "appearance" called "show inline titles". Just turn that off, and the file name won't be shown inside the note anymore.
-
 
 [How to hide file name? : r/ObsidianMD](https://www.reddit.com/r/ObsidianMD/comments/yi6pr1/how_to_hide_file_name/)
 
@@ -257,11 +255,7 @@ https://zhuanlan.zhihu.com/p/678900439
 
 ![[Pasted image 20240430135452.png]]
 
-
 [Attaching images to Obsidian - Fork My Brain](https://notes.nicolevanderhoeven.com/obsidian-playbook/Using+Obsidian/02+Making+Notes+in+Obsidian/Attaching+images+to+Obsidian)
-
-
-
 
 # Ref
 

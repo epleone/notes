@@ -91,7 +91,7 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 
 使用命令 `Download images *`
 
-这个插件有个plus版本，[GitHub - Sergei-Korneev/obsidian-local-images-plus: This repo is a reincarnation of obsidian-local-images plugin which main aim was downloading images in md notes to local storage.](https://github.com/Sergei-Korneev/obsidian-local-images-plus) 
+这个插件有个plus版本，[GitHub - Sergei-Korneev/obsidian-local-images-plus: This repo is a reincarnation of obsidian-local-images plugin which main aim was downloading images in md notes to local storage.](https://github.com/Sergei-Korneev/obsidian-local-images-plus)
 
 但这个我觉得已经够用了。
 
@@ -121,7 +121,7 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 [remotely save + 坚果云 503问题 - 疑问解答 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/34339)
 
 > [!warning] 忽略git等文件夹
-> 
+>
 
 ``` text
 .git
@@ -272,11 +272,15 @@ https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
 ## 插件开发
 
 > [!todo]
-> 开发一个contnt tabs
+> 开发一个content tabs
 
 [Content tabs - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#content-tabs)
 
 [GitHub - ptournet/obsidian-html-tabs: Obsidian plugin allowing the creation and rendering of Tabs and tab panels in your notes.](https://github.com/ptournet/obsidian-html-tabs)
+
+[GitHub - xhuajin/obsidian-tabs](https://github.com/xhuajin/obsidian-tabs)
+[GitHub - GnoxNahte/obsidian-tab-panels: Create tab panels to organize content into sections](https://github.com/GnoxNahte/obsidian-tab-panels)
+
 
 [zhuanlan.zhihu.com/p/706140947](https://zhuanlan.zhihu.com/p/706140947)
 
