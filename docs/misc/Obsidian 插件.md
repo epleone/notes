@@ -232,7 +232,7 @@ Outliner是一个用于改进Obsidian中列表的插件。
 
 [当你的 Obsidian 简化到了极致 - 知乎](https://zhuanlan.zhihu.com/p/694896288)
 
-##  Image ClassifyPaste
+###  Image ClassifyPaste
 
 [GitHub - ostoe/Ob-ImagePastePlugin](https://github.com/ostoe/Ob-ImagePastePlugin)
 
@@ -248,7 +248,7 @@ mkdocs-roamlinks 支持双链
 
 https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
 
-## ?换行插件
+### ?换行插件
 
 用`<br>` 代替原始的换行，保证排版格式
 
@@ -269,6 +269,49 @@ https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
 <br>
 ```
 
+### Content Tab
+
+``` css
+/* the This CSS file for html-tabs */
+
+.html-tabs {
+    display: flex;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: rgba(128, 128, 128, 0.1);
+    cursor: pointer;
+}
+
+.html-tab {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.html-tab:hover {
+    color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.75);
+}
+
+.html-tab-not-first {
+    margin-left: 1rem;
+}
+
+.html-tab-active {
+    color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 1);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 1);
+}
+
+.html-tab-content {
+    padding: 0.5rem;
+}
+
+```
+
 ## 插件开发
 
 > [!todo]
@@ -282,6 +325,9 @@ https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
 [GitHub - GnoxNahte/obsidian-tab-panels: Create tab panels to organize content into sections](https://github.com/GnoxNahte/obsidian-tab-panels)
 
 
+配合使用[[#Content Tab]] 的CSS可以基本实现 [MkDocs' Content tabs](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#content-tabs) 。
+
+
 [zhuanlan.zhihu.com/p/706140947](https://zhuanlan.zhihu.com/p/706140947)
 
 [Markdown 后处理 | Obsidian 插件开发文档](https://luhaifeng666.github.io/obsidian-plugin-docs-zh/zh2.0/editor/markdown-post-processing.html)
@@ -289,3 +335,6 @@ https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
 [Home - Developer Documentation](https://docs.obsidian.md/Home)
 
 [zhuanlan.zhihu.com/p/656700352](https://zhuanlan.zhihu.com/p/656700352)
+
+
+
