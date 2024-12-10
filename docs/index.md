@@ -14,6 +14,42 @@ The notes appear as pages within these sections. For example, [[Note 1]] in `Top
 
 笔记一般分为`guide` 和 `tips` 。`guide` 是学习笔记，记录学习经历。 `tips` 只记录一些使用技巧和重点内容。
 
+## test
+
+~~~ tabs
+=== c++
+``` cpp
+std::cout << "hello c++!" << std::endl;
+```
+
+=== python
+``` python
+print("hello python!")
+```
+
+=== c
+``` c
+printf("hello, c!");
+```
+
+=== latex
+
+$$ \alpha \to \beta $$
+
+=== text
+this is a test!
+
+~~~
+
+
+``` cpp
+std::cout << "hello c++!" << std::endl;
+```
+
+
+``` c
+printf("hello, c!");
+```
 
 
 
