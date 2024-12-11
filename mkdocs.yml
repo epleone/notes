@@ -66,6 +66,7 @@ markdown_extensions:
 plugins:
   - search
   - callouts
+  - content-tabs
   # - typeset
   - roamlinks
   # - blog
