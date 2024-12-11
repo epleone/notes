@@ -1,3 +1,5 @@
+<br>
+
 # hi
 
 Publish your public notes with MkDocs
@@ -17,7 +19,8 @@ The notes appear as pages within these sections. For example, [[Note 1]] in `Top
 ## test
 
 ~~~ tabs
-=== c++
+
+=== cpp
 ``` cpp
 std::cout << "hello c++!" << std::endl;
 ```
@@ -42,9 +45,36 @@ this is a test!
 ~~~
 
 
+
+=== cpp
 ``` cpp
 std::cout << "hello c++!" << std::endl;
 ```
+
+=== python
+``` python
+print("hello python!")
+```
+
+=== c
+``` c
+printf("hello, c!");
+```
+
+=== latex
+
+$$ \alpha \to \beta $$
+
+=== text
+this is a test!
+
+
+
+
+``` cpp
+std::cout << "hello c++!" << std::endl;
+```
+
 
 
 ``` c

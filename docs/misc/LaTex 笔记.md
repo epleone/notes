@@ -86,124 +86,111 @@ tags:
 
 
 **方程**
+~~~ tabs
 
-=== "显示结果"
-
-	
-	  $$  
-	\begin{align}  
-	a & = b + c \\  
-	& = d + e  
-	\end{align}  
-	$$
-	
-
-=== "Latex"
-
-	
-	``` latex
-		
-	% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
-	
-	\begin{align}  
-	a & = b + c \\  
-	& = d + e  
-	\end{align}
-	```
+=== 显示结果
+$$  
+\begin{align}  
+a & = b + c \\  
+& = d + e  
+\end{align}  
+$$
 	
 
+=== Latex
 
+``` latex
+	
+% 对齐符号 & 可以理解为`\t` tab , 相当于占一格
+
+\begin{align}  
+a & = b + c \\  
+& = d + e  
+\end{align}
+```
+	
+~~~
 
 
 
 **分段函数**
+~~~ tabs
 
-=== "显示结果"
-
+=== 显示结果
+$$  
+|x| = \left\{  
+\begin{array}{l}  
+-x & \text{if } x < 0,\\  
+0 & \text{if } x = 0,\\  
+x & \text{if } x > 0.  
+\end{array} \right.   
+$$
 	
-	$$  
+
+=== Latex
+``` latex
 	|x| = \left\{  
-	\begin{array}{l}  
-	-x & \text{if } x < 0,\\  
-	0 & \text{if } x = 0,\\  
-	x & \text{if } x > 0.  
-	\end{array} \right.   
-	$$
-	
-
-=== "Latex"
-
-	
-	``` latex
-	|x| = \left\{  
-	\begin{array}{l}  
-	-x & \text{if } x < 0,\\  
-	0 & \text{if } x = 0,\\  
-	x & \text{if } x > 0.  
+		\begin{array}{l}  
+		-x & \text{if } x < 0,\\  
+		0 & \text{if } x = 0,\\  
+		x & \text{if } x > 0.  
 	\end{array} \right.
-	```
-	
+```
 
+~~~
 
 **分段函数**
+~~~ tabs
 
-=== "显示结果"
+=== 显示结果
+$$
+\begin{equation} 
+\lambda(C_L, C_R)=\left\{ 
+\begin{aligned}
+0, & , & d > IF, \\ 
+\frac{IF - d}{d} ||C_L - C_R||_1 &,& d <= IF 
+\end{aligned} 
+\right. 
+\end{equation}
+$$
 
-	
-	$$
-	\begin{equation} 
-	\lambda(C_L, C_R)=\left\{ 
-	\begin{aligned}
-	0, & , & d > IF, \\ 
-	\frac{IF - d}{d} ||C_L - C_R||_1 &,& d <= IF 
-	\end{aligned} 
-	\right. 
-	\end{equation}
-	$$
-	
 
-=== "Latex"
+=== Latex
+``` latex
+\begin{equation} 
+\lambda(C_L, C_R)=\left\{ 
+\begin{aligned}
+0, & , & d > IF, \\ 
+\frac{IF - d}{d} ||C_L - C_R||_1 &,& d <= IF 
+\end{aligned} 
+\right. 
+\end{equation}
+```
 
-	
-	``` latex
-	\begin{equation} 
-	\lambda(C_L, C_R)=\left\{ 
-	\begin{aligned}
-	0, & , & d > IF, \\ 
-	\frac{IF - d}{d} ||C_L - C_R||_1 &,& d <= IF 
-	\end{aligned} 
-	\right. 
-	\end{equation}
-	```
-	
-
+~~~
 
 **方程组**
+~~~ tabs
 
-=== "显示结果"
+=== 显示结果
+$$
+\begin{gather*} 
+x = X_{c_{1}} \\
+y = X_{c_{2}} \\
+z = X_{c_{3}} \\
+\end{gather*}
+$$
 
-	
-	$$
-	\begin{gather*} 
-	x = X_{c_{1}} \\
-	y = X_{c_{2}} \\
-	z = X_{c_{3}} \\
-	\end{gather*}
-	$$
-	
+=== Latex
+``` latex
+\begin{gather*} 
+x = X_{c_{1}} \\
+y = X_{c_{2}} \\
+z = X_{c_{3}} \\
+\end{gather*}
+```
 
-=== "Latex"
-
-	
-	``` latex
-	\begin{gather*} 
-	x = X_{c_{1}} \\
-	y = X_{c_{2}} \\
-	z = X_{c_{3}} \\
-	\end{gather*}
-	```
-	
-
+~~~
 [latex学习笔记:多行公式\_latex 多行公式\_假装忙碌的人的博客-CSDN博客](https://blog.csdn.net/weixin_43659721/article/details/115246629)
 
 PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
@@ -219,107 +206,108 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 
 
 **方括号矩阵**
-=== "显示结果"
 
-	$$
-	\left[
+~~~ tabs
+=== 显示结果
+$$
+\left[
+\begin{array}{cccc}
+a & b & c & d\\
+a & b & c & d\\
+a & b & c & d\\ 
+a & b & c & d\\ 
+\end{array}
+\right]
+$$
+
+=== Latex
+
+``` latex
+\left[
+
 	\begin{array}{cccc}
-	a & b & c & d\\
-	a & b & c & d\\
-	a & b & c & d\\ 
-	a & b & c & d\\ 
+
+		a & b & c & d\\
+
+		a & b & c & d\\
+
+		a & b & c & d\\ 
+
+		a & b & c & d\\ 
+
 	\end{array}
-	\right]
-	$$
 
-=== "Latex"
+\right]
 
-	``` latex
+```
 
-	\left[
-
-		\begin{array}{cccc}
-
-			a & b & c & d\\
-
-			a & b & c & d\\
-
-			a & b & c & d\\ 
-
-			a & b & c & d\\ 
-
-		\end{array}
-
-	\right]
-
-	```
+~~~
 
 **圆括号矩阵**
-=== "显示结果"
+~~~ tabs
+=== 显示结果
+$$
+\left(
+\begin{array}{cccc}
+a & b & c & d\\
+a & b & c & d\\
+a & b & c & d\\ 
+a & b & c & d\\ 
+\end{array}
+\right)
+$$
 
-	$$
-	\left(
+=== latex
+
+``` latex
+\left(
+
 	\begin{array}{cccc}
-	a & b & c & d\\
-	a & b & c & d\\
-	a & b & c & d\\ 
-	a & b & c & d\\ 
+
+		a & b & c & d\\
+
+		a & b & c & d\\
+
+		a & b & c & d\\ 
+
+		a & b & c & d\\ 
+
 	\end{array}
-	\right)
-	$$
 
-=== "latex"
+\right)
 
-	``` latex
+```
 
-	\left(
-
-		\begin{array}{cccc}
-
-			a & b & c & d\\
-
-			a & b & c & d\\
-
-			a & b & c & d\\ 
-
-			a & b & c & d\\ 
-
-		\end{array}
-
-	\right)
-
-	```
+~~~
 
 **尖括号矩阵**
+~~~ tabs
 
-=== "显示结果"
+=== 显示结果
+$$
+\left\{
+\begin{array}{cccc}
+a & b & c & d\\
+a & b & c & d\\
+a & b & c & d\\ 
+a & b & c & d\\ 
+\end{array}
+\right\}
+$$
 
-	
-	$$
-	\left\{
+=== Latex
+``` latex
+\left\{
 	\begin{array}{cccc}
-	a & b & c & d\\
-	a & b & c & d\\
-	a & b & c & d\\ 
-	a & b & c & d\\ 
+		a & b & c & d\\
+		a & b & c & d\\
+		a & b & c & d\\ 
+		a & b & c & d\\ 
 	\end{array}
-	\right\}
-	$$
+\right\}
+```
 
-=== "Latex"
-
-	
-	``` latex
-	\left\{
-		\begin{array}{cccc}
-			a & b & c & d\\
-			a & b & c & d\\
-			a & b & c & d\\ 
-			a & b & c & d\\ 
-		\end{array}
-	\right\}
-	```
-	
+~~~
 
 ### 分块矩阵
 
@@ -341,238 +329,247 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 % 上面可以组合使用
 ```
 
-=== "显示结果"
 
-	
-	$$
+~~~ tabs
+
+=== 显示结果
+$$
+\left[
+\begin{array}{c:c|c:c}
+a & b & c & d\\
+a & b & c & d\\
+a & b & c & d\\ 
+a & b & c & d\\ 
+\end{array}
+\right]
+$$
+
+=== Latex
+``` latex
+
 	\left[
+
 	\begin{array}{c:c|c:c}
+
 	a & b & c & d\\
+
 	a & b & c & d\\
+
 	a & b & c & d\\ 
+
 	a & b & c & d\\ 
+
 	\end{array}
+
 	\right]
-	$$
 
-=== "Latex"
+```
 
-	``` latex
+=== 显示结果
+$$
+\left[
+\begin{array}{cccc}
+a & b & c & d\\
+\hline
+a & b & c & d\\
+a & b & c & d\\
+\hdashline
+a & b & c & d\\ 
+\end{array}
+\right]
+$$
 
-		\left[
-
-		\begin{array}{c:c|c:c}
-
-		a & b & c & d\\
-
-		a & b & c & d\\
-
-		a & b & c & d\\ 
-
-		a & b & c & d\\ 
-
-		\end{array}
-
-		\right]
-
-	```
-
-=== "显示结果"
-
-	$$
+=== Latex
+``` latex
 	\left[
+
 	\begin{array}{cccc}
+
 	a & b & c & d\\
+
 	\hline
+
 	a & b & c & d\\
+
 	a & b & c & d\\
+
 	\hdashline
+
 	a & b & c & d\\ 
+
 	\end{array}
+
 	\right]
-	$$
 
-=== "Latex"
+```
 
-	``` latex
+=== 显示结果
+$$
+\left[
+\begin{array}{c:c|c:c}
+a & b & c & d\\
+\hline
+a & b & c & d\\
+\hdashline
+a & b & c & d\\
+a & b & c & d\\ 
+\end{array}
+\right]
+$$
 
-		\left[
+=== Latex
+``` latex
 
-		\begin{array}{cccc}
-
-		a & b & c & d\\
-
-		\hline
-
-		a & b & c & d\\
-
-		a & b & c & d\\
-
-	    \hdashline
-
-		a & b & c & d\\ 
-
-		\end{array}
-
-		\right]
-
-	```
-
-=== "显示结果"
-
-	$$
 	\left[
+
 	\begin{array}{c:c|c:c}
+
 	a & b & c & d\\
+
 	\hline
+
 	a & b & c & d\\
+
 	\hdashline
+
 	a & b & c & d\\
+
 	a & b & c & d\\ 
+
 	\end{array}
+
 	\right]
-	$$
 
-=== "Latex"
+```
 
-	``` latex
 
-		\left[
+~~~
 
-		\begin{array}{c:c|c:c}
 
-		a & b & c & d\\
-
-		\hline
-
-		a & b & c & d\\
-
-		\hdashline
-
-		a & b & c & d\\
-
-		a & b & c & d\\ 
-
-		\end{array}
-
-		\right]
-
-	```
 
 **矩阵省略号写法**
 
-=== "显示结果"
+~~~ tabs
 
-	$$
-	\mathbf{X} = \left(  
-	\begin{array} {cccc}
-	x_{11} & x_{12} & \ldots & x_{1n}\\  
-	x_{21} & x_{22} & \ldots & x_{2n}\\  
-	\vdots & \vdots & \ddots & \vdots\\  
-	x_{n1} & x_{n2} & \ldots & x_{nn}\\  
-	\end{array}  
-	\right)   
-	$$
+=== 显示结果
+$$
+\mathbf{X} = \left(  
+\begin{array} {cccc}
+x_{11} & x_{12} & \ldots & x_{1n}\\  
+x_{21} & x_{22} & \ldots & x_{2n}\\  
+\vdots & \vdots & \ddots & \vdots\\  
+x_{n1} & x_{n2} & \ldots & x_{nn}\\  
+\end{array}  
+\right)   
+$$
 
-=== "Latex"
+=== Latex
+``` latex
+\mathbf{X} = \left(  
+\begin{array} {cccc}  
+x_{11} & x_{12} & \ldots & x_{1n}\\  
+x_{21} & x_{22} & \ldots & x_{2n}\\  
+\vdots & \vdots & \ddots & \vdots\\  
+x_{n1} & x_{n2} & \ldots & x_{nn}\\  
+\end{array}  
+\right)   
+```
 
-	``` latex
+~~~
 
-	\mathbf{X} = \left(  
-	\begin{array} {cccc}  
-	x_{11} & x_{12} & \ldots & x_{1n}\\  
-	x_{21} & x_{22} & \ldots & x_{2n}\\  
-	\vdots & \vdots & \ddots & \vdots\\  
-	x_{n1} & x_{n2} & \ldots & x_{nn}\\  
-	\end{array}  
-	\right)   
-	```
+
+
 
 **在矩阵中的元素里排版分式时，要用到`\dfrac`等命令**
 
-=== "显示结果"
+~~~ tabs
 
-	$$
-	\mathbf{H}=  
-	\left[
-		\begin{array}{cc}
-			\dfrac{\partial^2 f}{\partial x^2} &  
-			\dfrac{\partial^2 f}{\partial x \partial y} \\  
-			\dfrac{\partial^2 f}{\partial x \partial y} &  
-			\dfrac{\partial^2 f}{\partial y^2}  
-		\end{array} 
-	\right]
-	$$
+=== 显示结果
+$$
+\mathbf{H}=  
+\left[
+	\begin{array}{cc}
+		\dfrac{\partial^2 f}{\partial x^2} &  
+		\dfrac{\partial^2 f}{\partial x \partial y} \\  
+		\dfrac{\partial^2 f}{\partial x \partial y} &  
+		\dfrac{\partial^2 f}{\partial y^2}  
+	\end{array} 
+\right]
+$$
 
-=== "Latex"
+=== Latex
+``` latex
 
-	``` latex
+\mathbf{H}=  
+\left[
 
-	\mathbf{H}=  
-	\left[
+	\begin{array}
 
-		\begin{array}
+		\dfrac{\partial^2 f}{\partial x^2} &  
+		\dfrac{\partial^2 f}  {\partial x \partial y} \\  
+		\dfrac{\partial^2 f}  {\partial x \partial y} &  
+		\dfrac{\partial^2 f}{\partial y^2}  
+	\end{array} 
 
-			\dfrac{\partial^2 f}{\partial x^2} &  
-			\dfrac{\partial^2 f}  {\partial x \partial y} \\  
-			\dfrac{\partial^2 f}  {\partial x \partial y} &  
-			\dfrac{\partial^2 f}{\partial y^2}  
-		\end{array} 
+\right]
 
-	\right]
+```
 
-	```
+~~~
 
 ### 其它写法
 
-=== "显示结果"
+~~~ tabs
+=== 显示结果
+$$  
+\begin{pmatrix}  
+1 & 2 \\ 3 & 4  
+\end{pmatrix}  
+\qquad  
+\begin{bmatrix}  
+1 & 2 \\ 3 & 4  
+\end{bmatrix}  
+\qquad  
+\begin{Bmatrix}  
+1 & 2 \\ 3 & 4  
+\end{Bmatrix}  
+\qquad  
+\begin{vmatrix}  
+1 & 2 \\ 3 & 4  
+\end{vmatrix}  
+\qquad  
+\begin{Vmatrix}  
+1 & 2 \\ 3 & 4  
+\end{Vmatrix}  
+$$
 
-	$$  
-	\begin{pmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{pmatrix}  
-	\qquad  
-	\begin{bmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{bmatrix}  
-	\qquad  
-	\begin{Bmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{Bmatrix}  
-	\qquad  
-	\begin{vmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{vmatrix}  
-	\qquad  
-	\begin{Vmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{Vmatrix}  
-	$$
+=== Latex
+``` latex
 
-=== "Latex"
+\begin{pmatrix}  
+1 & 2 \\ 3 & 4  
+\end{pmatrix}  
+\qquad  
+\begin{bmatrix}  
+1 & 2 \\ 3 & 4  
+\end{bmatrix}  
+\qquad  
+\begin{Bmatrix}  
+1 & 2 \\ 3 & 4  
+\end{Bmatrix}  
+\qquad  
+\begin{vmatrix}  
+1 & 2 \\ 3 & 4  
+\end{vmatrix}  
+\qquad  
+\begin{Vmatrix}  
+1 & 2 \\ 3 & 4  
+\end{Vmatrix}  
+```
 
-	``` latex
+~~~
 
-	\begin{pmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{pmatrix}  
-	\qquad  
-	\begin{bmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{bmatrix}  
-	\qquad  
-	\begin{Bmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{Bmatrix}  
-	\qquad  
-	\begin{vmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{vmatrix}  
-	\qquad  
-	\begin{Vmatrix}  
-	1 & 2 \\ 3 & 4  
-	\end{Vmatrix}  
-	```
+
 
 > [!notes]
 > 这种写法要记太多，不如使用 `array` 统一
@@ -581,41 +578,62 @@ PS: 这里的 `&` &应该是类似制表符`\t`，确定位置的作用
 
 **手写体**
 
-=== "显示结果"
 
-	$$ \mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R} $$
+~~~ tabs
+=== 显示结果
 
-=== "Latex"
+$$ \mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R} $$
 
-	``` latex
+=== Latex
 
-	\mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R}
+``` latex
 
-	```
+\mathcal{R} \quad \mathfrak{R}  \quad \mathbb{R}
+
+```
+
+~~~
+
 
 **手写体例子**
-=== "显示结果"
 
-	$$\mathcal{L}  
-	= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$$
 
-=== "Latex"
+~~~ tabs
+=== 显示结果
 
-	``` latex
+$$
+\mathcal{L}  
+	= -\frac{1}{4}F_{\mu
+u}F^{\mu
+u}
+$$
 
-	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+=== Latex
+``` latex
+\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
 
-	```
+```
+~~~
+
 
 **李代数**
-=== "显示结果"
-	$\mathfrak{su}(2)$
-	$\mathfrak{so}(3)$
-=== "Latex"
-	``` latex
-	\mathfrak{su}(2)
-	\mathfrak{so}(3)
-	```
+
+
+~~~ tabs
+=== 显示结果
+
+$\mathfrak{su}(2)$
+
+$\mathfrak{so}(3)$
+
+=== Latex
+``` latex
+\mathfrak{su}(2)
+
+\mathfrak{so}(3)
+```
+
+~~~
 
 ## 箭头
 

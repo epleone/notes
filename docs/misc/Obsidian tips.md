@@ -20,6 +20,10 @@ tags:
 
 [Search - Obsidian Help](https://help.obsidian.md/Plugins/Search#Search+properties)
 
+
+![FgKJBDeWIAAwKDU](docs/assets/FgKJBDeWIAAwKDU.png)
+
+
 如果想搜索标有 `#todo` tag , 语法如下：
 
 ``` query_
@@ -34,13 +38,16 @@ tag: todo
 
 [Search for a callout - Obsidian Forum](https://forum.obsidian.md/t/search-for-a-callout-i-e-callout-is-giving-0-results/71146)
 
+[How I Use Embedded Queries In Obsidian To Simplify My Note Management](https://heymichellemac.com/embedded-queries-obsidian)
+
+
 > [!warning]
 > 代码块里的`query_` 要换成 `query`
 
 ## 双链使用技巧
 
 1. 链接整篇文章
-格式 ： `[[文章名]]` ，需要预览则在前面添加`!`，变成 `![[文章名]]` 
+格式 ： `[[文章名]]` ，需要预览则在前面添加`!`，变成 `![[文章名]]`
 
 
 2. 链接文章下的分级标题
@@ -55,7 +62,7 @@ tag: todo
 
 创建链接位置：
 
-链接文章代码位置 ： 
+链接文章代码位置 ：
 
 随之生成了一个代码，用于在数据库中标记一个块，固定好后的代码是要对应的，最好不要改，防止不匹配
 
@@ -100,7 +107,7 @@ tag: todo
 参考 [[相机模型以及投影笔记]]
 
 **建议使用双链**， 在参考链接后面加上 `^ref1`,  使用双链跳转  `[[#^ref1 | 参考链接1]]`
-效果如下 [[#^ref1|参考链接1]]  [[#^ref2|参考链接2]] 
+效果如下 [[#^ref1|参考链接1]]  [[#^ref2|参考链接2]]
 
 或者使用
 
@@ -145,7 +152,7 @@ This is [an example] [id] reference-style link.
 与行内链接相比，引用式链接有什么好处？John Gruber 在介绍 Markdown 基本语法时就给出了解释：
 
 > The point of reference-style links is not that they’re easier to write. The point is that with reference-style links, your document source is vastly more readable.
-> 
+>
 > 引用式链接的意义并不在于它们更容易书写，关键在于使用引用式链接可以大大提高 Markdown 源文件的可读性。
 
 的确，在 Markdown 源文件中有大量链接，并且这些链接非常冗长且不够美观的情况下，行内链接不仅会明显降低源文件的可读性，甚至还会干扰我们的写作思路，而引用式链接则可以在很大程度避免这个问题。除此之外，写作过程中，我们往往不想打断写作思路去网上搜索链接，这种情况下就可以先放置一个引用式链接占位符，方便后续进行补充。如果忘记填写链接也没有关系，[Markdown 语法检查器](https://sspai.com/prime/story/markdown-linter-a-primer) 会以错误的形式标注出来，提醒我们修改。
@@ -162,26 +169,26 @@ This is [an example] [id] reference-style link.
 
 语法：`> [!callout关键词]`
 
-`> [!callout关键词]+`:  默认展开，显示折叠按钮 
+`> [!callout关键词]+`:  默认展开，显示折叠按钮
 
-`> [!callout关键词]-`: 默认折叠，显示折叠按钮   
-`> [!callout关键词]`:   默认展开，不显示折叠按钮 
+`> [!callout关键词]-`: 默认折叠，显示折叠按钮
+`> [!callout关键词]`:   默认展开，不显示折叠按钮
 
-> [!todo] 
-> Yes!, callouts. 
+> [!todo]
+> Yes!, callouts.
 
 
-> [!todo]+ 
-> Yes!, callouts. 
+> [!todo]+
+> Yes!, callouts.
 
 
 > [!todo]-
-> Yes!, callouts. 
+> Yes!, callouts.
 
 支持嵌套语法。
 
-> [!question] Can callouts be nested? 
->> [!todo] Yes!, they can. 
+> [!question] Can callouts be nested?
+>> [!todo] Yes!, they can.
 > > > [!example] You can even use multiple layers of nesting.
 
 支持的关键词：
@@ -190,9 +197,9 @@ This is [an example] [id] reference-style link.
 
 > [!note]
 
-> [!tips] 
+> [!tips]
 
-> [!info] 
+> [!info]
 
 >[!todo]
 
@@ -224,7 +231,7 @@ This is [an example] [id] reference-style link.
 
 可以稍微修改这个功能，实现边注。
 
-![](https://pic1.zhimg.com/v2-26ad600de51a8f21ea04a32edc87cb1e_b.jpg)
+![](docs/assets/v2-26ad600de51a8f21ea04a32edc87cb1e_b.jpg)
 
 如何在 Obsidian 中优雅的进行注释（边注） - Huajin的文章 - 知乎
 
@@ -240,7 +247,7 @@ https://zhuanlan.zhihu.com/p/678900439
 
 ## 隐藏侧边栏 ribbon / 功能区
 
-按`ctrl` + `p` 
+按`ctrl` + `p`
 
 - 搜索 `ribbon` 。隐藏或者打开侧边栏。
 - 新版本需要搜索：`显示/隐藏功能区`

@@ -21,6 +21,9 @@ Excalidraw 手绘插件，可以画图
 
 [Dataview Date Formatting - Help - Obsidian Forum](https://forum.obsidian.md/t/dataview-date-formatting/37456)
 
+> [!warning] 目前禁用，使用自带的query替代
+> 而且这个插件在阅读模式下会和`content tabs` 冲突
+
 自带的query也可以做到类似的效果，
 
 [Search - Obsidian Help](https://help.obsidian.md/Plugins/Search)
@@ -95,6 +98,21 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 
 但这个我觉得已经够用了。
 
+## QuickAdd
+
+[GitHub - chhoumann/quickadd: QuickAdd for Obsidian](https://github.com/chhoumann/quickadd)
+
+一个强大的 Obsidian 插件，主要用于快速向你的 obsidian 里添加新页面或内容。它四个主要的工具组成，分别是模块（choices）：模板、捕获、宏、和多项。以下是该插件的主要特性：
+
+1. 模板：定义了如何创建新笔记的方式。
+2. 捕获：允许你快速向现有笔记添加内容。
+3. 宏：用于执行一系列的操作，并可与模板和捕获组合使用。
+4. 多项：可以在一个操作中运行多个模板、捕获、宏，从而极大地提升生产力。
+
+参考官方使用文档 [Capture \| QuickAdd](https://quickadd.obsidian.guide/docs/Choices/CaptureChoice)
+
+目前使用 `Capture` 足够了， 并绑定了快捷键 `Ctrl + Q`。
+
 ## Remotely Save
 
 [GitHub - remotely-save/remotely-save: Yet another unofficial Obsidian plugin allowing users to synchronize notes between local device and the cloud service. Supports S3, Dropbox, OneDrive, webdav.](https://github.com/remotely-save/remotely-save)
@@ -105,6 +123,7 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 
 > [!warning]
 > **用webdav连接坚果云显示错误503**
+> 这个插件后面可以删除了。
 
  目前webdav有三个限制：
 
@@ -197,30 +216,15 @@ Outliner是一个用于改进Obsidian中列表的插件。
 
 [GitHub - lynchjames/obsidian-mind-map: An Obsidian plugin for displaying markdown notes as mind maps using Markmap.](https://github.com/lynchjames/obsidian-mind-map)
 
-### QuickAdd
-
-[GitHub - chhoumann/quickadd: QuickAdd for Obsidian](https://github.com/chhoumann/quickadd)
-
-一个强大的 Obsidian 插件，主要用于快速向你的 obsidian 里添加新页面或内容。它四个主要的工具组成，分别是模块（choices）：模板、捕获、宏、和多项。以下是该插件的主要特性：
-
-1. 模板：定义了如何创建新笔记的方式。
-2. 捕获：允许你快速向现有笔记添加内容。
-3. 宏：用于执行一系列的操作，并可与模板和捕获组合使用。
-4. 多项：可以在一个操作中运行多个模板、捕获、宏，从而极大地提升生产力。
-
-  
-
-### BRAT
-
-[Obsidian最强编辑插件之——增强编辑 - 知乎](https://zhuanlan.zhihu.com/p/619924782?utm_id=0)
-
-文本增强，去除空行空格
-
 ### 网页保存
 
 用 MaoXian 网摘保存网络文章到 Obsidian
 
 [用 MaoXian 网摘保存网络文章到 Obsidian](https://mika-cn.github.io/maoxian-web-clipper/obsidian-zh-CN.html)
+
+[My Obsidian Web Clipper - Reddit](https://www.reddit.com/r/ObsidianMD/comments/1hatxd1/my_obsidian_web_clipper/)
+
+[GitHub - obsidianmd/obsidian-clipper: Highlight and capture the web in your favorite browser. The official Web Clipper extension for Obsidian.](https://github.com/obsidianmd/obsidian-clipper)
 
 ### Focus mode
 
@@ -248,7 +252,7 @@ mkdocs-roamlinks 支持双链
 
 https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
 
-### ?换行插件
+### 换行插件
 
 用`<br>` 代替原始的换行，保证排版格式
 
@@ -268,6 +272,9 @@ https://github.com/Jackiexiao/mkdocs-roamlinks-plugin
 # 换成br
 <br>
 ```
+
+> [!warning]
+> 这个需求已被QuickAdd代替
 
 ### Content Tab
 

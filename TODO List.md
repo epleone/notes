@@ -7,6 +7,11 @@ sort file.mtime
 ```
 
 
+```query
+tag: todo
+```
+
+
 
 ```query
 ">[!todo]"
