@@ -113,6 +113,20 @@ Once downloaded and enabled, navigate to settings and click on the second tab fr
 
 目前使用 `Capture` 足够了， 并绑定了快捷键 `Ctrl + Q`。
 
+将选中的文本用 triple backticks ` ``` `包围，并弹出窗口填写代码语言,  并绑定了快捷键 `Shift + Ctrl + ~。
+
+````` 
+
+# Capture format
+
+``` {{VALUE: Enter language e.g. python }}
+
+{{selected}}
+
+```
+
+`````
+
 ## Remotely Save
 
 [GitHub - remotely-save/remotely-save: Yet another unofficial Obsidian plugin allowing users to synchronize notes between local device and the cloud service. Supports S3, Dropbox, OneDrive, webdav.](https://github.com/remotely-save/remotely-save)
