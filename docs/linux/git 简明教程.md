@@ -3,7 +3,7 @@ tags:
   - git
 ---
 
-# git 简明教程
+# Git 简明教程
 
 推荐阅读 [git - 简易指南](https://www.bootcss.com/p/git-guide/)
 
@@ -156,9 +156,9 @@ git checkout -b my-new-branch <commit-hash>
 ```
 
 
-> [!tips] 
+> [!tips]
 > 如果切到历史提交要修改，最好先创建分支
-> 
+>
 
 ## pull = fetch + merge: 更新与合并
 
@@ -188,7 +188,7 @@ git add <filename>
 git diff <source_branch> <target_branch>
 ```
 
-> [!warning] 
+> [!warning]
 
 Git中从远程的分支获取最新的版本到本地有这样2个命令：
 
@@ -222,7 +222,7 @@ git pull origin master
 
 在实际使用中，git fetch更安全一些
 
-因为在merge前，我们可以查看更新情况，然后再决定是否合并。 
+因为在merge前，我们可以查看更新情况，然后再决定是否合并。
 
 [原文链接](http://www.tech126.com/git-fetch-pull/)
 
@@ -433,7 +433,7 @@ git branch -d dev
 > 本地切换main分支后同步，本地的dev分支一定要删除吗？
 > 1. 如果不删除，直接在dev分支push会报错，因为服务器端的dev分支已被删除，且不会重新创建dev分支了。
 > 2. 如果不删除，切到dev分支 执行rebase
-> 
+>
 
 [git rebase详解（图解+最简单示例，一次就懂）-CSDN博客](https://blog.csdn.net/weixin_42310154/article/details/119004977)
 
