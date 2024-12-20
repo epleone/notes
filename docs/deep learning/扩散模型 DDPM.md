@@ -2,7 +2,9 @@
 tags:
   - todo
 ---
+
 # 扩散模型 DDPM
+
  
 
 [AIGC爆火的背后——扩散模型DDPM浅析 - 知乎](https://zhuanlan.zhihu.com/p/590840909)
@@ -20,3 +22,5 @@ tags:
 
 
 建议看台大李宏毅的视频，顺带也讲通了VAE。
+
+[如何入坑 Diffusion 方向？](https://www.zhihu.com/question/658056360)
