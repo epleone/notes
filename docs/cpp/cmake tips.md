@@ -1,5 +1,94 @@
 # cmake tips
 
+## 编译器警告与错误
+
+### GCC/Clang
+
+| 选项 | 说明 | 使用场景 | 示例警告 |
+|------|------|----------|----------|
+| -w | 禁用所有警告 | - 第三方代码<br>- 临时调试 | 无警告输出 |
+| -Wall | 启用常见警告 | - 日常开发<br>- 基本代码质量保证 | - 未使用的变量<br>- 未初始化变量<br>- 缺少返回值 |
+| -Wextra | 启用额外警告 | - 更严格的检查<br>- 配合 -Wall | - 未使用的参数<br>- 符号遮蔽<br>- 空语句体 |
+| -Wpedantic | 严格遵守标准 | - 跨平台代码<br>- 标准兼容性要求 | - 变长数组<br>- GNU扩展<br>- C++特性在C中使用 |
+| -Werror | 警告视为错误 | - CI/CD环境<br>- 严格质量控制 | 将警告转为错误 |
+ > [!warning] `-Wpedantic` 的警告类型
+ > 1.  `int array[n];    // C89不允许变长数组`
+ > 2.  `struct foo { };  // 不允许空结构`
+ > 3.  `int x = 0b1010; // 二进制字面量是GNU扩展`
+ >
+ >  `-Wpedantic` 太过严格了，一般不使用。
+
+
+
+``` cmake
+# 关闭警告
+add_compile_options(-w)
+
+# 基础警告
+add_compile_options(-Wall)
+
+# 更多警告, 差不多等价 W3
+add_compile_options(-Wall -Wextra)
+
+# 更严格的警告, 差不多等价 W4
+add_compile_options(-Wall -Wextra -Wpedantic)
+
+# 只显示特定警告
+add_compile_options(-Wreturn-type)  # 返回值警告
+add_compile_options(-Wshadow)       # 变量遮蔽警告
+add_compile_options(-Wconversion)   # 类型转换警告
+
+
+# 特定警告转为错误
+add_compile_options(-Werror=return-type) 
+
+# 所有警告转为错误
+add_compile_options(-Werror)
+
+# 将警告视为错误
+add_compile_options(-Wall -Werror)
+# 等价于
+# add_compile_options(-Wall)
+# add_compile_options(-Werror)
+
+
+# 更严格的警告视为错误
+add_compile_options(-Wall -Wextra -Werror)
+```
+
+- `add_compile_options(-Wall)` 只设置警告
+- `add_compile_options(-Wall -Werror)`  设置警告 + 将警告视作错误
+
+
+> [!warning]
+> CMake 的 add_compile_options() 命令是累加的，后面的选项会追加到之前的选项中。
+> `add_compile_options(-Wall -Wextra -Werror)`
+> 等价于
+> `add_compile_options(-Wall -Wextra)`
+>  `add_compile_options(-Werror)`
+
+### MSVC
+
+![[Visual Studio 常见问题汇总#严格编译]]
+
+### 常用设置
+
+``` cmake
+
+# 将函数不是所有路径都有返回值的警告视为错误
+if(MSVC)
+    add_compile_options(/W4 /we4715)  # 4715 是"not all control paths return a value"的警告码
+else()
+    add_compile_options(-Wreturn-type -Werror=return-type)
+endif()
+
+
+# 将所有警告视为错误
+if(MSVC)
+	add_compile_options(/W4 /WX)
+endif()
+```
+
 ## VS 相关设置
 
 Visual Studio 官方指导：
@@ -28,7 +117,7 @@ set_target_properties(${EXENAME} PROPERTIES VS_DEBUGGER_ENVIRONMENT "${DLL_PATH}
 2. **设置环境变量 PATH**: 将包含缺少 DLL 的目录添加到系统的 PATH 环境变量中。这样，系统会在所有路径中查找所需的 DLL。
 3. 在Visual Studio的`配置属性` -- `调试` --`环境` 中，添加 `path=dll_path;$(path)`,`dll_path`是需要加载的dll所在的路径，`$(path)`是环境变量定义的
 4. `cmake`中使用 `set_target_properties(${EXENAME} PROPERTIES VS_DEBUGGER_ENVIRONMENT "${DLL_PATH}")` 设置
-5. `arcpkg`中使用`arcpkg_vs_debugger_environment(${EXENAME})` ，它会自动寻找依赖的`target`，且加载目标属性为`IMPORTED`的路径。 
+5. `arcpkg`中使用`arcpkg_vs_debugger_environment(${EXENAME})` ，它会自动寻找依赖的`target`，且加载目标属性为`IMPORTED`的路径。
 
 ### 设置文件夹筛选器
 

@@ -2,11 +2,44 @@
 
 ## 严格编译
 
+MSVC 的警告级别从 0 到 4：
+
+| 警告级别    | 说明               |
+| ------- | ---------------- |
+| `/W0`   | 关闭所有警告           |
+| `/W1`   | 仅显示严重警告          |
+| `/W2`   | 显示较多警告           |
+| `/W3`   | 默认级别，显示更多警告      |
+| `/W4`   | 显示所有有用的警告        |
+| `/Wall` | 显示所有警告（包括很多不常用的） |
+
+- `add_compile_options(/W3)` 只设置警告
+- `add_compile_options(/W3 /WX)`  设置警告 + 将警告视作错误
+
+
+
 ``` cmake
 
+# 只设置警告级别为 3（默认级别）
+add_compile_options(/W3)
+
+# 或设置警告级别为 4（更严格的警告检查）
+add_compile_options(/W4)
+
+# 所有可能的警告（包括很多不常用的）
+add_compile_options(/Wall)
+
+
+// 将默认警告都视为错误
+add_compile_options(/W3 /WX)  
+
+// 将所有的W4警告都视为错误
 if(MSVC)
 	add_compile_options(/W4 /WX)
 endif()
+
+// 显示所有有用的警告，将其中的we4715视为错误
+add_compile_options(/W4 /we4715)
 
 ```
 
