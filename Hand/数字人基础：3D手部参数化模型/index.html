@@ -1,0 +1,3640 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/">
+      
+      
+        <link rel="next" href="../%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E6%8A%95%E5%BD%B1%E7%AC%94%E8%AE%B0/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>数字人基础：3D手部参数化模型 - epleone notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3d" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="epleone notes" class="md-header__button md-logo" aria-label="epleone notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            epleone notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数字人基础：3D手部参数化模型
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="epleone notes" class="md-nav__button md-logo" aria-label="epleone notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    epleone notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hand
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hand
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HandDet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HandDet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hand%E5%85%B3%E8%8A%82%E7%82%B9%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hand关节点顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SMPL%20-%20Skinned%20Multi-Person%20Linear%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SMPL   Skinned Multi Person Linear Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    姿态估计评价指标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    数字人基础：3D手部参数化模型
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    数字人基础：3D手部参数化模型
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 单目3D手部姿态估计
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-implicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 隐式(Implicit)手部建模
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E6%8A%95%E5%BD%B1%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    相机模型以及投影笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BA%E6%96%87%E5%B0%8F%E7%BB%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    论文小结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%AA%A8%E9%AA%BC%E5%8A%A8%E7%94%BB%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    骨骼动画技术原理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/dxdy%E4%B8%8Edrd%CE%B8%E7%9A%84%E8%BD%AC%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dxdy与drdθ的转化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/%E5%B0%84%E5%BD%B1%E5%87%A0%E4%BD%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    射影几何
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/%E6%95%B0%E5%AD%A6%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学软件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    杂记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Computer graphics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Computer graphics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/3D%20Gaussian%20Splatting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3D Gaussian Splatting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/open3D%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    open3D 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/openGL%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    openGL 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/pytorch3d%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch3d 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/%E6%97%8B%E8%BD%AC%E4%B8%8E%E6%9D%8E%E7%BE%A4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    旋转与李群
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cpp
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cpp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/CUDA%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/Eigen%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigen 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/Visual%20Studio%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visual Studio 常见问题汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/c%2B%2B%20%E5%B8%B8%E7%94%A8Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    c++ 常用Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cmake tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmd%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90Parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cmd参数解析Parser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/pybind11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pybind11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%88%9D%E5%A7%8B%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    初始化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%AE%8F%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    宏 tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%B7%A6%E5%80%BC%E5%8F%B3%E5%80%BC%E4%BB%A5%E5%8F%8A%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    左值右值以及完美转发
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用函数汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文件系统库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E7%B1%BB%28class%29%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    类(class) 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    编译原理笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cmake 学习笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17">
+            <span class="md-nav__icon md-icon"></span>
+            Cmake 学习笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. 基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/2.%20%E5%8F%98%E9%87%8F%28Variable%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. 变量(Variable)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/3.%20%E5%91%BD%E4%BB%A4%28Command%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. 命令(Command)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4.%20Target%20%E5%92%8C%20%E5%B1%9E%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Target 和 属性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/5.%20install%2C%20test%20%E5%92%8C%20package/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. install, test 和 package
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    侯捷c++课程笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_18">
+            <span class="md-nav__icon md-icon"></span>
+            侯捷c++课程笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E4%BE%AF%E6%8D%B7c%2B%2B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    面向对象高级编程（上）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E4%BE%AF%E6%8D%B7c%2B%2B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    面向对象高级编程（下）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_19" id="__nav_5_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_19">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Pimpl%20%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pimpl 模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A3%85%E9%A5%B0%E5%99%A8%28Decorator%29%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    装饰器(Decorator)模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    设计模式笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deep learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Deep learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/Self-Attention%20and%20Transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self-Attention and Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/Stable%20Diffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stable Diffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/VQ-VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VQ-VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/video%20inpainting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    video inpainting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E5%85%89%E6%B5%81%20optical%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    光流 optical Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E5%9B%BE%E5%83%8F%E8%9E%8D%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图像融合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E5%9B%BE%E5%BD%A2%E5%A2%9E%E5%BC%BA%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图形增强库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E5%AF%BC%E5%90%91%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    导向滤波
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%20DDPM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    扩散模型 DDPM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络结构设计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    English
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E5%8D%95%E8%AF%8D%E9%87%8A%E4%B9%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    单词释义
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E6%96%B0%E6%A6%82%E5%BF%B5%E8%8B%B1%E8%AF%AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    新概念英语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E8%8B%B1%E8%AF%AD%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E8%8B%B1%E8%AF%AD%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语杂记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语语法笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Git%20Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%20Bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/VIM%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VIM 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/ffmpeg%E5%92%8C%E8%A7%86%E9%A2%91%E6%8A%BD%E5%B8%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ffmpeg和视频抽帧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/git%20%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git 简明教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/tmux%20guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmux guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E5%AE%89%E8%A3%85python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E7%BB%88%E7%AB%AF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    终端管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Misc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/IOS%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IOS快捷命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/LaTex%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LaTex 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Obsidian%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Obsidian%20%E6%8F%92%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian 插件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Obsidian%20%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian 部署到github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/TortoiseSVN%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%8A%B6%E6%80%81%E5%9B%BE%E6%A0%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TortoiseSVN不显示状态图标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/VS%20Code%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VS Code tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Windows%20bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Windows%E4%B8%8B%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows下软件的安装路径
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/X11%20Forward%20and%20SSH%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    X11 Forward and SSH tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Z-Library%20links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Z-Library links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Zotero%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zotero tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/windows%E6%B7%BB%E5%8A%A0%E5%9F%9F%E8%B4%A6%E5%8F%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    windows添加域账号
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E4%BA%91%E4%B8%BB%E6%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    云主机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E4%BA%BA%E7%94%9F%E7%BB%8F%E9%AA%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人生经验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用软件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    插件开发
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E6%91%84%E5%BD%B1%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摄影笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模拟器游戏下载
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E6%AE%B5%E5%AD%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    段子
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E7%BD%91%E4%B8%8A%E9%9A%8F%E7%AC%94/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网上随笔
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E8%82%A1%E7%A5%A8%E5%BF%83%E5%BE%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    股票心得
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E9%82%AE%E4%BB%B6%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    邮件设置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Node.js
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node.js/HTML%20and%20CSS%20Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML and CSS Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node.js/node.js%20%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    node.js 入门知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node.js/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    桌面应用程序开发框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Opencv
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Opencv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../opencv/%E5%9B%BE%E7%89%87%E8%AF%BB%E5%8F%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图片读取
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../opencv/%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用语法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../opencv/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%20HSL%E3%80%81HSV%E3%80%81HSB%20%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    色彩空间中的 HSL、HSV、HSB 有什么区别
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/matplotlib%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    matplotlib tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    misc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/numpy%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    numpy tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/pip%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pip tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python%20%E5%A4%9A%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 多进程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%848%E7%A7%8D%E5%A2%83%E7%95%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python装饰器的8种境界
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/%E5%8F%91%E5%B8%83Python%E5%BA%93%E5%88%B0PyPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    发布Python库到PyPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/%E9%9A%8F%E6%9C%BA%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    随机数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pytorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Pytorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    misc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/mmcv%20%2B%20mmpose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mmcv + mmpose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/pytorch%20%E9%87%8F%E5%8C%96%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch 量化训练
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/pytorch%E7%9A%84%E5%B0%81%E8%A3%85%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch的封装框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/timm%20%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    timm 使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/webdataset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    webdataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%9A%E5%8D%A1%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分布式多卡训练
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%28Loss%29%20Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    损失函数(Loss) Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/%E8%AE%AD%E7%BB%83%E4%BC%98%E5%8C%96tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    训练优化tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="3d">数字人基础：3D手部参数化模型<a class="headerlink" href="#3d" title="Permanent link">&para;</a></h1>
+<p><a href="https://zhuanlan.zhihu.com/p/636778914">数字人基础 | 3D手部参数化模型2017-2023 - 知乎</a></p>
+<blockquote>
+<p><strong>楔子</strong>: 2017年年底的泰国曼谷, SIGGRAPH Asia会议上, 来自马普所的<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/search/cs%3Fsearchtype%3Dauthor%26query%3DRomero%252C%2BJ">Javier Romero</a>,<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/search/cs%3Fsearchtype%3Dauthor%26query%3DTzionas%252C%2BD">Dimitrios Tzionas</a>(两人都是<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/search/cs%3Fsearchtype%3Dauthor%26query%3DBlack%252C%2BM%2BJ">Michael J. Black</a>的学生)发布了事实性的手部参数化模型标准: <strong>MANO</strong><a href="https://zhuanlan.zhihu.com/p/636778914#ref_1">[1]</a>。<strong>MANO</strong>的诞生意味着<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/search/cs%3Fsearchtype%3Dauthor%26query%3DBlack%252C%2BM%2BJ">Michael J. Black</a>团队在继人体参数化模型<strong>SMPL</strong>后, 事实性的将能够表达人类动作和意图所涉及的主要部分(肢体, 脸部和手部)都用参数化模型来表达。有趣的是, 马普所的第一个主流的人脸模型<strong>FLAME</strong>也在本次会议被提出，考虑到<strong>SMPL</strong>的首秀出现在2015年的SIGGRAPH Asia(日本神户)上, 不得不说, 马普所的人体模型系列和亚洲有着不解之缘。</p>
+</blockquote>
+<p>首先, 让我们回答一个问题, <strong>为什么我们需要用到MANO参数化模型?</strong></p>
+<p>其答案也很简单: 结合深度学习和MANO参数化模型, 我们可以仅凭单张手部图像, 回归出其手部对应的2D/3D Pose, 从而可以在诸如UE5, Unity等引擎里进行手势的驱动。</p>
+<p><code>注意: MANO本身是不可学习的, 即Optimization-Free的一个部分, 通常可以将其简化理解为网络中的一个Layer</code></p>
+<p><img alt="" src="v2-620155e3d60094ec5bdb82c0ab3d8ca6_720w.webp" /></p>
+<p>如图所示, 任意给定一张手势图片, 可以通过神经网络(Phase I)来估计参数化模型MANO的系数(Pose, Shape, Camera, 这里的Camera指的是相机内参)来重建出手势图片对应的理想化的3D网格(Mesh)以及渲染出对应的效果(OverLay)。</p>
+<p>在基于MANO参数化模型的<strong>手部姿态估计(hand pose estimation)</strong>中: 是给定一张手部特写图片，估计其姿态(2D/3D keypoint)的位置(通常是<strong>21</strong>个)。既然知道了关键点的数量，那么其定义的标准也是非常重要的：</p>
+<p><img alt="" src="v2-f8e6e9cb84c7231725c137d6df3f0565_720w.webp" /></p>
+<p>如图所示, 从手腕处的0号节点开始算, 一共有21个手部的关键点/landmark来表征手部的姿态。</p>
+<p>主流的手部姿态估计的技术方案是使用马普所于2017年提出的MANO参数化模型, 在此基础上回归3D坐标, 这是因为MANO有<strong>很合理的结构</strong>以及<strong>定义好的前向动力学树</strong>。并且由于马普所在人体人脸人手上的权威性，很多研究都是基于MANO来做的, 所以这进一步导致学术界和工业界对MANO依赖的加深。</p>
+<p>简单的初步介绍完毕后，让我们进入正题！<code>Tips:01部分内容主要来自我在2021年写的博客文章</code><a href="https://zhuanlan.zhihu.com/p/636778914#ref_2">[2]</a></p>
+<hr />
+<p><img alt="" src="v2-c7181d6339bc46299069c270e4068dce_720w.webp.png" /></p>
+<p>近年来, CVPR, ECCV, ICCV的手部姿态估计论文，基本或多或少的都是model-based, 即基于参数化模型的方案。而其中，最主流的参数化模型就是<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/search/cs%3Fsearchtype%3Dauthor%26query%3DRomero%252C%2BJ">Javier Romero</a>,<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/search/cs%3Fsearchtype%3Dauthor%26query%3DTzionas%252C%2BD">Dimitrios Tzionas</a>, <a href="https://link.zhihu.com/?target=https%3A//arxiv.org/search/cs%3Fsearchtype%3Dauthor%26query%3DBlack%252C%2BM%2BJ">Michael J. Black</a>于2017年发表于Siggraph Asia的<strong><em>《Embodied Hands: Modeling and Capturing Hands and Bodies Together》</em></strong><a href="https://zhuanlan.zhihu.com/p/636778914#ref_1">[1]</a>.</p>
+<p>这篇文章也是在马普所和工业光魔联合提出的《SMPL: A Skinned Multi-Person Linear Model》<a href="https://zhuanlan.zhihu.com/p/636778914#ref_3">[3]</a>(下文统一简称为<strong>SMPL</strong>) 的基础上，提出了针对<strong>手部的参数化模型</strong>，其主要目的是:</p>
+<blockquote>
+<p>To cope with <strong>low-resolution</strong>, <strong>occlusion</strong>, and <strong>noise</strong>, we develop a new model called <strong>MANO</strong> (hand <strong>M</strong>odel with <strong>A</strong>rticulated and <strong>N</strong>on-rigid def<strong>O</strong>rmations)<a href="https://zhuanlan.zhihu.com/p/636778914#ref_1">[1]</a>.</p>
+</blockquote>
+<p>其目的主要是针对从图像中恢复3D手部姿态的困难情况(<strong>低分辨率、遮挡和噪声</strong>), 从而提出的一个新的手部参数化模型。</p>
+<p><img alt="" src="v2-85c4fdfa67908961c963f75fd7a25714_720w.webp" /></p>
+<p>左: InterHand2.6M中的双手交互导致的遮挡(occlusion)和相机阵列带来的噪声(noise), 中: FreiHand中手物交互产生的遮挡(occlusion), 右: RHD合成数据集中手部分辨率低(low-resolution)</p>
+<p><a href="https://zhuanlan.zhihu.com/p/636778914#ref_4">[4]</a></p>
+<p>从我个人的理解，MANO这个模型的作用，相当于在图片(2D) -&gt; 3D Hand pose中间加了一个过渡表示(或者说加上了<strong>强的先验prior</strong>），从而能够使得神经网络可以直接预测<strong>遮挡, 低分辨率和噪声影响下</strong>的图像的<strong>手部姿态</strong>。</p>
+<p>用不带先验信息的方法，即model-free的方法，对于这些情况的姿态估计效果通常就会失败。而自从有了参数化模型MANO，由于MANO是由</p>
+<blockquote>
+<p>“1000 high-resolution 3D scans of hands of 31 subjects in a wide variety of hand poses.”</p>
+</blockquote>
+<p>得到，其中包括抓握，不良光照等场景。</p>
+<p><img alt="" src="v2-fea54088ac245d53cc2803900253e4ac_720w.webp" /></p>
+<p>MANO所用的数据采集系统</p>
+<p><img alt="" src="v2-7399a8a3818eec4a6762c4fe177dc964_720w.webp" /></p>
+<p>MANO采集手势的示例</p>
+<p>所以，根据18年以来的众多手部姿态分析工作表明：使用MANO参数化模型，对于估计出一个合理且准确的手部姿态，有至关重要的作用。</p>
+<p>需要注意的是，由于手部是分段刚性的(articulated objects), 因此手部的建模还是有一定难度的，马普所用了来自美国亚特兰大的3dMD公司<a href="https://zhuanlan.zhihu.com/p/636778914#ref_5">[5]</a>的扫描设备，花费不菲… 采集设备的视频如下所示:</p>
+<p>那么，MANO作为一个 3D参数化模型，其参数都有哪些呢？</p>
+<ul>
+<li>778个vertices 1538个faces，并根据 16个 关键点 +从vertices中获取 5个手指指尖的点， 构成完整的<strong>手部链条</strong>，或者叫做<strong>前向动力学树</strong>(forward kinematic tree)。</li>
+<li>只包含手掌和5根手指，区分左右手，但是<strong>不包含手腕部分</strong>。</li>
+</ul>
+<p><img alt="" src="v2-365c5ea62013041df6d67ebddcfe5a57_720w.webp" /></p>
+<p>示意图来自DART(NeurIPS 2022), 原始的MANO模型只有粉色部分, 即MANO模型不包含手腕部分。</p>
+<hr />
+<p><img alt="" src="v2-a31d3d0dcbb9ecbb67881ef0044ece5e_720w.webp.png" /></p>
+<p>从2017年以来, 手部参数化模型的事实性标准就是MANO。其Mesh层面的属性, 如Vertex, Edge和Face等, 基本没什么太大的变化，而后续的手部参数化模型，如HTML，NIMBIE以及DART，主要是从纹理和肌肉等角度对MANO进行了扩充：因为原始的MANO不像人脸参数化模型BFM一样, <strong>缺乏显式的包含纹理基(Texture Basis)</strong>，因此<strong>无法表征复杂的，高质感的纹理</strong>。</p>
+<p><img alt="" src="v2-bf82e49f09cb3d9bfebc7d936a72e508_720w.webp" /></p>
+<p>MANO(SIGGRAPH Asia 2017), HTML(ECCV 2020), NIMBLE (SIGGRAPH 2022), DART (NeurIPS 2022)</p>
+<ul>
+<li>HTML<a href="https://zhuanlan.zhihu.com/p/636778914#ref_6">[6]</a></li>
+</ul>
+<blockquote>
+<p>HTML: A Parametric <strong>H</strong>and <strong>T</strong>exture <strong>M</strong>odel for 3D Hand Reconstruction and Personalization</p>
+</blockquote>
+<p>HTML是<strong>第一个带贴图的手部参数化模型</strong>，是由当时在马普所实习的Neng Qian(Christian Theobalt组)做的，他现在在米哈游做一些和游戏相关的研究和开发。</p>
+<p>HTML的本质上就是在MANO的基础上加了一个表示纹理的appearance basis，此basis的获得是由PCA获得，值得注意的是，此模型和MANO兼容。</p>
+<p><img alt="" src="v2-20dc5f440a7abd40c2a9352949362608_720w.webp" /></p>
+<p>HTML纹理基的示意图</p>
+<p>虽然从创新性上来说，HTML是非常不错的，但是其恢复出来的纹理质量还是和真实的数据不够贴近：包括没有真实感的<strong>掌纹，指甲，汗毛</strong>等等。</p>
+<p><img alt="" src="v2-4c518e1c57598fe0f92cb61d92a3749f_720w.webp" /></p>
+<p>基于HTML重建出来的带贴图的Mesh的OverLay效果图，可以看出颜色并不是和给定原图完全一致。</p>
+<ul>
+<li>NIMBLE <a href="https://zhuanlan.zhihu.com/p/636778914#ref_7">[7]</a></li>
+</ul>
+<blockquote>
+<p>NIMBLE: A <strong>N</strong>on-rigid <strong>H</strong>and <strong>M</strong>odel with <strong>B</strong>ones and <strong>M</strong>uscles</p>
+</blockquote>
+<p>NIMBLE是开创性的<strong>结合了肌肉和骨骼的参数化模型</strong>，其纹理和渲染的质量也非常的出色（借助了Blender引擎的Cycles渲染器）。其作者yuwei Li是上海科技大学Jingyi Yu的博士生, 是个很优秀的小姐姐。</p>
+<p><img alt="" src="v2-d7cbdaa188b4c1aeb8301c10990c9f9b_720w.webp" /></p>
+<p>NIMBLE示意图：包含肌肉，骨骼和高质量的纹理</p>
+<p>此论文开创性的使用MRI数据来构建骨骼和肌肉，其纹理也是由Appearance model来控制, 渲染质量非常高。</p>
+<p><img alt="" src="v2-9c878e65905bf185b91411fa3eb2e02b_720w.webp" /></p>
+<p>NIMBLE的构建流程</p>
+<p>美中不足的是，NIMBLE的模板mesh的Vertex, Faces数量远超标准版MANO, 使得其在实际应用中的开销变的很大(将近 14970÷778≈20 倍的顶点数量差距)，<strong>很难直接用于工业级的手部姿态估计任务</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>MANO</th>
+<th>NIMBLE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>778</td>
+<td>14,970</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="v2-32582ba4bf2df3222acf074cc56c0615_720w.webp" /></p>
+<p>NIMBLE模板Mesh的统计信息，其顶点数量约为MANO的20倍。</p>
+<ul>
+<li>DART<a href="https://zhuanlan.zhihu.com/p/636778914#ref_8">[8]</a></li>
+</ul>
+<blockquote>
+<p><strong>DART</strong>: Articulated Hand Model with <strong>D</strong>iverse <strong>A</strong>ccessories and <strong>R</strong>ich <strong>T</strong>extures</p>
+</blockquote>
+<p>不同于HTML和NIMBLE的隐式构建Appearance Model来控制纹理，DART<strong>一力降十会</strong>，直接采用大量高质量的人工4K纹理贴图的办法，构建了300+高质量纹理贴图，并通过随机的offset的方式，模拟各种各样的肤色，伤痕，纹身，指甲颜色，并<strong>首次考虑了手腕和手指上常见的饰品</strong>，以期模拟合成数据对真实数据的逼近。</p>
+<p><img alt="" src="v2-1e903ad0f6f3927e58f1b3563b7211a5_720w.webp" /></p>
+<p>DART的300+高质量纹理贴图</p>
+<p><img alt="" src="v2-28c7ec868d083b088664a242489a4b0f_720w.webp" /></p>
+<p>通过对贴图的随机offset，可以模拟各种各样的肤色</p>
+<p>由于饰品的存在，DART基于MANO做了一个手腕部分的扩展，从而能够模拟手表手链戴在手上的效果：</p>
+<p><img alt="" src="v2-98542333a01551b7cc37686b748b4fb4_720w.webp" /></p>
+<p>MANO template mesh v.s. DART template mesh</p>
+<p>此外，DART还做了一个基于Unity的图形界面，可以允许用户自定义的生产自己的合成数据(<strong>任意视角、背景和光照</strong>)，从而使得DART可以用于<strong>合成带有3D 精准Ground Truth的合成数据集(Synthetic data)</strong>，可以用于提升神经网络在极端视角，光照等情况下的手部姿态估计能力。</p>
+<p>DART GUI可视化效果</p>
+<p>DART还有一个合成数据集DARTset，里面的一些示意图如下所示，可以看出和真实场景拍摄的数据很相似。</p>
+<p><img alt="" src="v2-7ec89b7eeb1afc4bb434ef0a45d85739_720w.webp" /></p>
+<p>DARTset的示意图</p>
+<p>有趣的是，这三篇工作的第一作者都是90后的国人，这说明我们在手部参数化模型的研究中取得了很大的进展！</p>
+<p><img alt="" src="v2-b71eed4537964bc38d7ca29fc46dd355_720w.webp" /></p>
+<p>从左到右: Neng Qian (HTML), Yuwei Li (NIMBLE), Daiheng Gao (DART)</p>
+<hr />
+<p><img alt="" src="v2-487d70d29f021714dec31b5e0d6a9238_720w.webp" /></p>
+<p>本节简单分为两个部分进行阐述, 一方面是手部参数化模型的主要应用场景：3D手部姿态估计和虚拟人驱动。另一方面则是一些<strong>3D手部模型最新的研究成果</strong>，基于Neural Radiance Field (简称NeRF)对手部进行隐式建模。</p>
+<h3 id="31-3d">3.1 单目3D手部姿态估计<a class="headerlink" href="#31-3d" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="v2-fe2d9ca159c708295d094cd4ba98b74a_720w.webp" /></p>
+<p>左: 3D重建Mesh贴合手部的结果; 右: 3D手部姿态估计驱动数字人做相同的手势</p>
+<p>如图所示，3D手部姿态估计能够用于3D数字人的驱动，相比使用动作捕捉手套来说，基于参数化模型的手部姿态估计具有<strong>成本低，效率高</strong>的优势(只需要1个百元级的摄像头即可)。</p>
+<p>这里，简单的根据3D手部姿态估计的方法类别进行了整理了表格，每个类别会找1~2个代表性的算法。</p>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>中稿年份</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3D Hand Shape and Pose from Images in the Wild</td>
+<td>CVPR2019, 牛津大学</td>
+<td>深度学习+MANO参数化的最直接回归3D手部姿态的经典方法</td>
+</tr>
+<tr>
+<td>ObMan</td>
+<td>CVPR2019, 马普所</td>
+<td>单目手物交互方法，并提出了一个数据集</td>
+</tr>
+<tr>
+<td>I2L-MeshNet</td>
+<td>ECCV2020, 首尔大学</td>
+<td>提出了image-to-lixel(line&amp;pixel)的方法，不同于直接回归MANO参数，I2L-MeshNet是预测Mesh的每个vertex的1D heatmap</td>
+</tr>
+<tr>
+<td>Mesh graphormer</td>
+<td>ICCV2021, 微软</td>
+<td>结合图卷积和Transformer进行激进的per-vertex的姿态估计</td>
+</tr>
+<tr>
+<td>MobRecon</td>
+<td>CVPR2022, 快手</td>
+<td>结合图卷积(Graph CNN)和MANO进行手部参数化估计</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-implicit">3.2 隐式(Implicit)手部建模<a class="headerlink" href="#32-implicit" title="Permanent link">&para;</a></h3>
+<p>随着NeRF<a href="https://zhuanlan.zhihu.com/p/636778914#ref_9">[9]</a>技术的发展，再加上人们对MANO的不满足: 顶点数少，不能够模拟精准的3D手势等原因，以Meta和小冰为代表的团队进行了<strong>3D手部隐式建模</strong>(或者称为<strong>multi-view hand reconstruction</strong>)的研究：</p>
+<ul>
+<li>LISA (CVPR2022)<a href="https://zhuanlan.zhihu.com/p/636778914#ref_10">[10]</a></li>
+</ul>
+<blockquote>
+<p>LISA: Learning Implicit Shape and Appearance of Hands</p>
+</blockquote>
+<p>LISA是基于InterHand2.6M<a href="https://zhuanlan.zhihu.com/p/636778914#ref_4">[4]</a>搭建的，是<strong>Enric Corona</strong>在Meta实习期间的工作。因为InterHand2.6M有手部图片各个视角的相机参数等信息，这满足了重建NeRF的基本条件。虽然LISA能够隐式的通过NeRF，表达hand shape and appearance，但是其对于Pose的控制是不行的。</p>
+<p><img alt="" src="v2-ca7a6e332da91a17f8c978f5be7a4e0d_720w.webp" /></p>
+<p>LISA概览图</p>
+<ul>
+<li>HandAvatar (CVPR2023)<a href="https://zhuanlan.zhihu.com/p/636778914#ref_11">[11]</a></li>
+</ul>
+<blockquote>
+<p><strong>HandAvatar</strong>: Free-Pose Hand Animation and Rendering from Monocular Video</p>
+</blockquote>
+<p>HandAvatar是Xingyu Chen在小冰的第一篇工作，主要是解决LISA无法解决Pose的问题提出的，此外，由于LISA没有开源，HandAvatar的开源有效的弥补了隐式3D手部建模领域的空白。不过同LISA一样，其隐式场所用的数据也是来自于InterHand2.6M数据集。</p>
+<p><img alt="" src="v2-195d1247d8f09befb57fddb9ef93072a_720w.webp" /></p>
+<p>HandAvatar示意图</p>
+<p>HandAvatar的概览图图下，由于手部的可变形性太强，所以对手这种360度deformable object直接学习NeRF效果不太理想，HandAvatar提出了结合MANO和NeRF的方案，极大的解决deformable object在NeRF场的occupancy变化问题。</p>
+<p><img alt="" src="v2-37dcd87d5fd880d2cdc8931771f3f043_720w.webp" /></p>
+<p>HandAvatar概览图</p>
+<p>熟悉的作者合影环节，左边是来自西班牙 <a href="https://link.zhihu.com/?target=http%3A//www.iri.upc.edu/">IRI-UPC</a>的Enric Corona, 右边是在小冰当研究员的Xingyu Chen。</p>
+<p><img alt="" src="v2-d738474fcc2fc1f457181f259d1c1e8a_720w.webp" /></p>
+<p>左: Enric Corona, 右: Xingyu Chen</p>
+<hr />
+<p><img alt="" src="v2-a5667254ac655b53111588727640d5ca_720w.webp" /></p>
+<p>手部参数化模型的出现至今短短6-7年，无论是在应用还是深入探索上，都取得了非常大的进展。希望在未来，能有更多的研究者加入进来，对一些目前重点但还未解决的问题进行研究：比如Re-lighting, 双手交互等等问题。</p>
+<p>感谢阅读，如有错误烦请指正，本文完<sup>.</sup></p>
+<h2 id="_1">参考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>^<a href="https://zhuanlan.zhihu.com/p/636778914#ref_1_0">a</a><a href="https://zhuanlan.zhihu.com/p/636778914#ref_1_1">b</a><a href="https://zhuanlan.zhihu.com/p/636778914#ref_1_2">c</a>Embodied Hands <a href="https://mano.is.tue.mpg.de/">https://mano.is.tue.mpg.de/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_2_0">^</a>基于参数化模型(MANO)的手势姿态估计---全面剖析 <a href="https://blog.csdn.net/g11d111/article/details/115539407">https://blog.csdn.net/g11d111/article/details/115539407</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_3_0">^</a>SMPL: A Skinned Multi-Person Linear Model <a href="https://smpl.is.tue.mpg.de/">https://smpl.is.tue.mpg.de/</a></li>
+<li>^<a href="https://zhuanlan.zhihu.com/p/636778914#ref_4_0">a</a><a href="https://zhuanlan.zhihu.com/p/636778914#ref_4_1">b</a>InterHand2.6M (ECCV2020) <a href="https://github.com/facebookresearch/InterHand2.6M">https://github.com/facebookresearch/InterHand2.6M</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_5_0">^</a>3dMD <a href="https://3dmd.com/">https://3dmd.com/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_6_0">^</a>HTML (ECCV2020) <a href="https://handtracker.mpi-inf.mpg.de/projects/HandTextureModel/">https://handtracker.mpi-inf.mpg.de/projects/HandTextureModel/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_7_0">^</a>NIMBLE (SIGGRAPH 2022) <a href="https://github.com/reyuwei/NIMBLE_model">https://github.com/reyuwei/NIMBLE_model</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_8_0">^</a>DART (NeurIPS 2022) <a href="https://dart2022.github.io/">https://dart2022.github.io/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_9_0">^</a>NeRF: Neural Radiance Fields <a href="https://www.matthewtancik.com/nerf">https://www.matthewtancik.com/nerf</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_10_0">^</a>LISA  <a href="https://arxiv.org/pdf/2204.01695.pdf">https://arxiv.org/pdf/2204.01695.pdf</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/636778914#ref_11_0">^</a>HandAvatar: <a href="https://seanchenxy.github.io/HandAvatarWeb/">https://seanchenxy.github.io/HandAvatarWeb/</a></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

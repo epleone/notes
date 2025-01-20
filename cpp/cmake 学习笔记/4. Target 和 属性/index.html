@@ -1,0 +1,4240 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../3.%20%E5%91%BD%E4%BB%A4%28Command%29/">
+      
+      
+        <link rel="next" href="../5.%20install%2C%20test%20%E5%92%8C%20package/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>4. Target 和 属性 - epleone notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-target" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="epleone notes" class="md-header__button md-logo" aria-label="epleone notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            epleone notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Target 和 属性
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="epleone notes" class="md-nav__button md-logo" aria-label="epleone notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    epleone notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hand
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hand
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hand/HandDet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HandDet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hand/Hand%E5%85%B3%E8%8A%82%E7%82%B9%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hand关节点顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hand/SMPL%20-%20Skinned%20Multi-Person%20Linear%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SMPL   Skinned Multi Person Linear Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hand/%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    姿态估计评价指标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hand/%E6%95%B0%E5%AD%97%E4%BA%BA%E5%9F%BA%E7%A1%80%EF%BC%9A3D%E6%89%8B%E9%83%A8%E5%8F%82%E6%95%B0%E5%8C%96%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数字人基础：3D手部参数化模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hand/%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E6%8A%95%E5%BD%B1%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    相机模型以及投影笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hand/%E8%AE%BA%E6%96%87%E5%B0%8F%E7%BB%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    论文小结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hand/%E9%AA%A8%E9%AA%BC%E5%8A%A8%E7%94%BB%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    骨骼动画技术原理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/dxdy%E4%B8%8Edrd%CE%B8%E7%9A%84%E8%BD%AC%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dxdy与drdθ的转化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/%E5%B0%84%E5%BD%B1%E5%87%A0%E4%BD%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    射影几何
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/%E6%95%B0%E5%AD%A6%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学软件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    杂记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Computer graphics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Computer graphics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer%20graphics/3D%20Gaussian%20Splatting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3D Gaussian Splatting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer%20graphics/open3D%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    open3D 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer%20graphics/openGL%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    openGL 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer%20graphics/pytorch3d%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch3d 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer%20graphics/%E6%97%8B%E8%BD%AC%E4%B8%8E%E6%9D%8E%E7%BE%A4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    旋转与李群
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cpp
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cpp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CUDA%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Eigen%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigen 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Visual%20Studio%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visual Studio 常见问题汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c%2B%2B%20%E5%B8%B8%E7%94%A8Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    c++ 常用Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cmake tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmd%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90Parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cmd参数解析Parser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybind11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pybind11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%88%9D%E5%A7%8B%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    初始化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%8F%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    宏 tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B7%A6%E5%80%BC%E5%8F%B3%E5%80%BC%E4%BB%A5%E5%8F%8A%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    左值右值以及完美转发
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用函数汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文件系统库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%B1%BB%28class%29%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    类(class) 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    编译原理笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cmake 学习笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_17">
+            <span class="md-nav__icon md-icon"></span>
+            Cmake 学习笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. 基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20%E5%8F%98%E9%87%8F%28Variable%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. 变量(Variable)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20%E5%91%BD%E4%BB%A4%28Command%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. 命令(Command)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4. Target 和 属性
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    4. Target 和 属性
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-private-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      PUBLIC PRIVATE INTERFACE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-my_library-interface-include-my_library-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      - my_library 自身不直接使用 INTERFACE 指定的头文件搜索路径，因为它不包含 #include 语句使用这些路径中的头文件。所以，对于 my_library 本身来说，INTERFACE 头文件搜索路径没有直接影响。
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target" class="md-nav__link">
+    <span class="md-ellipsis">
+      target构建命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="target构建命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add_executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_executable 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_library" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_library 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_custom_target" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_custom_target命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      伪目标(pseudo targets)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="伪目标(pseudo targets)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入库目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      别名目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      接口库
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      target常用命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="target常用命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target_include_directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_include_directories 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target_link_libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_link_libraries 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target_compile_definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_compile_definitions 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target_compile_options" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_compile_options 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target_compile_features" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_compile_features 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target_link_options" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_link_options 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target_link_directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_link_directories 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target_sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_sources 命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target_precompile_headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_precompile_headers 命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      属性(properties)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="属性(properties)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_property" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_property" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      target常用属性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="target常用属性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_target_properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_target_properties 命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20install%2C%20test%20%E5%92%8C%20package/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. install, test 和 package
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    侯捷c++课程笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_18">
+            <span class="md-nav__icon md-icon"></span>
+            侯捷c++课程笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BE%AF%E6%8D%B7c%2B%2B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    面向对象高级编程（上）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BE%AF%E6%8D%B7c%2B%2B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    面向对象高级编程（下）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_19" id="__nav_5_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_19">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Pimpl%20%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pimpl 模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A3%85%E9%A5%B0%E5%99%A8%28Decorator%29%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    装饰器(Decorator)模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    设计模式笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deep learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Deep learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/Self-Attention%20and%20Transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self-Attention and Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/Stable%20Diffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stable Diffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/VQ-VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VQ-VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/video%20inpainting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    video inpainting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/%E5%85%89%E6%B5%81%20optical%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    光流 optical Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/%E5%9B%BE%E5%83%8F%E8%9E%8D%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图像融合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/%E5%9B%BE%E5%BD%A2%E5%A2%9E%E5%BC%BA%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图形增强库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/%E5%AF%BC%E5%90%91%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    导向滤波
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%20DDPM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    扩散模型 DDPM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep%20learning/%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络结构设计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    English
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../english/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../english/%E5%8D%95%E8%AF%8D%E9%87%8A%E4%B9%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    单词释义
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../english/%E6%96%B0%E6%A6%82%E5%BF%B5%E8%8B%B1%E8%AF%AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    新概念英语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../english/%E8%8B%B1%E8%AF%AD%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../english/%E8%8B%B1%E8%AF%AD%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语杂记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../english/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语语法笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/Git%20Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/Linux%20Bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/VIM%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VIM 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/ffmpeg%E5%92%8C%E8%A7%86%E9%A2%91%E6%8A%BD%E5%B8%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ffmpeg和视频抽帧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/git%20%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git 简明教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/tmux%20guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmux guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/%E5%AE%89%E8%A3%85python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/%E7%BB%88%E7%AB%AF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    终端管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Misc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/IOS%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IOS快捷命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/LaTex%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LaTex 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/Obsidian%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/Obsidian%20%E6%8F%92%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian 插件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/Obsidian%20%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian 部署到github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/TortoiseSVN%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%8A%B6%E6%80%81%E5%9B%BE%E6%A0%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TortoiseSVN不显示状态图标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/VS%20Code%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VS Code tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/Windows%20bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/Windows%E4%B8%8B%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows下软件的安装路径
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/X11%20Forward%20and%20SSH%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    X11 Forward and SSH tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/Z-Library%20links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Z-Library links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/Zotero%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zotero tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/windows%E6%B7%BB%E5%8A%A0%E5%9F%9F%E8%B4%A6%E5%8F%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    windows添加域账号
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E4%BA%91%E4%B8%BB%E6%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    云主机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E4%BA%BA%E7%94%9F%E7%BB%8F%E9%AA%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人生经验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用软件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    插件开发
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E6%91%84%E5%BD%B1%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摄影笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模拟器游戏下载
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E6%AE%B5%E5%AD%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    段子
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E7%BD%91%E4%B8%8A%E9%9A%8F%E7%AC%94/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网上随笔
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E8%82%A1%E7%A5%A8%E5%BF%83%E5%BE%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    股票心得
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/%E9%82%AE%E4%BB%B6%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    邮件设置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Node.js
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../node.js/HTML%20and%20CSS%20Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML and CSS Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../node.js/node.js%20%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    node.js 入门知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../node.js/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    桌面应用程序开发框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Opencv
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Opencv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../opencv/%E5%9B%BE%E7%89%87%E8%AF%BB%E5%8F%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图片读取
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../opencv/%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用语法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../opencv/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%20HSL%E3%80%81HSV%E3%80%81HSB%20%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    色彩空间中的 HSL、HSV、HSB 有什么区别
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/matplotlib%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    matplotlib tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    misc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/numpy%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    numpy tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pip%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pip tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/python%20%E5%A4%9A%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 多进程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%848%E7%A7%8D%E5%A2%83%E7%95%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python装饰器的8种境界
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/%E5%8F%91%E5%B8%83Python%E5%BA%93%E5%88%B0PyPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    发布Python库到PyPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/%E9%9A%8F%E6%9C%BA%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    随机数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pytorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Pytorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    misc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/mmcv%20%2B%20mmpose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mmcv + mmpose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/pytorch%20%E9%87%8F%E5%8C%96%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch 量化训练
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/pytorch%E7%9A%84%E5%B0%81%E8%A3%85%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch的封装框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/timm%20%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    timm 使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/webdataset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    webdataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%9A%E5%8D%A1%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分布式多卡训练
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%28Loss%29%20Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    损失函数(Loss) Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pytorch/%E8%AE%AD%E7%BB%83%E4%BC%98%E5%8C%96tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    训练优化tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <span class="md-tag">cmake</span>
+    
+  
+    
+    
+    
+      <span class="md-tag">todo</span>
+    
+  
+</nav>
+
+
+
+<h1 id="4-target">4. Target 和 属性<a class="headerlink" href="#4-target" title="Permanent link">&para;</a></h1>
+<p>参考文章 <a href="https://mp.weixin.qq.com/s?__biz=MzU5NzE2Njk4NQ==&amp;mid=2247483664&amp;idx=1&amp;sn=4e4d62e49295be830c7a00a4515517f7&amp;scene=58&amp;subscene=0">Modern CMake 简介</a></p>
+<p>现代化的CMake是围绕 <strong><em>Target</em> 和 <em>Property</em></strong> 来定义的，并且竭力避免出现变量variable的定义。Variable横行是典型CMake2.8时期的风格。现代版的CMake更像是在遵循OOP的规则，通过target来约束link、compile等相关属性的作用域。</p>
+<p>如果把一个Target想象成一个对象（Object），会发现两者的组织方式非常相似, 前后CMake可以类比为C和C++。</p>
+<p><strong>因此建议围绕<code>Target</code>来写cmake, 去除之前全局命令的写法。</strong></p>
+<p>如果把一个Target想象成一个对象（Object），会发现两者的组织方式非常相似：</p>
+<p><strong>构造函数</strong>：<br />
+- add_executable()<br />
+- add_library()</p>
+<p><strong>成员函数</strong>：<br />
+- get_target_property()<br />
+- set_target_properties()<br />
+- get_property(TARGET)<br />
+- set_property(TARGET)</p>
+<ul>
+<li>target_compile_definitions()</li>
+<li>target_compile_features()</li>
+<li>target_compile_options()</li>
+<li>target_include_directories()</li>
+<li>target_link_libraries()</li>
+<li>target_sources()</li>
+</ul>
+<p><strong>成员变量</strong><br />
+- Target properties（太多）</p>
+<p>在Target中有两个概念非常重要：Build-Requirements 和 Usage-Requirements。这两个概念对于理解为什么现代CMake会如此设计提供了指导意义。</p>
+<ul>
+<li>Build-Requirements：包含了所有构建Target必须的材料。如源代码，include路径，预编译命令，链接依赖，编译/链接选项，编译/链接特性等。</li>
+<li>Usage-Requirements：包含了所有使用Target必须的材料。如源代码，include路径，预编译命令，链接依赖，编译/链接选项，编译/链接特性等。这些往往是当另一个Target需要使用当前target时，必须包含的依赖。</li>
+</ul>
+<p>传统的CMake和现代化的CMake的主要区别（非语法层面）如下图所示。Traditioncal CMake在设置build-requirements和usage-requirements上都依赖手动输入命令，并且人工维持其作用域（变量的作用域以目录为单位）。而Modern CMake在设置上述requirement均以target为单位，所以在传递target属性到其依赖的下游链条中更自动也更智能。</p>
+<p><img alt="modern_cmake_target.jpg" src="../../../assets/modern_cmake_target.jpg" /></p>
+<p>在Moden CMake中新增了不少关键字，其中最常见的是<strong>PUBLIC、PRIVATE、INTERFACE</strong>。</p>
+<h2 id="public-private-interface"><code>PUBLIC PRIVATE INTERFACE</code><a class="headerlink" href="#public-private-interface" title="Permanent link">&para;</a></h2>
+<p>参数 <code>INTERFACE</code>，<code>PUBLIC</code>，和 <code>PRIVATE</code> 主要用于指定头文件搜索路径的范围，以便在构建过程中正确传递依赖关系。以下是这三个参数的区别：</p>
+<ol>
+<li><strong>PRIVATE:</strong><ul>
+<li><code>PRIVATE</code> 用于将指定的头文件目录添加到目标的私有头文件搜索路径中。</li>
+<li>这意味着只有当前目标能够访问这些头文件目录，而依赖于当前目标的其他目标无法访问这些目录。</li>
+<li>适用于当前目标的实现细节，其他目标不应直接访问的头文件。</li>
+</ul>
+</li>
+<li><strong>INTERFACE:</strong><ul>
+<li><code>INTERFACE</code> 用于将指定的头文件目录添加到目标的接口头文件搜索路径中。</li>
+<li>接口头文件搜索路径会传递给依赖于当前目标的其他目标，但不影响当前目标本身。</li>
+<li>适用于定义库的接口，以确保依赖于该库的目标能够找到必要的头文件。</li>
+</ul>
+</li>
+<li><strong>PUBLIC:</strong><ul>
+<li><code>PUBLIC</code> 同时影响当前目标和依赖于当前目标的其他目标，将指定的头文件目录添加到目标的公共头文件搜索路径中。</li>
+<li>适用于需要在当前目标和其依赖项之间共享的头文件。</li>
+</ul>
+</li>
+</ol>
+<p><strong><code>PUBLIC</code>  和<code>PRIVATE</code>  区别示例：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">add_library</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">my_source.cpp</span><span class="p">)</span>
+
+<span class="c"># 将 private_include_dir 添加到 my_library 的私有头文件搜索路径中</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">private_include_dir</span><span class="p">)</span>
+
+<span class="c"># 将 public_include_dir 添加到 my_library 的公共头文件搜索路径中</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">public_include_dir</span><span class="p">)</span>
+</code></pre></div>
+<p>在这个例子中，<code>my_library</code> 的实现细节位于 <code>private_include_dir</code>，其他目标（依赖于 <code>my_library</code> 的目标）可以访问 <code>public_include_dir</code> 中的头文件，而不能访问<code>private_include_dir</code>。</p>
+<p><strong><code>PUBLIC</code>  和<code>INTERFACE</code>  区别示例：</strong></p>
+<ul>
+<li><code>PUBLIC</code> 影响当前目标和依赖于当前目标的其他目标。</li>
+<li><code>INTERFACE</code> 只影响依赖于当前目标的其他目标，而不直接影响当前目标。</li>
+</ul>
+<p>示例：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">add_library</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">my_source.cpp</span><span class="p">)</span>
+
+<span class="c"># 将 public_include_dir 添加到 my_library 的公共头文件搜索路径中</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">public_include_dir</span><span class="p">)</span>
+
+<span class="c"># 将 interface_include_dir 添加到 my_library 的接口头文件搜索路径中</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="s">interface_include_dir</span><span class="p">)</span>
+</code></pre></div>
+<p>在这个例子中，<code>public_include_dir</code> 被添加到 <code>my_library</code> 的公共头文件搜索路径，这将影响 <code>my_library</code> 本身以及依赖于 <code>my_library</code> 的其他目标。而 <code>interface_include_dir</code> 被添加到 <code>my_library</code> 的接口头文件搜索路径，这只会影响依赖于 <code>my_library</code> 的其他目标。</p>
+<p><strong>理解 <code>INTERFACE</code></strong> </p>
+<p>当一个目标依赖于另一个目标时，INTERFACE 头文件搜索路径将被传递给依赖目标，但不会直接影响定义这些路径的目标本身。</p>
+<p>下面通过一个示例来说明这个概念：</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 定义库目标 my_library，它有一个头文件 include/my_header.h</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">my_source.cpp</span><span class="p">)</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/include</span><span class="p">)</span>
+
+<span class="c"># 定义可执行目标 my_executable，它依赖于 my_library</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">my_executable</span><span class="w"> </span><span class="s">main.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">my_executable</span><span class="w"> </span><span class="s">my_library</span><span class="p">)</span>
+</code></pre></div>
+<p>在这个例子中，<code>my_library</code> 使用 <code>target_include_directories</code> 将 <code>include</code> 目录添加到 INTERFACE 头文件搜索路径中。然后，<code>my_executable</code> 通过 <code>target_link_libraries</code> 声明它依赖于 <code>my_library</code>。</p>
+<p>现在，让我们来理解这个过程：</p>
+<ol>
+<li><strong><code>my_library</code> 的影响：</strong><h2 id="-my_library-interface-include-my_library-interface">- <code>my_library</code> 自身不直接使用 INTERFACE 指定的头文件搜索路径，因为它不包含 <code>#include</code> 语句使用这些路径中的头文件。所以，对于 <code>my_library</code> 本身来说，INTERFACE 头文件搜索路径没有直接影响。<a class="headerlink" href="#-my_library-interface-include-my_library-interface" title="Permanent link">&para;</a></h2>
+</li>
+<li><strong><code>my_executable</code> 的影响：</strong><ul>
+<li>当 <code>my_executable</code> 声明依赖于 <code>my_library</code> 时，由于 <code>my_library</code> 使用 INTERFACE 头文件搜索路径，<code>my_executable</code> 也会继承这些路径。</li>
+<li>这意味着在构建 <code>my_executable</code> 时，CMake 会考虑 <code>my_library</code> 的 INTERFACE 头文件搜索路径，以确保它可以找到 <code>include/my_header.h</code>。</li>
+</ul>
+</li>
+</ol>
+<p>这样设计的好处在于，如果你有其他目标依赖于 <code>my_executable</code>，它们也会继承 INTERFACE 头文件搜索路径，从而保证整个项目的一致性。</p>
+<p>总之，INTERFACE 头文件搜索路径是为了确保目标和依赖于它的其他目标都能正确找到相关的头文件，从而提高构建系统的模块化性和可维护性。</p>
+<p>自我总结：</p>
+<p>如果都从源码构建的话，一般只使用 <code>PUBLIC</code> 和<code>PRIVATE</code> ，</p>
+<p><code>PUBLIC</code> 一般用在普通库的构建，它会影响当前目标和 依赖于当前目标的其它目标（上层库或者可执行程序）。</p>
+<p><code>PRIVATE</code>  一般用于可执行程序的构建（如testbed），它只影响当前的目标，不会将依赖向上传递。</p>
+<p>如果使用已经编好的库，使用 <code>INTERFACE</code>， 然后用<code>add_subdirectory</code> 加到当前目标中来，更好管理。</p>
+<p><code>INTERFACE</code> 只影响它的依赖，而不影响当前目标，适合用于编好的依赖库。</p>
+<p><strong>从源码来分析</strong>，从本质上来看<code>target_include_directories</code>总归是为目标的属性赋值。如果是设置为<code>PRIVATE</code>，那么它实际是给 <code>INCLUDE_DIRECTORIES</code>这个属性赋值。如果是设置为<code>INTERFACE</code>，那么它实际是给<code>INTERFACE_INCLUDE_DIRECTORIES</code>这个属性赋值。如果设置为<code>PUBLIC</code>，那么同时给<code>INCLUDE_DIRECTORIES</code>和<code>INTERFACE_INCLUDE_DIRECTORIES</code>赋值。相关的属性解释在<a href="https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html">https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html</a></p>
+<p>最后总结一下，目标A本身编译生成时，找的是自己里面的<code>INCLUDE_DIRECTORIES</code>这个路径。目标B生成需要链接目标A，那么它既找自己里面的<code>INCLUDE_DIRECTORIES</code>路径，也找目标A的<code>INTERFACE_INCLUDE_DIRECTORIES</code>路径<a href="#ref5">参考链接</a>[^5]   。</p>
+<h2 id="target">target构建命令<a class="headerlink" href="#target" title="Permanent link">&para;</a></h2>
+<p>CMake 有三个基本命令，用于定义 CMake Target。</p>
+<h3 id="add_executable">add_executable 命令<a class="headerlink" href="#add_executable" title="Permanent link">&para;</a></h3>
+<p>命令简述：用于指定从一组源文件 source1 source2 … sourceN 编译出一个可执行文件且命名为 name</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 命令语法</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">&lt;name&gt;</span><span class="w"> </span><span class="s">[WIN32]</span><span class="w"> </span><span class="s">[MACOSX_BUNDLE][EXCLUDE_FROM_ALL]</span><span class="w"> </span><span class="s">source1</span><span class="w"> </span><span class="s">source2</span><span class="w"> </span><span class="s">…</span><span class="w"> </span><span class="s">sourceN</span><span class="p">)</span>
+
+<span class="c"># 使用范例</span>
+
+<span class="c"># 生成可执行文件main</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">main.cpp</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="o">${</span><span class="nv">DIR_SRCS</span><span class="o">}</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="add_library">add_library 命令<a class="headerlink" href="#add_library" title="Permanent link">&para;</a></h3>
+<p>命令简述：用于指定从一组源文件 source1 source2 … sourceN 编译出一个库文件且命名为 name</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 命令语法</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="s">[STATIC</span><span class="w"> </span><span class="s">|</span><span class="w"> </span><span class="s">SHARED</span><span class="w"> </span><span class="s">|</span><span class="w"> </span><span class="s">MODULE]</span><span class="w"> </span><span class="s">[EXCLUDE_FROM_ALL]</span><span class="w"> </span><span class="s">source1source2</span><span class="w"> </span><span class="s">…</span><span class="w"> </span><span class="s">sourceN</span><span class="p">)</span>
+
+<span class="c"># 使用范例</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="s">Lib</span><span class="w"> </span><span class="o">${</span><span class="nv">DIR_SRCS</span><span class="o">}</span><span class="p">)</span><span class="w">          </span><span class="c"># 默认是静态库，可以通过BUILD_SHARED_LIBS控制</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="s">Lib</span><span class="w"> </span><span class="s">SHARED</span><span class="w"> </span><span class="o">${</span><span class="nv">DIR_SRCS</span><span class="o">}</span><span class="p">)</span><span class="w">   </span><span class="c"># 生成共享库目标</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="s">Lib</span><span class="w"> </span><span class="s">STATIC</span><span class="w"> </span><span class="o">${</span><span class="nv">DIR_SRCS</span><span class="o">}</span><span class="p">)</span><span class="w">   </span><span class="c"># 生成静态库目标</span>
+
+
+<span class="c"># 这两段代码是相同的</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">LIBNAME</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">SRC_FILES</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">HEADER_FILES</span><span class="o">}</span><span class="p">)</span>
+
+<span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">LIBNAME</span><span class="o">}</span><span class="p">)</span><span class="w"> </span>
+<span class="nb">target_sources</span><span class="p">(</span><span class="o">${</span><span class="nv">LIBNAME</span><span class="o">}</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="o">${</span><span class="nv">SRC_FILES</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">HEADER_FILES</span><span class="o">}</span><span class="p">)</span>
+
+
+<span class="c"># 创建了target, 但是不会构建库，使用了OBJECT关键字，这表示只对生成目标文件感兴趣，</span>
+<span class="c"># 一般用于收集编译源文件，并进行依赖传递</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="s">cars</span><span class="w"> </span><span class="s">OBJECT</span><span class="w"> </span><span class="s">car.cpp</span><span class="p">)</span>
+</code></pre></div>
+<p><mark>从外部导入已经编好的库</mark>：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">SHARED</span><span class="w"> </span><span class="s">IMPORTED</span><span class="w"> </span><span class="s">GLOBAL</span><span class="p">)</span>
+
+<span class="c"># 设置它的属性, 注意需要在配置时就确认，所以不能用生成表达式</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PROPERTIES</span>
+<span class="w">  </span><span class="s">INTERFACE_INCLUDE_DIRECTORIES</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/inc&quot;</span>
+<span class="w">  </span><span class="s">IMPORTED_IMPLIB</span><span class="w"> </span><span class="s2">&quot;${LIB_PATH}&quot;</span><span class="w">   </span><span class="c"># windows的动态库需要的符号表lib。</span>
+<span class="w">  </span><span class="s">IMPORTED_LOCATION</span><span class="w"> </span><span class="s2">&quot;${DLL_PATH}&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>这行CMake命令用于在CMake构建系统中添加一个共享库（shared library）。让我们逐步解释这个命令：</p>
+<ol>
+<li><code>add_library</code>: 这是CMake的一个命令，用于向项目中添加库。它可以用于创建静态库、共享库或模块库。</li>
+<li><code>${PROJECT_NAME}</code>: 这是一个CMake变量，表示当前项目的名称。<code>${PROJECT_NAME}</code>会被替换为你在项目中设置的<code>project()</code>命令中指定的项目名称。</li>
+<li><code>SHARED</code>: 这个关键字指定要创建的库的类型。在这里，<code>SHARED</code>表示创建一个共享库（动态链接库，DLL或共享对象，SO）。</li>
+<li><code>IMPORTED</code>: 这个关键字表示库是由外部提供的，而不是由CMake构建系统生成的。它告诉CMake不需要尝试构建这个库，而是将其作为外部库进行处理。</li>
+<li><code>GLOBAL</code>: 这个关键字将库的作用域设置为全局，使得该库可以在整个项目中的任何地方访问。</li>
+</ol>
+<p>因此，这一行命令的作用是告诉CMake在项目中添加一个全局的、由外部提供的共享库，并且这个库的名称与项目的名称相同。这通常用于将预编译的库与CMake项目关联起来，而不需要在项目中显式地指定库的源代码或构建规则。相反，开发人员只需确保外部提供的库与其项目相匹配即可。</p>
+<h3 id="add_custom_target">add_custom_target命令<a class="headerlink" href="#add_custom_target" title="Permanent link">&para;</a></h3>
+<p>见前面章节 <code>命令</code>-<code>高级命令</code></p>
+<p><a href="../3.%20%E5%91%BD%E4%BB%A4%28Command%29/#add_custom_target-命令">3. 命令(Command)#add_custom_target 命令</a></p>
+<h3 id="pseudo-targets">伪目标(pseudo targets)<a class="headerlink" href="#pseudo-targets" title="Permanent link">&para;</a></h3>
+<p>具体来说，这是指不表示构建系 统的输出而是表示输入的东西——外部依赖项、别名等。这些是伪目标，或者没有到达生成的构建 系统的目标。</p>
+<h4 id="_1">导入库目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<p>若浏览了目录，就会知道将讨论 CMake 如何管理外部依赖项——其他项目、库等。导入的目标 基本上是这个过程的产物。CMake 可以定义它们作为 find_ package() 指令的结果。 可以调整这样一个目标的目标属性: 编译定义、编译选项、包含目录等——甚至将支持可传递 的使用需求。但应该将它们视为不可变的，不要改变它们的来源或依赖关系。 导入目标的范围可以是全局的，也可以是本地目录 (在子目录中可见，但在父目录中不可见)。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">add_library</span><span class="p">(</span><span class="s">&lt;name&gt;</span><span class="w"> </span><span class="s">&lt;type&gt;</span><span class="w"> </span><span class="s">IMPORTED</span><span class="w"> </span><span class="s">[GLOBAL]</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="p">(</span><span class="s">LIB_DIR</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CURRENT_LIST_DIR}/lib/${ARCBUILD_PLATFORM}-${ARCBUILD_ARCH}&quot;</span><span class="p">)</span>
+
+<span class="nb">if</span><span class="p">(</span><span class="s">BUILD_SHARED_LIBS</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">LIB_PATH</span><span class="w"> </span><span class="s2">&quot;${LIB_DIR}-shared/${PROJECT_NAME}.lib&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">DLL_PATH</span><span class="w"> </span><span class="s2">&quot;$${LIB_DIR}-shared/${PROJECT_NAME}.dll&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">SHARED</span><span class="w"> </span><span class="s">IMPORTED</span><span class="w"> </span><span class="s">GLOBAL</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nb">set_target_properties</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PROPERTIES</span>
+<span class="w">      </span><span class="s">INTERFACE_INCLUDE_DIRECTORIES</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/inc&quot;</span>
+<span class="w">      </span><span class="s">IMPORTED_IMPLIB</span><span class="w"> </span><span class="s2">&quot;${LIB_PATH}&quot;</span>
+<span class="w">      </span><span class="s">IMPORTED_LOCATION</span><span class="w"> </span><span class="s2">&quot;${DLL_PATH}&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="nb">else</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">LIB_PATH</span><span class="w"> </span><span class="s2">&quot;${LIB_DIR}-static/${PROJECT_NAME}.lib&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">STATIC</span><span class="w"> </span><span class="s">IMPORTED</span><span class="w"> </span><span class="s">GLOBAL</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nb">set_target_properties</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PROPERTIES</span>
+<span class="w">      </span><span class="s">INTERFACE_INCLUDE_DIRECTORIES</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/inc&quot;</span>
+<span class="w">      </span><span class="s">IMPORTED_LOCATION</span><span class="w"> </span><span class="s2">&quot;${LIB_PATH}&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="nb">endif</span><span class="p">()</span>
+
+<span class="c"># 注意: 库的位置总是使用 `IMPORTED_LOCATION`, 而windows下的动态库，需要额外配置导入库`IMPORTED_IMPLIB`</span>
+
+<span class="c"># 可以更详细的设置</span>
+<span class="c"># set_target_properties(${PROJECT_NAME} PROPERTIES  </span>
+<span class="c">#   INTERFACE_INCLUDE_DIRECTORIES &quot;${CMAKE_CURRENT_SOURCE_DIR}/inc&quot;    </span>
+<span class="c">#   IMPORTED_IMPLIB_DEBUG &quot;${LIB_PATH}&quot;  </span>
+<span class="c">#   IMPORTED_IMPLIB_RELEASE &quot;${LIB_PATH}&quot;  </span>
+<span class="c">#   IMPORTED_IMPLIB_MINSIZEREL &quot;${LIB_PATH}&quot;  </span>
+<span class="c">#   IMPORTED_IMPLIB_RELWITHDEBINFO &quot;${LIB_PATH}&quot;  </span>
+<span class="c">#   IMPORTED_LOCATION_DEBUG &quot;${DLL_PATH}&quot;  </span>
+<span class="c">#   IMPORTED_LOCATION_RELEASE &quot;${DLL_PATH}&quot;  </span>
+<span class="c">#   IMPORTED_LOCATION_MINSIZEREL &quot;${DLL_PATH}&quot;  </span>
+<span class="c">#   IMPORTED_LOCATION_RELWITHDEBINFO &quot;${DLL_PATH}&quot;  </span>
+<span class="c"># )</span>
+</code></pre></div>
+<h4 id="_2">别名目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>别名目标完全符合期望——不同的名称下创建对目标的另一个引用。可以使用以下指令为可执 行文件和库创建别名目标: </p>
+<div class="highlight"><pre><span></span><code><span class="n">add_executable</span><span class="p">(</span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ALIAS</span><span class="w"> </span><span class="o">&lt;</span><span class="n">target</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>
+<span class="n">add_library</span><span class="p">(</span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ALIAS</span><span class="w"> </span><span class="o">&lt;</span><span class="n">target</span><span class="o">&gt;</span><span class="p">)</span>
+</code></pre></div>
+<p>别名目标的属性只读，并且不能安装或导出别名 (在生成的构建系统中不可见)。 那么，使用别名的理由到底是什么呢? 当项目的某些部分 (如子目录) 需要具有特定名称的目标 时，就很方便了，而实际的实现可能根据情况在不同的名称下可用。例如，可能希望构建一个随解 决方案一起提供的库，或者根据用户的选择导入。</p>
+<p><strong>我的理解</strong>：如果同一个库有多个版本，比如<code>hand1</code>, <code>hand2</code> <code>hand3</code>, 链接的时候直接链接别名 <code>hand</code>。具体使用哪个可以用 <code>ALIAS</code>来确定。<a href="../3.%20%E5%91%BD%E4%BB%A4%28Command%29/#add_subdirectory-命令">3. 命令(Command)#<strong>add_subdirectory 命令</strong></a> 也能做到类似的功能。</p>
+<h4 id="_3">接口库<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>这是一个有趣的构造——一个库不编译任何东西，而是作为一个实用工具目标。其整个概念是 围绕传播属性 (传递使用需求) 构建的。 </p>
+<p>接口库有两个主要用途——纯头文件库和将一堆传播的属性捆绑到一个逻辑单元中。 </p>
+<p>使用 <code>add_library(INTERFACE)</code> 创建纯头文件库相当容易: </p>
+<div class="highlight"><pre><span></span><code><span class="nb">add_library</span><span class="p">(</span><span class="s">Eigen</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="s">src/eigen.h</span><span class="w"> </span><span class="s">src/vector.h</span><span class="w"> </span><span class="s">src/matrix.h</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">Eigen</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span>
+<span class="w">            </span><span class="o">$&lt;</span><span class="nv">BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="o">$&lt;</span><span class="nv">INSTALL_INTERFACE:include/Eigen</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="p">)</span>
+</code></pre></div>
+<p>前面的代码片段中，创建了一个具有三个头文件的特征接口库。接下来，使用生成器表达式， 在导出目标时将其 <code>include</code> 目录设置为 <code>${CMAKE_CURRENT_SOURCE_DIR}/src</code>，在安装目标时设 置为 <code>include/Eigen</code>。 要使用这样的库，只需要链接<code>Eigen</code>即可: </p>
+<p>```cmake<br />
+target_link_libraries(executable Eigen)<br />
+<div class="highlight"><pre><span></span><code>这里没有实际的链接，但是 CMake 将此命令理解为将所有` INTERFACE `属性传播到可执行目标的请求。 
+
+第二个用例使用了完全相同的机制，但目的不同——其创建了一个逻辑目标，可以作为传播属 性的占位符。然后，可以将这个目标用作其他目标的依赖项，并以一种简洁、方便的方式设置属性
+
+这里有一个例子: 
+
+``` cmake
+add_library(warning_props INTERFACE) 
+target_compile_options(warning_props INTERFACE -Wall -Wextra -Wpedantic ) 
+
+target_link_libraries(executable warning_props) 
+</code></pre></div></p>
+<p><code>add_library(INTERFACE)</code>指令创建一个逻辑 <code>warning_props</code>目标，用于在可执行目标上设置第 二个命令中指定的编译选项。推荐使用这些 <code>INTERFACE</code> 目标，这提高了代码的可读性和可重用性。 可以把它看作是将一堆神奇的值重构为一个命名良好的变量，还建议使用<code>_props</code> 后缀将接口库与常 规库区分开来。</p>
+<p><strong>我的理解</strong>：接口库这个是为了纯头文件的库设计的。</p>
+<h2 id="target_1">target常用命令<a class="headerlink" href="#target_1" title="Permanent link">&para;</a></h2>
+<p><strong>这些指令都支持生成器表达式。</strong></p>
+<h3 id="target_include_directories"><code>target_include_directories</code> 命令<a class="headerlink" href="#target_include_directories" title="Permanent link">&para;</a></h3>
+<p>命令简述：指定目标包含的头文件路径。用于为特定目标设置头文件搜索路径，而不是全局影响。</p>
+<p>对应的老式写法，全局命令是 <code>include_directories</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 命令语法</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">&lt;target&gt;</span><span class="w"> </span><span class="s">[SYSTEM]</span><span class="w"> </span><span class="s">[AFTER|BEFORE]</span><span class="w"> </span><span class="s">&lt;INTERFACE|PUBLIC|PRIVATE&gt;</span><span class="w"> </span><span class="s">[items1…]</span><span class="p">)</span>
+
+<span class="c"># 使用范例</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">target_lib</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">/usr1/dirs</span><span class="p">)</span>
+</code></pre></div>
+<p>使用 <code>BEFORE</code> 或 <code>AFTER</code> 确定路径是应该添加到目标 <code>INCLUDE_DIRECTORIES</code> 属性的前面还 是后面，这仍然由编译器决定是在默认目录之前还是之后检查这里提供的目录 (通常是在之前)。 </p>
+<p><code>SYSTEM</code> 关键字通知编译器所提供的目录是标准的系统目录 (与尖括号形式一起使用)。对于许 多编译器，这个值将作为<code>-system</code>标志提供。</p>
+<h3 id="target_link_libraries"><code>target_link_libraries</code> 命令<a class="headerlink" href="#target_link_libraries" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[!todo] <br />
+这个命令值得深入研究， 如果它传入的 item是target, 可以获取相关的依赖等</p>
+</blockquote>
+<p>命令简述：用于指定 target 需要链接 item1 item2 …。这里 target 必须已经被创建(可以由add_executable或者add_library创建)，<strong>链接的 item 可以是已经存在的 target（依赖关系会自动添加，要设置为PUBLIC INTERFACE）</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c"># 命令语法</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">&lt;target&gt;</span><span class="w"> </span><span class="s">[item1</span><span class="w"> </span><span class="s">[item2</span><span class="w"> </span><span class="s">[…]]][[debug|optimized|general]</span><span class="w"> </span><span class="s">]</span><span class="w"> </span><span class="s">…</span><span class="p">)</span>
+
+<span class="c"># 使用范例</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">Main</span><span class="w"> </span><span class="s">Lib</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>链接器是按照从左到右的顺序查找符号。链接顺序可能会影响符号解析和链接的结果，尤其是对于静态库和动态库的链接。</strong></p>
+<p>一般来说，链接顺序的一些建议是：</p>
+<ol>
+<li>
+<p><strong>将目标放在依赖项的前面：</strong> 在 <code>target_link_libraries</code> 命令中，放置目标应该在依赖项的前面。这通常是因为链接器是按照从左到右的顺序查找符号的。</p>
+<p><code>target_link_libraries(my_target PRIVATE lib1 lib2 lib3)</code></p>
+<p>在这个例子中，<code>my_target</code> 依赖于 <code>lib1</code>、<code>lib2</code> 和 <code>lib3</code>，它们会按照指定的顺序链接。</p>
+</li>
+<li>
+<p><strong>将依赖的库放在静态库之前：</strong> 如果你同时链接了静态库和动态库，确保将动态库放在静态库之前。这是因为一些链接器会忽略之前已经解析的静态库中的符号。</p>
+<p><code>target_link_libraries(my_target PRIVATE lib_static lib_dynamic)</code></p>
+<p>在这个例子中，<code>lib_static</code> 是静态库，<code>lib_dynamic</code> 是动态库。</p>
+</li>
+<li>
+<p><strong>对于某些平台，可能需要调整链接顺序：</strong> 在某些平台上，特别是在使用 GCC 的情况下，可能需要调整链接顺序以正确解析符号。这通常是在特定情况下才需要的。</p>
+</li>
+</ol>
+<h3 id="target_compile_definitions"><code>target_compile_definitions</code> 命令<a class="headerlink" href="#target_compile_definitions" title="Permanent link">&para;</a></h3>
+<p>添加预编译选项到编译目标中，用于定义宏，取消定义宏，以及设置宏的值。可以通过 <code>PUBLIC</code>  和<code>PRIVATE</code>  进行范围限定。通过<code>PUBLIC</code>可以传递给上层使用。</p>
+<p>类似 <code>add_definitions</code> <code>add_compile_definitions</code>，是更现代的写法。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">add_library</span><span class="p">(</span><span class="s">my_library</span><span class="w"> </span><span class="s">source.cpp</span><span class="p">)</span>
+
+<span class="c"># 定义宏</span>
+<span class="nb">target_compile_definitions</span><span class="p">(</span><span class="s">my_library</span>
+<span class="w">    </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">FOO</span><span class="w">  </span><span class="c"># 定义宏 `FOO`，没有赋值</span>
+<span class="w">    </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">BAR=1</span><span class="w"> </span><span class="c"># 定义宏 `BAR`，赋值为1</span>
+<span class="p">)</span>
+
+<span class="c"># 使用-U 取消宏</span>
+<span class="nb">target_compile_definitions</span><span class="p">(</span><span class="s">my_executable</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-UBAZ</span><span class="p">)</span>
+</code></pre></div>
+<p>在上面的示例中，<code>FOO=1</code> 是 <code>my_library</code> 的私有定义，而 <code>BAR=2</code> 是一个公共定义，将对链接到 <code>my_library</code> 的任何目标可见。</p>
+<p>对于-D的前导符和空字符串""会被CMake忽略，例如下面命令完全等价：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">target_compile_definitions</span><span class="p">(</span><span class="s">target</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">DEF_FLAG</span><span class="p">)</span>
+<span class="nb">target_compile_definitions</span><span class="p">(</span><span class="s">target</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">-DDEF_FLAG</span><span class="p">)</span><span class="w">  </span><span class="c"># -D 被移除</span>
+<span class="nb">target_compile_definitions</span><span class="p">(</span><span class="s">target</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="s">DEF_FLAG</span><span class="p">)</span><span class="w"> </span><span class="c"># &quot;&quot; 被忽略</span>
+<span class="nb">target_compile_definitions</span><span class="p">(</span><span class="s">target</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">-D</span><span class="w"> </span><span class="s">DEF_FLAG</span><span class="p">)</span><span class="w"> </span><span class="c"># -D 变成 &quot;&quot; 然后被忽略</span>
+</code></pre></div>
+<p>和老式写法对比一下。</p>
+<p><a href="../3.%20%E5%91%BD%E4%BB%A4%28Command%29/#add_definitions-命令">3. 命令(Command)#add_definitions 命令</a></p>
+<h3 id="target_compile_options"><code>target_compile_options</code> 命令<a class="headerlink" href="#target_compile_options" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[!todo]</p>
+</blockquote>
+<p>该命令允许直接指定编译器选项。对应 变量<code>CMAKE_CXX_FLAGS</code> 或者  <code>add_compile_options</code></p>
+<div class="highlight"><pre><span></span><code><span class="c"># 作用全局,老式写法</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CXX_FLAGS} -std=c++11 -Wall&quot;</span><span class="p">)</span>
+<span class="nb">add_compile_options</span><span class="p">(</span><span class="s">-std=c++11</span><span class="w"> </span><span class="s">-Wall</span><span class="p">)</span>
+
+<span class="c"># 指定目标</span>
+<span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_target</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-std=c++11</span><span class="w"> </span><span class="s">-Wall</span><span class="p">)</span>
+</code></pre></div>
+<p>实际上可以代替<code>target_compile_definitions</code>, <code>target_compile_features</code> 。</p>
+<div class="highlight"><pre><span></span><code><span class="c"># case 1</span>
+<span class="nb">target_compile_options</span><span class="p">(</span><span class="s">sample</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">/arch=avx2</span><span class="w"> </span><span class="s">/Wall</span><span class="p">)</span>
+
+<span class="c"># 定义宏, 定义宏还是交给`target_compile_definitions`吧</span>
+<span class="nb">target_compile_options</span><span class="p">(</span><span class="s">sample</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-DFOO</span><span class="w"> </span><span class="s">-DBAR=1</span><span class="p">)</span>
+
+<span class="c"># 老式写法</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CXX_FLAGS} -fPIC -std=c++17 /bigobj&quot;</span><span class="p">)</span>
+<span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_executable</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-fPIC</span><span class="w"> </span><span class="s">/std:c++17</span><span class="w"> </span><span class="s">/bigobj</span><span class="p">)</span>
+
+<span class="c">#设置windows 静态库为 MT</span>
+<span class="nb">if</span><span class="p">(</span><span class="s">_MT_</span><span class="w"> </span><span class="s">AND</span><span class="w"> </span><span class="s">WIN32</span><span class="w"> </span><span class="s">AND</span><span class="w"> </span><span class="s">NOT</span><span class="w"> </span><span class="s">BUILD_SHARED_LIBS</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">message</span><span class="p">(</span><span class="w"> </span><span class="s2">&quot;USE -MT (Multi-threaded)&quot;</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">target_compile_options</span><span class="p">(</span><span class="o">${</span><span class="nv">LIBNAME</span><span class="o">}</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">/MT</span><span class="o">$&lt;</span><span class="nv">$&lt;CONFIG:Debug</span><span class="o">&gt;</span><span class="s">:d&gt;</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</code></pre></div>
+<p>由于<code>target_compile_options</code> 命令是直接给编译器添加编译选项，所以和使用的编译器相关，不同的编译器会有不同的设置。比如：</p>
+<ul>
+<li><strong>GCC/G++ 编译器：</strong><br />
+<div class="highlight"><pre><span></span><code><span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_target</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-Wall</span><span class="w"> </span><span class="s">-Wextra</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<p>这里使用 <code>-Wall</code> 和 <code>-Wextra</code> 开启了 GCC/G++ 的所有警告。</p>
+<ul>
+<li><strong>Clang 编译器：</strong><br />
+<div class="highlight"><pre><span></span><code><span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_target</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-Wall</span><span class="w"> </span><span class="s">-Wextra</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<p>Clang 与 GCC 共享许多相同的编译选项，因此可以使用相似的语法。</p>
+<ul>
+<li><strong>MSVC 编译器：</strong><br />
+<div class="highlight"><pre><span></span><code><span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_target</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">/W4</span><span class="w"> </span><span class="s">/WX</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<p>MSVC 使用不同的语法，这里使用 <code>/W4</code> 开启警告级别 4，<code>/WX</code> 将警告视为错误。</p>
+<p>这些示例涉及开启警告的选项，但实际上，编译器选项可能包括许多其他方面，如优化级别、目标架构、调试信息等。因此，在编写跨平台的 CMake 文件时，可能需要使用条件语句来根据不同的编译器设置不同的编译选项。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">CMAKE_CXX_COMPILER_ID</span><span class="w"> </span><span class="s">STREQUAL</span><span class="w"> </span><span class="s2">&quot;GNU&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_target</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-Wall</span><span class="w"> </span><span class="s">-Wextra</span><span class="p">)</span>
+<span class="nb">elseif</span><span class="p">(</span><span class="s">CMAKE_CXX_COMPILER_ID</span><span class="w"> </span><span class="s">STREQUAL</span><span class="w"> </span><span class="s2">&quot;Clang&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_target</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-Wall</span><span class="w"> </span><span class="s">-Wextra</span><span class="p">)</span>
+<span class="nb">elseif</span><span class="p">(</span><span class="s">CMAKE_CXX_COMPILER_ID</span><span class="w"> </span><span class="s">STREQUAL</span><span class="w"> </span><span class="s2">&quot;MSVC&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_target</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">/W4</span><span class="w"> </span><span class="s">/WX</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</code></pre></div>
+<p>这样的条件语句允许你根据不同的编译器进行设置，以确保正确的编译选项被应用。</p>
+<p>使用 target_compile_options() 配置编译器。<strong>哪些编译选项比较有用</strong>?</p>
+<ul>
+<li><code>-Werror</code>:  开启后会将所有警告都视为错误，除非解决了所有警告，否则代码不会编译。</li>
+<li><code>-Wall</code> 和可选的<code>-Wextra</code>: 这些是认为是非常有用和有意义的警告。</li>
+</ul>
+<h3 id="target_compile_features"><code>target_compile_features</code> 命令<a class="headerlink" href="#target_compile_features" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[!todo]</p>
+</blockquote>
+<p>此函数专门向目标设置c / c++版本。可以在 <code>target_compile_options</code> 中搞定，或者设置<code>CMAKE_CXX_STANDARD</code> (老式写法，不推荐)。</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 过时写法，作用全局</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
+
+<span class="c"># 现代写法</span>
+<span class="nb">target_compile_features</span><span class="p">(</span><span class="s">sample</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">cxx_std_11</span><span class="p">)</span>
+<span class="nb">target_compile_features</span><span class="p">(</span><span class="s">sample</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">cxx_std_17</span><span class="p">)</span>
+
+<span class="c"># 对应的</span>
+<span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_executable</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">-std=c++11</span><span class="p">)</span><span class="w"> </span><span class="c"># GCC/G++</span>
+<span class="nb">target_compile_options</span><span class="p">(</span><span class="s">my_executable</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">/std:c++11</span><span class="p">)</span><span class="w"> </span><span class="c"># MSVC</span>
+</code></pre></div>
+<p>推荐使用 <code>target_compile_features</code>，因为它提供更清晰、更语义化的方式来表达代码的要求，并且可以更轻松地<strong>适应不同的编译器和平台</strong>。</p>
+<p>建议使用通用 C++ 标准：</p>
+<ul>
+<li><code>cxx_std_98</code></li>
+<li><code>cxx_std_11</code></li>
+<li><code>cxx_std_14</code></li>
+<li><code>cxx_std_17</code></li>
+<li><code>cxx_std_20</code></li>
+<li><code>cxx_std_23</code></li>
+</ul>
+<h3 id="target_link_options"><code>target_link_options</code> 命令<a class="headerlink" href="#target_link_options" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[!todo]</p>
+</blockquote>
+<h3 id="target_link_directories"><code>target_link_directories</code> 命令<a class="headerlink" href="#target_link_directories" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[!todo]</p>
+</blockquote>
+<h3 id="target_sources"><code>target_sources</code> 命令<a class="headerlink" href="#target_sources" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[!todo]</p>
+</blockquote>
+<p>向已定义的目标添加源。</p>
+<h3 id="target_precompile_headers"><code>target_precompile_headers</code> 命令<a class="headerlink" href="#target_precompile_headers" title="Permanent link">&para;</a></h3>
+<p>预编译头文件。</p>
+<h2 id="properties">属性(properties)<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
+<p>属性（Properties）和变量（Variables）是两个不同的概念。变量是可以独立存在的，而属性需要依赖一个具体的目标(可以类比于类的字段)。</p>
+<p><strong><em>现代化的CMake是围绕 Target 和 Property 来定义的。</em></strong></p>
+<p>变量是使用<code>set()</code>命令定义的，可以具有不同的作用域，包括全局作用域和局部作用域。全局变量在整个项目中可见，而局部变量通常只在定义它们的作用域内可见。变量通常用于存储和传递值，如文件路径、编译选项等。CMake中的变量是一种灵活的机制，可以用于在不同的地方存储和检索值。</p>
+<p>属性是通过在目标（如可执行文件、库等）上使用<code>set_target_properties()</code>或<code>set_directory_properties()</code>等命令定义的，例如：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">set_target_properties</span><span class="p">(</span><span class="s">target_name</span><span class="w"> </span><span class="s">PROPERTIES</span><span class="w"> </span><span class="s">PROPERTY_NAME</span><span class="w"> </span><span class="s">value</span><span class="p">)</span>
+</code></pre></div>
+<p>属性通常关联到具体的目标，如可执行文件或库。它们的作用范围限定在目标上。</p>
+<p>属性用于配置目标的各种行为，例如编译选项、输出路径、链接库等。通过设置目标的属性，可以定制生成的可执行文件或库的各个方面。</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 通过target的属性，指定target C++标准的版本,只影响target</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">my_executable</span><span class="w"> </span><span class="s">PROPERTIES</span><span class="w"> </span><span class="s">CXX_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span><span class="w"> </span>
+
+<span class="c"># 设置全局变量，指定C++标准的版本, 影响全局</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
+</code></pre></div>
+<p><code>get_property</code> 和 <code>set_property</code> 可以用于获取/设置任何类型的属性，包括<code>Global Scope</code>  <code>Directories</code> <code>Targets</code> <code>Tests</code> <code>Source Files</code>等等。</p>
+<p>具体可以参考 <a href="https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html">属性（property）</a></p>
+<h3 id="get_property"><code>get_property</code><a class="headerlink" href="#get_property" title="Permanent link">&para;</a></h3>
+<p><a href="https://cmake.org/cmake/help/latest/command/get_property.html#command:get_property">get_property — CMake 3.28.0 Documentation</a></p>
+<h3 id="set_property"><code>set_property</code><a class="headerlink" href="#set_property" title="Permanent link">&para;</a></h3>
+<p><a href="https://cmake.org/cmake/help/latest/command/set_property.html#set-property">set_property — CMake 3.28.0 Documentation</a></p>
+<h2 id="target_2">target常用属性<a class="headerlink" href="#target_2" title="Permanent link">&para;</a></h2>
+<p>现代cmake中可以通过 <code>get_target_property()</code> 或者 <code>get_property(TARGET ...)</code> 来获得<code>target</code>的属性，通过<code>set_target_properties()</code> 或者 <code>set_property(TARGET ...)</code>来设置<code>target</code>的属性。</p>
+<p><a href="https://cmake.org/cmake/help/latest/command/get_target_property.html#get-target-property">get_target_property — CMake 3.28.0 Documentation</a></p>
+<p><a href="https://cmake.org/cmake/help/latest/command/set_target_properties.html#command:set_target_properties">set_target_properties — CMake 3.28.0 Documentation</a></p>
+<p><strong>Properties on Targets (Targets的属性列表)</strong>:<br />
+<a href="https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html#target-properties">cmake-properties(7) — CMake 3.28.0 Documentation</a></p>
+<ul>
+<li><strong>设置属性</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c">#设置包含路径, 见上文</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">target_name</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">include_dir</span><span class="p">)</span>
+
+<span class="c">#设置链接的库, 见上文</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">target_name</span><span class="w"> </span><span class="s">library_name</span><span class="p">)</span>
+
+<span class="c">#设置编译时预定义的宏</span>
+<span class="nb">target_compile_definitions</span><span class="p">(</span><span class="s">target_name</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">definition</span><span class="p">)</span>
+
+<span class="c">#设置编译选项</span>
+<span class="nb">target_compile_options</span><span class="p">(</span><span class="s">target_name</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">option</span><span class="p">)</span>
+
+<span class="c">#设置源文件</span>
+<span class="nb">target_sources</span><span class="p">(</span><span class="s">target_name</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">source_file</span><span class="p">)</span>
+
+<span class="c">#设置编译C++特性</span>
+<span class="nb">target_compile_features</span><span class="p">(</span><span class="s">target_name</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">feature</span><span class="p">)</span>
+
+
+<span class="c"># 设置目标的属性还有一个通用命令，可以用这个命令代替上述指令</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">target1</span><span class="w"> </span><span class="s">target2</span><span class="w"> </span><span class="s">...</span>
+<span class="w">                      </span><span class="s">PROPERTIES</span><span class="w"> </span><span class="s">prop1</span><span class="w"> </span><span class="s">value1</span>
+<span class="w">                      </span><span class="s">prop2</span><span class="w"> </span><span class="s">value2</span><span class="w"> </span><span class="s">...</span><span class="p">)</span>
+
+<span class="c"># 除了作用域PUBLIC等，基本等价上述设置</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">target_name</span><span class="w"> </span>
+<span class="w">                      </span><span class="s">PROPERTIES</span><span class="w"> </span>
+<span class="w">                      </span><span class="s">INCLUDE_DIRECTORIES</span><span class="w"> </span><span class="s">include_dir</span>
+<span class="w">                      </span><span class="s">COMPILE_DEFINITIONS</span><span class="w"> </span><span class="s">definition</span><span class="w"> </span>
+<span class="w">                      </span><span class="s">COMPILE_OPTIONS</span><span class="w"> </span><span class="s">option</span>
+<span class="w">                      </span><span class="s">LINK_LIBRARIES</span><span class="w"> </span><span class="s">library_name</span>
+<span class="w">                      </span><span class="s">SOURCES</span><span class="w"> </span><span class="s">source_file</span>
+<span class="w">                      </span><span class="s">COMPILE_FEATURES</span><span class="w"> </span><span class="s">feature</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><strong>获取属性</strong></li>
+</ul>
+<p>使用<code>get_target_property</code>可以获得目标某个属性的值，并存放到变量中供我们使用。使用下面代码可以把，我们上面赋值的属性取出来：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">get_target_property</span><span class="p">(</span><span class="s">&lt;VAR&gt;</span><span class="w"> </span><span class="s">target</span><span class="w"> </span><span class="s">property</span><span class="p">)</span>
+
+<span class="nb">get_target_property</span><span class="p">(</span><span class="s">include_dir</span><span class="w"> </span><span class="s">target_name</span><span class="w"> </span><span class="s">INCLUDE_DIRECTORIES</span><span class="p">)</span>
+<span class="nb">get_target_property</span><span class="p">(</span><span class="s">definition</span><span class="w"> </span><span class="s">target_name</span><span class="w"> </span><span class="s">COMPILE_DEFINITIONS</span><span class="p">)</span>
+<span class="nb">get_target_property</span><span class="p">(</span><span class="s">option</span><span class="w"> </span><span class="s">target_name</span><span class="w"> </span><span class="s">COMPILE_OPTIONS</span><span class="p">)</span>
+<span class="nb">get_target_property</span><span class="p">(</span><span class="s">library_name</span><span class="w"> </span><span class="s">target_name</span><span class="w"> </span><span class="s">LINK_LIBRARIES</span><span class="p">)</span>
+<span class="nb">get_target_property</span><span class="p">(</span><span class="s">source_file</span><span class="w"> </span><span class="s">target_name</span><span class="w"> </span><span class="s">SOURCES</span><span class="p">)</span>
+<span class="nb">get_target_property</span><span class="p">(</span><span class="s">feature</span><span class="w"> </span><span class="s">target_name</span><span class="w"> </span><span class="s">COMPILE_FEATURES</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="set_target_properties">set_target_properties 命令<a class="headerlink" href="#set_target_properties" title="Permanent link">&para;</a></h3>
+<p>命令简述：设置目标的一些属性来改变它们构建的方式。为一个目标设置属性。</p>
+<p>该命令的语法是列出所有你想要变更的文件，然后提供你想要设置的值。你能够使用任何你想要的属性/值对，并且在随后的代码中调用<code>GET_TARGET_PROPERTY</code>命令取出属性的值。</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 命令语法</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">target1</span><span class="w"> </span><span class="s">target2</span><span class="w"> </span><span class="s">...</span><span class="w"> </span><span class="s">PROPERTIES</span><span class="w"> </span><span class="s">prop1</span><span class="w"> </span><span class="s">value1</span><span class="w"> </span><span class="s">prop2</span><span class="w"> </span><span class="s">value2</span><span class="w"> </span><span class="s">...</span><span class="p">)</span>
+
+
+<span class="c"># 使用范例</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PROPERTIES</span>
+<span class="w">  </span><span class="c"># 头文件路径</span>
+<span class="w">  </span><span class="s">INTERFACE_INCLUDE_DIRECTORIES</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/inc&quot;</span>
+<span class="w">  </span><span class="c"># windows下的动态库的符号表，也叫导入库（Import Library） 容易和静态库.lib混淆</span>
+<span class="w">  </span><span class="s">IMPORTED_IMPLIB</span><span class="w"> </span><span class="s2">&quot;${LIB_PATH}&quot;</span>
+<span class="w">  </span><span class="c"># 库的位置(.a .so .lib .dll .dylib)</span>
+<span class="w">  </span><span class="s">IMPORTED_LOCATION</span><span class="w"> </span><span class="s2">&quot;${DLL_PATH}&quot;</span>
+<span class="p">)</span>
+
+<span class="c"># 设置输出名称 ，把 `my_executable` 的输出名称设置为 `my_custom_name`。</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">my_executable</span>
+<span class="w">    </span><span class="s">PROPERTIES</span>
+<span class="w">    </span><span class="s">OUTPUT_NAME</span><span class="w"> </span><span class="s">my_custom_name</span>
+<span class="p">)</span>
+
+<span class="c"># 设置编译器标志，将为 `my_library` 设置编译标志，例如 `-Wall` 表示开启所有警告。</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">my_library</span>
+<span class="w">    </span><span class="s">PROPERTIES</span>
+<span class="w">    </span><span class="s">COMPILE_FLAGS</span><span class="w"> </span><span class="s2">&quot;-Wall&quot;</span>
+<span class="p">)</span>
+
+<span class="c"># 设置输出目录， 将设置 `my_executable` 的运行时输出目录为 `${CMAKE_BINARY_DIR}/bin`。</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">my_executable</span>
+<span class="w">    </span><span class="s">PROPERTIES</span>
+<span class="w">    </span><span class="s">RUNTIME_OUTPUT_DIRECTORY</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="o">}</span><span class="s">/bin</span>
+<span class="p">)</span>
+
+<span class="c"># 启用 C++ 11 标准，见set</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">my_executable</span>
+<span class="w">    </span><span class="s">PROPERTIES</span>
+<span class="w">    </span><span class="s">CXX_STANDARD</span><span class="w"> </span><span class="s">11</span>
+<span class="w">    </span><span class="s">CXX_STANDARD_REQUIRED</span><span class="w"> </span><span class="s">ON</span>
+<span class="p">)</span>
+
+<span class="c"># 设置链接器标志，设置 `my_library` 的链接标志，例如 `-Wl,-rpath,./lib` 表示将 `./lib` 添加到运行时库搜索路径。</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">my_library</span>
+<span class="w">    </span><span class="s">PROPERTIES</span>
+<span class="w">    </span><span class="s">LINK_FLAGS</span><span class="w"> </span><span class="s2">&quot;-Wl,-rpath,./lib&quot;</span>
+<span class="p">)</span>
+
+<span class="c"># 设置target的输出目录</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="o">${</span><span class="nv">LIBNAME</span><span class="o">}</span><span class="w"> </span><span class="s">PROPERTIES</span>
+<span class="w">    </span><span class="s">ARCHIVE_OUTPUT_DIRECTORY</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="o">}</span><span class="s">/lib</span><span class="w">    </span><span class="c"># .a .lib</span>
+<span class="w">    </span><span class="s">LIBRARY_OUTPUT_DIRECTORY</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="o">}</span><span class="s">/lib</span><span class="w">    </span><span class="c"># .so</span>
+<span class="w">    </span><span class="s">RUNTIME_OUTPUT_DIRECTORY</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="o">}</span><span class="s">/lib</span><span class="w">    </span><span class="c"># .dll, .exe</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>影响一个目标输出文件的名字的属性详述如下。PREFIX和SUFFIX属性覆盖了默认的目标名前缀（比如lib）和后缀（比如.so）。<code>IMPORT_PREFIX</code>和<code>IMPORT_SUFFIX</code>是与之等价的属性，不过针对的是<code>DLL</code>（共享库目标）的导入库。在构建目标时，<code>OUTPUT_NAME</code>属性设置目标的真实名字，并且可以用来辅助创建两个具有相同名字的目标，即使CMake需要唯一的逻辑目标名。<code>&lt;CONFIG&gt;_OUTPUT_NAME</code>可以为不同的配置设置输出的目标名字。当目标在指定的配置名<code>&lt;CONFIG&gt;</code>（全部大写，例如<code>DEBUG_POSTFIX</code>）下被构建时，<code>&lt;CONFIG&gt;_POSTFIX</code>为目标的真实名字设置一个后缀。该属性的值在目标创建时被初始化为<code>CMAKE_&lt;CONFIG&gt;_POSTFIX</code>的值（可执行目标除外，因为较早的CMake版本不会为可执行文件使用这个属性。）</p>
+<p><code>LINK_FLAGS</code>属性可以用来为一个目标的链接阶段添加额外的标志。<code>LINK_FLAGS_&lt;CONFIG&gt;</code>将为配置<code>&lt;CONFIG&gt;</code>添加链接标志，例如<code>DEBUG</code>，<code>RELEASE</code>，<code>MINSIZEREL</code>，<code>RELWITHDEBINFO</code>。<code>DEFINE_SYMBOL</code>属性设置了编译一个共享库中的源文件时才会被定义的预处理器符号名。如果这个值没有被设置的话，那么它会被设置为默认值<code>target_EXPORTS</code>（如果目标不是一个合法的C标示符的话可以用一些替代标志）。这对于检测头文件是包含在它们的库以内还是以外很有帮助，从而可以合理设置dllexport/dllimport修饰符（注意，只有在编译到的时候，这个符号才会被定义；因此猜测在代码中，判断预处理符号是否被定义可以知道依赖库是导入的还是导出的——译注）。<code>COMPILE_FLAGS</code>属性可以设置附加的编译器标志，它们会在构建目标内的源文件时被用到。它也可以用来传递附加的预处理器定义。</p>
+<p><code>LINKER_LANGUAGE</code>属性用来改变链接可执行文件或共享库的工具。默认的值是设置与库中的文件相匹配的语言。CXX和C是这个属性的公共值。</p>
+<p>对于共享库，<code>VERSION</code>和<code>SOVERSION</code>属性分别可以用来指定构建的版本号以及API版本号。当构建或者安装时，如果平台支持符号链接并且链接器支持so名字，那么恰当的符号链接会被创建。如果只指定两者中的一个，缺失的另一个假定为具有相同的版本号。对于可执行文件，<code>VERSION</code>可以被用来指定构建版本号。当构建或者安装时，如果该平台支持符号链接，那么合适的符号链接会被创建。对于在Windows系统而言，共享库和可执行文件的<code>VERSION</code>属性被解析成为一个<code>"major.minor"</code>的版本号。这些版本号被用做该二进制文件的镜像版本。</p>
+<p>还有一些属性用来指定<code>RPATH</code>规则。<code>INSTALL_RPATH</code>是一个分号分隔的list，它指定了在安装目标时使用的<code>rpath</code>（针对支持<code>rpath</code>的平台而言）（<code>-rpath</code>在gcc中用于在编译时指定加载动态库的路径；优先级较系统库路径要高。详情参见CMake Wiki has moved——译注）。<code>INSTALL_RPATH_USE_LINK_PATH</code>是一个布尔值属性，如果它被设置为真，那么在链接器的搜索路径中以及工程之外的目录会被附加到<code>INSTALL_RPATH</code>之后。<code>SKIP_BUILD_RPATH</code>是一个布尔值属性，它指定了是否跳过一个<code>rpath</code>的自动生成过程，从而可以从构建树开始运行。<code>BUILD_WITH_INSTALL_RPATH</code>是一个布尔值属性，它指定了是否将在构建树上的目标与<code>INSTALL_RPATH</code>链接。该属性要优先于<code>SKIP_BUILD_RPATH</code>，因此避免了安装之前的重新链接。<code>INSTALL_NAME_DIR</code>是一个字符串属性，它用于在Mac OSX系统上，指定了被安装的目标中使用的共享库的"install_name"域的目录部分。如果目标已经被创建，变量<code>CMAKE_INSTALL_RPATH</code>, <code>CMAKE_INSTALL_RPATH_USE_LINK_PATH</code>, <code>CMAKE_SKIP_BUILD_RPATH</code>,<code>CMAKE_BUILD_WITH_INSTALL_RPATH</code>和<code>CMAKE_INSTALL_NAME_DIR</code>的值会被用来初始化这个属性。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["toc.integrate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

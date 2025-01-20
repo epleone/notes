@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"61a81d6e9e241281","type":"text","text":"现存的光流方法存在两大问题：大位移（displacement）和模糊度（ambiguity）。\n“two major problems: large displacement and ambiguity” \n([pdf](zotero://open-pdf/library/items/5GCFGDFK?page=1&annotation=GFECX6KW))  ","x":-440,"y":-240,"width":380,"height":160,"color":"6"},
+		{"id":"604f761694650f53","type":"text","text":"[**NeuFlow 读书笔记**](zotero://select/library/items/ZEVSQYT2)","x":-357,"y":-400,"width":215,"height":60},
+		{"id":"144d31ccabcd1767","type":"text","text":"**大位移（displacement）**\n\n现有算法的解决方案。\n1. “use iterative methods to mitigate such problems.” ([pdf](zotero://open-pdf/library/items/5GCFGDFK?page=1&annotation=4CUMU4JZ)) 使用迭代的方法来缓解此类问题。比如RAFT.\n2. “leverage global attention [27] layers to address the issue.” ([pdf](zotero://open-pdf/library/items/5GCFGDFK?page=1&annotation=DE6I4DFG)) 利用全局注意力层来解决这个问题。比如GMFLow.","x":-1020,"y":-500,"width":410,"height":320},
+		{"id":"119af2024fc51898","type":"text","text":"**模糊度（ambiguity）**","x":-740,"y":60,"width":360,"height":300}
+	],
+	"edges":[
+		{"id":"82c8ce4f9e83b691","fromNode":"604f761694650f53","fromSide":"bottom","toNode":"61a81d6e9e241281","toSide":"top"},
+		{"id":"1987649879e09168","fromNode":"61a81d6e9e241281","fromSide":"left","toNode":"144d31ccabcd1767","toSide":"right"},
+		{"id":"86debe8e68754b7c","fromNode":"61a81d6e9e241281","fromSide":"left","toNode":"119af2024fc51898","toSide":"top"}
+	]
+}

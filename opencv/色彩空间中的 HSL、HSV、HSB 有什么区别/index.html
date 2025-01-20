@@ -1,0 +1,4000 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/">
+      
+      
+        <link rel="next" href="../../python/matplotlib%20tips/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>色彩空间中的 HSL、HSV、HSB 有什么区别 - epleone notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hslhsvhsb" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="epleone notes" class="md-header__button md-logo" aria-label="epleone notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            epleone notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              色彩空间中的 HSL、HSV、HSB 有什么区别
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="epleone notes" class="md-nav__button md-logo" aria-label="epleone notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    epleone notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hand
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hand
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hand/HandDet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HandDet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hand/Hand%E5%85%B3%E8%8A%82%E7%82%B9%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hand关节点顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hand/SMPL%20-%20Skinned%20Multi-Person%20Linear%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SMPL   Skinned Multi Person Linear Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hand/%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    姿态估计评价指标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hand/%E6%95%B0%E5%AD%97%E4%BA%BA%E5%9F%BA%E7%A1%80%EF%BC%9A3D%E6%89%8B%E9%83%A8%E5%8F%82%E6%95%B0%E5%8C%96%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数字人基础：3D手部参数化模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hand/%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E6%8A%95%E5%BD%B1%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    相机模型以及投影笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hand/%E8%AE%BA%E6%96%87%E5%B0%8F%E7%BB%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    论文小结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hand/%E9%AA%A8%E9%AA%BC%E5%8A%A8%E7%94%BB%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    骨骼动画技术原理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/dxdy%E4%B8%8Edrd%CE%B8%E7%9A%84%E8%BD%AC%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dxdy与drdθ的转化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/%E5%B0%84%E5%BD%B1%E5%87%A0%E4%BD%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    射影几何
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/%E6%95%B0%E5%AD%A6%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学软件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    杂记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Computer graphics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Computer graphics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/3D%20Gaussian%20Splatting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3D Gaussian Splatting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/open3D%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    open3D 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/openGL%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    openGL 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/pytorch3d%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch3d 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer%20graphics/%E6%97%8B%E8%BD%AC%E4%B8%8E%E6%9D%8E%E7%BE%A4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    旋转与李群
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cpp
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cpp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/CUDA%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/Eigen%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigen 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/Visual%20Studio%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visual Studio 常见问题汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/c%2B%2B%20%E5%B8%B8%E7%94%A8Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    c++ 常用Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cmake tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmd%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90Parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cmd参数解析Parser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/pybind11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pybind11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%88%9D%E5%A7%8B%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    初始化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%AE%8F%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    宏 tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%B7%A6%E5%80%BC%E5%8F%B3%E5%80%BC%E4%BB%A5%E5%8F%8A%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    左值右值以及完美转发
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用函数汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文件系统库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E7%B1%BB%28class%29%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    类(class) 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    编译原理笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cmake 学习笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17">
+            <span class="md-nav__icon md-icon"></span>
+            Cmake 学习笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. 基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/2.%20%E5%8F%98%E9%87%8F%28Variable%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. 变量(Variable)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/3.%20%E5%91%BD%E4%BB%A4%28Command%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. 命令(Command)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4.%20Target%20%E5%92%8C%20%E5%B1%9E%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Target 和 属性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/cmake%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/5.%20install%2C%20test%20%E5%92%8C%20package/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. install, test 和 package
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    侯捷c++课程笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_18">
+            <span class="md-nav__icon md-icon"></span>
+            侯捷c++课程笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E4%BE%AF%E6%8D%B7c%2B%2B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    面向对象高级编程（上）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E4%BE%AF%E6%8D%B7c%2B%2B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    面向对象高级编程（下）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_19" id="__nav_5_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_19">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Pimpl%20%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pimpl 模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A3%85%E9%A5%B0%E5%99%A8%28Decorator%29%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    装饰器(Decorator)模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    设计模式笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deep learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Deep learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/Self-Attention%20and%20Transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self-Attention and Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/Stable%20Diffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stable Diffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/VQ-VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VQ-VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/video%20inpainting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    video inpainting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E5%85%89%E6%B5%81%20optical%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    光流 optical Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E5%9B%BE%E5%83%8F%E8%9E%8D%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图像融合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E5%9B%BE%E5%BD%A2%E5%A2%9E%E5%BC%BA%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图形增强库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E5%AF%BC%E5%90%91%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    导向滤波
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%20DDPM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    扩散模型 DDPM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络结构设计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    English
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E5%8D%95%E8%AF%8D%E9%87%8A%E4%B9%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    单词释义
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E6%96%B0%E6%A6%82%E5%BF%B5%E8%8B%B1%E8%AF%AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    新概念英语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E8%8B%B1%E8%AF%AD%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语书籍推荐
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E8%8B%B1%E8%AF%AD%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语杂记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../english/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语语法笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Git%20Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%20Bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/VIM%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VIM 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/ffmpeg%E5%92%8C%E8%A7%86%E9%A2%91%E6%8A%BD%E5%B8%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ffmpeg和视频抽帧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/git%20%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git 简明教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/tmux%20guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmux guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E5%AE%89%E8%A3%85python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E7%BB%88%E7%AB%AF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    终端管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Misc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/IOS%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IOS快捷命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/LaTex%20%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LaTex 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Obsidian%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Obsidian%20%E6%8F%92%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian 插件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Obsidian%20%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian 部署到github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/TortoiseSVN%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%8A%B6%E6%80%81%E5%9B%BE%E6%A0%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TortoiseSVN不显示状态图标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/VS%20Code%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VS Code tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Windows%20bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Windows%E4%B8%8B%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows下软件的安装路径
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/X11%20Forward%20and%20SSH%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    X11 Forward and SSH tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Z-Library%20links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Z-Library links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/Zotero%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zotero tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/windows%E6%B7%BB%E5%8A%A0%E5%9F%9F%E8%B4%A6%E5%8F%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    windows添加域账号
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E4%BA%91%E4%B8%BB%E6%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    云主机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E4%BA%BA%E7%94%9F%E7%BB%8F%E9%AA%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人生经验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用软件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    插件开发
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E6%91%84%E5%BD%B1%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摄影笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模拟器游戏下载
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E6%AE%B5%E5%AD%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    段子
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E7%BD%91%E4%B8%8A%E9%9A%8F%E7%AC%94/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网上随笔
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E8%82%A1%E7%A5%A8%E5%BF%83%E5%BE%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    股票心得
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/%E9%82%AE%E4%BB%B6%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    邮件设置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Node.js
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node.js/HTML%20and%20CSS%20Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML and CSS Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node.js/node.js%20%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    node.js 入门知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node.js/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    桌面应用程序开发框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Opencv
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Opencv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%BE%E7%89%87%E8%AF%BB%E5%8F%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图片读取
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用语法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    色彩空间中的 HSL、HSV、HSB 有什么区别
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    色彩空间中的 HSL、HSV、HSB 有什么区别
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#radiometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radiometry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Radiometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#light-wave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light Wave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#light-energy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light Energy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#photometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Photometry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Photometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#luminous-flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Luminous Flux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#luminous-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Luminous Intensity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#illuminance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Illuminance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#luminance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Luminance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colorimetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colorimetry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Colorimetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spectral-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spectral Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-perception" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Perception
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grassmann-laws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grassmann Laws
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primary-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Matching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xyy-color-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      xyY Color Space
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgb-color-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      RGB Color Space
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结展望
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/matplotlib%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    matplotlib tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    misc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/numpy%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    numpy tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/pip%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pip tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python%20%E5%A4%9A%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 多进程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%848%E7%A7%8D%E5%A2%83%E7%95%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python装饰器的8种境界
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/%E5%8F%91%E5%B8%83Python%E5%BA%93%E5%88%B0PyPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    发布Python库到PyPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/%E9%9A%8F%E6%9C%BA%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    随机数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pytorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Pytorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    misc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/mmcv%20%2B%20mmpose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mmcv + mmpose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/pytorch%20%E9%87%8F%E5%8C%96%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch 量化训练
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/pytorch%E7%9A%84%E5%B0%81%E8%A3%85%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytorch的封装框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/timm%20%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    timm 使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/webdataset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    webdataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%9A%E5%8D%A1%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分布式多卡训练
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%28Loss%29%20Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    损失函数(Loss) Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pytorch/%E8%AE%AD%E7%BB%83%E4%BC%98%E5%8C%96tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    训练优化tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="hslhsvhsb">色彩空间中的 HSL、HSV、HSB 有什么区别<a class="headerlink" href="#hslhsvhsb" title="Permanent link">&para;</a></h1>
+<p>色彩空间中的 HSL、HSV、HSB 有什么区别？ - pourtheworld的回答 - 知乎 https://www.zhihu.com/question/22077462/answer/3139942407</p>
+<p>本文将详细介绍<strong>光波</strong>如何产生，发射，被人眼所<strong>感知</strong>，并在实时渲染过程中以一组<strong>刺激值</strong>的形式参与运算。</p>
+<hr />
+<p>主要参考引用：</p>
+<ol>
+<li><a href="https://link.zhihu.com/?target=https%3A//www.scratchapixel.com/lessons/digital-imaging/colors/introduction.html">Scratch a Pixel</a><a href="#ref_1">[1]</a></li>
+<li><a href="https://link.zhihu.com/?target=https%3A//www.realtimerendering.com/">Real-Time Rendering</a><a href="#ref_2">[2]</a>。</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//www.cambridgeincolour.com/color-management-printing.htm">Cambridge in Colour</a><a href="#ref_3">[3]</a>。</li>
+<li><a href="https://link.zhihu.com/?target=http%3A//library.lol/main/DE9A15D97C096113BB9494C263B368E9">Color vision and colorimetry : theory and applications</a><a href="#ref_4">[4]</a>。</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//www.pbr-book.org/3ed-2018/Color_and_Radiometry">Color and Radiometry - Physically Based Rendering</a><a href="#ref_5">[5]</a>。</li>
+<li><a href="https://www.zhihu.com/column/c_1602295156237197312">色彩科学</a><a href="#ref_6">[6]</a>。</li>
+</ol>
+<h2 id="radiometry">Radiometry<a class="headerlink" href="#radiometry" title="Permanent link">&para;</a></h2>
+<h3 id="light-wave">Light Wave<a class="headerlink" href="#light-wave" title="Permanent link">&para;</a></h3>
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=https%3A//www.realtimerendering.com/">RTR4 P293~297</a> 、 <a href="https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Photon">Photon - Wiki</a> 、<a href="https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Electromagnetic_radiation">Electromagnetic Radiation - Wiki</a> 。</p>
+<p>物体的<strong>能量 (热能、电能、化学)</strong> 会引起物体内部 <strong>electric charges (电荷)</strong> 的震荡，部分引起震荡的能量会转化为 <strong>light energy (光能)</strong>，并以 <strong>light wave (光波)</strong> 的形式辐射出去。</p>
+<p>在<strong>physical optics (物理光学)</strong>中，<strong>light wave (光波)</strong> 对应的模型是 <strong>electromagnetic transverse wave (电磁横波)</strong>：即<strong>电场</strong>和<strong>磁场</strong>均<strong>垂直</strong>于其<strong>传播</strong>方向进行<strong>震荡</strong>的<strong>波</strong>，并携带了<strong>radiant energy (辐射能量)</strong>。</p>
+<p><img alt="" src="v2-ba8c28721a2a2e0b8273922b47888220_720w.webp" /></p>
+<p>Light Wave</p>
+<p>其中，<strong>electromagnetic transverse wave</strong> 通过 <strong>photon (光子)</strong> 进行传播。</p>
+<p><strong>photon</strong> 作为一个不带 <strong>charge</strong> 的基本粒子，包含了 <strong>light wave / radio wave</strong> 等 <strong>electromagnetic radiation (电磁辐射)</strong>，是 <strong>electromagnetic field (电磁场)</strong> 的一个 <strong>quantum (量子)</strong> 。</p>
+<p>众所周知，有两种方式可以产生 <strong>electric field (电场)</strong>：</p>
+<ul>
+<li>A <strong>charged</strong> particle (一个<strong>带电荷</strong>的粒子)。</li>
+<li>A <strong>changing magnetic field</strong> (一个<strong>变化</strong>的<strong>磁场</strong>)。</li>
+</ul>
+<p>由于 <strong>electromagnetic transverse wave</strong> 自带一个 <strong>changing magnetic field</strong>，即使 <strong>photon</strong> 本身不带 <strong>charge</strong>，也可以产生一个 <strong>electric field</strong>。</p>
+<p>另一个角度来看，产生 <strong>electromagnetic transverse wave</strong> 的<strong>源物体</strong>本身带有 <strong>charged particle</strong> ，但是这些 <strong>particle</strong> 并不跟随 <strong>electromagnetic transverse wave</strong> 一起传播 (这和用石头打水漂起水波，但石头没有一直跟随水波远去是一个道理，具体可见 <a href="https://link.zhihu.com/?target=https%3A//physics.stackexchange.com/questions/725572/how-can-photons-have-an-electric-field-without-having-a-charge">How can photos have an electric field without having a charge</a>) 。</p>
+<hr />
+<h3 id="light-energy">Light Energy<a class="headerlink" href="#light-energy" title="Permanent link">&para;</a></h3>
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=https%3A//www.realtimerendering.com/">RTR4 P293~297</a> 、 <a href="https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Phase_velocity">Phase Velocity - Wiki</a> 。</p>
+<p>前文我们曾经讨论得出每个 <strong>photon</strong> 所携带的 <strong>energy</strong> 由 <strong>light wave</strong> 的 <strong>wavelength λ\lambda (光波波长)</strong> 和 <strong>light velocity cc (光速)</strong> 得到：</p>
+<ul>
+<li><strong>wavelength</strong> 由不同的<strong>震荡频率</strong>引起，拥有<strong>单个 wavelength</strong> 的 <strong>light</strong> 被称为 <strong>monochromatic light (单色光)</strong>，对应的，拥有<strong>多个 wavelength</strong> 的 <strong>light</strong> 被称为 <strong>polychromatic light (复色光)</strong>。对应到图中，<strong>wavelength</strong> 可以是<strong>任意点</strong> (比如位于波峰的点) 经过一个 <strong>phase</strong> 的<strong>长度</strong>。</li>
+<li><strong>phase velocity (相速度)</strong> 指跟踪 <strong>light wave</strong> 上<strong>任意点</strong>经过一个给定 <strong>phase</strong> 所需要的<strong>时间</strong>，将其视为<strong>常量</strong>。若 <strong>light wave</strong> 穿过的是<strong>真空</strong>，那么该速度接近于<strong>光速</strong>。</li>
+</ul>
+<p>需要注意的是：</p>
+<ul>
+<li><span class="arithmatex">\(Q\)</span>是 <strong>radiometry</strong> 中 <strong>energy</strong> 的简写，在 <strong>quantum mechanics (量子力学)</strong> 中简写为 <span class="arithmatex">\(E\)</span> (为了不与 <strong>irradiance</strong> 混淆)。</li>
+<li><span class="arithmatex">\(h\)</span> 为 <strong>Planck's constant</strong>， <span class="arithmatex">\(\begin{aligned}h\approx6.626\times10^{-34}\text{m}^2\text{kg/s}\end{aligned}\)</span> 。</li>
+<li><span class="arithmatex">\(c\)</span> 为<strong>光速</strong>， <span class="arithmatex">\(c=299472458 \text{m/s}\)</span> 。</li>
+</ul>
+<p><span class="arithmatex">\(Q=hcλ=hfQ=\frac{hc}{\lambda}=hf\)</span> </p>
+<hr />
+<p>在 <strong>energy</strong> 的基础之上，前文还介绍并推导了 <strong>flux (power)</strong> 和 <strong>irradiance (radiant exitance)</strong> 等概念。</p>
+<p>而在 <strong>light wave</strong> 传播的过程中，<strong>irradiance (radiant exitance)</strong> 与 <strong>light wave</strong> 的 <strong>squared</strong> <strong>amplitude (振幅平方)</strong> 成正比，具体原因可见 <a href="https://link.zhihu.com/?target=https%3A//www.physicsclassroom.com/class/waves/Lesson-2/Energy-Transport-and-the-Amplitude-of-a-Wave">How is the Energy Transported Related to the Amplitude?</a> (简单来说可以类比<strong>弹簧</strong>)。</p>
+<p>前文在以 <strong>geometric optics (几何光学)</strong> 的视角介绍 <strong>radiometry (辐射度量学)</strong> 之前我们提到一个假设，即 <strong>light wave</strong> 可以被<strong>线性组合</strong>，<strong>total wave</strong> 是多个 <strong>component waves</strong> 的组合。</p>
+<p>这看起来似乎会导致一个悖论：由于 <strong>irradiance</strong> 与 <strong>squared amplitude</strong> 成正比，那么两个相同的 <strong>light wave</strong> 线性相加不是会导致<strong>4倍</strong>的 <strong>irradiance</strong>？</p>
+<p>实际上， nn 个 除了 <strong>phase</strong> 以外完全相同的 <strong>monochromatic waves</strong> 可以通过两种方式进行<strong>叠加</strong>：<strong>coherent addition (相干叠加)</strong> 和 <strong>incoherent addition (非相干叠加)</strong> 。其中 <strong>coherent addition</strong> 又分为 <strong>constructive interference (相长干涉)</strong> 和 <strong>destructive interference (相消干涉)</strong>。假设每个 <strong>wave</strong> 的 <strong>amplitude</strong> 均为 aa ，<strong>irradiance</strong> 均为 ka2ka^2 ，则三种情况对应下图：</p>
+<ul>
+<li><strong>constructive interference</strong> - 每个 <strong>wave</strong> 的波峰和波谷<strong>相互叠加</strong>。</li>
+<li><strong>destructive interference</strong> - 每对 <strong>wave</strong> 的波峰和波谷一一<strong>抵消</strong>。</li>
+<li><strong>incoherent addition</strong> - 每个 <strong>phase</strong> 的波峰波谷相互<strong>错开</strong>。</li>
+</ul>
+<p><img alt="" src="v2-61fcd8cfb904bb1e3d9ef4105e1085db_720w.webp" /></p>
+<p>constructive interference / destructive interference / incoherent addition</p>
+<p>对于更为常见的 <strong>incoherent addition</strong>， nn 个 <strong>amplitude</strong> 为 α\alpha 的 <strong>monochromatic waves</strong> 在叠加过后的 <strong>total amplitude</strong> 实际上为原本的 n\sqrt{n} 倍，因此 <strong>total irradiance</strong> 为原本的 (n)2=n(\sqrt{n})^2=n 倍，这是我们在 <strong>geometric optics</strong> 中可以假设 <strong>irradiance</strong> 具有<strong>线性叠加性</strong>的原因。</p>
+<p>特别的，对于 <strong><a href="https://www.zhihu.com/search?q=coherent%20addtion&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3139942407%7D">coherent addtion</a></strong>，当 <strong>light wave</strong> 在空间中传播时，它们之间的<strong>相位关系</strong>从一个位置变化到一个位置，<strong>constructive interference</strong> 和 <strong>destructive interference</strong> 会来回<strong>切换</strong>，因此并不会<strong>能量不守恒</strong>。</p>
+<p><img alt="" src="v2-6c090de3b51087430abb94585ac65021_720w.webp" /></p>
+<p>The waves interfere constructively and destructively in different regions of space.</p>
+<hr />
+<h2 id="photometry">Photometry<a class="headerlink" href="#photometry" title="Permanent link">&para;</a></h2>
+<p><strong>Photometry (光度学)</strong> 是通过 <strong>human visual system (人眼观测系统)</strong> 对 <strong>visible electromagnetic radiation (可见电磁辐射)</strong> 进行 <strong>perception (感知)</strong> 的研究，它也是 <strong>Radiometry (辐射度量学)</strong> 和 <strong>Colorimetry (色度学)</strong> 的<strong>中间桥梁</strong>。</p>
+<p>任意的 <strong>radiometric quantity</strong> 都可以通过与 <strong>photopic spectral luminous efficiency curve / spectral response curve</strong> V(λ)V(\lambda) (<strong>视见函数</strong>，描述了<strong>人眼</strong>对于不同 <strong>wavelength</strong> 的 <strong>relative sensitivity</strong>) 进行 <strong>product integration</strong> 得到对应的 <strong>photometric quantity</strong> 。</p>
+<p>关于 <strong>radiometric quantity</strong> 可见上文 <a href="https://zhuanlan.zhihu.com/p/643880936">radiometry</a> ， 以下几个小节引用于 <a href="https://zhuanlan.zhihu.com/p/597710417">photometric quantity</a> ，介绍 <strong>Photometry</strong> 如何通过 V(λ)V(\lambda) 将 <strong>radiometric quantity</strong> 转化为 <strong>photometric quantity</strong> ：</p>
+<p><img alt="" src="v2-5b43738074433ac963d3490e5c8bb911_720w.webp" /></p>
+<p>radiometric quantity - photometric quantity</p>
+<hr />
+<h3 id="luminous-flux">Luminous Flux<a class="headerlink" href="#luminous-flux" title="Permanent link">&para;</a></h3>
+<p>上一节我们提到，<strong>radiometry</strong> 认为 <strong>total wave</strong> <strong>(polychromatic light wave)</strong> 一般是多个 <strong>component waves (monochromatic light wave)</strong> 的组合，并且在 <strong>geometric optics</strong> 的视角下，可以<strong>线性叠加</strong>。</p>
+<p>即，对于 <strong>monochromatic light wave</strong> 常见的 <strong>incoherent addition</strong>，其 <strong>irradiance</strong> 具有<strong>线性叠加</strong>性质。</p>
+<p>由于人眼对于不同 <strong>wavelength</strong> 的 <strong>light wave</strong> 的 <strong>sensitivity</strong> 不同 (见下文 <strong>Colorimetry - Color Perception</strong> 部分)，首先需要对不同波长的 <strong>radiant flux / power</strong> 构建 <strong>spectral data</strong> (见下文 <strong>Colorimetry - Spectral Data</strong> 部分)，即<strong>辐射通量密度</strong> ϕR(λ)\phi_R(\lambda) 。</p>
+<p>在 <strong>photometry</strong> 中，与 <strong>radiant flux (辐射通量)</strong> 相对应的概念为 <strong>luminous flux (光通量)</strong>，同样对其构建 <strong>spectral data</strong>，即 <strong>luminous flux density (光通量密度)</strong> ϕV(λ)\phi_V(\lambda) ：</p>
+<p>ϕV(λ)=σmV(λ)ϕR(λ)\phi_\mathrm{V}\left(\lambda\right)=\sigma_\mathrm{m}V\left(\lambda\right)\phi_\mathrm{R}\left(\lambda\right) \</p>
+<p>与 <strong>luminous flux density</strong> 的定义相类似，对所有<strong>波长域内</strong>的 <strong>radiant flux</strong> 进行<strong>积分</strong> (离散角度看，实际上将每个 <strong>light wave</strong> 携带的 <strong>radiant flux</strong> 加权后相加)，得到 <strong>total luminous flux (总光通量)</strong> ：</p>
+<ul>
+<li>其中 R_R 和 V_V 暗示通量分别是<strong>辐射</strong>相关和<strong>视觉</strong>相关的。</li>
+<li><strong>视见函数</strong> V(λ)V(\lambda) 对应不同波长的 <strong>radiometric quantity</strong> 和 <strong>photometric quantity</strong> 的视见关系。</li>
+<li>σm\sigma_\mathrm{m} 将在下一节详细介绍。</li>
+<li><strong>luminous flux</strong> 的单位为 lumen(lm)\text{lumen(lm)} 。</li>
+</ul>
+<p>ΦV=∫0∞σmV(λ)ϕR(λ)dλ\Phi_\mathrm{V}=\int_0^\infty\sigma_\mathrm{m}V\left(\lambda\right)\phi_\mathrm{R}\left(\lambda\right)\mathrm{d}\lambda \</p>
+<p><strong>加权相加</strong>的定义方式暗示了 <strong>luminous flux</strong> 的<strong>线性叠加</strong>性质，与 <strong>radiometry</strong> 在 <strong>geometric optics</strong> 视角下对于 <strong>light wave</strong> 具有的 <strong>radiometric quantity</strong> 其<strong>线性叠加</strong>性质不同，<strong>photometric quantity</strong> 具有的<strong>线性叠加</strong>性质来自于大量实验的总结 (可见下文 <strong>Colorimetry - Grassmann Laws</strong>) 。</p>
+<hr />
+<h3 id="luminous-intensity">Luminous Intensity<a class="headerlink" href="#luminous-intensity" title="Permanent link">&para;</a></h3>
+<p>在 <strong>photometry</strong> 中，与 <strong>radiant intensity (辐射强度)</strong> 相对应的概念为 <strong>luminous intensity (发光强度)</strong>。</p>
+<p>即，<strong>点光源</strong>向某一方向发射，其 <strong>unit solid angle</strong> 内的 <strong>luminous flux</strong> ：</p>
+<p><span class="arithmatex">\(IV=ΦVdΩI_{V}=\frac{\Phi_\mathrm{V}}{d\Omega}\)</span></p>
+<p>若一个光源发出频率为 540×1012Hz540\times10^{12}\text{Hz} ，并且在给定方向上的 <strong>radiant intensity</strong> 为 1683W/sr \frac{1}{683} \text{W/sr} ，那么该光源在该方向上的 <strong>luminous intensity</strong> 为 1 candela(cd = lm/sr)1 \text{ candela(cd = lm/sr)} 。</p>
+<p>根据 <strong>electromagnetic transverse wave</strong> 的基本关系式，可以简单得出这个频率对应 <strong>monochromatic light wave</strong> 的 <strong>wavelength</strong> λ\lambda 为 555nm555 \text{nm} <strong>绿光</strong>：λ=cf=299792458m/s540×1012Hz≈555nm\lambda=\frac cf=\frac{299792458\mathrm{m/s}}{540\times10^{12}\mathrm{Hz}}\approx555\mathrm{nm} \有了 <strong>monochromatic green light wave</strong> 对应的 <strong>luminous intensity</strong>，其它颜色光源的 <strong>luminous intensity</strong> 即可通过视见函数 V(λ)V(\lambda) 得到。</p>
+<p>即 V(λ)V(\lambda) 表征的是相同 <strong>radiant intensity</strong> 下，<strong>wavelength</strong> 为 λ\lambda 的 <strong>monochromatic light source</strong> 相对于 <strong>wavelength</strong> 为 555nm555 \text{nm} 的 <strong>monochromatic green light wave</strong> 所发出的 <strong>luminous intensity</strong>。</p>
+<p>自然这是一个相对的<strong>比值</strong>，在 <strong>wavelength</strong> 等于 555nm555 \text{nm} 时为 11 ：</p>
+<p><img alt="" src="v2-ace26856173cae4758fca8bc6a79ed82_720w.webp" /></p>
+<p>V(λ)</p>
+<p>比如，某个 <strong>wavelength</strong> 为 λ\lambda 的 <strong>monochromatic light source</strong> 其某个方向上的 <strong>radiant intensity</strong> 为 Iλ\mathcal{I}_{\lambda} ，则它在这个方向上的 <strong>luminous intensity</strong> 为：</p>
+<p>IV=V(λ)IλI555nm=1683W/srcd=(683cd⋅sr/W)×V(λ)IλI_V=V\left(\lambda\right)\frac{\mathcal{I}<em>{\lambda}}{\mathcal{I}</em>{555\text{nm}}=\frac1{683}\mathrm{W/sr}}\mathrm{cd}=\left(683\mathrm{cd}\cdot\mathrm{sr/W}\right)\times V\left(\lambda\right)\mathcal{I}_{\lambda} \</p>
+<p>其中 cd⋅sr\mathrm{cd}\cdot\mathrm{sr} 正是 <strong>luminous flux</strong> 的单位，即 lumen(lm)\text{lumen(lm)} 。</p>
+<p>上一小节的 σm\sigma_\mathrm{m} 可记为：</p>
+<p>σm=683cd⋅sr/W=683lm/W\sigma_\mathrm{m}=683\mathrm{cd}\cdot\mathrm{sr/W}=683\mathrm{lm/W} \</p>
+<hr />
+<p>与 <strong>luminous flux</strong> 的推导类似，对于一般光源，只要知道了它的 <strong>radiant intensity</strong> 对于 <strong>wavelength</strong> λ\lambda 的密度函数（<strong>分布函数</strong>） Iλ\mathcal{I}_{\lambda} ，则可以计算其总 <strong>luminous intensity</strong> IVI_V :</p>
+<p>IV=∫0∞σmV(λ)I(λ)dλI_\mathrm{V}=\int_0^\infty\sigma_\mathrm{m}V\left(\lambda\right)\mathcal{I}\left(\lambda\right)\mathrm{d}\lambda \</p>
+<hr />
+<h3 id="illuminance">Illuminance<a class="headerlink" href="#illuminance" title="Permanent link">&para;</a></h3>
+<p>在 <strong>photometry</strong> 中，与 <strong>irradiance (辐射照度)</strong> 相对应的概念为 <strong>illuminance (光照度)</strong>。</p>
+<p>其推导与 <strong>irradiance</strong> 十分相似，可见前文，易得出单位为 lux(lx)\text{lux(lx)} 的 <strong>illuminance</strong> EVE_V :</p>
+<p>EV=dΦVdA=IVcos⁡θr2E_\mathrm{V}=\frac{\mathrm{d}\Phi_\mathrm{V}}{\mathrm{d}A} =\frac{I_\text{V}\cos\theta}{r^2}\</p>
+<hr />
+<h3 id="luminance">Luminance<a class="headerlink" href="#luminance" title="Permanent link">&para;</a></h3>
+<p>在 <strong>photometry</strong> 中，与 <strong>luminance (光亮度)</strong> 相对应的概念为 <strong>radiance (辐亮度)</strong>。</p>
+<p><strong>Luminance</strong> 描述了对于人眼来说，某光源 <strong>spectral radiance (辐亮度分布)</strong> 的 <strong>brightness (明亮程度)。</strong></p>
+<p>需要注意的是，<strong>luminance</strong> 也仅仅是 <strong>radiometry</strong> 的 <strong>radiance</strong> 转为真正人眼感知到的 <strong>brightness</strong> 的<strong>中间量</strong> (这也是 <strong>Photometry</strong> 为什么说是 <strong>Radiometry</strong> 和 <strong>Colorimetry</strong> 桥梁的部分原因)，下文会介绍 <strong>luminance</strong> 与 <strong>lightness</strong> 的<strong>非线性</strong>关系。</p>
+<p>将单位为 nit\text{nit} 的 <strong>luminance</strong> 与 <strong>spectral radiance</strong> L(λ)L(\lambda) 联系起来：</p>
+<p>LV=∫λσmL(λ)V(λ)dλL_V=\int_\lambda \sigma_\mathrm{m}L(\lambda)V(\lambda)\mathrm{d}\lambda \</p>
+<p>其推导与 <strong>radiance</strong> 十分相似，可见前文：</p>
+<p>LV≜dIVdA⊥=dIVdAcos⁡θ=d2ΦVdΩdAcos⁡θL_\mathrm{V}\triangleq\frac{\mathrm{d}I_\mathrm{V}}{\mathrm{d}A<sup>\perp}=\frac{\mathrm{d}I_\mathrm{V}}{\mathrm{d}A\cos\theta}=\frac{\mathrm{d}</sup>2\Phi_\mathrm{V}}{\mathrm{d}\Omega\mathrm{d}A\cos\theta} \</p>
+<hr />
+<h2 id="colorimetry">Colorimetry<a class="headerlink" href="#colorimetry" title="Permanent link">&para;</a></h2>
+<p>经过前两节对于 <strong>Radiometry</strong> 和 <strong>Photometry</strong> 的介绍，我们知道了 <strong>light wave</strong> 如何产生发射以及携带能量，并简单了解了 <strong>electromagnetic transverse wave</strong> 携带的 <strong>radiometric quantity</strong> 如何转化得到 <strong>human visual system</strong> 所感知的 <strong>photometric quantity</strong> 。</p>
+<p>基于以上，本节将详细介绍 <strong>spectral power distribution (光谱分布)</strong> 在 <strong>colorimetry</strong> 中如何对人眼进行刺激并被感知，这种刺激可以被转换为线性 <strong>color space (颜色空间)</strong> 中的一组 <strong>tristimulus value(刺激值)</strong> 对屏幕的 <strong>primary colors (基色)</strong> 进行调节，最终屏幕上各个 <strong>pixel</strong> 发出的混合 <strong>color light (色光)</strong> 被人眼所感知。</p>
+<hr />
+<h3 id="spectral-data">Spectral Data<a class="headerlink" href="#spectral-data" title="Permanent link">&para;</a></h3>
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=https%3A//www.scratchapixel.com/lessons/digital-imaging/colors/introduction.html">Spectral Power Distribution</a> 。</p>
+<p>不论是 <strong>spectral sensitivity</strong> 、<strong>spectral radiance</strong> 、<strong>spectral power</strong> 、<strong>spectral reflective</strong> 等等，对于某个 类型的 <strong>quantity</strong> 在给定 <strong>wavelength (frequency) range</strong> 上的<strong>数据集合</strong>都可以被称为 <strong>spectral data (spectral distribution)</strong> 。</p>
+<hr />
+<p>每个<strong>光源</strong>通常以其在 <strong>visible spectrum</strong> 中每个 <strong>wavelength</strong> 产生的 <strong>color</strong> 的 <strong>range 和 intensity</strong> 进行区分，这种类似于 <strong>light signature</strong> 的表现形式被称为 <strong>spectral power distribution (光谱功率分布)</strong> 。</p>
+<p><strong>SPD</strong> 原本描述了 <strong>per unit wavelength</strong> 、<strong>per unit area</strong> 的 <strong>power (flux)</strong>，简单来说就是不同 <strong>wavelength</strong> 的 <strong>irradiance (radiant exitance)分布</strong>的<strong>集合</strong>。</p>
+<p>但更一般地说，<strong>SPD</strong> 可以指不同 <strong>wavelength</strong> 对于任意 <strong>radiometric quantity</strong> 或 <strong>photometric quantity</strong> 的分布(密度)函数，在下文中我们提到的 <strong>SPD</strong> 一般针对于 <strong>spectral intensity</strong> 或者是 <strong>spectral radiance</strong> 。</p>
+<p><strong>SPD</strong> 通常彼此之间差别很大，它被表示为一条<strong>曲线</strong>，该曲线表示每个特定光源从 <strong>visible spectrum</strong> 中发出每种<strong>light color</strong> 的 <strong>intensity</strong>。以下分别是 <strong>incandescent light bulb (白炽灯泡)</strong> 和 <strong>fluorescent light bulb (荧光灯炮)</strong> 对应的 <strong>SPD</strong>：</p>
+<p><img alt="" src="v2-70bba3eca44249b58a1d9b9d7ef186a7_720w.webp" /></p>
+<p>incandescent light bulb</p>
+<p><img alt="" src="v2-3820356fd635bed5b1403149d71fc911_720w.webp" /></p>
+<p>fluorescent light bulb</p>
+<hr />
+<p>由于<strong>太阳光</strong>的 <strong>SPD</strong> 会因许多因素(包括污染)而变化，国际照明委员会定义了一个称为 <strong>D65</strong> 的标准，以代表在平均条件下的太阳平均 <strong>SPD</strong> :它对应的是西欧/北欧某个地方 <strong>midday (正午)</strong> 太阳的 <strong>SPD</strong> 。</p>
+<p><strong>D65</strong> 也被称为日光光源，它不是我们可以用光源精确重现的 <strong>SPD</strong> ，而是我们可以比较<strong>现有</strong> <strong>SPD</strong> 的<strong>参考</strong>：</p>
+<p><img alt="" src="v2-5ac903abddca686046fbbb6fb434a9fe_720w.webp" /></p>
+<p>comparison of the D65 SPD with the spectrum of the sun on a typical midday</p>
+<hr />
+<p>类似于 <strong>SPD</strong> 的 <strong>spectral data</strong> 概念不仅限于<strong>光源</strong>，也可以用来定义<strong>物体颜色</strong>，但是对于物体，我们说的 <strong>spectral reflectance curve</strong> 。</p>
+<p>在<strong>光源</strong>的情况下，<strong>SPD</strong> 定义<strong>光源本身</strong>的颜色及其强度。由于<strong>物体</strong>本身<strong>不发光</strong>，它们只<strong>反射</strong>光源<strong>产生的光</strong>，<strong>spectral reflectance curve</strong> 仅代表物体表面反射的光占照亮物体的<strong>白光量</strong>的<strong>百分比</strong>。</p>
+<p>下图给出了黄油、番茄和生菜三种物体的 <strong>spectral reflectance curve</strong> ：</p>
+<p><img alt="" src="v2-a389d3f494ec7cba3e34bbbf25fa425e_720w.webp" /></p>
+<p>spectral reflectance curve of butter (A), tomato (B) and lettuce (C)</p>
+<hr />
+<h3 id="color-perception">Color Perception<a class="headerlink" href="#color-perception" title="Permanent link">&para;</a></h3>
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=https%3A//www.scratchapixel.com/lessons/digital-imaging/colors/introduction.html">human eyes</a> 与 <a href="https://link.zhihu.com/?target=https%3A//www.cambridgeincolour.com/tutorials/color-perception.htm">human color perception</a> 。</p>
+<p>首先我们需要知道 <strong>human vision system (人体视觉系统)</strong> 如何对 <strong>light stimuli (光刺激)</strong> 作出反应。</p>
+<p>眼睛的后部，<strong>retina (视网膜)</strong>，覆盖着光敏感受器，我们称之为<strong>感光细胞：</strong></p>
+<ul>
+<li><strong>Cone cells</strong> - 负责人体的 <strong>color vision (彩色视觉)</strong>，或者说是 <strong>trichromatic vision (三色视觉)</strong>，主要集中在 <strong>retina</strong> 的中心。</li>
+<li><strong>Rod cells</strong> - 位于 <strong>retina</strong> 外缘，对<strong>少量</strong>的光<strong>更敏感</strong>。</li>
+</ul>
+<p><img alt="" src="v2-38df481e88ddfcff912fdf318a508324_720w.webp" /></p>
+<p>cone cells / rod cells</p>
+<p><strong>Rod cells</strong> 的作用在于，我们仅需要很少的光线就能辨别物体<strong>形状</strong>。在<strong>弱光</strong>条件下，<strong>rod cells</strong> 虽然对光敏感，但不能很好地感知颜色，并且负责 <strong>color vision</strong> 的 <strong>cone cells</strong> 没有足够的光来实现刺激。</p>
+<p><strong>Cone cells</strong> 有<strong>三种类型</strong>，每种类型对 <strong>visible spectrum</strong> 特定范围的 <strong>wavelength</strong> 非常敏感，具体可分为 <strong>short (S)</strong>, <strong>medium (M)</strong>, 和 <strong>long (L) wavelength</strong> (这里的<strong>长短</strong>概念针对的是 <strong>cells</strong> 可以受到刺激的特定<strong>范围的大小</strong>)。</p>
+<p>下图说明了不同类型的 <strong>cone cells</strong> 对于整个 <strong>visible spectrum</strong> 特定范围的 <strong>relative sensitivity</strong>，这三条曲线被称为 <strong>tristimulus functions (三色刺激方程)</strong>：</p>
+<p><img alt="" src="v2-95f8cf34665a2dfb0aec1bcdcc1c2153_720w.webp" /></p>
+<p>tristimulus functions</p>
+<hr />
+<h3 id="grassmann-laws"><strong>Grassmann Laws</strong><a class="headerlink" href="#grassmann-laws" title="Permanent link">&para;</a></h3>
+<p>以下引用于 <a href="https://link.zhihu.com/?target=https%3A//www.cambridgeincolour.com/tutorials/color-perception.htm">hue saturation luminance</a> 。</p>
+<p>介绍 <strong>Grassmann Laws</strong> 之前，我们首先介绍人眼能且仅能<strong>感知颜色</strong>的<strong>三种特征</strong>：<strong>Hue (色相)</strong> 、<strong>Saturation (饱和度)</strong> 、<strong>Luminance (光亮度)</strong>。</p>
+<p>颜色的 <strong>hue</strong> 和 <strong>saturation</strong> 是两个独特的组成部分，使得它与 <strong>achromatic light (无色光)</strong> 区分开来 。从人眼视觉上描述一种颜色可能是非常<strong>主观</strong>的，但是每一个颜色都可以通过检查 <strong>color spectrum</strong> 来更<strong>客观</strong>地说明。</p>
+<p>自然产生的颜色不只是一个 <strong>wavelength</strong> 的光，实际上包含了整个 <strong>wavelength range</strong>，通常可以由 <strong>spectrum</strong> 来表示。</p>
+<hr />
+<p><strong>Hue</strong> 描述了在当前 <strong>color</strong> 对应的 <strong>wavelength range</strong> 中，哪一个 <strong>wavelength</strong> 占据<strong>主导</strong>。</p>
+<p>如下图所示，虽然 <strong>wavelength range</strong> 几乎包围了整个 <strong>spectrum</strong>，但以下物体的很可能被认为是 <strong>bluish</strong> 的：</p>
+<p><img alt="" src="v2-41051db916846ec516d1247712f59dfd_720w.webp" /></p>
+<p>bluish blue</p>
+<p>如果在 <strong>red</strong> 和 <strong>green</strong> 的区域各自出现<strong>波峰</strong>，那么整个物体会显示成 <strong>yellow (additive model)</strong> 。</p>
+<hr />
+<p><strong>Saturation</strong> 是 <strong>color</strong> 的 <strong>purity (纯度)</strong>。一个 <strong>high saturation</strong> 的颜色将包含一个非常<strong>窄</strong>的波长集合，看起来比一个相似的，但 <strong>low saturation</strong> 的颜色更<strong>明显</strong>：</p>
+<p><img alt="" src="v2-6ed85f956f270e949abf25010dcc418b_720w.webp" /></p>
+<p>high saturation</p>
+<p><img alt="" src="v2-2cea542817f3ccee00743b1c0758b7d1_720w.webp" /></p>
+<p>low saturation</p>
+<hr />
+<p><strong>Luminance</strong> 作为一个 <strong>Photometry</strong> 的概念，在上文已经进行介绍。</p>
+<p>但一般在 Colorimetry 中，一般会使用另外两个概念：</p>
+<ul>
+<li><strong>Brightness (亮度)</strong> - 用于 <strong>HSB (Hue 、Saturation 、Brightness)</strong> 空间，又称 <strong>Value</strong> 。</li>
+<li><strong>Lightness (明度)</strong> - 用于 <strong>HSL (Hue 、Saturation 、Lightness)</strong> 空间 。</li>
+</ul>
+<p>以下引用于 <a href="https://link.zhihu.com/?target=https%3A//www.cambridgeincolour.com/tutorials/color-perception.htm">luminosity function</a> 和 <a href="https://link.zhihu.com/?target=https%3A//www.scratchapixel.com/lessons/digital-imaging/digital-images/display-image-to-screen.html">brightness adaptation</a> 。</p>
+<p>如果需要表示<strong>人眼</strong>感知的<strong>颜色亮度 brightness</strong> ，可以使用 <strong>lightness (明度)</strong> 、<strong>tone (色调)</strong> 等颜色术语。</p>
+<p>注意，由于人眼感知的颜色亮度是<strong>主观</strong>的，需要与 <strong>photometry</strong> 的 <strong>luminance</strong> 区分开来 <strong>(客观物理量)</strong> 。</p>
+<p>某些颜色对于人眼会<strong>更亮</strong>，尤其是 <strong>555 ~ 560 nm (介于黄绿之间)</strong> 范围的颜色，描述人眼对不同波长光的平均 <strong>visual sensitivity (视觉敏感度)</strong>的函数称为 <strong>luminosity function</strong> ：</p>
+<p><img alt="" src="v2-bedb0f521dc217837877d5b2c0cfd382_720w.webp" /></p>
+<p>luminosity function</p>
+<p>在 <strong>scotopic vision (弱光)</strong> 和 <strong>photopic vision (明光)</strong> 环境下的 <strong>luminosity function</strong> 不同。</p>
+<p>在 <strong>scotopic vision</strong> 环境下，<strong>rod cells</strong> 对于 <strong>500 nm</strong> 左右的波长光更为敏感，对于长于 <strong>640 nm</strong> 左右的波长光则更不敏感。</p>
+<hr />
+<p>除了<strong>表示</strong>人眼能感受到的 <strong>brightness</strong> 以外，我们还需要注意人眼对于 <strong>brightness</strong> 的<strong>适应方式</strong>。</p>
+<p>类似于蜡烛这样的 <strong>scotopic vision</strong> 环境就足以让人眼分辨物体，自然处于室外的 <strong>photopic vision</strong> 同样可以，这意味着人眼可以适应相当大的 <strong>light intensity range</strong> 。</p>
+<p>然而，在阳光之下点燃蜡烛发出的光很难对人眼<strong>已经</strong>感知到的 <strong>brightness</strong> 产生变化，这是因为人眼处理大范围照明水平的方式是通过改变其对场景<strong>整体</strong> <strong>brightness</strong> 的 <strong>sensitivity</strong>，这种快速适应 <strong>light intensity levels</strong> 的能力被称为 <strong>brightness adaptation (亮度适应)</strong> 。</p>
+<p>这种对 <strong>light intensity levels</strong> 的<strong>响应</strong>是<strong>非线性</strong>的，即，与场景的明亮部分相比，人眼感知<strong>较暗</strong>的区域比实际亮得多(由于 <strong>rod cells</strong> 的存在，<strong>human vision</strong> 对黑暗区域的小亮度变化比明亮区域<strong>更敏感</strong>)。</p>
+<p>比如，一个光源的 <strong>luminance</strong> 只有 <strong>reference luminance</strong> 的 <strong>18%</strong>，但其 <strong>brightness</strong> 大约是 <strong>reference brightness</strong> 的 <strong>50%</strong>。</p>
+<p>这种 <strong>human vision (人体主观视觉)</strong> 对于 <strong>luminance (物理客观亮度)</strong> 的 <strong>non-linear perceptual response (非线性响应)</strong> 被称为 <strong>lightness (明度)</strong>：</p>
+<p>lightness=luminance13lightness=luminance^{\frac13} \</p>
+<hr />
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=https%3A//spie.org/publications/pm105_31_grassmann_laws%3FSSO%3D1">Color Vision and Colorimetry: Theory and Applications</a> 。</p>
+<p><strong>Grassmann</strong> 通过 <strong>additional colors</strong> 和 <strong>color-matching</strong> 等实验得出如下 <strong>Grassmann laws</strong>:</p>
+<ol>
+<li>人眼能且仅能感知颜色的<strong>三种特征</strong>，即：<strong>Hue (色相)</strong> 、<strong>Saturation (饱和度)</strong> 、<strong>Luminance (光亮度)</strong>。</li>
+<li>每种颜色都有 <strong>complementary color (互补色)</strong>，互补色混合后就变成 <strong>colorless gray (无色的灰色)</strong>。</li>
+<li>相同 <strong>hue</strong> 和 <strong>saturation</strong> 的两种<strong>不同颜色</strong>的光在混合时，产生具有<strong>相同 hue</strong> 和 <strong>saturation</strong> 的另一种颜色，而不依赖于它们的 <strong>SPD (luminance/radiance)</strong> 。</li>
+<li><strong>Abney Law - 混合光</strong>的 <strong>luminance</strong> 等于每个<strong>色光</strong> <strong>luminance</strong> 之<strong>和</strong>。</li>
+</ol>
+<hr />
+<p>接下来我们用以上定义证明 <strong>color</strong> 三个特征的<strong>线性叠加</strong>性质，用于为下文 <strong>color-matching</strong> 的定义做准备。</p>
+<p>以下证明引用于 <a href="https://zhuanlan.zhihu.com/p/599296976">三基色理论、格拉斯曼定律与颜色空间的数学结构</a> 。</p>
+<hr />
+<p>我们使用 <strong>color</strong> [C][\mathrm C] 表示 <strong>color light</strong> C\mathrm C 对于人眼的 <strong>stimuli</strong> (即 <strong>color light</strong> 对应的 <strong>color</strong>) 。</p>
+<p>若人眼观测 <strong>color light</strong> C1\mathrm C_1 和 <strong>color light</strong> C2\mathrm C_2 相同，意味着 ～C1～C2\mathrm C_1～\mathrm C_2 ( C1\mathrm C_1 <strong>match</strong> C2\mathrm C_2 ) 。</p>
+<p>但 <strong>color light</strong> 本身包含了 <strong>color (colorimetry)</strong> 以及 <strong>SPD (radiometry / photometry)</strong> 等多个特征。</p>
+<p>因此若将所有 <strong>color</strong> 构成的集合记为 C\mathscr{C} ，并将所有 <strong>color light</strong> 构成的集合即为 L\mathscr{L} ，那么 C\mathscr{C} 可以看作是 L\mathscr{L} 关于等价关系 ∼\sim 的<strong>商集</strong> (即，<strong>color</strong> [C]\left[ \mathrm{C} \right] 可以看作是 <strong>color light</strong> C\mathrm{C} 关于 ∼\sim 的<strong>等价类</strong>) ：C=L/∼\mathscr{C}=\mathscr{L}/\sim \</p>
+<p>由 <strong>Grassmann laws 1</strong> 可知，描述 <strong>color</strong> [C][\mathrm C] 仅需要 <strong>hue</strong> 、<strong>saturation</strong> 、<strong>luminance</strong>，且 <strong>luminance</strong> 被 <strong>photometry</strong> 严格定义，因此仅需要再定义 <strong>hue</strong> 和 <strong>saturation</strong> 即可。</p>
+<p>若我们定义 [C][\mathrm C] 的 <strong>luminance</strong> 为 LV([C])L_\mathrm{V}\left([\mathrm{C}]\right) ，那么根据 <strong>Abney Law</strong> 可得出 <strong>luminance</strong> 的<strong>线性叠加性</strong>：</p>
+<p>LV([C1]+[C2])=LV([C1])+LV([C2])L_\mathrm{V}\left([\mathrm{C}<em>1]+[\mathrm{C}_2]\right)=L</em>\mathrm{V}\left([\mathrm{C}<em>1]\right)+L</em>\mathrm{V}\left([\mathrm{C}_2]\right) \</p>
+<p>对于 <strong>color light</strong> C\mathrm C ，假设其 <strong>SPD (spectral radiance distribution)</strong> 为 P(λ)P\left(\lambda\right) ，定义 αC\alpha \mathrm C ：将 C\mathrm C 的 <strong>SPD</strong> 放大为 αP(λ)\alpha P\left(\lambda\right) (在 <strong>radiometry</strong> 中，将多个 <strong>monochromatic light wave</strong> 的 <strong>amplitude</strong> 放大 α\sqrt{\alpha} 倍，注意和 <strong>SPD</strong> 里的 <strong>amplitude</strong> 是两回事) 但不改变其它特征得到的 <strong>color light</strong> 。</p>
+<p>由于 αC\alpha \mathrm C 各个 <strong>component color light</strong> 相对比例并<strong>没有发生变化</strong>，只是 <strong>radiance</strong> 变为了 CC 的 α\alpha 倍，根据 <strong>photometry</strong> 中 <strong>luminance</strong> 的定义， αC\alpha \mathrm C 的 <strong>luminance</strong> 同样变为了 C\mathrm C 的 α\alpha 倍，但 αC\alpha \mathrm C 和 C\mathrm C 具有相同的 <strong>hue</strong> 和 <strong>saturation</strong>，根据 <strong>Grassmann laws 3</strong> 可得 [C][\mathrm C] 的<strong>数乘</strong>关系：</p>
+<p>α[C]≜[αC],α≥0\alpha\left[\mathrm{C}\right]\triangleq\left[\alpha\mathrm{C}\right],\alpha\geq0 \并以此得出后续<strong>线性</strong>关系：α([C1]+[C2])=α[C1]+α[C2],∀[C1],[C2]∈C,∀α∈R(α+β)[C]=α[C]+β[C],∀[C]∈C,∀α,β∈R\begin{aligned}\alpha\left(\left[\mathrm{C}_1\right]+\left[\mathrm{C}_2\right]\right)&amp;=\alpha\left[\mathrm{C}_1\right]+\alpha\left[\mathrm{C}_2\right],\forall\left[\mathrm{C}_1\right],\left[\mathrm{C}_2\right]\in\mathscr{C},\forall\alpha\in\mathbb{R}\\\left(\alpha+\beta\right)\left[\mathrm{C}\right]&amp;=\alpha\left[\mathrm{C}\right]+\beta\left[\mathrm{C}\right],\forall\left[\mathrm{C}\right]\in\mathscr{C},\forall\alpha,\beta\in\mathbb{R}\end{aligned} \</p>
+<hr />
+<h3 id="primary-colors">Primary Colors<a class="headerlink" href="#primary-colors" title="Permanent link">&para;</a></h3>
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=https%3A//www.cambridgeincolour.com/tutorials/color-perception.htm">additive and subtractive color mixing</a> 。</p>
+<p>实际上，我们所有 <strong>visible colors (可见颜色)</strong>都可以通过使用 <strong>three primary colors (三基色)</strong>的某种组合，通过 <strong>additive</strong> 或 <strong>subtractive</strong> 的方法产生：</p>
+<ul>
+<li><strong>Additive processes</strong> - 通过在<strong>黑暗</strong>的背景上<strong>添加光</strong>来创建颜色。对应光源<strong>直接</strong>射入人眼。</li>
+<li><strong>Subtractive processes</strong> - 使用<strong>颜料</strong>或<strong>染料</strong>选择性地<strong>阻挡白光</strong>。对应光源经过物体<strong>反射(吸收)</strong>射入人眼。</li>
+</ul>
+<p><img alt="" src="v2-20b0cfcf17b8e3fd53de943ca901b705_720w.webp" /></p>
+<p>Additive processes / Subtractive processes</p>
+<p>上图中三个圆圈<strong>外缘</strong>的颜色被称为 <strong>primary colors</strong>，在左右两张图中不同：</p>
+<ul>
+<li><strong>显示器</strong>一类的设备通过释放 <strong>primary colors</strong> 产生 <strong>additive colors</strong>，这就是为什么几乎所有的显示器都使用<strong>red 、green 、blue</strong> 组合的 <strong>pixel</strong> 。</li>
+<li><strong>打印机</strong>一类设备使用<strong>颜料</strong>或<strong>染料</strong>来吸收光线并产生 <strong>subtractive colors</strong>，这也是为什么大多数彩色打印机至少使用 <strong>cyan 、magenta 、yellow</strong> 的 <strong>ink</strong> 。</li>
+</ul>
+<p><img alt="" src="v2-93af5a12cc9b3a63efede6cb64c0607f_720w.webp" /></p>
+<p>Additive / Subtractive Color Mixing</p>
+<hr />
+<h3 id="color-matching">Color Matching<a class="headerlink" href="#color-matching" title="Permanent link">&para;</a></h3>
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=http%3A//library.lol/main/DE9A15D97C096113BB9494C263B368E9">Color vision and colorimetry : theory and applications</a> 。</p>
+<p>在 <strong>interactive rates</strong> 的情形下使用完整的 <strong>SPD</strong> 进行渲染非常笨拙且不切实际，因此在计算机图形学的实时渲染领域，研究该类问题的框架一般建立在寻找良好的 <strong>basis functions</strong> 来表示 <strong>SPD</strong> 的基础之上，尤其是以 <strong>XYZ</strong> 三元组和 <strong>RGB</strong> 三元组作为 <strong>coefficients</strong> 来表示完整 <strong>SPD</strong>。</p>
+<hr />
+<p>任何一种 <strong>color light (色光)</strong> 总可以看作由不同 <strong>wavelength</strong> 的 <strong>monochromatic color light (单色光)</strong> 乘上各自 <strong>coefficients</strong> 混合得到 (类似于<strong>傅里叶变换</strong>中，通过基函数乘以投影系数复原得到原函数的思想)。</p>
+<p>将上述傅里叶变换思想与 <strong>primary colors theory (三基色理论)</strong> 相结合，如果可以证明三种 <strong>primary colors light</strong> <strong>(基色光)</strong> 可以混合产生所有人眼可见的 <strong>monochromatic color light</strong> ，相当于证明三种 <strong>primary colors light</strong> 可以混合产生<strong>所有 color lights (色光)</strong> 。</p>
+<p>因此，为了证明三种 <strong>primary colors light</strong> 可以混合产生所有人眼可见的 <strong>monochromatic color light</strong>，研究者们进行了多次 <strong>color-matching experiments (颜色匹配实验)</strong>：</p>
+<ul>
+<li><strong>Wright</strong> 以 <strong>650 nm</strong> 的红光、<strong>530 nm</strong> 的绿光和 <strong>460 nm</strong> 的蓝光作为三基色进行了颜色匹配实验。</li>
+<li><strong>Guild</strong> 以 <strong>630 nm</strong> 的红光、<strong>540 nm</strong> 的绿光和 <strong>460 nm</strong> 的蓝光作为三基色再次进行了颜色匹配实验。</li>
+</ul>
+<p>具体实验过程如下：</p>
+<p><img alt="" src="v2-ecc15028d22d5de8144eda8ef8cf5dab_720w.webp" /></p>
+<p>color matching experiment</p>
+<ul>
+<li>一块光屏被隔板分割成左右两个区域，右侧被单色光照亮的区域为 <strong>reference field (参考域)</strong>，左侧被三基色混合色光照亮的区域为 <strong>matched field (匹配域)</strong>。</li>
+<li>整个被照亮的区域在光屏上的面积很小，小到这个区域相对观察者的视角仅为<strong>2°</strong>，这能保证此区域投射的光线大致落在观察者 <strong>retina (视网膜)</strong> 的 <strong>fovea (中央凹)</strong>，这是为了保证实验只有 <strong>cone cells</strong> 参与。</li>
+<li>实验时，先设定右侧<strong>单色光源</strong>的波长为 λ\lambda，同时调节光源功率使得 <strong>reference field</strong> 的 <strong>radiance</strong> 为 LRefL_\mathrm{Ref} 。</li>
+<li>接着不断调节左侧<strong>三基色光源</strong>的 <strong>radiance</strong>，直至 <strong>matched field</strong> 的颜色看起来和 <strong>reference field</strong> 的完全一致，记录下此时左侧三基色光源的 <strong>relative radiance</strong> r¯(λ)\bar{r}\left(\lambda\right)、g¯(λ)\bar{g}\left(\lambda\right) 和 b¯(λ)\bar{b}\left(\lambda\right) 。</li>
+<li>对不同的 λ\lambda 不断重复上述实验过程，就可以得到 r¯(λ)\bar{r}\left(\lambda\right)、g¯(λ)\bar{g}\left(\lambda\right) 和 b¯(λ)\bar{b}\left(\lambda\right) 的函数图像，对应的函数被称为 <strong>color-matching function (颜色匹配函数)</strong>。</li>
+</ul>
+<p>由于 <strong>Wright</strong> 和 <strong>Guild</strong> 所采用的三基色不统一，实验数据无法直接对比，<strong>CIE</strong> 提议以 <strong>700 nm</strong> 的红光、<strong>546.1 nm</strong> 的绿光和 <strong>435.8 nm</strong> 的蓝光作为三基色，并导出了由 <strong>Wright</strong> 和 <strong>Guild</strong> 的数据给出的 <strong>color-matching function：</strong></p>
+<p><img alt="" src="v2-64fd751fad39bd7fb71e807b4c578e3e_720w.webp" /></p>
+<p>Color-matching functions (CIE 1931)</p>
+<hr />
+<p>以下引用于 <a href="https://zhuanlan.zhihu.com/p/601350463">色度图、普朗克轨迹与色温</a> 。</p>
+<p>接下来，我们从以下两个角度出发，分析 <strong>color-matching function</strong> 的含义:</p>
+<ul>
+<li>保持三基色光源 <strong>hue 、saturation</strong> 不变，调节 <strong>relative radiance</strong> 匹配 <strong>luminance</strong> 。</li>
+<li>保持三基色光源 <strong>radiance</strong> 不变，调节线性颜色空间 <strong>hue 、saturation</strong> 的<strong>展开系数</strong>匹配 <strong>luminance。</strong></li>
+</ul>
+<hr />
+<p>在 <strong>color-matching experiment</strong> 过程中：</p>
+<ul>
+<li><strong>reference field</strong> 的<strong>参考光源</strong>的 <strong>radiance</strong> 保持不变，通过调整 <strong>wavelength</strong> 来调整 <strong>luminance</strong> 。</li>
+<li><strong>matched field</strong> 的<strong>三基色光源</strong>调整 <strong>radiance</strong>，使得左右两边的 <strong>hue</strong> 、<strong>saturation</strong> 、<strong>luminance</strong> 一致。</li>
+</ul>
+<p>右侧 <strong>reference field</strong> 内<strong>参考光源</strong>的 <strong>radiance</strong> 始终保持为 LRefL_{\mathrm{Ref}} (不论当前 <strong>monochromatic light</strong> 的 <strong>wavelength</strong> 是多少，始终为<strong>常量</strong>)。那么，假设此时右侧光源的 <strong>wavelength</strong> 为 λ\lambda ，则根据上文 <strong>photometry</strong> 介绍的视见函数 V(λ)V(\lambda) 得出 <strong>luminance</strong>。</p>
+<p>即， LV,Ref(λ)L_{\mathrm{V,Ref}}\left(\lambda\right) 表明右侧光源 <strong>radiance</strong> 不变，<strong>luminance</strong> 随着 λ\lambda 的变化而变化：</p>
+<p>LV,Ref(λ)=σmV(λ)LRefL_{\mathrm{V,Ref}}\left(\lambda\right)=\sigma_{\mathrm{m}}V\left(\lambda\right)L_{\mathrm{Ref}}\通过调节<strong>三基色光源</strong>的 <strong>radiance</strong>，使得 <strong>matched field</strong> 内叠加后 <strong>color light</strong> 的特征 <strong>(hue 、saturation 、luminance)</strong> 和 <strong>reference field</strong> 内<strong>参考光源</strong>的完全一致，记此时<strong>三基色光源</strong>的 <strong>radiance</strong> 分别为 LR(λ)L_{\mathrm{R}}\left(\lambda\right) 、LG(λ)L_{\mathrm{G}}\left(\lambda\right) 和 LB(λ)L_{\mathrm{B}}\left(\lambda\right)。那么，三基色光源的 <strong>luminance</strong> 分别为：</p>
+<p>LV,R(λ)=σmVRLR(λ)LV,G(λ)=σmVGLG(λ)LV,B(λ)=σmVBLB(λ)\begin{aligned}L_\mathrm{V,R}\left(\lambda\right)&amp;=\sigma_\mathrm{m}V_\mathrm{R}L_\mathrm{R}\left(\lambda\right)\L_\mathrm{V,G}\left(\lambda\right)&amp;=\sigma_\mathrm{m}V_\mathrm{G}L_\mathrm{G}\left(\lambda\right)\L_\mathrm{V,B}\left(\lambda\right)&amp;=\sigma_\mathrm{m}V_\mathrm{B}L_\mathrm{B}\left(\lambda\right)\end{aligned} \根据 <strong>Abney Law</strong>，易得 <strong>matched field</strong> 内的 <strong>luminance</strong> 为 ：</p>
+<p>LV,R(λ)+LV,G(λ)+LV,B(λ)L_{\mathrm{V,R}}\left(\lambda\right)+L_{\mathrm{V,G}}\left(\lambda\right)+L_{\mathrm{V,B}}\left(\lambda\right) \</p>
+<p>当 <strong>matched field</strong> 与 <strong>reference field</strong> 匹配后，两边 <strong>luminance</strong> 相等：</p>
+<p>LV,Ref(λ)=LV,R(λ)+LV,G(λ)+LV,B(λ)L_{\mathrm{V,Ref}}\left(\lambda\right)=L_{\mathrm{V,R}}\left(\lambda\right)+L_{\mathrm{V,G}}\left(\lambda\right)+L_{\mathrm{V,B}}\left(\lambda\right) \ 此时，定义 <strong>color-matching function</strong> 为：</p>
+<p>r¯(λ)=kR−1LR(λ)LRef,g¯(λ)=kG−1LG(λ)LRef,b¯(λ)=kB−1LB(λ)LRef.\bar{r}\left(\lambda\right)=k_{\mathrm{R}}<sup>{-1}\frac{L_{\mathrm{R}}\left(\lambda\right)}{L_{\mathrm{Ref}}},\quad\bar{g}\left(\lambda\right)=k_{\mathrm{G}}</sup>{-1}\frac{L_{\mathrm{G}}\left(\lambda\right)}{L_{\mathrm{Ref}}},\quad\bar{b}\left(\lambda\right)=k_{\mathrm{B}}^{-1}\frac{L_{\mathrm{B}}\left(\lambda\right)}{L_{\mathrm{Ref}}}. \忽略<strong>常量系数</strong>，可以看到 r¯(λ) \bar{r}\left(\lambda\right) 正是<strong>三基色光源</strong> <strong>radiance</strong> 比上<strong>参考光源</strong> <strong>radiance</strong> 的<strong>比值</strong>，即 <strong>relative radiance (相对辐亮度)</strong>。</p>
+<p>注意，当且仅当 <strong>luminance</strong> 匹配成功时，<strong>hue 、saturation</strong> 才匹配成功。而当前的三个基色光源为<strong>单色光</strong>，根据上文定义，单色光的 <strong>hue 、saturation</strong> 是不会随着 <strong>radiance</strong> 的调节而发生改变的 (单色光 <strong>color spectrum</strong> <strong>主导</strong>的波峰和<strong>纯度</strong>都不会改变)，但是分别乘上<strong>调节系数</strong>得到的混合结果则正好与 <strong>reference light</strong> 内的 <strong>hue 、saturation</strong> 完全一致，这暗示了 <strong>color-matching</strong> 的另一层含义。</p>
+<hr />
+<p>假设 <strong>CIE 1931</strong> 的<strong>三基色光源</strong>的<strong>三基色</strong>为 [R]\left[\mathrm{R}\right]、[G]\left[\mathrm{G}\right]、[B]\left[\mathrm{B}\right]：</p>
+<ul>
+<li>[R]\left[\mathrm{R}\right] 代表 <strong>700 nm</strong> 的红色。</li>
+<li>[G]\left[\mathrm{G}\right] 代表 <strong>546.1 nm</strong> 的绿色。</li>
+<li>[B]\left[\mathrm{B}\right] 代表 <strong>435.8 nm</strong> 的蓝色。</li>
+</ul>
+<p>这只指定了[R]\left[\mathrm{R}\right]、[G]\left[\mathrm{G}\right]、[B]\left[\mathrm{B}\right]三种颜色的 <strong>hue</strong> 和 <strong>saturation</strong>，而并没有指定它们的 <strong>luminance</strong> 。</p>
+<p>我们现在指定它们的 <strong>luminance</strong> 为：</p>
+<p>LV([R])=σmkRVRLRefLV([G])=σmkGVGLRefLV([B])=σmkBVBLRef\begin{aligned}L_\mathrm{V}\left([\mathrm{R}]\right)&amp;=\sigma_\mathrm{m}k_\mathrm{R}V_\mathrm{R}L_\mathrm{Ref}\L_\mathrm{V}\left([\mathrm{G}]\right)&amp;=\sigma_\mathrm{m}k_\mathrm{G}V_\mathrm{G}L_\mathrm{Ref}\L_\mathrm{V}\left([\mathrm{B}]\right)&amp;=\sigma_\mathrm{m}k_\mathrm{B}V_\mathrm{B}L_\mathrm{Ref}\end{aligned} \需要注意的是，与 <strong>color-matching experiment</strong> 不同，三种颜色的 <strong>radiance</strong> 并不是三个<strong>基色光</strong>各自的 LR(λ)L_{\mathrm{R}}\left(\lambda\right) 、LG(λ)L_{\mathrm{G}}\left(\lambda\right) 和 LB(λ)L_{\mathrm{B}}\left(\lambda\right) ，而是统一定义为了 LRefL_\mathrm{Ref} 。</p>
+<p>这是为了消除由于 <strong>radiance 不同</strong>而对三基色<strong>混合</strong>生成颜色的 <strong>hue</strong> 和 <strong>saturation</strong> 产生的影响。</p>
+<p>将 <strong>wavelength</strong> 为 λ\lambda 、<strong>radiance</strong> 为 LRefL_{\mathrm{Ref}} 的 <strong>monochromatic light</strong> 的 <strong>color</strong> 记为 [M(λ)]\left[\mathrm{M\left(\lambda\right)}\right] ，那么 [M(λ)]\left[\mathrm{M\left(\lambda\right)}\right] 可以在由<strong>基向量</strong> [R]\left[\mathrm{R}\right]、[G]\left[\mathrm{G}\right]、[B]\left[\mathrm{B}\right] 构成的线性 <strong>chromaticity space (色彩空间)</strong> C\mathscr{C} 中展开 (<strong>color space</strong> 的展开等式应同时满足 <strong>hue 、saturation 、luminance</strong> 均相等，而此处的 <strong>chromaticity space</strong> 仅考虑 <strong>hue 、saturation</strong>) 。</p>
+<p><strong>Maxwell</strong> 使用一个<strong>等边三角形</strong>来表示这个线性 <strong>chromaticity space</strong> C\mathscr{C} ，在他的 <strong>trichromatic theory (三色理论)</strong> 中，三个 <strong>primary colors</strong> RR GG BB 分别位于三角形的三个<strong>顶点</strong>，任何其他 <strong>color</strong> 都是由对应点到三角形每条边的<strong>距离</strong> rr gg bb 来表示 。</p>
+<p><img alt="" src="v2-941c2f090ba2743a592de79c6d4eb115_720w.webp" /></p>
+<p>Maxwell triangle</p>
+<p>那么 [M(λ)]\left[\mathrm{M\left(\lambda\right)}\right] 可以表示为：</p>
+<p>[M(λ)]=R(λ)[R]+G(λ)[G]+B(λ)[B]\left[\mathrm M\left(\lambda\right)\right]=R\left(\lambda\right)\left[\mathrm R\right]+G\left(\lambda\right)\left[\mathrm G\right]+B\left(\lambda\right)\left[\mathrm B\right] \其中 R(λ)R\left(\lambda\right) 、G(λ)G\left(\lambda\right) 和 B(λ)B\left(\lambda\right) 为<strong>展开系数</strong>，混合产生 [M(λ)]\left[\mathrm{M\left(\lambda\right)}\right] 的<strong>三基色</strong>的 <strong>luminance</strong> 分别为 ：</p>
+<p>LV(R(λ)[R])=R(λ)LV([R])=R(λ)σmkRVRLRefLV(G(λ)[G])=G(λ)LV([G])=G(λ)σmkGVGLRefLV(B(λ)[B])=B(λ)LV([B])=B(λ)σmkBVBLRef\begin{aligned}L_\mathrm{V}\left(R\left(\lambda\right)\left[\mathrm{R}\right]\right)&amp;=R\left(\lambda\right)L_\mathrm{V}\left(\left[\mathrm{R}\right]\right)=R\left(\lambda\right)\sigma_\mathrm{m}k_\mathrm{R}V_\mathrm{R}L_\mathrm{Ref}\L_\mathrm{V}\left(G\left(\lambda\right)\left[\mathrm{G}\right]\right)&amp;=G\left(\lambda\right)L_\mathrm{V}\left(\left[\mathrm{G}\right]\right)=G\left(\lambda\right)\sigma_\mathrm{m}k_\mathrm{G}V_\mathrm{G}L_\mathrm{Ref}\L_\mathrm{V}\left(B\left(\lambda\right)\left[\mathrm{B}\right]\right)&amp;=B\left(\lambda\right)L_\mathrm{V}\left(\left[\mathrm{B}\right]\right)=B\left(\lambda\right)\sigma_\mathrm{m}k_\mathrm{B}V_\mathrm{B}L_\mathrm{Ref}\end{aligned} \</p>
+<p>上一部分，我们已知<strong>三基色光源</strong>的 <strong>luminance</strong> 为：</p>
+<p>LV,R(λ)=σmVRLR(λ)LV,G(λ)=σmVGLG(λ)LV,B(λ)=σmVBLB(λ)\begin{aligned}L_\mathrm{V,R}\left(\lambda\right)&amp;=\sigma_\mathrm{m}V_\mathrm{R}L_\mathrm{R}\left(\lambda\right)\L_\mathrm{V,G}\left(\lambda\right)&amp;=\sigma_\mathrm{m}V_\mathrm{G}L_\mathrm{G}\left(\lambda\right)\L_\mathrm{V,B}\left(\lambda\right)&amp;=\sigma_\mathrm{m}V_\mathrm{B}L_\mathrm{B}\left(\lambda\right)\end{aligned} \</p>
+<p>联立可求得 R(λ)R\left(\lambda\right) 、G(λ)G\left(\lambda\right) 和 B(λ)B\left(\lambda\right) 为：</p>
+<p>R(λ)=kR−1LR(λ)LRef,G(λ)=kG−1LG(λ)LRef,B(λ)=kB−1LB(λ)LRefR\left(\lambda\right)=k_{\mathrm{R}}^{-1}\frac{L_{\mathrm{R}}\left(\lambda\right)}{L_{\mathrm{Ref}}},\quad G\left(\lambda\right)=k_{\mathrm{G}}^{-1}\frac{L_{\mathrm{G}}\left(\lambda\right)}{L_{\mathrm{Ref}}},\quad B\left(\lambda\right)=k_{\mathrm{B}}^{-1}\frac{L_{\mathrm{B}}\left(\lambda\right)}{L_{\mathrm{Ref}}} \易得<strong>三基色光源 radiance</strong> 比上<strong>参考光源 radiance</strong> 的 <strong>relative radiance</strong> r¯(λ)g¯(λ)b¯(λ)\bar{r}\left(\lambda\right)\bar{g}\left(\lambda\right)\bar{b}\left(\lambda\right) ，等于<strong>参考光源 color</strong> [M(λ)]\left[\mathrm{M\left(\lambda\right)}\right] 在由 [R]\left[\mathrm{R}\right]、[G]\left[\mathrm{G}\right]、[B]\left[\mathrm{B}\right] <strong>三基色</strong>组成的<strong>颜色空间</strong>展开后对应的<strong>展开系数</strong> R(λ)R\left(\lambda\right) G(λ)G\left(\lambda\right) B(λ)B\left(\lambda\right) ：</p>
+<p>R(λ)=r¯(λ),G(λ)=g¯(λ),B(λ)=b¯(λ)R\left(\lambda\right)=\bar{r}\left(\lambda\right),\quad G\left(\lambda\right)=\bar{g}\left(\lambda\right),\quad B\left(\lambda\right)=\bar{b}\left(\lambda\right) \</p>
+<hr />
+<p>至此，让我们对比一下上文 <strong>Color Perception</strong> 提到的，不同类型的 <strong>cone cells</strong> 对于整个 <strong>visible spectrum</strong> 特定范围的 <strong>relative sensitivity</strong>，即 <strong>tristimulus functions</strong> ：</p>
+<p><img alt="" src="v2-0cf264e6a46157399589d03ac38aa149_720w.webp" /></p>
+<p>tristimulus functions</p>
+<p>再对比一下 <strong>color-matching function</strong> ：</p>
+<p><img alt="" src="v2-308fce2d664355f5ee6d5db541d4fcd0_720w.webp" /></p>
+<p>color-matching function r g b</p>
+<p>可以看到，<strong>color-matching function (颜色匹配方程)</strong> 是对 <strong>tristimulus functions (人眼刺激方程)</strong> 的<strong>模拟</strong>。它可以模拟人眼感受颜色的刺激对应的 <strong>tristimulus value (刺激值)</strong>。</p>
+<p>即<strong>任意参考光源</strong> <strong>color light</strong> 的 <strong>color</strong> [C][\mathrm C] 都可以由<strong>三基色光源 monochromatic light</strong> 的 <strong>primary colors</strong> [R]\left[\mathrm{R}\right]、[G]\left[\mathrm{G}\right]、[B]\left[\mathrm{B}\right] 乘上 <strong>tristimulus value</strong> RR GG BB 混合后得到，并被人眼所正确感知 ：</p>
+<p>[C]=R[R]+G[G]+B[B]\mathrm{[C]}=R\left[\mathrm{R}\right]+G\left[\mathrm{G}\right]+B\left[\mathrm{B}\right] \</p>
+<hr />
+<p>对于一般的 <strong>color light</strong> C\mathrm{C} 使用 <strong>spectral radiance</strong> L(λ)L(\lambda) 来计算它的 <strong>tristimulus value 。</strong></p>
+<p>假设 <strong>color light</strong> C\mathrm{C} 由 <strong>wavelength</strong> 为 λ1\lambda_1、λ2\lambda_2 和 λ3\lambda_3 且 <strong>radiance</strong> 为 L1L_1、L2L_2 和 L3L_3 的 <strong>monochromatic light</strong> 混合而成，<strong>color</strong> 可以分别表示为 [M(λ1)]\left[\mathrm{M}\left(\lambda_{1}\right)\right] [M(λ2)]\left[\mathrm{M}\left(\lambda_{2}\right)\right] [M(λ3)]\left[\mathrm{M}\left(\lambda_{3}\right)\right] ，其<strong>展开系数</strong>为 L1LRef\frac{L_{1}}{L_{\mathrm{Ref}}} L2LRef\frac{L_{2}}{L_{\mathrm{Ref}}} L3LRef\frac{L_{3}}{L_{\mathrm{Ref}}} 。</p>
+<p>那么 <strong>color light</strong> C\mathrm{C} 的 <strong>color</strong> [C][\mathrm C] 则为：</p>
+<p>[C]=L1LRef[M(λ1)]+L2LRef[M(λ2)]+L3LRef[M(λ3)][\mathrm{C}]=\frac{L_{1}}{L_{\mathrm{Ref}}}[\mathrm{M}\left(\lambda_{1}\right)]+\frac{L_{2}}{L_{\mathrm{Ref}}}[\mathrm{M}\left(\lambda_{2}\right)]+\frac{L_{3}}{L_{\mathrm{Ref}}}[\mathrm{M}\left(\lambda_{3}\right)] \根据上述推导结果：</p>
+<p>[M(λ)]=R(λ)[R]+G(λ)[G]+B(λ)[B]\left[\mathrm M\left(\lambda\right)\right]=R\left(\lambda\right)\left[\mathrm R\right]+G\left(\lambda\right)\left[\mathrm G\right]+B\left(\lambda\right)\left[\mathrm B\right] \R(λ)=r¯(λ),G(λ)=g¯(λ),B(λ)=b¯(λ)R\left(\lambda\right)=\bar{r}\left(\lambda\right),\quad G\left(\lambda\right)=\bar{g}\left(\lambda\right),\quad B\left(\lambda\right)=\bar{b}\left(\lambda\right) \易得：</p>
+<p>[M(λ1)]=r¯(λ1)[R]+g¯(λ1)[G]+b¯(λ1)[B][M(λ2)]=r¯(λ2)[R]+g¯(λ2)[G]+b¯(λ2)[B][M(λ3)]=r¯(λ3)[R]+g¯(λ3)[G]+b¯(λ3)[B]\begin{gathered} \mathrm{[M}\left(\lambda_{1}\right)] =\bar{r}\left(\lambda_1\right)\left[\mathrm{R}\right]+\bar{g}\left(\lambda_1\right)\left[\mathrm{G}\right]+\bar{b}\left(\lambda_1\right)\left[\mathrm{B}\right] \ \mathrm{[M}\left(\lambda_{2}\right)] =\bar{r}\left(\lambda_2\right)\left[\mathrm{R}\right]+\bar{g}\left(\lambda_2\right)\left[\mathrm{G}\right]+\bar{b}\left(\lambda_2\right)\left[\mathrm{B}\right] \ \mathrm{[M}\left(\lambda_{3}\right)] =\bar{r}\left(\lambda_3\right)\left[\mathrm{R}\right]+\bar{g}\left(\lambda_3\right)\left[\mathrm{G}\right]+\bar{b}\left(\lambda_3\right)\left[\mathrm{B}\right] \end{gathered} \由 [C]=R[R]+G[G]+B[B]\mathrm{[C]}=R\left[\mathrm{R}\right]+G\left[\mathrm{G}\right]+B\left[\mathrm{B}\right] ，整理后可得 <strong>color</strong> [C][\mathrm C] 对应的三个 <strong>tristimulus value</strong> RR GG BB 分别为：</p>
+<p>R=L1LRefr¯(λ1)+L2LRefr¯(λ2)+L3LRefr¯(λ3)G=L1LRefg¯(λ1)+L2LRefg¯(λ2)+L3LRefg¯(λ3)B=L1LRefb¯(λ1)+L2LRefb¯(λ2)+L3LRefb¯(λ3)\begin{aligned}R&amp;=\frac{L_1}{L_\mathrm{Ref}}\bar{r}\left(\lambda_1\right)+\frac{L_2}{L_\mathrm{Ref}}\bar{r}\left(\lambda_2\right)+\frac{L_3}{L_\mathrm{Ref}}\bar{r}\left(\lambda_3\right)\G&amp;=\frac{L_1}{L_\mathrm{Ref}}\bar{g}\left(\lambda_1\right)+\frac{L_2}{L_\mathrm{Ref}}\bar{g}\left(\lambda_2\right)+\frac{L_3}{L_\mathrm{Ref}}\bar{g}\left(\lambda_3\right)\B&amp;=\frac{L_1}{L_\mathrm{Ref}}\bar{b}\left(\lambda_1\right)+\frac{L_2}{L_\mathrm{Ref}}\bar{b}\left(\lambda_2\right)+\frac{L_3}{L_\mathrm{Ref}}\bar{b}\left(\lambda_3\right)\end{aligned} \推广到 <strong>color light</strong> C\mathrm{C} 由 NN 种 <strong>monochromatic light</strong> 混合的情况，易得 <strong>tristimulus value</strong> 的计算公式：</p>
+<p>R=1LRef∑i=1NLir¯(λi),G=1LRef∑i=1NLig¯(λi),G=1LRef∑i=1NLib¯(λi)R=\frac{1}{L_{\mathrm{Ref}}}\sum_{i=1}^{N}L_{i}\bar{r}\left(\lambda_{i}\right),\quad G=\frac{1}{L_{\mathrm{Ref}}}\sum_{i=1}^{N}L_{i}\bar{g}\left(\lambda_{i}\right),\quad G=\frac{1}{L_{\mathrm{Ref}}}\sum_{i=1}^{N}L_{i}\bar{b}\left(\lambda_{i}\right) \对于连续域的 <strong>spectral radiance</strong> L(λ)L(\lambda) :</p>
+<p>R=1LRef∫0∞r¯(λ)L(λ)dλG=1LRef∫0∞g¯(λ)L(λ)dλB=1LRef∫0∞b¯(λ)L(λ)dλ\begin{gathered} \text{R} =\frac1{L_\mathrm{Ref}}\int_0^\infty\bar{r}\left(\lambda\right)L\left(\lambda\right)\mathrm{d}\lambda \ \text{G} =\frac{1}{L_{\mathrm{Ref}}}\int_{0}^{\infty}\bar{g}\left(\lambda\right)L\left(\lambda\right)\mathrm{d}\lambda \ \text{B} =\frac1{L_{\mathrm{Ref}}}\int_{0}^{\infty}\bar{b}\left(\lambda\right)L\left(\lambda\right)\mathrm{d}\lambda \end{gathered} \</p>
+<p>对于任意一个 <strong>color light</strong>，无论它是物体<strong>自身发出</strong>的，还是物体<strong>反射/透射</strong>的光，都可以通过物理上的方法得到对应的 <strong>spectral radiance</strong> L(λ)L(\lambda) ，进而计算出它的 <strong>tristimulus value</strong> 。</p>
+<p>但是反过来，对于一组 <strong>tristimulus value</strong> ，存在无穷多种不同 <strong>spectral radiance</strong> L(λ)L(\lambda) 的 <strong>color light</strong> 与之对应，这些 <strong>color light</strong> 在 <strong>color-matching experiment</strong> 中的表现完全相同，这被称为 <strong>metamerism (同色异谱)</strong> 现象。</p>
+<hr />
+<h3 id="xyy-color-space">xyY Color Space<a class="headerlink" href="#xyy-color-space" title="Permanent link">&para;</a></h3>
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=https%3A//www.realtimerendering.com/">RTR4 P272~279</a> 、<a href="https://link.zhihu.com/?target=https%3A//www.scratchapixel.com/lessons/digital-imaging/colors/color-space.html">The xyY Color Space</a> 。</p>
+<p><strong>CIE 1931</strong> 在 <strong>color-matching experiment</strong> 中得到的 <strong>color-matching function</strong> 由于在 r¯(λ)\bar{r}\left(\lambda\right) 和 g¯(λ)\bar{g}\left(\lambda\right) 存在<strong>负数</strong>区域，因此依旧不能直接表示所有的 <strong>visible colors</strong> 。</p>
+<p>因此，<strong>CIE</strong> 根据预设原则，将原 <strong>color-matching function</strong> r¯(λ)\bar{r}\left(\lambda\right) g¯(λ)\bar{g}\left(\lambda\right) b¯(λ)\bar{b}\left(\lambda\right) 经过<strong>线性组合</strong>，得到了新的三个假想光源，光源的 <strong>color-matching function</strong> x¯(λ)\bar{x}\left(\lambda\right) y¯(λ)\bar{y}\left(\lambda\right) z¯(λ)\bar{z}\left(\lambda\right) 对所有 <strong>visible wavelength</strong> 均为<strong>正值</strong> ：</p>
+<p><img alt="" src="v2-b81f868013c0e566dcbc976678ebbf3e_720w.webp" /></p>
+<p>color-matching function x y z</p>
+<p>其中最重要的两条原则为，将任一人眼可见的颜色 [C]\left[\mathrm{C}\right] 在 [X]\left[\mathrm{X}\right]<strong>、</strong>[Y]\left[\mathrm{Y}\right]<strong>、</strong>[Z]\left[\mathrm{Z}\right] 展开，且 XX<strong>、</strong>YY<strong>、</strong>ZZ 均为<strong>正值</strong>。以及对应基色 [Y]\left[\mathrm{Y}\right] 的刺激值 YY 应该表示颜色 [C]\left[\mathrm{C}\right] 的 <strong>luminance</strong> ：</p>
+<p>[C]=X[X]+Y[Y]+Z[Z]\mathrm[C]=X\left[\mathrm X\right]+Y\left[\mathrm Y\right]+Z\left[\mathrm Z\right] \</p>
+<p>类似的，对于任意 <strong>color light</strong> ，通过物理的方法得到其连续域的 <strong>spectral radiance</strong> L(λ)L(\lambda) ，并计算得到对应的 XX<strong>、</strong>YY<strong>、</strong>ZZ <strong>tristimulus value</strong> :</p>
+<p>X=1LRef∫0∞x¯(λ)L(λ)dλY=1LRef∫0∞y¯(λ)L(λ)dλZ=1LRef∫0∞z¯(λ)L(λ)dλ\begin{aligned}X&amp;=\frac1{L_{\mathrm{Ref}}}\int_0<sup>\infty\bar{x}\left(\lambda\right)\mathcal{L}\left(\lambda\right)\mathrm{d}\lambda\Y&amp;=\frac1{L_{\mathrm{Ref}}}\int_0</sup>\infty\bar{y}\left(\lambda\right)\mathcal{L}\left(\lambda\right)\mathrm{d}\lambda\Z&amp;=\frac1{L_{\mathrm{Ref}}}\int_0^\infty\bar{z}\left(\lambda\right)\mathcal{L}\left(\lambda\right)\mathrm{d}\lambda\end{aligned} \XX <strong>、</strong>YY<strong>、</strong>ZZ 三个 <strong>tristimulus value</strong> 作为 <strong>CIE XYZ space</strong> 中的<strong>权重值</strong>，定义了具体的 <strong>color</strong> 。</p>
+<p>根据上述的两个原则，<strong>CIE XYZ space</strong> 的 <strong>color</strong> 可以很容易被分为 <strong>chromaticity (hue 、saturation)</strong> 和 l<strong>uminance</strong> 两个部分。为此，<strong>CIE</strong> 将 <strong>XYZ space</strong> 的 <strong>color</strong> 投影到 X+Y+Z=1X+Y+Z=1 的平面上，该平面定义了一个 <strong>2D chromaticity space</strong>，并得到了一组新的 xx yy zz <strong>tristimulus value</strong>：</p>
+<p>x=XX+Y+Zy=YX+Y+Zz=ZX+Y+Z=1−x−y\begin{aligned} &amp;\begin{aligned}x=\frac{X}{X+Y+Z}\end{aligned} \ &amp;y=\frac Y{X+Y+Z} \ &amp;z=\frac{Z}{X+Y+Z}=1-x-y \end{aligned} \</p>
+<p><img alt="" src="v2-237c19839dee15a2280e9a543c7f2585_720w.webp" /></p>
+<p>XYZ space project to X+Y+Z=1 plane</p>
+<p>将投影后的 <strong>CIE 1931 chromaticity diagram</strong> 单独取出，其中 xx 和 yy 作为该图的 <strong>chromaticity coordinates</strong> ，而 zz 没有额外的信息，可以通过前两个坐标计算得出。</p>
+<p>下图 <strong>chromaticity diagram</strong> 表示了电视或者电脑屏幕等设备的 <strong>gamut (色域)</strong>，即当前<strong>色彩空间</strong>能够<strong>表示</strong>或<strong>重现</strong>的所有<strong>颜色范围</strong>：</p>
+<p><img alt="" src="v2-2d95310b44bb8bdca7cf8b2af1c36b16_720w.webp" /></p>
+<p>CIE 1932 chromaticity diagram</p>
+<p><strong>CIE chromaticity diagram</strong> 使用xx 和 yy 两个维度解决了人眼感知 <strong>color</strong> 的 <strong>hue 、saturation</strong> 两个特征，而 <strong>color</strong> 另外一个 <strong>luminance</strong> 则通过第三个维度 Y Y 进行表示，这些定义最终定义了 <strong>xyY color space</strong> 。</p>
+<hr />
+<p>但是，无论是 XX<strong>、</strong>YY<strong>、</strong>ZZ 还是 xx<strong>、</strong>yy<strong>、</strong>YY， 这两组 <strong>tristimulus value</strong> 定义的 <strong>color</strong> 均不能在屏幕上直接展示。</p>
+<p>实际上，<strong>CIE XYZ space</strong> 的优势在于它可以表示所有 <strong>human vision</strong> 可以感知到的 <strong>color</strong>，换句话说，其它色彩空间的 <strong>gamut</strong> 一定比 <strong>CIE XYZ space</strong> 的 <strong>gamut</strong> 范围<strong>更小</strong>。</p>
+<p>在下一小节中，我们将介绍如何将 <strong>CIE XYZ space</strong> 中的 <strong>XYZ color</strong> 转换为 <strong>CIE RGB space</strong> 中的 <strong>RGB color</strong>。</p>
+<hr />
+<h3 id="rgb-color-space">RGB Color Space<a class="headerlink" href="#rgb-color-space" title="Permanent link">&para;</a></h3>
+<p>以下内容引用于 <a href="https://link.zhihu.com/?target=https%3A//www.realtimerendering.com/">RTR4 P272~279</a> 、<a href="https://link.zhihu.com/?target=https%3A//www.scratchapixel.com/lessons/digital-imaging/colors/color-space.html">RGB Color Space</a> 、<a href="https://link.zhihu.com/?target=https%3A//www.scratchapixel.com/lessons/digital-imaging/colors/introduction.html">What is White?</a> 、<a href="https://link.zhihu.com/?target=https%3A//www.pbr-book.org/3ed-2018/Color_and_Radiometry/The_SampledSpectrum_Class%23sec%3Acolor-xyz">PBR color space conversion</a> 。</p>
+<p>对于大多数类似于显示器屏幕等设备，其显示原理都是基于 <strong>RGB color model</strong>：每一个屏幕上的 <strong>pixel</strong> 由 <strong>red、green、blue</strong> 三种 <strong>color light</strong> 经过调节后混合组成 (类似于 <strong>color-matching experiment</strong>) 。</p>
+<p><strong>RGB color space</strong> 的思想遵循于 <strong>human vision</strong> 对于 <strong>color</strong> 的感知原则，其中的 <strong>color</strong> 可以表示为 <strong>primary colors (red、green、blue)</strong> 对应三个 <strong>quantities (0~1)</strong> 组成的<strong>三元组</strong>。</p>
+<p>整个 <strong>RGB color space</strong> 可以被表示为下图中的 <strong>cube</strong> ，三个顶点表示了三个 <strong>primary colors</strong>：</p>
+<p><img alt="" src="v2-d28e111e9eb757967346671f9f0ce85a_720w.webp" /></p>
+<p>RGB color space</p>
+<p>虽然 <strong>RGB color space</strong> 非常直观且容易理解，但是它对应的 <strong>gamut</strong> 比起 <strong>XYZ color space</strong> 来相当受限。</p>
+<p>任意 <strong>RGB color space</strong> 的 <strong>gamut</strong> 可以被表示为包含在 <strong>XYZ's gamut</strong> 中的一个<strong>三角形</strong>，与 <strong>Maxwell Triangle</strong> 类似，<strong>gamut</strong> 的三个角对应了三个 <strong>primary colors</strong>，是屏幕可以展示出来的 <strong>most saturated</strong> 的 <strong>red</strong> 、<strong>green</strong> 、<strong>blue</strong> ：</p>
+<p><img alt="" src="v2-84e10b6360a334cbf33f176e5224a807_720w.webp" /></p>
+<p>CIE 1931 chromaticity diagram with sRGB gamut</p>
+<hr />
+<p>其中特别要注意的是每个 <strong>RGB color space</strong> 的 三角形区域 <strong>gamut</strong> 中间的 <strong>white point</strong>，它表示了当前 <strong>display system</strong> 的 <strong>RGB tristimulus value 相等</strong>时产生的 <strong>chromaticity (hue 、saturation)</strong> 。</p>
+<p>与我们之前提到拥有<strong>独立 wavelength</strong> 的 <strong>monochromatic color light</strong> 不同，<strong>white</strong> 出现于我们眼睛的三种对颜色敏感的 <strong>cone cells</strong> 受到<strong>相同数量</strong>的光刺激时，所被感知得到的 <strong>color</strong> 。</p>
+<p>由于 <strong>white light</strong> 由 <strong>visible spectrum</strong> 上相同数量的 <strong>color light</strong> 所组成，<strong>CIE</strong> 提供了一个被称为 <strong>E illuminant</strong> 的 <strong>equi-energy SPD</strong> (对于每个 <strong>wavelength internal</strong> 都拥有相同的 <strong>spectral irradiance</strong>) ：</p>
+<p><img alt="" src="v2-8103e307e168fa07d11ecf0e3a4f5e1b_720w.webp" /></p>
+<p>illuminant E</p>
+<p>对于 <strong>CIE RGB color space</strong> 来说，<strong>white point</strong> 被视为 <strong>E illuminant</strong> 。</p>
+<hr />
+<p>在一个 <strong>color space</strong> 中定义的 <strong>color</strong> 转换到另一个 <strong>color space</strong> 可以简单地看作是将3D空间中的一个点从一个位置<strong>移动</strong>到另一个位置，这种<strong>线性转换</strong>让我们自然而然联想到<strong>矩阵乘法</strong>。</p>
+<p><strong>CIE XYZ space</strong> 与 <strong>CIE RGB space</strong> 之间 <strong>color</strong> 的转换通过一个 <strong>3x3</strong> 的矩阵实现，已知 <strong>CIE RGB space gamut</strong> 的三个 <strong>primary colors point</strong> 和 <strong>white point</strong> 在 <strong>CIE XYZ space</strong> 的投影平面 <strong>CIE xyY space</strong> 中的坐标位置：</p>
+<p><img alt="" src="v2-79a5e168e173a95fddda9fdb5a6e065e_720w.webp" /></p>
+<p>RGB gamut vertices and white point - xyY coordinates</p>
+<p>易得转换矩阵，在 <strong>PBR</strong> 中实现如下：</p>
+<div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">XYZToRGB</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="n">xyz</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="n">rgb</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mf">3.240479f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.537150f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.498535f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">    </span><span class="n">rgb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-0.969256f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.875991f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.041556f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">    </span><span class="n">rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mf">0.055648f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.204043f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.057311f</span><span class="o">*</span><span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">RGBToXYZ</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="n">rgb</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="n">xyz</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.412453f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.357580f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.180423f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">    </span><span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.212671f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.715160f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.072169f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">    </span><span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.019334f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.119193f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.950227f</span><span class="o">*</span><span class="n">rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>除此之外，还有一个常见的转换是 <strong>RGB color</strong> 转为 <strong>grayscale luminance value</strong>，由于 <strong>luminance</strong> 本身就是 <strong>XYZ color</strong> 中的 <strong>Y</strong> ，转换自然十分简单：</p>
+<p>Y=0.2126R+0.7152G+0.0722BY=0.2126R+0.7152G+0.0722B \</p>
+<hr />
+<h2 id="_1">总结展望<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>原定于本文最后一部分关于 <strong>linear color space</strong> 到 <strong>gamma space</strong> 的转换 (包括 <strong>gamma encoding</strong> 以及 <strong>gamma decoding</strong>) 的内容，经过笔者考虑将放在后续 <strong>tone-mapping</strong> 分析中。</p>
+<p>主要参考：<a href="https://link.zhihu.com/?target=https%3A//www.cambridgeincolour.com/tutorials/gamma-correction.htm">Understanding Gamma Correction</a> 、<a href="https://link.zhihu.com/?target=https%3A//www.cambridgeincolour.com/tutorials/gamma-correction.htm">What and Why is Gamma Correction in Photo Images?</a> 、<a href="https://link.zhihu.com/?target=https%3A//www.scratchapixel.com/lessons/digital-imaging/digital-images/display-image-to-screen.html">Digital Images: from File to Screen</a> 。</p>
+<h2 id="_2">参考<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#ref_1_0">^</a>Scratch a Pixel <a href="https://www.scratchapixel.com/lessons/digital-imaging/colors/introduction.html">https://www.scratchapixel.com/lessons/digital-imaging/colors/introduction.html</a></li>
+<li><a href="#ref_2_0">^</a>Real-Time Rendering <a href="https://www.realtimerendering.com/">https://www.realtimerendering.com/</a></li>
+<li><a href="#ref_3_0">^</a>Cambridge in Colour <a href="https://www.cambridgeincolour.com/color-management-printing.htm">https://www.cambridgeincolour.com/color-management-printing.htm</a></li>
+<li><a href="#ref_4_0">^</a>Color vision and colorimetry : theory and applications <a href="http://library.lol/main/DE9A15D97C096113BB9494C263B368E9">http://library.lol/main/DE9A15D97C096113BB9494C263B368E9</a></li>
+<li><a href="#ref_5_0">^</a>Color and Radiometry - Physically Based Rendering <a href="https://www.pbr-book.org/3ed-2018/Color_and_Radiometry">https://www.pbr-book.org/3ed-2018/Color_and_Radiometry</a></li>
+<li><a href="#ref_6_0">^</a>色彩科学 <a href="https://www.zhihu.com/column/c_1602295156237197312">https://www.zhihu.com/column/c_1602295156237197312</a></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
