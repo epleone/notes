@@ -1967,6 +1967,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../linux/Github%20tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../linux/Linux%20Bash/" class="md-nav__link">
         
   
@@ -3404,6 +3425,7 @@
 <h1 id="_1">插件开发<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="obsidian">obsidian 插件<a class="headerlink" href="#obsidian" title="Permanent link">&para;</a></h2>
 <h2 id="utools">utools 插件<a class="headerlink" href="#utools" title="Permanent link">&para;</a></h2>
+<p><code>Rollup</code> 构建， <code>Terser</code>压缩</p>
 <p>To minify using, for example, npm and <a href="https://github.com/terser/terser">terser</a></p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>terser
 
@@ -3414,13 +3436,10 @@ $<span class="w"> </span>terser<span class="w"> </span>big.js<span class="w"> </
 <li>大数的支持验证，换底层计算库( <code>decimal.js</code>  &amp;  <code>ml-matrix.js</code>)</li>
 <li>在不改变当前布局，且修改最小化的情况下，输入太长时支持换行？</li>
 <li>自适应主题，通过<code>utools.isDarkColors</code>判断</li>
-<li>搜索推送，<code>utools.onMainPush</code></li>
 <li>补全排序按频次统计</li>
-<li>[bug] 补全框会被遮挡（第一行不会，第二行后都会被遮挡）</li>
 <li>支持日期操作的补全</li>
 <li>更新字符串其它常见操作</li>
-<li>页面为空时，清空按键禁用</li>
-<li>添加一个清空动画，清空触发后，历史按钮明显放大，抖动，变色</li>
+<li>使用github action进行自动测试</li>
 </ul>
 <p><strong>高阶操作</strong><br />
 - 支持自定义常数<br />
@@ -3434,42 +3453,11 @@ $<span class="w"> </span>terser<span class="w"> </span>big.js<span class="w"> </
 -  常用计算<br />
 -  可视化矩阵计算的结果，新设计提示图标。点击图标弹出结果显示页面。<br />
 -  添加测试</p>
-<p><strong>支持弹窗 + 网页</strong><br />
--   仿照 <code>简易计算器</code>，直接在搜索框得到结果 （不支持变量）。</p>
-<p><strong>日期</strong></p>
-<p><code>@</code> 将日期转时间戳, 添加info<br />
-<code>#</code> 获得时间间隔， <code>#1y1m3w4d5h6mm7s8ms</code>  --&gt; 转成函数，返回<code>datestamp</code>对象 ,  添加info</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// 加减法设计</span>
-<span class="sb">`@... + @...`</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="ne">Error</span>
-
-<span class="sb">`@... - @...`</span><span class="w">  </span><span class="o">--&gt;</span><span class="w"> </span><span class="err">#</span><span class="w">   </span><span class="nx">显示毫秒数</span><span class="err">，</span><span class="w"> </span><span class="nx">添加info显示</span><span class="w"> </span><span class="nx">x天x小时x分x秒x毫秒</span>
-
-<span class="sb">`@... ± #...`</span><span class="w">  </span><span class="o">--&gt;</span><span class="w"> </span><span class="err">@</span><span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="nx">显示日期</span><span class="err">，</span><span class="nx">类型是字符串</span>
-
-<span class="sb">`@... ± #... &gt; @`</span><span class="w">  </span><span class="err">，</span><span class="w"> </span><span class="nx">变成时间戳</span><span class="err">，</span><span class="nx">添加info显示单位ms</span>
-
-<span class="sb">`@... &gt; #`</span><span class="w">   </span><span class="p">,</span><span class="w">  </span><span class="nx">ERROR</span>
-
-<span class="sb">`#... &gt; #`</span><span class="w">  </span><span class="nx">格式化显示</span><span class="err">，</span><span class="w"> </span><span class="nx">x天x小时x分x秒x毫秒</span>
-<span class="sb">`#... &gt; #d`</span><span class="w"> </span><span class="nx">格式化显示</span><span class="err">，</span><span class="w"> </span><span class="nx">x天</span>
-<span class="sb">`#... &gt; #h`</span><span class="w"> </span><span class="nx">格式化显示</span><span class="err">，</span><span class="w"> </span><span class="nx">x小时</span>
-<span class="p">...</span>
-
-<span class="sb">`&gt; latex`</span><span class="w">  </span><span class="nx">对矩阵有用</span>
-</code></pre></div>
-<p>支持 <code>@now</code> <code>@today</code></p>
-<p><code>@</code> 预处理转成函数就够了？</p>
+<p><code>&gt; latex</code>  对矩阵有用</p>
 <p>参考：<br />
 <a href="https://github.com/fofolee/uTools-quickcommand/blob/master/plugin/plugin.json">uTools-quickcommand/plugin/plugin.json at master · fofolee/uTools-quickcommand</a></p>
 <p><a href="https://github.com/francislee-cn/utools-simple-calculator">GitHub - francislee-cn/utools-simple-calculator: A uTools simple calculator.</a></p>
 <p><a href="https://yuanliao.info/d/3979">[分享] 关于模板插件自定义设置界面的其中一种做法 - 猿料</a></p>
-<p>矩阵库：<br />
-<a href="https://github.com/scijs/ndarray">GitHub - scijs/ndarray: 📈 Multidimensional arrays for JavaScript</a><br />
-不如自己写得了。</p>
-<p>表达式计算：<br />
-<a href="https://github.com/silentmatt/expr-eval">GitHub - silentmatt/expr-eval: Mathematical expression evaluator in JavaScript</a></p>
-<p>表达式解析，只支持解析<br />
-<a href="https://github.com/EricSmekens/jsep">GitHub - EricSmekens/jsep: JavaScript Expression Parser</a></p>
 <div class="admonition tips">
 <p class="admonition-title"><a href="https://github.com/itribs/rcalculator">rcalculator</a>使用ANTLR生成了语法解析器</p>
 </div>
