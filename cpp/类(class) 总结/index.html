@@ -9,14 +9,14 @@
       
       
       
-        <link rel="prev" href="../%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%BA%93/">
+        <link rel="prev" href="../%E6%A8%A1%E6%9D%BF/">
       
       
         <link rel="next" href="../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
     
     
       
@@ -1118,6 +1118,28 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1267,10 +1289,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
         
           
-          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1282,8 +1304,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_17">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_18">
             <span class="md-nav__icon md-icon"></span>
             Cmake 学习笔记
           </label>
@@ -1421,10 +1443,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_19" >
         
           
-          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_19" id="__nav_5_19_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1436,8 +1458,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_19">
             <span class="md-nav__icon md-icon"></span>
             侯捷c++课程笔记
           </label>
@@ -1509,10 +1531,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_19" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_20" >
         
           
-          <label class="md-nav__link" for="__nav_5_19" id="__nav_5_19_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_20" id="__nav_5_20_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1524,8 +1546,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_19_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_19">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_20">
             <span class="md-nav__icon md-icon"></span>
             设计模式
           </label>
@@ -3851,76 +3873,10 @@
 <p>当派生类的析构函数被调用时，它会首先调用基类的析构函数，然后再执行自己的析构函数体。这是因为在派生类的析构函数体中，基类部分是首先被销毁的，然后才是派生类的成员。</p>
 <p>如果基类的析构函数不是虚函数，那么当你通过基类指针删除派生类对象时，只会调用基类的析构函数。这可能导致派生类对象的派生类部分未被正确销毁，导致资源泄漏或未定义的行为。所以在设计继承关系时，通常建议将基类的析构函数声明为虚函数，这样当你通过基类指针删除派生类对象时，会正确调用派生类的析构函数。</p>
 <h2 id="_3">模板<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="admonition tips">
-<p class="admonition-title">Tips</p>
-<p>模板类的一般全部放到头文件中, 避免LINK错误</p>
-</div>
-<p><a href="https://blog.csdn.net/yueni_zhao/article/details/128235347">C++学习15：C++模板的参数_c++ 模板参数-CSDN博客</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/201489341?utm_id=0">关于UE4模块中模板类的问题(error LNK2019) - 知乎</a></p>
-<p>模板类的实现最好放到头文件中，这样可以避免LINK不到。</p>
-<p><a href="https://blog.csdn.net/qq_41884002/article/details/99816073">【c++】因模板类导致的 LNK2019 错误：“ 无法解析的外部符号 ” 详解_lnk2019无法解析的外部符号-CSDN博客</a></p>
-<div class="highlight"><pre><span></span><code><span class="c1">// 可以在源文件中显式调用可能用到的模板类型，这样可以将声明与实现分开。</span>
-
-<span class="cp"># source.cpp</span>
-<span class="k">template</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyTemplateClass</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span>
-<span class="k">template</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyTemplateClass</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">模版类有很多坑</p>
-<ul>
-<li>子类会隐藏模板父类的成员变量(包括继承来的)</li>
-<li>非模板类则不会</li>
-<li>模板子类并不会隐藏非模板父类的成员变量</li>
-</ul>
-<p>需要显式的调用 <code>this-&gt;</code>   或者 使用 <code>using Base&lt;T&gt;::data ;</code> 来调用父类的成员变量</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-
-<span class="c1">// 非模板类继承，这种做法ok, 如果是模板类，则在严格的编译器（比如linux下）编不过</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Derive</span><span class="o">:</span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Derive</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
-<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">test</span><span class="p">();</span>
-<span class="p">}</span>
-
-
-<span class="c1">// 模板类继承</span>
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Derive</span><span class="o">:</span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="c1">// using Base&lt;T&gt;::data; // 或者使用 this-&gt;data</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Derive</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
-<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">test</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><img alt="模板" src="../%E6%A8%A1%E6%9D%BF/" /></p>
 <h2 id="_4">初始化列表<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><code>std::initializer_list&lt;T&gt;</code></p>
-<p>实现了迭代器，拥有 <code>begin()</code> <code>end()</code>  <code>size()</code> </p>
+<p>实现了迭代器，拥有 <code>begin()</code> <code>end()</code>  <code>size()</code></p>
 <p>作为轻量级容器够用了。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">print_ints</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
