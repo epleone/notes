@@ -4518,11 +4518,16 @@
 这个插件后面可以删除了。</p>
 </div>
 <p>目前webdav有三个限制：</p>
-<p>文件上传大小限制：当前 WebDAV 客户端和网页端上传大小的限制是一致的，默认为 500M。</p>
-<p>访问频率限制：由于WebDAV协议比较占用系统资源，免费版用户限制访问频率为每30分钟不超过600次请求。付费用户限制访问频率为每30分钟不超过1500次请求。</p>
-<p>同步目录数限制：目前坚果云的WebDAV协议单次请求文件数（包含文件和文件夹）为750个，支持分多页多次加载。如果您使用WebDAV的三方工具未实现按分页多次加载，可能会出现文件同步不完整的情况，建议您使用坚果云客户端进行直接同步。</p>
+<p><strong>文件上传大小限制</strong>：当前 WebDAV 客户端和网页端上传大小的限制是一致的，默认为 500M。</p>
+<p><strong>访问频率限制</strong>：由于WebDAV协议比较占用系统资源，免费版用户限制访问频率为每30分钟不超过600次请求。付费用户限制访问频率为每30分钟不超过1500次请求。</p>
+<p><strong>同步目录数限制</strong>：目前坚果云的WebDAV协议单次请求文件数（包含文件和文件夹）为750个，支持分多页多次加载。如果您使用WebDAV的三方工具未实现按分页多次加载，可能会出现文件同步不完整的情况，建议您使用坚果云客户端进行直接同步。</p>
+<div class="admonition warning">
+<p class="admonition-title">503错误</p>
+</div>
 <p>出现503错误一般是超过了访问频率导致的，建议您等待一段时间重新同步即可。</p>
 <p><a href="https://forum-zh.obsidian.md/t/topic/34339">remotely save + 坚果云 503问题 - 疑问解答 - Obsidian 中文论坛</a></p>
+<p><a href="https://github.com/remotely-save/remotely-save/issues/894">[Bug]: 坚果云同步已经上传的文件报错503 Service Unavailable · Issue #894 · remotely-save/remotely-save</a></p>
+<p><a href="https://help.jianguoyun.com/?p=2161">如何修复由其他代理/VPN软件造成的坚果云“无法连接服务器”? | 坚果云帮助中心</a></p>
 <div class="admonition warning">
 <p class="admonition-title">忽略git等文件夹</p>
 </div>
