@@ -2535,6 +2535,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH 连接
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       排除目录
@@ -4771,7 +4780,23 @@ git<span class="w"> </span>remote<span class="w"> </span>-v
 <p>打开<code>控制面板</code>-&gt;<code>凭据管理器</code>-&gt;<code>Windows凭据</code></p>
 <p>在<code>普通凭据</code>中找到github的凭据后, 删除它, 然后重新到仓库执行<code>git push origin master</code>去提交你的代码, 它会让你填写GitHub的用户名和密码, 填写正确后, 即可进行正常推送</p>
 <p>参考自： <a href="https://blog.csdn.net/qq_36852780/article/details/107374275">https://blog.csdn.net/qq_36852780/article/details/107374275</a></p>
+<h2 id="ssh">SSH 连接<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h2>
 <p>建议直接使用<code>ssh</code>方式连接。 https://blog.csdn.net/CoderSharry/article/details/131249905</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-T<span class="w"> </span>git@github.com
+
+<span class="c1"># 可以加上调试参数来排查问题</span>
+ssh<span class="w"> </span>-vT<span class="w"> </span>git@github.com
+
+ssh<span class="w"> </span>-T<span class="w"> </span>git@gitlab.com
+
+
+<span class="c1"># `your.gitlab.host` 是私有 GitLab 的域名</span>
+ssh<span class="w"> </span>-T<span class="w"> </span>git@your.gitlab.host
+
+<span class="c1"># 比如</span>
+ssh<span class="w"> </span>-T<span class="w"> </span>git@gitlab.example.com
+</code></pre></div>
+<p><a href="../../misc/X11%20Forward%20and%20SSH%20tips/#ssh">X11 Forward and SSH tips#SSH</a></p>
 <h2 id="_9">排除目录<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>在Git中排除文件有多种方法。以下是几种常用的方法：</p>
 <ol>
