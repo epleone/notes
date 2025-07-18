@@ -4392,6 +4392,91 @@
 <h3 id="cmake">cmake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
 <p><a href="https://learn.microsoft.com/zh-cn/vcpkg/get_started/get-started-vscode?pivots=shell-cmd">在 Visual Studio Code 中使用 CMake 安装和管理包</a></p>
 <p><a href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/getting_started.html">Getting Started — CMake Tools 1.4.0 documentation</a></p>
+<p><code>CMake Tools</code> 是来自动配置cmake命令的，完全可以<strong>不用 CMake Tools 插件</strong>，自己在终端里控制就行。</p>
+<p>运行 <code>C/C++</code>  只需要设置两个配置文件就好。</p>
+<ul>
+<li><code>launch.json</code> ： 用于debug时使用。</li>
+<li><code>tasks.json</code>:  用于运行自定义的任务。<strong>是 VS Code 帮你固定和封装手动命令的配置文件</strong>，可以看作是 <strong>“命令行的快捷方式”</strong>。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// task.json</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Clean Build Folder&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rmdir /S /Q build&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;windows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rmdir /S /Q build&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CMake Configure&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmake -S ./ -B build&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CMake Build Debug&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmake --build build --config Debug&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run Executable&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}\\build\\Debug\\testbed.exe&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}\\build\\Debug&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${env:PATH};${workspaceFolder}/build/Debug;&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Full Clean + Configure + Build&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Clean Build Folder&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;CMake Configure&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;CMake Build Debug&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;dependsOrder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sequence&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>debug的配置文件</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// launch.json</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CMake Debug (MSVC)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppvsdbg&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// 其它平台的调试器都是&quot;cppdbg&quot;</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/Debug/testbed.exe&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// &quot;cwd&quot;: &quot;${workspaceFolder}&quot;, // 运行目录</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/Debug&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PATH&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${env:PATH};${workspaceFolder}/build/Debug;&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;externalTerminal&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="_3">中文乱码及编码格式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>打开设置，搜索找到 <strong>Auto Guess Encoding</strong> 选项, 开启即可</p>
 <p>或者在当前工作区设置</p>
