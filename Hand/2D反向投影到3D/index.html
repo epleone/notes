@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Git%20Tips/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../VIM%20%E5%85%A5%E9%97%A8/">
+        <link rel="next" href="../HandDet/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Linux Bash - epleone notes</title>
+        <title>2D反向投影到3D - epleone notes</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux-bash" class="md-skip">
+        <a href="#2d3d" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linux Bash
+              2D反向投影到3D
             
           </span>
         </div>
@@ -251,18 +251,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -278,7 +280,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Hand
@@ -289,10 +291,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Hand/2D%E5%8F%8D%E5%90%91%E6%8A%95%E5%BD%B1%E5%88%B03D/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2D反向投影到3D
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -303,6 +327,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-m_crop" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 裁剪矩阵 \(M_{crop​}\)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-m_scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 缩放矩阵 \(M_{scale}\)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-m_flip" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 水平翻转矩阵 \(M_{flip}\)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 复合变换矩阵 \(M\)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 变换总结
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 求解
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -315,7 +413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hand/HandDet/" class="md-nav__link">
+      <a href="../HandDet/" class="md-nav__link">
         
   
   
@@ -338,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hand/Hand%E5%85%B3%E8%8A%82%E7%82%B9%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+      <a href="../Hand%E5%85%B3%E8%8A%82%E7%82%B9%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
         
   
   
@@ -361,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hand/SMPL%20-%20Skinned%20Multi-Person%20Linear%20Model/" class="md-nav__link">
+      <a href="../SMPL%20-%20Skinned%20Multi-Person%20Linear%20Model/" class="md-nav__link">
         
   
   
@@ -384,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hand/%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+      <a href="../%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
         
   
   
@@ -407,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hand/%E6%95%B0%E5%AD%97%E4%BA%BA%E5%9F%BA%E7%A1%80%EF%BC%9A3D%E6%89%8B%E9%83%A8%E5%8F%82%E6%95%B0%E5%8C%96%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+      <a href="../%E6%95%B0%E5%AD%97%E4%BA%BA%E5%9F%BA%E7%A1%80%EF%BC%9A3D%E6%89%8B%E9%83%A8%E5%8F%82%E6%95%B0%E5%8C%96%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
         
   
   
@@ -430,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hand/%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E6%8A%95%E5%BD%B1%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E6%8A%95%E5%BD%B1%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -453,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hand/%E8%AE%BA%E6%96%87%E5%B0%8F%E7%BB%93/" class="md-nav__link">
+      <a href="../%E8%AE%BA%E6%96%87%E5%B0%8F%E7%BB%93/" class="md-nav__link">
         
   
   
@@ -476,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hand/%E9%AA%A8%E9%AA%BC%E5%8A%A8%E7%94%BB%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/" class="md-nav__link">
+      <a href="../%E9%AA%A8%E9%AA%BC%E5%8A%A8%E7%94%BB%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/" class="md-nav__link">
         
   
   
@@ -2200,20 +2298,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -2229,7 +2325,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Linux
@@ -2243,7 +2339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Git%20Tips/" class="md-nav__link">
+      <a href="../../linux/Git%20Tips/" class="md-nav__link">
         
   
   
@@ -2263,32 +2359,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Linux Bash
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%20Bash/" class="md-nav__link">
         
   
   
@@ -2299,176 +2373,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preface" class="md-nav__link">
-    <span class="md-ellipsis">
-      preface
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#man-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      man 和 help
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="man 和 help">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#man" class="md-nav__link">
-    <span class="md-ellipsis">
-      man
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#help" class="md-nav__link">
-    <span class="md-ellipsis">
-      help
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      复制文件
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      移动文件
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      重命名文件
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#txt" class="md-nav__link">
-    <span class="md-ellipsis">
-      生成txt
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      查看当前文件空间大小
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      改变权限
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      软连接
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      解压缩
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cuda" class="md-nav__link">
-    <span class="md-ellipsis">
-      CUDA
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      设置时区
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      其它
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      错误
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2481,7 +2385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VIM%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      <a href="../../linux/VIM%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
         
   
   
@@ -2504,7 +2408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ffmpeg%E5%92%8C%E8%A7%86%E9%A2%91%E6%8A%BD%E5%B8%A7/" class="md-nav__link">
+      <a href="../../linux/ffmpeg%E5%92%8C%E8%A7%86%E9%A2%91%E6%8A%BD%E5%B8%A7/" class="md-nav__link">
         
   
   
@@ -2527,7 +2431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git%20%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="md-nav__link">
+      <a href="../../linux/git%20%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="md-nav__link">
         
   
   
@@ -2550,7 +2454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github%20and%20gitlab%20tips/" class="md-nav__link">
+      <a href="../../linux/github%20and%20gitlab%20tips/" class="md-nav__link">
         
   
   
@@ -2573,7 +2477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tmux%20guide/" class="md-nav__link">
+      <a href="../../linux/tmux%20guide/" class="md-nav__link">
         
   
   
@@ -2596,7 +2500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%AE%89%E8%A3%85python/" class="md-nav__link">
+      <a href="../../linux/%E5%AE%89%E8%A3%85python/" class="md-nav__link">
         
   
   
@@ -2619,7 +2523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%BB%88%E7%AB%AF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+      <a href="../../linux/%E7%BB%88%E7%AB%AF%E7%AE%A1%E7%90%86/" class="md-nav__link">
         
   
   
@@ -4395,234 +4299,111 @@
                 
                   
 
-  <nav class="md-tags" >
-    
-      
-      
-      
-        <span class="md-tag">bash</span>
-      
-    
-  </nav>
 
 
-
-<h1 id="linux-bash">Linux Bash<a class="headerlink" href="#linux-bash" title="Permanent link">&para;</a></h1>
-<h2 id="preface">preface<a class="headerlink" href="#preface" title="Permanent link">&para;</a></h2>
-<p>只要记住20个左右的命令，基本就能满足需要了。</p>
-<blockquote>
-<p>ls = listcd = change directory<br />
-cp = copyrm = remove<br />
-mv = move<br />
-pwd = print work directory<br />
-ps = process status<br />
-df = disk free<br />
-du = disk usage<br />
-mkdir = make directory<br />
-rmdir = remove directory<br />
-su = switch user<br />
-chown = change owner<br />
-chmod = change mode</p>
-<p>-a = all<br />
--l = list<br />
--f = force<br />
--h = -human-readable<br />
--n = number<br />
--u = user<br />
--z = zip<br />
--r = recursive<br />
- -v = verbose(详细)</p>
-</blockquote>
-<h2 id="man-help"><code>man</code>  和 <code>help</code><a class="headerlink" href="#man-help" title="Permanent link">&para;</a></h2>
-<p>在Linux中，man和help是两个非常有用的命令，它们提供了关于其他命令的详细信息和使用方法。</p>
-<h3 id="man">man<a class="headerlink" href="#man" title="Permanent link">&para;</a></h3>
-<p>man是“manual”的缩写，意为手册。通过man命令，用户可以查看Linux系统中大多数命令、函数和配置文件的详细说明。</p>
-<p>使用方法： <code>man  命令名</code>  比如 <code>man ls</code>，这将打开一个分页器显示ls命令的详细说明。<br />
-使用方向键、Page Up/Down键或空格键进行导航。</p>
-<p>按Q键退出man页面。</p>
-<p>man页面的结构：</p>
-<blockquote>
-<p>NAME：            命令的名称和简短描述。<br />
-SYNOPSIS：      命令的语法摘要。<br />
-DESCRIPTION：命令的详细描述和功能。<br />
-OPTIONS：       命令可用的选项和参数。<br />
-EXAMPLES：     使用命令的示例（并非所有man页面都有此部分）。<br />
-SEE ALSO：       相关命令或文档的参考。<br />
-BUGS：              已知的问题或限制（也并非所有页面都有）。</p>
-</blockquote>
-<p><strong>Tips</strong>：<br />
-使用/关键词进行搜索，按n键查找下一个匹配项，按N键查找上一个匹配项。<br />
-输入<code>man -k 关键词</code>可以搜索包含关键词的手册页描述。</p>
-<h3 id="help">help<a class="headerlink" href="#help" title="Permanent link">&para;</a></h3>
-<p>help命令是bash shell的内建命令，用于显示bash内建命令的帮助信息。对于外部命令（如ls、cat等），help命令通常无法提供帮助，这时应使用man命令。</p>
-<p>使用方法：输入<code>help [命令名]</code>，例如<code>help cd</code></p>
-<p>注意：并非所有的Linux发行版或shell都支持help命令。在某些情况下，可能需要安装或配置额外的软件包或shell来获得此功能。</p>
-<h2 id="_1">复制文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span><span class="o">[</span>选项<span class="o">]</span><span class="w"> </span>源文件或目录<span class="w"> </span>目标文件或目录
-
-
-<span class="c1"># 从A --&gt; B</span>
-
-cp<span class="w"> </span>-a<span class="w"> </span>dst_A<span class="w"> </span>dst_B
-</code></pre></div>
+<h1 id="2d3d">2D反向投影到3D<a class="headerlink" href="#2d3d" title="Permanent link">&para;</a></h1>
+<p>我们首先定义一组贯穿本节的参数：<br />
+- 原始图像尺寸: <span class="arithmatex">\(W_{orig}\)</span>​  , <span class="arithmatex">\(H_{orig}\)</span>​<br />
+- 裁剪窗口: 左上角坐标 <span class="arithmatex">\((c_{x}​, c_{y}​)\)</span>  尺寸 <span class="arithmatex">\(W_{crop}\)</span>​ , <span class="arithmatex">\(H_{crop​}\)</span><br />
+- 最终缩放后图像尺寸: <span class="arithmatex">\(W_{final}\)</span> ​, <span class="arithmatex">\(H_{final​}\)</span></p>
+<h2 id="1-m_crop">1. 裁剪矩阵  <span class="arithmatex">\(M_{crop​}\)</span><a class="headerlink" href="#1-m_crop" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>-a</code> 在拷贝目录时使用。它保留链接、文件属性，并递归地拷贝目录，其作用等于dpR选项的组合。</li>
-<li><code>-d</code> 拷贝时保留链接。</li>
-<li><code>-f</code> 删除已经存在的目标文件而不提示。</li>
-<li><code>-i</code> 和<code>f</code>选项相反，在覆盖目标文件之前将给出提示要求用户确认。回答y时目标文件将被覆盖，是交互式拷贝。</li>
-<li><code>-p</code> 此时cp除复制源文件的内容外，还将把其修改时间和访问权限也复制到新文件中。</li>
-<li><code>-r</code>若给出的源文件是一目录文件，此时cp将递归复制该目录下所有的子目录和文件。此时目标文件必须为一个目录名。</li>
-<li><code>-l</code>不作拷贝，只是链接文件。</li>
+<li><strong>目标</strong>: 将原始图像坐标系中的一个点 <span class="arithmatex">\((u, v)\)</span> 映射到一个新的坐标系，该坐标系的原点 <span class="arithmatex">\((0, 0)\)</span> 位于裁剪窗口的左上角。</li>
+<li><strong>变换</strong>: 这是一个平移操作：<span class="arithmatex">\(u^{'}=u−c_x\)</span>​,  <span class="arithmatex">\(v^{'}=v−c_y\)</span> ​。</li>
+<li>
+<p><strong>矩阵推导</strong>: 该平移操作对应的齐次变换矩阵为：</p>
+<div class="arithmatex">\[ M_{crop}=\begin{pmatrix}1&amp;0&amp;-c_x\\0&amp;1&amp;-c_y\\0&amp;0&amp;1\end{pmatrix} \]</div>
+</li>
 </ul>
-<h2 id="_2">移动文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>源文件或目录<span class="w"> </span>目标文件或目录
-
-<span class="c1"># A --&gt; B</span>
-mv<span class="w"> </span>dir_a<span class="w"> </span>dir_b
-</code></pre></div>
-<h2 id="_3">重命名文件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 修改文件名</span>
-mv<span class="w"> </span>former_name<span class="w"> </span>new_name
-
-<span class="c1"># 修改文件夹名</span>
-mv<span class="w"> </span>former_name/<span class="w"> </span>new_name/
-</code></pre></div>
-<h2 id="txt">生成txt<a class="headerlink" href="#txt" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>find<span class="w"> </span>/media/sde/test/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.jpg&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>image.txt
-</code></pre></div>
-<h2 id="_4">查看当前文件空间大小<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 只显示一级目录（根目录）的占用大小</span>
-du<span class="w"> </span>-h<span class="w"> </span>--max-depth<span class="o">=</span><span class="m">0</span>
-
-<span class="c1"># 显示一级和二级目录的占用大小，依次类推</span>
-du<span class="w"> </span>-h<span class="w"> </span>--max-depth<span class="o">=</span><span class="m">1</span>
-</code></pre></div>
-<h2 id="_5">改变权限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">777</span><span class="w"> </span>./checkpoints/
-</code></pre></div>
-<h2 id="_6">软连接<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span>源地址<span class="w"> </span>目的地址
-ln<span class="w"> </span>-s<span class="w"> </span>&lt;target_path&gt;<span class="w"> </span>&lt;link_name&gt;
-
-<span class="c1"># 删除 软链接</span>
-rm<span class="w"> </span>-rf<span class="w">  </span>&lt;link_name&gt;
-</code></pre></div>
-<p><a href="https://zhuanlan.zhihu.com/p/655747663">软件测试|Linux基础教程：ln命令与软链接和硬链接 - 知乎</a></p>
-<h2 id="_7">解压缩<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 压缩</span>
-tar<span class="w"> </span>-zcvf<span class="w"> </span>FileName.tar.gz<span class="w"> </span>DirName<span class="w"> </span>
-<span class="c1"># 解压</span>
-tar<span class="w"> </span>-zxvf<span class="w"> </span>FileName.tar.gz
-
-
-
-<span class="c1"># zip</span>
-<span class="c1"># 更多参考[ubuntu下解压zip文件](https://blog.csdn.net/zs520ct/article/details/72935141)</span>
-unzip<span class="w"> </span>test.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>/temp<span class="w"> </span>test.zip<span class="w">  </span><span class="c1"># 解压到指定文件夹</span>
-</code></pre></div>
-<p><a href="https://blog.csdn.net/jaye16/article/details/74978408">批量解压</a>   </p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">假设当前目录下有多个zip文件 </span>
-<span class="s2">data.zip invoices.zip pictures.zip visit.zip， </span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-unzip<span class="w"> </span><span class="s1">&#39;*.zip&#39;</span><span class="w"> </span>
-
-或者<span class="w"> </span>
-
-unzip<span class="w"> </span><span class="s2">&quot;*.zip&quot;</span><span class="w"> </span>
-</code></pre></div>
-<p>如果直接  <code>unzip *.zip</code>,  它等价于 <code>unzip data.zip invoices.zip pictures.zip</code></p>
-<p>此时会报错</p>
-<div class="admonition danger">
-<p class="admonition-title">Error</p>
-</div>
-<p>Archive: data.zip <br />
-caution: filename not matched: invoices.zip <br />
-caution: filename not matched: pictures.zip <br />
-caution: filename not matched: visit.zip </p>
-<p>因为会认为后面三个zip文件是在第一个zip文件里面的,因此需要 </p>
-<p><code>unzip '*.zip'</code><br />
-或者 </p>
-<p><code>unzip "*.zip"</code></p>
-<p>或者 </p>
-<p><code>unzip \*.zip</code><br />
-来屏蔽掉linux的通配符（man可以看到Be sure to quote any character that might otherwise be interpreted or modified by the operating system, particularly under Unix and VMS.）</p>
-<p>或者 </p>
-<p>`for z in *.zip; do unzip $z; done</p>
-<h2 id="cuda">CUDA<a class="headerlink" href="#cuda" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 显示cuda版本</span>
-ll<span class="w"> </span>/usr/local/cuda
-
-<span class="c1"># 或者</span>
-nvcc<span class="w"> </span>-V
-
-
-
-<span class="c1"># cuda 切换</span>
-sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/cuda
-sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/cuda-10.0<span class="w"> </span>/usr/local/cuda
-</code></pre></div>
-<h2 id="_8">设置时区<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 设置中国时区</span>
-rm<span class="w"> </span>-f<span class="w"> </span>/etc/localtime
-ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/zoneinfo/Asia/Shanghai<span class="w"> </span>/etc/localtime
-
-<span class="c1"># 测试</span>
-date
-
-date<span class="w"> </span>-R
-</code></pre></div>
-<h2 id="_9">其它<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 查找当前文件夹下 txt 并统计数量</span>
-find<span class="w"> </span>./<span class="w"> </span>-name<span class="w"> </span>*.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
-
-<span class="c1"># 查看运行在gpu上的所有程序</span>
-fuser<span class="w"> </span>-v<span class="w"> </span>/dev/nvidia*
-
-<span class="c1"># 解压文件</span>
-unzip<span class="w"> </span>-d<span class="w"> </span>./B6Random<span class="w"> </span>B6Random.zip
-
-<span class="c1"># 查看cpu 内存使用情况</span>
-htop
-
-<span class="c1"># 查看io</span>
-iostat
-
-<span class="c1"># 查看硬盘</span>
-df<span class="w"> </span>-hl
-<span class="c1"># 查看当前目录文件夹空间大小</span>
-du<span class="w"> </span>-h<span class="w"> </span>-d<span class="w"> </span><span class="m">1</span>
-
-<span class="c1"># 查看gpu</span>
-nvidia-smi
-ns
-</code></pre></div>
-<h2 id="_10">错误<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<ol>
-<li>$‘\r‘: command not found</li>
-</ol>
-<p>window的回车符与linux不一样，windows为<code>\r\n</code> ，而linux下为<code>\n</code>，所以在windows下编辑脚本，在linux执行时<code>\r</code>不能被识别</p>
-<p>解决方法：</p>
-<p>第一步 vim 脚本名</p>
-<p>第二步 在命令行模式下输入 :set ff = unix 回车</p>
-<p>第三步保存 ：wq</p>
-<p>成功解决问题</p>
-<p><a href="https://blog.csdn.net/qq_39715000/article/details/119956320">运行脚本时，./start.sh: line 5: $‘\r‘: command not found，需用vim编辑器将文件格式化_start.sh: command not found-CSDN博客</a></p>
-<p>或者使用 <code>Notepad++</code> 替换。 为了更清楚的看到换行符的变化首先进行下面设置<br />
-<code>视图 -&gt; 显示符号 -&gt; 显示行尾符</code><br />
-<img alt="" src="notepadpp_line.png" /></p>
-<p>然后新建一个文本在其中随意输入内容会看到显示「换行符」为 <code>CR LF</code>即 <code>\r \n</code>。</p>
+<h2 id="2-m_scale">2. 缩放矩阵  <span class="arithmatex">\(M_{scale}\)</span><a class="headerlink" href="#2-m_scale" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>目标</strong>: 将裁剪后的图像（尺寸为 <span class="arithmatex">\(W_{crop}\times H_{crop}\)</span> ​）缩放到最终的目标尺寸（<span class="arithmatex">\(W_{final}\times H_{final}\)</span> ​）。</p>
+</li>
+<li>
+<p><strong>变换</strong>: 首先计算水平和垂直方向的缩放因子：<span class="arithmatex">\(s_x=W_{final}/W_{crop}\)</span>​ 和 <span class="arithmatex">\(s_y=H_{final}/H_{crop}\)</span>​。变换关系为：<span class="arithmatex">\(u^{\prime\prime}=u^{\prime}\cdot s_x,v^{\prime\prime}=v^{\prime}\cdot s_y\)</span>。</p>
+</li>
+<li>
+<p><strong>矩阵推导</strong>: 该缩放操作对应的齐次变换矩阵为：</p>
+<div class="arithmatex">\[ M_{scale}=\begin{pmatrix}s_x&amp;0&amp;0\\0&amp;s_y&amp;0\\0&amp;0&amp;1\end{pmatrix} \]</div>
+</li>
+</ul>
+<h2 id="3-m_flip">3. 水平翻转矩阵 <span class="arithmatex">\(M_{flip}\)</span><a class="headerlink" href="#3-m_flip" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>目标</strong>: 对缩放后的图像进行水平翻转。在一个宽度为 <span class="arithmatex">\(W_{final}\)</span>  的图像中，一个点的水平坐标 <span class="arithmatex">\(u^{\prime\prime}\)</span> （范围从 <span class="arithmatex">\(0\)</span> 到  <span class="arithmatex">\(W_{final} -1\)</span>）将被映射到 <span class="arithmatex">\(u^{\prime\prime\prime} =(W_{final} -1) - u^{\prime\prime}\)</span></p>
+</li>
+<li>
+<p><strong>变换</strong>: <span class="arithmatex">\(u^{\prime\prime\prime}=-1\cdot u^{\prime\prime}+(W_{final}-1),v^{\prime\prime\prime}=v^{\prime\prime}\)</span> 。</p>
+</li>
+<li>
+<p><strong>矩阵推导</strong>: 该翻转操作对应的齐次变换矩阵为：</p>
+<div class="arithmatex">\[M_{flip}=\begin{pmatrix}-1&amp;0&amp;W_{final}-1\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix}\]</div>
+</li>
+</ul>
+<h2 id="4-m">4. 复合变换矩阵 <span class="arithmatex">\(M\)</span><a class="headerlink" href="#4-m" title="Permanent link">&para;</a></h2>
+<p>需求是按顺序执行这三个操作：先裁剪，再缩放，最后翻转。在数学上，这意味着对原始点<span class="arithmatex">\(p_{h}\)</span> 进行函数链式调用：<span class="arithmatex">\(p_{h}^{\prime} =flip(scale(crop(p_{h}​)))\)</span>。</p>
+<p>根据矩阵乘法的结合律，我们可以将这些矩阵预先乘在一起，得到一个单一的复合变换矩阵<span class="arithmatex">\(M\)</span>：</p>
+<div class="arithmatex">\[M=M_{flip}\cdot M_{scale}\cdot M_{crop}\]</div>
+<p>这样，整个复杂的变换流程就可以通过一次矩阵乘法完成：<span class="arithmatex">\(p_h^{\prime}=M\cdot p_h\)</span> ​。</p>
+<h2 id="5">5. 变换总结<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>操作名称</th>
+<th>概念变换</th>
+<th>变换矩阵 <span class="arithmatex">\(M_{op}​\)</span></th>
+<th>逆矩阵 <span class="arithmatex">\(M_{op}​^{-1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>裁剪 (Crop)</td>
+<td><span class="arithmatex">\(u^{'}=u−c_x\)</span>​,  <span class="arithmatex">\(v^{'}=v−c_y\)</span></td>
+<td><span class="arithmatex">\(\begin{pmatrix}1&amp;0&amp;-c_x\\0&amp;1&amp;-c_y\\0&amp;0&amp;1\end{pmatrix}\)</span></td>
+<td><span class="arithmatex">\(\begin{pmatrix}1&amp;0&amp;c_x\\0&amp;1&amp;c_y\\0&amp;0&amp;1\end{pmatrix}\)</span></td>
+</tr>
+<tr>
+<td>缩放 (Scale)</td>
+<td><span class="arithmatex">\(u^{\prime}=u\cdot s_x,v^{\prime}=v\cdot s_y\)</span></td>
+<td><span class="arithmatex">\(\begin{pmatrix}s_x&amp;0&amp;0\\0&amp;s_y&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></td>
+<td><span class="arithmatex">\(\begin{pmatrix} \frac{1}{s_{x}}&amp;0&amp;0\\0&amp;\frac{1}{s_{y}}&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></td>
+</tr>
+<tr>
+<td>水平翻转(Flip)</td>
+<td><span class="arithmatex">\(u^{\prime}=(W-1)-u, v^{\prime}=v\)</span></td>
+<td><span class="arithmatex">\(\begin{pmatrix}-1&amp;0&amp;W_{final}-1\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></td>
+<td><span class="arithmatex">\(\begin{pmatrix}-1&amp;0&amp;W_{final}-1\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></td>
+</tr>
+<tr>
+<td>复合变换 (Composite)</td>
+<td><span class="arithmatex">\(p_h^{\prime}=M\cdot p_h\)</span></td>
+<td><span class="arithmatex">\(M=M_{flip}\cdot M_{scale}\cdot M_{crop}\)</span></td>
+<td><span class="arithmatex">\(M^{-1}=M_{crop}^{-1}\cdot M_{scale}^{-1}\cdot M_{flip}^{-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="6">6. 求解<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>现在，我们可以将所有部分整合起来，形成一个清晰、循序渐进的算法，以求解问题。</p>
+<p><strong>已知：</strong><br />
+- 变换后的二维点 <span class="arithmatex">\(p^′=(u^′,v^′)\)</span><br />
+- 相机内参矩阵 <span class="arithmatex">\(K\)</span> 和平移向量 <span class="arithmatex">\(T\)</span><br />
+- 二维变换参数<span class="arithmatex">\((c_{x},c_{y}​,W_{crop}​,H_{crop}​,W_{final}​,H_{final​})\)</span></p>
+<p><strong>计算步骤：</strong><br />
+1. <strong>构建复合二维变换矩阵 <span class="arithmatex">\(M\)</span></strong><br />
+2. <strong>计算逆矩阵 <span class="arithmatex">\(M^{-1}\)</span></strong>：通过数值方法或解析方法计算 <span class="arithmatex">\(M\)</span> 的逆。<br />
+3. <strong>将 <span class="arithmatex">\(p^′\)</span> 转换为齐次坐标</strong>：<span class="arithmatex">\(p_h^{\prime}=(u^{\prime},v^{\prime},1)^T\)</span> 。<br />
+4. <strong>将 <span class="arithmatex">\(p_h^{\prime}\)</span> ​ 反向变换回原始图像坐标</strong>：计算 <span class="arithmatex">\(p_h=M^{-1}\cdot p_h^{\prime}\)</span>。这个 <span class="arithmatex">\(p_h\)</span> 就是该点在未经任何变换的原始图像上本应出现的位置。<br />
+5. <strong>反向投影到三维射线</strong>：将上一步得到的原始齐次坐标  <span class="arithmatex">\(p_h\)</span>​ 代入相机投影方程。<br />
+<span class="arithmatex">\(P(z)=z\cdot K^{-1}\cdot p_h-T\)</span></p>
+<p><strong>最终变换后：</strong></p>
+<div class="arithmatex">\[P'(z)=z\cdot K^{-1}\cdot(M^{-1}\cdot p_h^{\prime})-T\]</div>
 
 
 
 
 
 
-
-  
-  
 
 
 
