@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -4215,7 +4215,7 @@
 
 
 
-<p>重点推荐一下<a href="https://blog.csdn.net/qq_28087491/article/details/107965151">常用相机投影及畸变模型（针孔|广角|鱼眼）_畸变 模型 比较_泠山的博客-CSDN博客</a> <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup> , 介绍的非常详细。</p>
+<p>重点推荐一下<a href="https://blog.csdn.net/qq_28087491/article/details/107965151">常用相机投影及畸变模型（针孔|广角|鱼眼）_畸变 模型 比较_泠山的博客-CSDN博客</a> <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">1</a></sup> , 介绍的非常详细。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/672616301">虚拟现实VR光学畸变校正 - 知乎</a></p>
 <h1 id="_1">相机模型以及投影笔记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p><span class="arithmatex">\(P_w\)</span> 是世界坐标系下的3D点，<span class="arithmatex">\(P_c\)</span> 是相机坐标系下的3D点，<span class="arithmatex">\(p\)</span> 是图像屏幕下的2d像素坐标点。一个无畸变的相机变换如下：<br />
@@ -4313,9 +4313,9 @@ $$<br />
 $$<br />
 \begin{bmatrix} x' \  y'   \end{bmatrix} = \begin{bmatrix} \frac{X_c}{Z_c} \  \frac{Y_c}{Z_c}\end{bmatrix}      Z_c \neq 0 <br />
 $$<br />
-畸变参数为径向系数k1、k2、k3、k4、k5和k6，p1和p2为切向畸变系数，s1、s2、s3和s4为薄棱镜畸变系数。 OpenCV 中不考虑高阶系数。更多关于相机畸变可以参考opencv的说明<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
+畸变参数为径向系数k1、k2、k3、k4、k5和k6，p1和p2为切向畸变系数，s1、s2、s3和s4为薄棱镜畸变系数。 OpenCV 中不考虑高阶系数。更多关于相机畸变可以参考opencv的说明<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup>。</p>
 <h1 id="fisheye-camera-model">鱼眼相机模型（fisheye camera model）<a class="headerlink" href="#fisheye-camera-model" title="Permanent link">&para;</a></h1>
-<p>参考来自opencv官方文档<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>参考来自opencv官方文档<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup></p>
 <p>令 P 为世界参考系中坐标 X 的 3D 点（存储在矩阵 X 中） P 在相机参考系中的坐标向量为<br />
 $$<br />
 X_{c}= RX + T<br />
@@ -4359,7 +4359,7 @@ $$</p>
 参考畸变点<span class="arithmatex">\([x',y']\)</span>的坐标公式， 当使用<span class="arithmatex">\(\theta\)</span> 代替<span class="arithmatex">\(\theta_d\)</span> 时， <span class="arithmatex">\(\frac{\theta_{d}}{r}\)</span> 还是不为1。因为这里使用了等距投影模型<span class="arithmatex">\(r = f \theta\)</span>，而不是透视投影模型<span class="arithmatex">\(r = ftan\theta\)</span> 。<br />
 <img alt="投影模型" src="../../assets/%E6%8A%95%E5%BD%B1%E6%A8%A1%E5%9E%8B.jpg" /></p>
 <h1 id="_2">投影过程与代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<p>下图是投影模型示意图<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>。</p>
+<p>下图是投影模型示意图<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup>。</p>
 <p><img alt="" src="v2-8a1a238c1d686ffb4f79dfbe8f883708_720w.webp" /></p>
 <h2 id="_3">正向投影<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="1">1. 世界坐标系到相机坐标系<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
@@ -4484,7 +4484,7 @@ P_{w} =  \begin{bmatrix} R &amp; t \  0 &amp; 1  \end{bmatrix}^{-1} * P_{c} \<br
 P_{w} = R</em>(P_{c} - t)<br />
 \end{gather*} <br />
 $$<br />
-或者参考博客<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>的做法。</p>
+或者参考博客<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">5</a></sup>的做法。</p>
 <h1 id="_11">相机模型总结（针孔、鱼眼、全景）<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
 <p><a href="https://zhuanlan.zhihu.com/p/540969207">相机模型总结（针孔、鱼眼、全景） - 知乎</a><br />
 <a href="https://zhuanlan.zhihu.com/p/577186117">相机的几种模型（针孔、等距、球模型） - 知乎</a></p>
@@ -4524,23 +4524,23 @@ $$<br />
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:6">
+<p><a href="https://blog.csdn.net/qq_28087491/article/details/107965151">常用相机投影及畸变模型（针孔|广角|鱼眼）_畸变 模型 比较_泠山的博客-CSDN博客</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:1">
-<p><a href="https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#:~:text=Detailed%20Description">OpenCV: Camera Calibration and 3D Reconstruction</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#:~:text=Detailed%20Description">OpenCV: Camera Calibration and 3D Reconstruction</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p><a href="https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html#:~:text=Detailed%20Description">OpenCV: Fisheye camera model</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><a href="https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html#:~:text=Detailed%20Description">OpenCV: Fisheye camera model</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><a href="https://zhuanlan.zhihu.com/p/577186117">相机的几种模型（针孔、等距、球模型） - 知乎</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/577186117">相机的几种模型（针孔、等距、球模型） - 知乎</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><a href="https://blog.csdn.net/long630576366/article/details/128943713">相机坐标系的正向投影和反向投影_相机投影_maxruan的博客-CSDN博客</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><a href="https://blog.csdn.net/long630576366/article/details/128943713">相机坐标系的正向投影和反向投影_相机投影_maxruan的博客-CSDN博客</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p><a href="https://www.cnblogs.com/graphics/archive/2012/07/25/2582119.html">透视投影详解 - 翰墨小生 - 博客园</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:6">
-<p><a href="https://blog.csdn.net/qq_28087491/article/details/107965151">常用相机投影及畸变模型（针孔|广角|鱼眼）_畸变 模型 比较_泠山的博客-CSDN博客</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p><a href="https://www.cnblogs.com/graphics/archive/2012/07/25/2582119.html">透视投影详解 - 翰墨小生 - 博客园</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
 <p><a href="https://zhuanlan.zhihu.com/p/603296375">AVM环视系统——鱼眼相机去畸变算法 - 知乎</a>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
@@ -4607,7 +4607,7 @@ $$<br />
       <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       

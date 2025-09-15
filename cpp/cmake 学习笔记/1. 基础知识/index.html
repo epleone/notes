@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -4621,7 +4621,7 @@ endwhile()
 </code></pre></div></p>
 <p>在这个例子中，我们定义了一个名为 <code>my_function</code> 的函数，该函数接受一个参数 <code>result_var</code> 作为返回值的变量。在函数内部，我们使用 <code>set(${result_var} "Hello, World!" PARENT_SCOPE)</code> 设置变量的值，并通过 <code>PARENT_SCOPE</code> 标志将其作用域扩展到调用该函数的父级作用域。然后，在函数外部，我们调用了函数，并通过 <code>${my_result}</code> 获取了返回值，并使用 <code>message</code> 命令输出了这个返回值。</p>
 <p>请注意，CMake 函数的返回值通常是通过在调用函数时设置变量的值，而不是通过显式的 <code>return</code> 语句。这是因为 CMake 函数在设计上更侧重于设置变量来影响调用方的行为，而不是通过返回值来传递结果。</p>
-<p><a href="#ref3">参考链接</a><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+<p><a href="#ref3">参考链接</a><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">1</a></sup></p>
 <h3 id="generator-expressions">生成表达式 Generator expressions<a class="headerlink" href="#generator-expressions" title="Permanent link">&para;</a></h3>
 <p>CMake首先解析项目中的CMakeLists.txt文件-称为"配置阶段"，然后生成生成环境-称为"生成阶段"。</p>
 <p>因此，基本上，生成器表达式适用于仅生成器可以知道的所有内容</p>
@@ -4756,14 +4756,14 @@ endwhile()
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:3">
+<p><a href="https://www.cnblogs.com/Braveliu/p/15621973.html">CMake语法—宏和函数（macro vs function） - kaizenly - 博客园</a> ^ref3&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:1">
-<p><a href="https://blog.csdn.net/weixin_44028799/article/details/121876902">cmake笔记（二）_add_dependencies-CSDN博客</a> ^ref1&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="https://blog.csdn.net/weixin_44028799/article/details/121876902">cmake笔记（二）_add_dependencies-CSDN博客</a> ^ref1&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p><a href="https://blog.csdn.net/cj_lsk/article/details/131283811">【CMake 入门与进阶（10）】 CMake如何定义函数，内部参数及作用域（附代码）_cmake 参数-CSDN博客</a> ^ref2&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p><a href="https://www.cnblogs.com/Braveliu/p/15621973.html">CMake语法—宏和函数（macro vs function） - kaizenly - 博客园</a> ^ref3&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><a href="https://blog.csdn.net/cj_lsk/article/details/131283811">【CMake 入门与进阶（10）】 CMake如何定义函数，内部参数及作用域（附代码）_cmake 参数-CSDN博客</a> ^ref2&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
 <p><a href="https://zhuanlan.zhihu.com/p/630144233">一个简单例子，完全入门CMake语法与CMakeList编写 - 知乎</a> ^ref4&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
@@ -4830,7 +4830,7 @@ endwhile()
       <script id="__config" type="application/json">{"base": "../../..", "features": ["toc.integrate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
