@@ -3691,6 +3691,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../misc/%E5%A4%96%E5%8C%BAID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    外区ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../misc/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
         
   
@@ -5274,12 +5302,23 @@
 <p><strong>AddressSanitizer(ASan)</strong> 是一个快速内存检测器，可以检测出缓冲区溢出、使用已释放内存等问题。编译时带上参数 -fsanitize=address及-g。</p>
 <p>从 Visual Studio 2019 版本 16.9 开始，MSVC 支持 AddressSanitizer (ASan)，这是一种用于检测内存错误的强大工具。它可以帮助发现运行时内存问题，如越界访问、使用已释放的内存（use-after-free）等。</p>
 <ul>
-<li>在 Visual Studio 中，可以右键点击项目，选择“属性”，导航到“C/C++ &gt; 常规”，然后启用“Enable Address Sanitizer”选项。</li>
+<li>在 Visual Studio 中，可以右键点击项目，选择“属性”，导航到“C/C++ &gt; 常规”，然后启用“Enable Address Sanitizer” (<strong>启用地址擦除系统</strong>) 选项。</li>
 <li>或者，在命令行中使用 cl 编译器时添加 /fsanitize=address 标志。</li>
 </ul>
 <p>MSVC 的 Sanitizers（特别是 AddressSanitizer）<strong>不支持直接检测内存泄露</strong>。它的主要功能是检测运行时的内存错误（如越界、use-after-free 等），而不是未释放的内存块。</p>
 <p><a href="https://learn.microsoft.com/en-us/cpp/sanitizers/asan?view=msvc-170">AddressSanitizer</a></p>
 <p><a href="https://www.v2ex.com/t/1064659">求推荐一个工具 能在 Ubuntu 上分析 C++程序内存使用情况 - V2EX</a></p>
+<blockquote>
+<p>下面是内置的内存泄露检测代码</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="cp">#define _CRTDBG_MAP_ALLOC</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;crtdbg.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">_CrtSetDbgFlag</span><span class="p">(</span><span class="n">_CRTDBG_ALLOC_MEM_DF</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">_CRTDBG_LEAK_CHECK_DF</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// todo ...</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
